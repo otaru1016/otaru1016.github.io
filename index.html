@@ -2,7 +2,7 @@
 <html lang="ko"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>노_9_blogglow | Insight Platform</title>
+    <title>Blogglow | Insight Platform</title>
     <!-- Pretendard Font -->
 <link rel="stylesheet" as="style" crossorigin="" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
 <!-- Iconify Script -->
@@ -122,12 +122,16 @@
     .topic-count { font-size: 12px; color: var(--text-light); background: #f2f4f6; padding: 2px 8px; border-radius: 10px; }
     .topic-item:hover .topic-name { color: var(--primary); }
 
-    .footer { background: var(--bg-gray); border-top: 1px solid var(--border); padding: 60px 0; margin-top: 80px; }
-    .footer-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; text-align: center; }
-    .footer-logo { font-weight: 800; font-size: 20px; color: var(--text-main); margin-bottom: 12px; }
-    .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 24px; }
-    .footer-links a { font-size: 13px; color: var(--text-sub); }
-    .footer-copy { font-size: 13px; color: var(--text-light); }
+            /* 푸터 */
+        .footer { background: var(--bg-gray); border-top: 1px solid var(--border); padding: 60px 0 0; margin-top: 80px; }
+        .footer-inner { max-width: 1140px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 60px; align-items: start; }
+        .footer-brand .footer-logo { font-weight: 800; font-size: 22px; color: var(--text-main); margin-bottom: 12px; }
+        .footer-brand p { font-size: 13px; color: var(--text-light); line-height: 1.7; margin-bottom: 20px; }
+        .footer-social { display: flex; gap: 12px; }
+        .footer-social a { color: var(--text-light); font-size: 20px; opacity: 1; }
+        .footer-col h4 { font-size: 13px; font-weight: 700; color: var(--text-main); margin-bottom: 16px; letter-spacing: -0.01em; }
+        .footer-col a { display: block; font-size: 13px; color: var(--text-sub); margin-bottom: 10px; }
+        .footer-bottom { max-width: 1140px; margin: 48px auto 0; padding: 24px 24px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-light); text-align:center; }
 
     /* dialog & tab - Tampermonkey CMS용 (단일 정의) */
     dialog {
@@ -164,42 +168,7 @@
         .post-item { flex-direction: column-reverse; gap: 16px; align-items: flex-start; }
         .post-thumb { width: 100%; height: 200px; border-radius: 12px; }
     }
-</style><style id="VMst0.7872262988817074">
-        #km-sidebar { position: fixed; top: 0; right: -500px; width: 500px; height: 100vh; background: #0c0c0c; color: #fff; z-index: 2147483647; box-shadow: -10px 0 40px rgba(0,0,0,0.9); transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1); display: flex; flex-direction: column; font-family: 'Inter', sans-serif; }
-        #km-sidebar.open { right: 0; }
-        #km-toggle { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: #3ea6ff; color: #000; border-radius: 50%; border: none; font-size: 26px; cursor: pointer; z-index: 2147483647; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
-        .km-header { padding: 15px 20px; background: #1a1a1a; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; }
-        .km-cat-tabs { display: flex; background: #111; overflow-x: auto; padding: 5px 10px; border-bottom: 1px solid #222; }
-        .km-cat-tab { padding: 8px 12px; font-size: 11px; cursor: pointer; white-space: nowrap; color: #666; transition: 0.2s; }
-        .km-cat-tab.active { color: #3ea6ff; font-weight: bold; border-bottom: 2px solid #3ea6ff; }
-        .km-matrix { padding: 10px 20px; max-height: 140px; overflow-y: auto; background: #080808; display: flex; flex-wrap: wrap; gap: 6px; border-bottom: 1px solid #222; }
-        .km-tag { padding: 5px 10px; background: #1a1a1a; border-radius: 4px; font-size: 11px; cursor: pointer; border: 1px solid #333; color: #aaa; }
-        .km-tag:hover { background: #3ea6ff; color: #000; }
-        .km-chips { display: flex; gap: 8px; overflow-x: auto; padding: 15px 20px; background: #0c0c0c; border-bottom: 1px solid #222; }
-        .km-chip { padding: 6px 14px; background: #222; border-radius: 20px; font-size: 11px; cursor: pointer; white-space: nowrap; border: 1px solid #333; color: #aaa; }
-        .km-chip.active { background: #3ea6ff; color: #000; font-weight: bold; border-color: #3ea6ff; }
-        .km-btn-main { margin: 15px 20px 5px; padding: 12px; background: #3ea6ff; color: #000; border: none; border-radius: 6px; font-weight: 900; cursor: pointer; font-size: 13px; }
-        .km-btn-ai { margin: 0 20px 10px; padding: 10px; background: #8a2be2; color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 12px; }
-        .km-tabs { display: flex; background: #1a1a1a; border-bottom: 1px solid #333; }
-        .km-tab { flex: 1; padding: 12px; text-align: center; font-size: 11px; cursor: pointer; color: #555; }
-        .km-tab.active { color: #3ea6ff; border-bottom: 2px solid #3ea6ff; font-weight: bold; }
-        .km-content { flex: 1; overflow-y: auto; padding: 15px 20px; background: #0c0c0c; }
-
-        .km-ai-card { background: #1a1525; border: 1px solid #444; border-radius: 8px; padding: 12px; margin-bottom: 15px; }
-        .km-ai-title { color: #fff; font-weight: bold; font-size: 13px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
-        .km-ai-memo-area { width: 100%; background: #080808; border: 1px solid #222; color: #bbb; padding: 10px; border-radius: 4px; font-size: 12px; height: 100px; resize: vertical; outline: none; box-sizing: border-box; }
-        .km-ai-memo-area:focus { border-color: #3ea6ff; }
-
-        .km-written-card { background: #111; border: 1px solid #2ba640; border-radius: 8px; padding: 12px; margin-bottom: 15px; }
-        .km-written-title { color: #2ba640; font-weight: bold; font-size: 13px; margin-bottom: 5px; }
-
-        .km-item { padding: 10px; border-bottom: 1px solid #222; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
-        .km-score-tag { font-size: 11px; font-weight: bold; color: #ff4e45; margin-right: 15px; }
-
-        .km-modal { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 100; display: none; flex-direction: column; padding: 20px; box-sizing: border-box; }
-        .km-textarea { flex: 1; width: 100%; background: #111; border: 1px solid #333; color: #fff; padding: 15px; border-radius: 8px; resize: none; font-size: 12px; margin-bottom: 15px; }
-        .km-progress-bar { height: 3px; width: 0%; background: #3ea6ff; transition: 0.2s; }
-    </style></head><body>
+</style></head><body>
 
 
 
@@ -210,7 +179,7 @@
         <div class="logo-area">
             <a href="index.html" class="logo">
                 <span class="iconify" data-icon="carbon:ibm-cloud-pak-manta" style="font-size: 28px;"></span>
-                Postree
+                Blogglow
             </a>
             <nav class="nav">
                 <a href="#">인사이트</a>
@@ -279,17 +248,14 @@
 </div>
 
 <footer class="footer">
-    <div class="footer-inner">
-        <div class="footer-logo">Postree</div>
-        <div class="footer-links">
-            <a href="#">소개</a>
-            <a href="#">운영정책</a>
-            <a href="#">개인정보처리방침</a>
-            <a href="#">문의하기</a>
+        <div class="footer-inner">
+            <div class="footer-brand"><div class="footer-logo">Postree</div><p>SEO와 인사이트를 위한 콘텐츠 블로그입니다.</p></div>
+            <div class="footer-col"><h4>콘텐츠</h4><a href="https://blogglow.com/">인사이트</a></div>
+            <div class="footer-col"><h4>정보</h4><a href="#">운영정책</a></div>
+            <div class="footer-col"><h4>문의</h4><a href="#">문의하기</a></div>
         </div>
-        <p class="footer-copy">© 2026 Postree. All rights reserved.</p>
-    </div>
-</footer>
+        <div class="footer-bottom">© 2026 Blogglow. All rights reserved.</div>
+    </footer>
 
 <!-- 데이터 -->
 <script id="db-store" type="application/json">[
@@ -464,7 +430,7 @@
                         <button id="km-save-box" class="km-btn-main" style="margin:0; flex:1; background:#2ba640;">저장하고 닫기</button>
                     </div>
                 </div>
-            </div><button id="km-toggle">⚡</button><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;161689d33f4a438083fe20374c3b6d22&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+            </div>
+    <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;161689d33f4a438083fe20374c3b6d22&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
 
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;161689d33f4a438083fe20374c3b6d22&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
 </body></html>
