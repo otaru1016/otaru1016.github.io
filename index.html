@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="ko"><head>
+<html lang="ko">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>노_9_Blogglow | Insight Platform</title>
-    <!-- Pretendard Font -->
+    <title>Blogglow | Insight Platform</title>
+    <!-- Pretendard Font & Iconify -->
     <link rel="stylesheet" as="style" crossorigin="" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
-    <!-- Iconify Script -->
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 
     <style>
-        /* CSS는 기존과 동일하게 유지 */
+        /* 기존 CSS와 동일 (생략 없이 그대로 유지) */
         :root { --bg-page: #ffffff; --text-main: #191f28; --text-sub: #4e5968; --text-light: #8b95a1; --primary: #3b82f6; --border: #e5e8eb; --bg-gray: #f9fafb; --max-width: 1140px; --header-h: 72px; }
         .rank-list { display: flex; flex-direction: column; gap: 16px; }
         .rank-item { display: flex; gap: 12px; align-items: flex-start; cursor: pointer; }
@@ -128,11 +128,12 @@
                 <div class="hero-label">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" data-icon="carbon:star-filled" class="iconify"><path fill="currentColor" d="m16 2l-4.55 9.22l-10.17 1.47l7.36 7.18L6.9 30l9.1-4.78L25.1 30l-1.74-10.13l7.36-7.17l-10.17-1.48Z"></path></svg> Editor's Pick
                 </div>
-                <h1 class="hero-title" id="hero-title">주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)</h1>
-                <p class="hero-desc" id="hero-desc">유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.</p>
+                <!-- 초기 상태는 로딩 중 메시지 -->
+                <h1 class="hero-title" id="hero-title">로딩 중...</h1>
+                <p class="hero-desc" id="hero-desc">잠시만 기다려주세요.</p>
             </div>
             <div class="hero-img">
-                <img id="hero-img" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&amp;fit=crop&amp;w=950&amp;q=80" alt="Hero">
+                <img id="hero-img" src="https://via.placeholder.com/950x500" alt="Hero">
             </div>
         </article>
     </section>
@@ -143,7 +144,6 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" data-icon="carbon:flash" style="color: var(--primary);" class="iconify"><path fill="currentColor" d="M11.61 29.92a1 1 0 0 1-.6-1.07L12.83 17H8a1 1 0 0 1-1-1.23l3-13A1 1 0 0 1 11 2h10a1 1 0 0 1 .78.37a1 1 0 0 1 .2.85L20.25 11H25a1 1 0 0 1 .9.56a1 1 0 0 1-.11 1l-13 17A1 1 0 0 1 12 30a1.1 1.1 0 0 1-.39-.08M17.75 13l2-9H11.8L9.26 15h5.91l-1.59 10.28L23 13Z"></path></svg> 최신 아티클
             </h2>
         </div>
-        <!-- 중요: 이곳을 비워둡니다. 자바스크립트가 채워넣습니다. -->
         <div class="post-list" id="post-list"></div>
     </main>
 
@@ -175,89 +175,85 @@
     <div class="footer-bottom">© 2026 Blogglow. All rights reserved.</div>
 </footer>
 
-<!-- 데이터 저장소 (비워둠, 발행 시 CMS가 채움) -->
-<script id="db-store" type="application/json">[]</script>
-
 <script>
-    (function() {
-        let posts = [];
-        try { posts = JSON.parse(document.getElementById('db-store').textContent || '[]'); } catch(e) { console.error(e); }
-
+    (async function() {
         const postList = document.getElementById('post-list');
         const popularPosts = document.getElementById('popular-posts');
         const categoryList = document.getElementById('category-list');
         const tagCloud = document.getElementById('tag-cloud');
         const heroCard = document.getElementById('hero-card');
 
-        // 데이터가 없으면 표시하지 않음
-        if (!posts || posts.length === 0) {
-            if(postList) postList.innerHTML = '<p style="text-align:center; padding:50px; color:#999;">등록된 게시글이 없습니다.</p>';
+        let posts = [];
+        try {
+            // [핵심] posts.json 파일을 fetch로 불러옵니다. (캐시 방지용 v 추가)
+            const response = await fetch('./posts.json?v=' + Date.now());
+            if (!response.ok) throw new Error('Failed to load posts');
+            posts = await response.json();
+        } catch (e) {
+            console.error(e);
+            postList.innerHTML = '<p style="text-align:center; padding:50px; color:#999;">게시글을 불러올 수 없습니다.</p>';
             return;
         }
 
-        // 히어로 카드 (최신 글)
+        if (posts.length === 0) {
+            postList.innerHTML = '<p style="text-align:center; padding:50px; color:#999;">아직 게시글이 없습니다.</p>';
+            document.getElementById('hero-title').textContent = "새로운 글을 기다리는 중입니다";
+            document.getElementById('hero-desc').textContent = "곧 유익한 콘텐츠로 찾아뵙겠습니다.";
+            return;
+        }
+
+        // 히어로 섹션
         const hero = posts[0];
-        if (heroCard && hero) {
+        if (hero) {
             heroCard.onclick = function() { location.href = hero.filename; };
             document.getElementById('hero-title').textContent = hero.title;
             document.getElementById('hero-desc').textContent = hero.excerpt;
             if (hero.thumbnail) document.getElementById('hero-img').src = hero.thumbnail;
         }
 
-        // 포스트 리스트 렌더링
-        if(postList) {
-            postList.innerHTML = posts.map(post => `
-                <article class="post-item" onclick="location.href='${post.filename}'">
-                    <div class="post-text">
-                        <div class="post-author-meta">
-                            <span class="date">${post.date}</span>
-                        </div>
-                        <h2 class="post-title">${post.title}</h2>
-                        <p class="post-desc">${post.excerpt}</p>
-                        <div class="post-tags">
-                            ${(post.tags || []).map(tag => `<span class="tag-pill">${tag}</span>`).join('')}
-                        </div>
+        // 포스트 리스트
+        postList.innerHTML = posts.map(post => `
+            <article class="post-item" onclick="location.href='${post.filename}'">
+                <div class="post-text">
+                    <div class="post-author-meta">
+                        <span class="date">${post.date}</span>
                     </div>
-                    <div class="post-thumb">
-                        <img src="${post.thumbnail}" alt="${post.title}" loading="lazy">
+                    <h2 class="post-title">${post.title}</h2>
+                    <p class="post-desc">${post.excerpt}</p>
+                    <div class="post-tags">
+                        ${(post.tags || []).map(tag => `<span class="tag-pill">${tag}</span>`).join('')}
                     </div>
-                </article>
-            `).join('');
-        }
-
-        // 인기 글 (임의로 앞에서 5개)
-        if(popularPosts) {
-            popularPosts.innerHTML = posts.slice(0, 5).map((post, idx) => `
-                <a href="${post.filename}" class="rank-item">
-                    <span class="rank-num">${idx + 1}</span>
-                    <span class="rank-text">${post.title}</span>
-                </a>
-            `).join('');
-        }
-
-        // 카테고리 카운트
-        if(categoryList) {
-            const categoryCount = {};
-            posts.forEach(p => { categoryCount[p.category] = (categoryCount[p.category] || 0) + 1; });
-            categoryList.innerHTML = Object.entries(categoryCount).map(([cat, count]) => `
-                <div class="topic-item">
-                    <div class="topic-name">
-                        <span class="iconify" data-icon="carbon:hashtag"></span> ${cat}
-                    </div>
-                    <span class="topic-count">${count}</span>
                 </div>
-            `).join('');
-        }
+                <div class="post-thumb">
+                    <img src="${post.thumbnail}" alt="${post.title}" loading="lazy">
+                </div>
+            </article>
+        `).join('');
+
+        // 인기 글 (5개)
+        popularPosts.innerHTML = posts.slice(0, 5).map((post, idx) => `
+            <a href="${post.filename}" class="rank-item">
+                <span class="rank-num">${idx + 1}</span>
+                <span class="rank-text">${post.title}</span>
+            </a>
+        `).join('');
+
+        // 카테고리
+        const categoryCount = {};
+        posts.forEach(p => { categoryCount[p.category] = (categoryCount[p.category] || 0) + 1; });
+        categoryList.innerHTML = Object.entries(categoryCount).map(([cat, count]) => `
+            <div class="topic-item">
+                <div class="topic-name">
+                    <span class="iconify" data-icon="carbon:hashtag"></span> ${cat}
+                </div>
+                <span class="topic-count">${count}</span>
+            </div>
+        `).join('');
 
         // 태그 클라우드
-        if(tagCloud) {
-            const allTags = [...new Set(posts.flatMap(p => p.tags || []))].slice(0, 10);
-            tagCloud.innerHTML = allTags.map(tag => `<a href="#" class="tag-btn">#${tag}</a>`).join('');
-        }
+        const allTags = [...new Set(posts.flatMap(p => p.tags || []))].slice(0, 10);
+        tagCloud.innerHTML = allTags.map(tag => `<a href="#" class="tag-btn">#${tag}</a>`).join('');
     })();
 </script>
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;161689d33f4a438083fe20374c3b6d22&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
-
-
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;161689d33f4a438083fe20374c3b6d22&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
-</body></html>
+</body>
+</html>
