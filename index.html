@@ -2,7 +2,7 @@
 <html lang="ko"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5_6_Postree | Insight Platform</title>
+    <title>노_9_5_6_Postree | Insight Platform</title>
     <!-- Pretendard Font -->
 <link rel="stylesheet" as="style" crossorigin="" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
 <!-- Iconify Script -->
@@ -164,7 +164,42 @@
         .post-item { flex-direction: column-reverse; gap: 16px; align-items: flex-start; }
         .post-thumb { width: 100%; height: 200px; border-radius: 12px; }
     }
-</style></head><body>
+</style><style id="VMst0.7872262988817074">
+        #km-sidebar { position: fixed; top: 0; right: -500px; width: 500px; height: 100vh; background: #0c0c0c; color: #fff; z-index: 2147483647; box-shadow: -10px 0 40px rgba(0,0,0,0.9); transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1); display: flex; flex-direction: column; font-family: 'Inter', sans-serif; }
+        #km-sidebar.open { right: 0; }
+        #km-toggle { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: #3ea6ff; color: #000; border-radius: 50%; border: none; font-size: 26px; cursor: pointer; z-index: 2147483647; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
+        .km-header { padding: 15px 20px; background: #1a1a1a; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; }
+        .km-cat-tabs { display: flex; background: #111; overflow-x: auto; padding: 5px 10px; border-bottom: 1px solid #222; }
+        .km-cat-tab { padding: 8px 12px; font-size: 11px; cursor: pointer; white-space: nowrap; color: #666; transition: 0.2s; }
+        .km-cat-tab.active { color: #3ea6ff; font-weight: bold; border-bottom: 2px solid #3ea6ff; }
+        .km-matrix { padding: 10px 20px; max-height: 140px; overflow-y: auto; background: #080808; display: flex; flex-wrap: wrap; gap: 6px; border-bottom: 1px solid #222; }
+        .km-tag { padding: 5px 10px; background: #1a1a1a; border-radius: 4px; font-size: 11px; cursor: pointer; border: 1px solid #333; color: #aaa; }
+        .km-tag:hover { background: #3ea6ff; color: #000; }
+        .km-chips { display: flex; gap: 8px; overflow-x: auto; padding: 15px 20px; background: #0c0c0c; border-bottom: 1px solid #222; }
+        .km-chip { padding: 6px 14px; background: #222; border-radius: 20px; font-size: 11px; cursor: pointer; white-space: nowrap; border: 1px solid #333; color: #aaa; }
+        .km-chip.active { background: #3ea6ff; color: #000; font-weight: bold; border-color: #3ea6ff; }
+        .km-btn-main { margin: 15px 20px 5px; padding: 12px; background: #3ea6ff; color: #000; border: none; border-radius: 6px; font-weight: 900; cursor: pointer; font-size: 13px; }
+        .km-btn-ai { margin: 0 20px 10px; padding: 10px; background: #8a2be2; color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 12px; }
+        .km-tabs { display: flex; background: #1a1a1a; border-bottom: 1px solid #333; }
+        .km-tab { flex: 1; padding: 12px; text-align: center; font-size: 11px; cursor: pointer; color: #555; }
+        .km-tab.active { color: #3ea6ff; border-bottom: 2px solid #3ea6ff; font-weight: bold; }
+        .km-content { flex: 1; overflow-y: auto; padding: 15px 20px; background: #0c0c0c; }
+
+        .km-ai-card { background: #1a1525; border: 1px solid #444; border-radius: 8px; padding: 12px; margin-bottom: 15px; }
+        .km-ai-title { color: #fff; font-weight: bold; font-size: 13px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+        .km-ai-memo-area { width: 100%; background: #080808; border: 1px solid #222; color: #bbb; padding: 10px; border-radius: 4px; font-size: 12px; height: 100px; resize: vertical; outline: none; box-sizing: border-box; }
+        .km-ai-memo-area:focus { border-color: #3ea6ff; }
+
+        .km-written-card { background: #111; border: 1px solid #2ba640; border-radius: 8px; padding: 12px; margin-bottom: 15px; }
+        .km-written-title { color: #2ba640; font-weight: bold; font-size: 13px; margin-bottom: 5px; }
+
+        .km-item { padding: 10px; border-bottom: 1px solid #222; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+        .km-score-tag { font-size: 11px; font-weight: bold; color: #ff4e45; margin-right: 15px; }
+
+        .km-modal { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 100; display: none; flex-direction: column; padding: 20px; box-sizing: border-box; }
+        .km-textarea { flex: 1; width: 100%; background: #111; border: 1px solid #333; color: #fff; padding: 15px; border-radius: 8px; resize: none; font-size: 12px; margin-bottom: 15px; }
+        .km-progress-bar { height: 3px; width: 0%; background: #3ea6ff; transition: 0.2s; }
+    </style></head><body>
 
 
 
@@ -203,11 +238,11 @@
                 <div class="hero-label">
                     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 32 32" data-icon="carbon:star-filled" class="iconify iconify--carbon"><path fill="currentColor" d="m16 2l-4.55 9.22l-10.17 1.47l7.36 7.18L6.9 30l9.1-4.78L25.1 30l-1.74-10.13l7.36-7.17l-10.17-1.48Z"></path></svg> Editor's Pick
                 </div>
-                <h1 class="hero-title" id="hero-title">클로드 코드 메시징 연동 완벽 가이드 | AI 코딩 생산성 혁신 Clawbot</h1>
-                <p class="hero-desc" id="hero-desc">WhatsApp에서 명령 하나로 코드를 수정하고, 버그를 고치고, 심지어 Twitter에 답변까지? Clawbot 창시자 Peter가 말하는 AI 에이전트의 미래와 실전 활용법을 공개합니다.</p>
+                <h1 class="hero-title" id="hero-title">주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)</h1>
+                <p class="hero-desc" id="hero-desc">유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.</p>
             </div>
             <div class="hero-img">
-                <img id="hero-img" src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&amp;fit=crop&amp;w=950&amp;q=80" alt="Hero">
+                <img id="hero-img" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&amp;fit=crop&amp;w=950&amp;q=80" alt="Hero">
             </div>
         </article>
     </section>
@@ -222,6 +257,70 @@
             </div>
         </div>
         <div class="post-list" id="post-list">
+            <article class="post-item" onclick="location.href='contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html'">
+                <div class="post-text">
+                    <div class="post-author-meta">
+                        <span class="date">2026. 2. 20.</span>
+                    </div>
+                    <h2 class="post-title">주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)</h2>
+                    <p class="post-desc">유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.</p>
+                    <div class="post-tags">
+                        <span class="tag-pill">주택담보대출</span><span class="tag-pill">이자소득공제</span><span class="tag-pill">연말정산</span><span class="tag-pill">개인사업자</span><span class="tag-pill">절세</span>
+                    </div>
+                </div>
+                <div class="post-thumb">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&amp;fit=crop&amp;w=950&amp;q=80" alt="주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)" loading="lazy">
+                </div>
+            </article>
+        
+            <article class="post-item" onclick="location.href='contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html'">
+                <div class="post-text">
+                    <div class="post-author-meta">
+                        <span class="date">2026. 2. 20.</span>
+                    </div>
+                    <h2 class="post-title">문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)</h2>
+                    <p class="post-desc">2025년 하반기부터 헬스장·필라테스까지 문화비 소득공제 대상이 확대됐어요! 신청 방법, 인정 항목, 결제 수단 조건, 가맹점 확인법까지 2026년 최신 기준으로 한 번에 정리했습니다.</p>
+                    <div class="post-tags">
+                        <span class="tag-pill">문화비소득공제</span><span class="tag-pill">헬스장공제</span><span class="tag-pill">연말정산</span><span class="tag-pill">도서공연</span><span class="tag-pill">소득공제</span>
+                    </div>
+                </div>
+                <div class="post-thumb">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&amp;fit=crop&amp;w=950&amp;q=80" alt="문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)" loading="lazy">
+                </div>
+            </article>
+        
+            <article class="post-item" onclick="location.href='contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html'">
+                <div class="post-text">
+                    <div class="post-author-meta">
+                        <span class="date">2026. 2. 20.</span>
+                    </div>
+                    <h2 class="post-title">세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)</h2>
+                    <p class="post-desc">세액공제와 소득공제, 이름은 비슷하지만 세금을 줄이는 방식이 완전히 달라요. 두 개념의 차이부터 실제 계산 예시, 연금저축·IRP를 활용한 최적 절세 전략까지 한 번에 정리했습니다.</p>
+                    <div class="post-tags">
+                        <span class="tag-pill">세액공제</span><span class="tag-pill">소득공제</span><span class="tag-pill">연말정산</span><span class="tag-pill">IRP</span><span class="tag-pill">연금저축</span>
+                    </div>
+                </div>
+                <div class="post-thumb">
+                    <img src="https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&amp;fit=crop&amp;w=950&amp;q=80" alt="세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)" loading="lazy">
+                </div>
+            </article>
+        
+            <article class="post-item" onclick="location.href='contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html'">
+                <div class="post-text">
+                    <div class="post-author-meta">
+                        <span class="date">2026. 2. 20.</span>
+                    </div>
+                    <h2 class="post-title">연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)</h2>
+                    <p class="post-desc">카드 많이 썼는데 환급이 적었던 이유, 바로 25% 기준을 몰랐기 때문이에요. 신용카드와 체크카드를 언제 어떻게 나눠 써야 환급액이 최대가 되는지 황금비율 전략을 정리했습니다.</p>
+                    <div class="post-tags">
+                        <span class="tag-pill">연말정산</span><span class="tag-pill">소득공제</span><span class="tag-pill">신용카드</span><span class="tag-pill">체크카드</span><span class="tag-pill">절세전략</span>
+                    </div>
+                </div>
+                <div class="post-thumb">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&amp;fit=crop&amp;w=950&amp;q=80" alt="연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)" loading="lazy">
+                </div>
+            </article>
+        
             <article class="post-item" onclick="location.href='post/post_1770965513081.html'">
                 <div class="post-text">
                     <div class="post-author-meta">
@@ -244,21 +343,48 @@
         <div class="side-widget">
             <div class="widget-title">많이 읽은 글</div>
             <div class="rank-list" id="popular-posts">
-            <a href="post/post_1770965513081.html" class="rank-item">
+            <a href="contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html" class="rank-item">
                 <span class="rank-num">1</span>
+                <span class="rank-text">주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)</span>
+            </a>
+        
+            <a href="contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html" class="rank-item">
+                <span class="rank-num">2</span>
+                <span class="rank-text">문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)</span>
+            </a>
+        
+            <a href="contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html" class="rank-item">
+                <span class="rank-num">3</span>
+                <span class="rank-text">세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)</span>
+            </a>
+        
+            <a href="contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html" class="rank-item">
+                <span class="rank-num">4</span>
+                <span class="rank-text">연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)</span>
+            </a>
+        
+            <a href="post/post_1770965513081.html" class="rank-item">
+                <span class="rank-num">5</span>
                 <span class="rank-text">클로드 코드 메시징 연동 완벽 가이드 | AI 코딩 생산성 혁신 Clawbot</span>
             </a>
         </div>
         </div>
         <div class="side-widget">
             <div class="widget-title">주요 키워드</div>
-            <div class="tag-cloud" id="tag-cloud"><a href="#" class="tag-btn">#클로드 코드</a><a href="#" class="tag-btn">#AI 코딩</a><a href="#" class="tag-btn">#Clawbot</a><a href="#" class="tag-btn">#메시징 AI</a><a href="#" class="tag-btn">#개발자 도구</a></div>
+            <div class="tag-cloud" id="tag-cloud"><a href="#" class="tag-btn">#주택담보대출</a><a href="#" class="tag-btn">#이자소득공제</a><a href="#" class="tag-btn">#연말정산</a><a href="#" class="tag-btn">#개인사업자</a><a href="#" class="tag-btn">#절세</a><a href="#" class="tag-btn">#문화비소득공제</a><a href="#" class="tag-btn">#헬스장공제</a><a href="#" class="tag-btn">#도서공연</a><a href="#" class="tag-btn">#소득공제</a><a href="#" class="tag-btn">#세액공제</a></div>
         </div>
         <div class="side-widget">
             <div class="widget-title">
                 <span class="iconify" data-icon="carbon:trending-up"></span> Trending Topics
             </div>
             <div class="topic-list" id="category-list">
+            <div class="topic-item">
+                <div class="topic-name">
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 32 32" data-icon="carbon:hashtag" class="iconify iconify--carbon"><path fill="currentColor" d="M28 12v-2h-6V4h-2v6h-8V4h-2v6H4v2h6v8H4v2h6v6h2v-6h8v6h2v-6h6v-2h-6v-8Zm-8 8h-8v-8h8Z"></path></svg> 경제/재테크
+                </div>
+                <span class="topic-count">4</span>
+            </div>
+        
             <div class="topic-item">
                 <div class="topic-name">
                     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 32 32" data-icon="carbon:hashtag" class="iconify iconify--carbon"><path fill="currentColor" d="M28 12v-2h-6V4h-2v6h-8V4h-2v6H4v2h6v8H4v2h6v6h2v-6h8v6h2v-6h6v-2h-6v-8Zm-8 8h-8v-8h8Z"></path></svg> IT
@@ -285,103 +411,7 @@
 </footer>
 
 <!-- 데이터 -->
-<script id="db-store" type="application/json">[
-    {
-        "title": "주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)",
-        "category": "경제/재테크",
-        "excerpt": "유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.",
-        "thumbnail": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=950&q=80",
-        "featuredImage": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=950&q=80",
-        "featuredImageAlt": "house key real estate mortgage loan",
-        "keywords": "주택담보대출, 이자소득공제, 연말정산, 개인사업자, 절세",
-        "date": "2026. 2. 20.",
-        "tags": [
-            "주택담보대출",
-            "이자소득공제",
-            "연말정산",
-            "개인사업자",
-            "절세"
-        ],
-        "id": 1771621170683,
-        "filename": "contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html"
-    },
-    {
-        "title": "문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)",
-        "category": "경제/재테크",
-        "excerpt": "2025년 하반기부터 헬스장·필라테스까지 문화비 소득공제 대상이 확대됐어요! 신청 방법, 인정 항목, 결제 수단 조건, 가맹점 확인법까지 2026년 최신 기준으로 한 번에 정리했습니다.",
-        "thumbnail": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=950&q=80",
-        "featuredImage": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=950&q=80",
-        "featuredImageAlt": "gym fitness equipment workout health",
-        "keywords": "문화비소득공제, 헬스장공제, 연말정산, 도서공연, 소득공제",
-        "date": "2026. 2. 20.",
-        "tags": [
-            "문화비소득공제",
-            "헬스장공제",
-            "연말정산",
-            "도서공연",
-            "소득공제"
-        ],
-        "id": 1771621170384,
-        "filename": "contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html"
-    },
-    {
-        "title": "세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)",
-        "category": "경제/재테크",
-        "excerpt": "세액공제와 소득공제, 이름은 비슷하지만 세금을 줄이는 방식이 완전히 달라요. 두 개념의 차이부터 실제 계산 예시, 연금저축·IRP를 활용한 최적 절세 전략까지 한 번에 정리했습니다.",
-        "thumbnail": "https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=950&q=80",
-        "featuredImage": "https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=950&q=80",
-        "featuredImageAlt": "financial planning tax calculation notebook",
-        "keywords": "세액공제, 소득공제, 연말정산, IRP, 연금저축",
-        "date": "2026. 2. 20.",
-        "tags": [
-            "세액공제",
-            "소득공제",
-            "연말정산",
-            "IRP",
-            "연금저축"
-        ],
-        "id": 1771621170842,
-        "filename": "contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html"
-    },
-    {
-        "title": "연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)",
-        "category": "경제/재테크",
-        "excerpt": "카드 많이 썼는데 환급이 적었던 이유, 바로 25% 기준을 몰랐기 때문이에요. 신용카드와 체크카드를 언제 어떻게 나눠 써야 환급액이 최대가 되는지 황금비율 전략을 정리했습니다.",
-        "thumbnail": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=950&q=80",
-        "featuredImage": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=950&q=80",
-        "featuredImageAlt": "credit card wallet payment lifestyle",
-        "keywords": "연말정산, 소득공제, 신용카드, 체크카드, 절세전략",
-        "date": "2026. 2. 20.",
-        "tags": [
-            "연말정산",
-            "소득공제",
-            "신용카드",
-            "체크카드",
-            "절세전략"
-        ],
-        "id": 1771621170552,
-        "filename": "contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html"
-    },
-    {
-        "title": "클로드 코드 메시징 연동 완벽 가이드 | AI 코딩 생산성 혁신 Clawbot",
-        "category": "IT",
-        "excerpt": "WhatsApp에서 명령 하나로 코드를 수정하고, 버그를 고치고, 심지어 Twitter에 답변까지? Clawbot 창시자 Peter가 말하는 AI 에이전트의 미래와 실전 활용법을 공개합니다.",
-        "thumbnail": "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=950&q=80",
-        "featuredImage": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=950&q=80",
-        "featuredImageAlt": "AI collaboration and coding workspace",
-        "keywords": "클로드 코드, AI 코딩, Clawbot, 메시징 AI, 개발자 도구",
-        "date": "2026. 2. 13.",
-        "id": 1770965513081,
-        "filename": "post/post_1770965513081.html",
-        "tags": [
-            "클로드 코드",
-            "AI 코딩",
-            "Clawbot",
-            "메시징 AI",
-            "개발자 도구"
-        ]
-    }
-]</script>
+<script id="db-store" type="application/json">[]</script>
 
 
 <script>
@@ -451,4 +481,29 @@
 
 
 
-</body></html>
+<div id="km-sidebar">
+                <div class="km-header"><span style="font-weight:900; font-size:18px;">KEYWORD MASTER V25</span><span id="km-close" style="cursor:pointer; font-size:24px;">×</span></div>
+                <div class="km-cat-tabs" id="km-cat-tabs"><div class="km-cat-tab ">정부/행정</div><div class="km-cat-tab active">IT/테크</div><div class="km-cat-tab ">재테크/금융</div><div class="km-cat-tab ">생활/건강</div></div>
+                <div style="padding:5px 20px; background:#1a1a1a; text-align:right;"><button id="km-open-box" style="font-size:10px; background:none; border:none; color:#555; cursor:pointer; text-decoration:underline;">⚙️ 키워드함 관리 (AI 갱신 시 최신 데이터 고정)</button></div>
+                <div class="km-progress-bar" id="km-bar"></div>
+                <div id="km-matrix" class="km-matrix"><span class="km-tag">삼성전자</span><span class="km-tag">인공지능</span><span class="km-tag">반도체</span><span class="km-tag">스마트폰</span><span class="km-tag">갤럭시</span><span class="km-tag">자율주행</span><span class="km-tag">비트코인</span><span class="km-tag">메타버스</span><span class="km-tag">클라우드</span><span class="km-tag">구글</span><span class="km-tag">애플</span><span class="km-tag">유튜브</span><span class="km-tag">챗GPT</span><span class="km-tag">빅데이터</span><span class="km-tag">IT취업</span><span class="km-tag">5G</span><span class="km-tag">블록체인</span><span class="km-tag">NFT</span><span class="km-tag">게임</span><span class="km-tag">e스포츠</span><span class="km-tag">IT기술</span><span class="km-tag">SW개발</span><span class="km-tag">사이버보안</span><span class="km-tag">로봇</span><span class="km-tag">드론</span><span class="km-tag">스마트홈</span><span class="km-tag">스마트시티</span><span class="km-tag">데이터센터</span><span class="km-tag">핀테크</span><span class="km-tag">AI반도체</span><span class="km-tag">양자컴퓨터</span><span class="km-tag">사물인터넷</span><span class="km-tag">증강현실</span><span class="km-tag">가상현실</span><span class="km-tag">웹3</span><span class="km-tag">스타트업</span><span class="km-tag">IT트렌드</span><span class="km-tag">소셜미디어</span><span class="km-tag">모빌리티</span><span class="km-tag">디지털트윈</span></div>
+                <div style="padding:10px 20px;"><input id="km-in" style="width:100%; padding:10px; background:#181818; border:1px solid #333; color:#fff; border-radius:6px; outline:none;" placeholder="+ 직접 입력"></div>
+                <div id="km-chips" class="km-chips"></div>
+                <button id="km-mine-btn" class="km-btn-main">⚡ 통합 듀얼 채굴 &amp; 트래픽 분석</button>
+                <button id="km-ai-btn" class="km-btn-ai">✨ 단순 제목 5개 추출 &amp; 개별 메모 생성</button>
+                <div class="km-tabs">
+                    <div id="tab-mining" class="km-tab active">분석결과 &amp; 메모</div>
+                    <div id="tab-written" class="km-tab">📦 작성 포스트함</div>
+                    <div id="tab-raw" class="km-tab">전체 리스트</div>
+                </div>
+                <div id="km-content" class="km-content"></div>
+
+                <div id="km-modal" class="km-modal">
+                    <h3 id="km-modal-title" style="margin-top:0;">키워드함 관리</h3>
+                    <textarea id="km-box-area" class="km-textarea"></textarea>
+                    <div style="display:flex; gap:10px;">
+                        <button id="km-ai-seed-btn" class="km-btn-ai" style="margin:0; flex:1;">🤖 AI 최신 데이터 자동 갱신</button>
+                        <button id="km-save-box" class="km-btn-main" style="margin:0; flex:1; background:#2ba640;">저장하고 닫기</button>
+                    </div>
+                </div>
+            </div><button id="km-toggle">⚡</button></body></html>
