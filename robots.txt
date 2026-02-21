@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://otaru1016.github.io/repo/sitemap.xml
+Sitemap: https://blogglow.com/sitemap.xml
