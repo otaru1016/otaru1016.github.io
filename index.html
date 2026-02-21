@@ -3,114 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogglow | Insight Platform</title>
-    <!-- Pretendard Font & Iconify -->
-    <link rel="stylesheet" as="style" crossorigin="" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+    <title>Postree | Insight Platform</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
-
     <style>
-        /* 기존 CSS와 동일 (생략 없이 그대로 유지) */
-        :root { --bg-page: #ffffff; --text-main: #191f28; --text-sub: #4e5968; --text-light: #8b95a1; --primary: #3b82f6; --border: #e5e8eb; --bg-gray: #f9fafb; --max-width: 1140px; --header-h: 72px; }
-        .rank-list { display: flex; flex-direction: column; gap: 16px; }
-        .rank-item { display: flex; gap: 12px; align-items: flex-start; cursor: pointer; }
-        .rank-num { font-size: 18px; font-weight: 700; color: var(--primary); line-height: 1; margin-top: 2px; }
-        .rank-item:hover .rank-text { color: var(--primary); text-decoration: underline; text-underline-offset: 4px; }
-        .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
-        .tag-btn { font-size: 12px; color: #666; padding: 6px 14px; border: 1px solid #ddd; border-radius: 20px; background: #fff; transition: all 0.2s; }
-        .tag-btn:hover { border-color: var(--primary); color: var(--primary); }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Pretendard', -apple-system, sans-serif; background-color: var(--bg-page); color: var(--text-main); line-height: 1.6; -webkit-font-smoothing: antialiased; letter-spacing: -0.01em; }
-        a { text-decoration: none; color: inherit; transition: opacity 0.2s; }
-        a:hover { opacity: 0.7; }
-        ul { list-style: none; }
-        img { display: block; width: 100%; height: 100%; object-fit: cover; }
-        button { background: none; border: none; cursor: pointer; padding: 0; }
-        .site-header { position: sticky; top: 0; z-index: 100; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
-        .header-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; height: var(--header-h); display: flex; align-items: center; justify-content: space-between; }
-        .logo-area { display: flex; align-items: center; gap: 32px; }
-        .logo { font-size: 22px; font-weight: 800; color: var(--text-main); display: flex; align-items: center; gap: 4px; letter-spacing: -0.5px; }
-        .logo span { color: var(--primary); }
-        .nav { display: flex; gap: 24px; }
-        .nav a { font-size: 15px; font-weight: 600; color: var(--text-sub); }
-        .nav a:hover { color: var(--text-main); }
-        .header-utils { display: flex; align-items: center; gap: 20px; }
-        .search-box { position: relative; width: 240px; }
-        .search-input { width: 100%; padding: 8px 16px 8px 36px; font-size: 14px; background-color: #f2f4f6; border: 1px solid transparent; border-radius: 20px; color: var(--text-main); transition: all 0.2s; }
-        .search-input:focus { background-color: #fff; border-color: var(--primary); outline: none; }
-        .search-icon-pos { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-light); pointer-events: none; }
-        .icon-btn { color: var(--text-sub); display: flex; align-items: center; justify-content: center; font-size: 24px; transition: color 0.2s; }
-        .icon-btn:hover { color: var(--text-main); }
-        .container { max-width: var(--max-width); margin: 0 auto; padding: 50px 24px; display: grid; grid-template-columns: 1fr 300px; gap: 60px; }
-        .hero-section { grid-column: 1 / -1; margin-bottom: 60px; }
-        .hero-card { display: grid; grid-template-columns: 1.2fr 1fr; background: var(--bg-gray); border-radius: 16px; overflow: hidden; border: 1px solid var(--border); cursor: pointer; }
-        .hero-card:hover .hero-img img { transform: scale(1.03); }
-        .hero-content { padding: 48px; display: flex; flex-direction: column; justify-content: center; }
-        .hero-label { font-size: 12px; font-weight: 700; color: var(--primary); text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
-        .hero-title { font-size: 32px; font-weight: 700; line-height: 1.3; margin-bottom: 16px; color: var(--text-main); word-break: keep-all; }
-        .hero-desc { font-size: 17px; color: var(--text-sub); line-height: 1.6; margin-bottom: 24px; }
-        .hero-img { height: 100%; min-height: 380px; overflow: hidden; }
-        .hero-img img { transition: transform 0.5s ease; }
-        .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
-        .section-title { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
-        .post-list { display: flex; flex-direction: column; gap: 40px; }
-        .post-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; cursor: pointer; padding-bottom: 40px; border-bottom: 1px solid var(--border); }
-        .post-item:last-child { border-bottom: none; }
-        .post-text { flex: 1; display: flex; flex-direction: column; }
-        .post-author-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 13px; color: var(--text-main); font-weight: 500; }
-        .date { color: var(--text-light); font-weight: 400; }
-        .post-title { font-size: 22px; font-weight: 600; line-height: 1.4; margin-bottom: 8px; color: var(--text-main); word-break: keep-all; transition: color 0.2s; }
-        .post-item:hover .post-title { color: var(--primary); }
-        .post-desc { font-size: 15px; color: var(--text-sub); line-height: 1.6; margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        .post-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-        .tag-pill { font-size: 12px; color: var(--text-light); background: #f2f4f6; padding: 4px 10px; border-radius: 12px; font-weight: 500; }
-        .post-thumb { width: 160px; height: 120px; border-radius: 12px; overflow: hidden; flex-shrink: 0; background: #f2f4f6; border: 1px solid rgba(0,0,0,0.03); }
-        .post-thumb img { transition: transform 0.3s; }
-        .post-item:hover .post-thumb img { transform: scale(1.05); }
-        .sidebar { position: sticky; top: 100px; height: fit-content; }
-        .side-widget { margin-bottom: 40px; }
-        .widget-title { font-size: 14px; font-weight: 700; color: var(--text-light); margin-bottom: 16px; display: flex; align-items: center; gap: 6px; text-transform: uppercase; letter-spacing: 0.03em; }
-        .topic-list { display: flex; flex-direction: column; gap: 10px; }
-        .topic-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px dashed var(--border); cursor: pointer; }
-        .topic-name { font-size: 14px; font-weight: 500; color: var(--text-sub); display: flex; align-items: center; gap: 8px; }
-        .topic-count { font-size: 12px; color: var(--text-light); background: #f2f4f6; padding: 2px 8px; border-radius: 10px; }
-        .topic-item:hover .topic-name { color: var(--primary); }
-        .footer { background: var(--bg-gray); border-top: 1px solid var(--border); padding: 60px 0 0; margin-top: 80px; }
-        .footer-inner { max-width: 1140px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 60px; align-items: start; }
-        .footer-brand .footer-logo { font-weight: 800; font-size: 22px; color: var(--text-main); margin-bottom: 12px; }
-        .footer-brand p { font-size: 13px; color: var(--text-light); line-height: 1.7; margin-bottom: 20px; }
-        .footer-social { display: flex; gap: 12px; }
-        .footer-social a { color: var(--text-light); font-size: 20px; opacity: 1; }
-        .footer-col h4 { font-size: 13px; font-weight: 700; color: var(--text-main); margin-bottom: 16px; letter-spacing: -0.01em; }
-        .footer-col a { display: block; font-size: 13px; color: var(--text-sub); margin-bottom: 10px; }
-        .footer-bottom { max-width: 1140px; margin: 48px auto 0; padding: 24px 24px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-light); text-align:center; }
-        @media (max-width: 1024px) {
-            .container { grid-template-columns: 1fr; gap: 40px; }
-            .sidebar { display: none; }
-            .hero-card { grid-template-columns: 1fr; }
-            .hero-img { height: 280px; order: -1; }
-        }
-        @media (max-width: 768px) {
-            .nav { display: none; }
-            .search-box { width: 140px; }
-            .post-item { flex-direction: column-reverse; gap: 16px; align-items: flex-start; }
-            .post-thumb { width: 100%; height: 200px; border-radius: 12px; }
-        }
+        :root { --bg-page:#ffffff; --text-main:#191f28; --text-sub:#4e5968; --text-light:#8b95a1; --primary:#3b82f6; --border:#e5e8eb; --bg-gray:#f9fafb; --max-width:1140px; --header-h:72px; }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:'Pretendard',-apple-system,sans-serif; background-color:var(--bg-page); color:var(--text-main); line-height:1.6; -webkit-font-smoothing:antialiased; }
+        a { text-decoration:none; color:inherit; transition:opacity 0.2s; }
+        a:hover { opacity:0.7; }
+        ul { list-style:none; }
+        img { display:block; width:100%; height:100%; object-fit:cover; }
+
+        
+    .notice-bar {
+        background: #000; color: #fff;
+        text-align: center; padding: 10px 24px;
+        font-size: 13px; font-weight: 600;
+        letter-spacing: -0.01em;
+    }
+    .notice-bar a { color: #fff; text-decoration: underline; opacity: 1; }
+    .site-header {
+        position: sticky; top: 0; z-index: 100;
+        background: rgba(255,255,255,0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+        max-width: 1140px; margin: 0 auto; padding: 0 24px;
+        height: var(--header-h);
+        display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+        font-size: 22px; font-weight: 800; color: var(--text-main);
+        display: flex; align-items: center; gap: 4px; letter-spacing: -0.5px;
+    }
+    .logo span { color: var(--primary); }
+    .nav { display: flex; gap: 24px; }
+    .nav a { font-size: 15px; font-weight: 600; color: var(--text-sub); }
+    .nav a:hover { color: var(--text-main); opacity: 1; }
+    .logo-area { display: flex; align-items: center; gap: 32px; }
+    .header-utils { display: flex; align-items: center; gap: 20px; }
+    .search-box { position: relative; width: 240px; }
+    .search-input { width: 100%; padding: 8px 16px 8px 36px; font-size: 14px; background-color: #f2f4f6; border: 1px solid transparent; border-radius: 20px; color: var(--text-main); transition: all 0.2s; }
+    .search-input:focus { background-color: #fff; border-color: var(--primary); outline: none; }
+    .search-icon-pos { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-light); pointer-events: none; }
+    .footer { background: var(--bg-gray); border-top: 1px solid var(--border); padding: 60px 0 0; margin-top: 80px; }
+    .footer-inner { max-width: 1140px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 60px; align-items: start; }
+    .footer-brand .footer-logo { font-weight: 800; font-size: 22px; color: var(--text-main); margin-bottom: 12px; }
+    .footer-brand p { font-size: 13px; color: var(--text-light); line-height: 1.7; margin-bottom: 20px; }
+    .footer-col h4 { font-size: 13px; font-weight: 700; color: var(--text-main); margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 13px; color: var(--text-sub); margin-bottom: 10px; }
+    .footer-bottom { max-width: 1140px; margin: 48px auto 0; padding: 24px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-light); text-align: center; }
+    @media (max-width: 768px) {
+        .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+        .nav { display: none; }
+        .search-box { width: 140px; }
+    }
+
+
+        .rank-list { display:flex; flex-direction:column; gap:16px; }
+        .rank-item { display:flex; gap:12px; align-items:flex-start; cursor:pointer; }
+        .rank-num { font-size:18px; font-weight:700; color:var(--primary); }
+        .rank-item:hover .rank-text { color:var(--primary); text-decoration:underline; }
+        .tag-cloud { display:flex; flex-wrap:wrap; gap:8px; }
+        .tag-btn { font-size:12px; color:#666; padding:6px 14px; border:1px solid #ddd; border-radius:20px; background:#fff; transition:all 0.2s; }
+        .tag-btn:hover { border-color:var(--primary); color:var(--primary); }
+        .container { max-width:var(--max-width); margin:0 auto; padding:50px 24px; display:grid; grid-template-columns:1fr 300px; gap:60px; }
+        .hero-section { grid-column:1/-1; margin-bottom:60px; }
+        .hero-card { display:grid; grid-template-columns:1.2fr 1fr; background:var(--bg-gray); border-radius:16px; overflow:hidden; border:1px solid var(--border); cursor:pointer; }
+        .hero-card:hover .hero-img img { transform:scale(1.03); }
+        .hero-content { padding:48px; display:flex; flex-direction:column; justify-content:center; }
+        .hero-label { font-size:12px; font-weight:700; color:var(--primary); text-transform:uppercase; margin-bottom:12px; }
+        .hero-title { font-size:32px; font-weight:700; line-height:1.3; margin-bottom:16px; color:var(--text-main); word-break:keep-all; }
+        .hero-desc { font-size:17px; color:var(--text-sub); line-height:1.6; margin-bottom:24px; }
+        .hero-img { height:100%; min-height:380px; overflow:hidden; }
+        .hero-img img { transition:transform 0.5s ease; }
+        .section-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; border-bottom:1px solid var(--border); padding-bottom:12px; }
+        .section-title { font-size:18px; font-weight:700; }
+        .post-list { display:flex; flex-direction:column; gap:40px; }
+        .post-item { display:flex; justify-content:space-between; align-items:flex-start; gap:32px; cursor:pointer; padding-bottom:40px; border-bottom:1px solid var(--border); }
+        .post-item:last-child { border-bottom:none; }
+        .post-text { flex:1; display:flex; flex-direction:column; }
+        .post-author-meta { display:flex; align-items:center; gap:8px; margin-bottom:8px; font-size:13px; }
+        .date { color:var(--text-light); }
+        .post-title { font-size:22px; font-weight:600; line-height:1.4; margin-bottom:8px; color:var(--text-main); word-break:keep-all; transition:color 0.2s; }
+        .post-item:hover .post-title { color:var(--primary); }
+        .post-desc { font-size:15px; color:var(--text-sub); line-height:1.6; margin-bottom:12px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+        .post-tags { display:flex; gap:8px; flex-wrap:wrap; }
+        .tag-pill { font-size:12px; color:var(--text-light); background:#f2f4f6; padding:4px 10px; border-radius:12px; }
+        .post-thumb { width:160px; height:120px; border-radius:12px; overflow:hidden; flex-shrink:0; background:#f2f4f6; }
+        .post-item:hover .post-thumb img { transform:scale(1.05); }
+        .sidebar { position:sticky; top:100px; height:fit-content; }
+        .side-widget { margin-bottom:40px; }
+        .widget-title { font-size:14px; font-weight:700; color:var(--text-light); margin-bottom:16px; text-transform:uppercase; }
+        .topic-list { display:flex; flex-direction:column; gap:10px; }
+        .topic-item { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px dashed var(--border); cursor:pointer; }
+        .topic-name { font-size:14px; font-weight:500; color:var(--text-sub); display:flex; align-items:center; gap:8px; }
+        .topic-count { font-size:12px; color:var(--text-light); background:#f2f4f6; padding:2px 8px; border-radius:10px; }
+        .topic-item:hover .topic-name { color:var(--primary); }
+        @media (max-width:1024px) { .container { grid-template-columns:1fr; } .sidebar { display:none; } .hero-card { grid-template-columns:1fr; } .hero-img { height:280px; order:-1; } }
+        @media (max-width:768px) { .post-item { flex-direction:column-reverse; gap:16px; } .post-thumb { width:100%; height:200px; } }
     </style>
 </head>
 <body>
 
+
+<div class="notice-bar">👋 Postree 뉴스레터 — 매주 유익한 인사이트를 무료로 받아보세요</div>
 <header class="site-header">
     <div class="header-inner">
         <div class="logo-area">
-            <a href="index.html" class="logo">
-                <span class="iconify" data-icon="carbon:ibm-cloud-pak-manta" style="font-size: 28px;"></span>
-                Blogglow
+            <a href="https://blogglow.com/index.html" class="logo">
+                <span class="iconify" data-icon="carbon:ibm-cloud-pak-manta" style="font-size:28px;"></span>
+                Postree
             </a>
-            <nav class="nav">
-                <a href="#">인사이트</a>
-                <a href="#">테크</a>
-                <a href="#">머니 &amp; 팁</a>
-            </nav>
+            <nav class="nav"><a href="https://blogglow.com/index.html">인사이트</a><a href="https://blogglow.com/index.html#tech">테크</a><a href="https://blogglow.com/index.html#money">머니 & 팁</a></nav>
         </div>
         <div class="header-utils">
             <div class="search-box">
@@ -125,28 +132,17 @@
     <section class="hero-section">
         <article class="hero-card" id="hero-card">
             <div class="hero-content">
-                <div class="hero-label">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" data-icon="carbon:star-filled" class="iconify"><path fill="currentColor" d="m16 2l-4.55 9.22l-10.17 1.47l7.36 7.18L6.9 30l9.1-4.78L25.1 30l-1.74-10.13l7.36-7.17l-10.17-1.48Z"></path></svg> Editor's Pick
-                </div>
-                <!-- 초기 상태는 로딩 중 메시지 -->
+                <div class="hero-label">⭐ Editor's Pick</div>
                 <h1 class="hero-title" id="hero-title">로딩 중...</h1>
                 <p class="hero-desc" id="hero-desc">잠시만 기다려주세요.</p>
             </div>
-            <div class="hero-img">
-                <img id="hero-img" src="https://via.placeholder.com/950x500" alt="Hero">
-            </div>
+            <div class="hero-img"><img id="hero-img" src="https://via.placeholder.com/950x500" alt="Hero"></div>
         </article>
     </section>
-
     <main class="main-content">
-        <div class="section-header">
-            <h2 class="section-title">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" data-icon="carbon:flash" style="color: var(--primary);" class="iconify"><path fill="currentColor" d="M11.61 29.92a1 1 0 0 1-.6-1.07L12.83 17H8a1 1 0 0 1-1-1.23l3-13A1 1 0 0 1 11 2h10a1 1 0 0 1 .78.37a1 1 0 0 1 .2.85L20.25 11H25a1 1 0 0 1 .9.56a1 1 0 0 1-.11 1l-13 17A1 1 0 0 1 12 30a1.1 1.1 0 0 1-.39-.08M17.75 13l2-9H11.8L9.26 15h5.91l-1.59 10.28L23 13Z"></path></svg> 최신 아티클
-            </h2>
-        </div>
+        <div class="section-header"><h2 class="section-title">⚡ 최신 아티클</h2></div>
         <div class="post-list" id="post-list"></div>
     </main>
-
     <aside class="sidebar">
         <div class="side-widget">
             <div class="widget-title">많이 읽은 글</div>
@@ -157,23 +153,25 @@
             <div class="tag-cloud" id="tag-cloud"></div>
         </div>
         <div class="side-widget">
-            <div class="widget-title">
-                <span class="iconify" data-icon="carbon:trending-up"></span> Trending Topics
-            </div>
+            <div class="widget-title">Trending Topics</div>
             <div class="topic-list" id="category-list"></div>
         </div>
     </aside>
 </div>
 
+
 <footer class="footer">
     <div class="footer-inner">
-        <div class="footer-brand"><div class="footer-logo">Blogglow</div><p>SEO와 인사이트를 위한 콘텐츠 블로그입니다.</p></div>
-        <div class="footer-col"><h4>콘텐츠</h4><a href="index.html">인사이트</a></div>
-        <div class="footer-col"><h4>정보</h4><a href="#">운영정책</a></div>
-        <div class="footer-col"><h4>문의</h4><a href="#">문의하기</a></div>
+        <div class="footer-brand">
+            <div class="footer-logo">Postree</div>
+            <p>SEO와 인사이트를 위한 콘텐츠 블로그입니다.</p>
+        </div>
+        <div class="footer-col"><h4>콘텐츠</h4><a href="https://blogglow.com/index.html">인사이트</a></div><div class="footer-col"><h4>정보</h4><a href="#">운영정책</a></div><div class="footer-col"><h4>문의</h4><a href="#">문의하기</a></div>
     </div>
-    <div class="footer-bottom">© 2026 Blogglow. All rights reserved.</div>
+    <div class="footer-bottom">© 2026 Postree. All rights reserved.</div>
 </footer>
+
+<script type="application/json" id="db-store">[]</script>
 
 <script>
     (async function() {
@@ -182,77 +180,55 @@
         const categoryList = document.getElementById('category-list');
         const tagCloud = document.getElementById('tag-cloud');
         const heroCard = document.getElementById('hero-card');
-
         let posts = [];
         try {
-            // [핵심] posts.json 파일을 fetch로 불러옵니다. (캐시 방지용 v 추가)
             const response = await fetch('./posts.json?v=' + Date.now());
-            if (!response.ok) throw new Error('Failed to load posts');
+            if (!response.ok) throw new Error('Failed');
             posts = await response.json();
-        } catch (e) {
-            console.error(e);
-            postList.innerHTML = '<p style="text-align:center; padding:50px; color:#999;">게시글을 불러올 수 없습니다.</p>';
+        } catch(e) {
+            postList.innerHTML = '<p style="text-align:center;padding:50px;color:#999;">게시글을 불러올 수 없습니다.</p>';
             return;
         }
-
         if (posts.length === 0) {
-            postList.innerHTML = '<p style="text-align:center; padding:50px; color:#999;">아직 게시글이 없습니다.</p>';
+            postList.innerHTML = '<p style="text-align:center;padding:50px;color:#999;">아직 게시글이 없습니다.</p>';
             document.getElementById('hero-title').textContent = "새로운 글을 기다리는 중입니다";
             document.getElementById('hero-desc').textContent = "곧 유익한 콘텐츠로 찾아뵙겠습니다.";
             return;
         }
-
-        // 히어로 섹션
         const hero = posts[0];
         if (hero) {
-            heroCard.onclick = function() { location.href = hero.filename; };
+            heroCard.onclick = () => location.href = hero.filename;
             document.getElementById('hero-title').textContent = hero.title;
             document.getElementById('hero-desc').textContent = hero.excerpt;
             if (hero.thumbnail) document.getElementById('hero-img').src = hero.thumbnail;
         }
-
-        // 포스트 리스트
         postList.innerHTML = posts.map(post => `
             <article class="post-item" onclick="location.href='${post.filename}'">
                 <div class="post-text">
-                    <div class="post-author-meta">
-                        <span class="date">${post.date}</span>
-                    </div>
+                    <div class="post-author-meta"><span class="date">${post.date}</span></div>
                     <h2 class="post-title">${post.title}</h2>
                     <p class="post-desc">${post.excerpt}</p>
-                    <div class="post-tags">
-                        ${(post.tags || []).map(tag => `<span class="tag-pill">${tag}</span>`).join('')}
-                    </div>
+                    <div class="post-tags">${(post.tags||[]).map(t=>`<span class="tag-pill">${t}</span>`).join('')}</div>
                 </div>
-                <div class="post-thumb">
-                    <img src="${post.thumbnail}" alt="${post.title}" loading="lazy">
-                </div>
+                <div class="post-thumb"><img src="${post.thumbnail}" alt="${post.title}" loading="lazy"></div>
             </article>
         `).join('');
-
-        // 인기 글 (5개)
-        popularPosts.innerHTML = posts.slice(0, 5).map((post, idx) => `
-            <a href="${post.filename}" class="rank-item">
-                <span class="rank-num">${idx + 1}</span>
-                <span class="rank-text">${post.title}</span>
+        popularPosts.innerHTML = posts.slice(0,5).map((p,i) => `
+            <a href="${p.filename}" class="rank-item">
+                <span class="rank-num">${i+1}</span>
+                <span class="rank-text">${p.title}</span>
             </a>
         `).join('');
-
-        // 카테고리
-        const categoryCount = {};
-        posts.forEach(p => { categoryCount[p.category] = (categoryCount[p.category] || 0) + 1; });
-        categoryList.innerHTML = Object.entries(categoryCount).map(([cat, count]) => `
+        const catCount = {};
+        posts.forEach(p => { catCount[p.category] = (catCount[p.category]||0)+1; });
+        categoryList.innerHTML = Object.entries(catCount).map(([cat,cnt]) => `
             <div class="topic-item">
-                <div class="topic-name">
-                    <span class="iconify" data-icon="carbon:hashtag"></span> ${cat}
-                </div>
-                <span class="topic-count">${count}</span>
+                <div class="topic-name"><span class="iconify" data-icon="carbon:hashtag"></span> ${cat}</div>
+                <span class="topic-count">${cnt}</span>
             </div>
         `).join('');
-
-        // 태그 클라우드
-        const allTags = [...new Set(posts.flatMap(p => p.tags || []))].slice(0, 10);
-        tagCloud.innerHTML = allTags.map(tag => `<a href="#" class="tag-btn">#${tag}</a>`).join('');
+        const allTags = [...new Set(posts.flatMap(p=>p.tags||[]))].slice(0,10);
+        tagCloud.innerHTML = allTags.map(t=>`<a href="#" class="tag-btn">#${t}</a>`).join('');
     })();
 </script>
 </body>
