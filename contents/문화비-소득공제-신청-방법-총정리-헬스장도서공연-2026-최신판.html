@@ -63,8 +63,8 @@
                           "url": "https://blogglow.com/images/logo.png"
                       }
                   },
-                  "datePublished": "2026-02-22T19:01:04.125Z",
-                  "dateModified": "2026-02-22T19:01:04.125Z",
+                  "datePublished": "2026-02-22T19:07:38.114Z",
+                  "dateModified": "2026-02-22T19:07:38.114Z",
                   "mainEntityOfPage": {
                       "@type": "WebPage",
                       "@id": "https://blogglow.com/contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html"
@@ -180,27 +180,67 @@
         .meta-share a { color: var(--text-light); opacity: 1; transition: color 0.2s; }
         .meta-share a:hover { color: var(--primary); }
 
-        /* [추가] 폰트 조절 버튼 스타일 */
-        .zoom-controls {
-            display: flex; align-items: center; gap: 4px;
-            margin-left: 16px; padding-left: 16px;
-            border-left: 1px solid var(--border);
+        /* [UI 개선] 우측 하단 플로팅 글자 조절 위젯 */
+        .floating-font-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0.9;
         }
-        .zoom-btn {
-            width: 32px; height: 32px;
-            border-radius: 50%;
-            border: 1px solid transparent;
-            background: transparent;
+        .floating-font-control:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .ffc-label {
+            font-size: 12px;
+            font-weight: 700;
             color: var(--text-light);
-            font-size: 20px;
+            margin-right: 4px;
+            text-transform: uppercase;
+        }
+        .ffc-btn {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            border: 1px solid #e5e7eb;
+            background: #fff;
+            color: var(--text-main);
+            font-size: 18px;
             cursor: pointer;
             display: flex; align-items: center; justify-content: center;
             transition: all 0.2s;
         }
-        .zoom-btn:hover {
-            background: #eff6ff;
+        .ffc-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+        .ffc-btn:active { transform: scale(0.95); }
+
+        /* 현재 크기 표시용 */
+        .ffc-display {
+            font-size: 14px;
+            font-weight: 700;
             color: var(--primary);
-            border-color: #dbeafe;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        /* 모바일에서는 조금 더 위로 (하단 바 고려) */
+        @media (max-width: 768px) {
+            .floating-font-control { bottom: 20px; right: 20px; padding: 6px 12px; }
+            .ffc-label { display: none; } /* 모바일에선 라벨 숨김 */
         }
 
         /* 3단 컨테이너 */
@@ -439,34 +479,28 @@
             <span class="post-cat">경제/재테크</span>
             <h1>문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)</h1>
             <div class="meta">
-                <div class="meta-left"><div class="meta-avatar"><img src="https://blogglow.com/images/favicon.png" style="width: 20px;"></div><div class="meta-info"><span class="meta-author">Blogglow</span><time class="meta-date" datetime="2026-02-22T19:01:04.125Z">2026. 2. 20.</time></div></div>
+                <div class="meta-left"><div class="meta-avatar"><img src="https://blogglow.com/images/favicon.png" style="width: 20px;"></div><div class="meta-info"><span class="meta-author">Blogglow</span><time class="meta-date" datetime="2026-02-22T19:07:38.114Z">2026. 2. 20.</time></div></div>
                 <div class="meta-share">
                     <a href="https://www.facebook.com/sharer/sharer.php?u=https://blogglow.com/contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html" target="_blank"><span class="iconify" data-icon="carbon:logo-facebook"></span></a>
                     <a href="https://twitter.com/intent/tweet?url=https://blogglow.com/contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html&text=문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)" target="_blank"><span class="iconify" data-icon="carbon:logo-twitter"></span></a>
                     <a href="#" onclick="navigator.clipboard.writeText('https://blogglow.com/contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html'); return false;"><span class="iconify" data-icon="carbon:link"></span></a>
-
-                    <!-- [추가] 확대/축소 버튼 -->
-                    <div class="zoom-controls">
-                        <button type="button" class="zoom-btn" id="btn-zoom-out" title="글자 작게"><span class="iconify" data-icon="carbon:subtract"></span></button>
-                        <button type="button" class="zoom-btn" id="btn-zoom-in" title="글자 크게"><span class="iconify" data-icon="carbon:add"></span></button>
-                    </div>
                 </div>
             </div>
             <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=950&q=80" alt="gym fitness equipment workout health" style="width:100%; border-radius:16px; margin-bottom:40px; box-shadow:0 8px 24px rgba(0,0,0,0.07);">
 
-            <article class="content"><blockquote style="margin: 0 0 48px 0; padding: 28px 32px; background: #f9fafb; border-left: 4px solid #3b82f6; border-radius: 0 16px 16px 0;"><p style="margin: 0; font-size: 19px; font-weight: 600; color: #191f28; line-height: 1.6;">"영화 한 편, 책 한 권, 헬스장 한 달. 이제 문화생활이 곧 절세다."</p><cite style="display: block; margin-top: 14px; font-size: 14px; color: #8b95a1; font-style: normal;">— 2026년 문화비 소득공제 확대 시행</cite></blockquote><div style="margin: 0 0 48px 0;"><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">안녕하세요~<br><br>혹시 이런 경험 있으신가요? 매달 헬스장 다니고, 책도 사고, 공연도 보는데 연말정산에서 이 비용들이 공제가 되는지 몰라서 그냥 넘어간 적이요?<br><br>2025년 하반기부터 <strong style="color: #191f28; font-weight: 600;">헬스장, 필라테스, 요가</strong> 등 체육시설 이용료까지 문화비 소득공제 대상에 포함됐어요! 오늘은 2026년 최신 기준으로 문화비 소득공제의 모든 것을 정리해드릴게요.</p></div><figure style="margin: 48px 0;"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&amp;fit=crop&amp;w=950&amp;q=80" style="width: 100%; border-radius: 16px; border: 1px solid #e5e8eb; box-shadow: 0 8px 24px rgba(0,0,0,0.07); display: block;" alt="gym fitness equipment workout health"><figcaption style="text-align: center; margin-top: 12px; font-size: 13px; color: #8b95a1;">헬스장 이용료도 이제 소득공제 대상이에요!</figcaption></figure><div class="interlink-card" data-modal-id="interlink-1771786864120" data-url="https://blogglow.com/contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
+            <article class="content"><blockquote style="margin: 0 0 48px 0; padding: 28px 32px; background: #f9fafb; border-left: 4px solid #3b82f6; border-radius: 0 16px 16px 0;"><p style="margin: 0; font-size: 19px; font-weight: 600; color: #191f28; line-height: 1.6;">"영화 한 편, 책 한 권, 헬스장 한 달. 이제 문화생활이 곧 절세다."</p><cite style="display: block; margin-top: 14px; font-size: 14px; color: #8b95a1; font-style: normal;">— 2026년 문화비 소득공제 확대 시행</cite></blockquote><div style="margin: 0 0 48px 0;"><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">안녕하세요~<br><br>혹시 이런 경험 있으신가요? 매달 헬스장 다니고, 책도 사고, 공연도 보는데 연말정산에서 이 비용들이 공제가 되는지 몰라서 그냥 넘어간 적이요?<br><br>2025년 하반기부터 <strong style="color: #191f28; font-weight: 600;">헬스장, 필라테스, 요가</strong> 등 체육시설 이용료까지 문화비 소득공제 대상에 포함됐어요! 오늘은 2026년 최신 기준으로 문화비 소득공제의 모든 것을 정리해드릴게요.</p></div><figure style="margin: 48px 0;"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&amp;fit=crop&amp;w=950&amp;q=80" style="width: 100%; border-radius: 16px; border: 1px solid #e5e8eb; box-shadow: 0 8px 24px rgba(0,0,0,0.07); display: block;" alt="gym fitness equipment workout health"><figcaption style="text-align: center; margin-top: 12px; font-size: 13px; color: #8b95a1;">헬스장 이용료도 이제 소득공제 대상이에요!</figcaption></figure><div class="interlink-card" data-modal-id="interlink-1771787258094" data-url="https://blogglow.com/contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
         <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&amp;fit=crop&amp;w=950&amp;q=80" class="il-thumb" style="width:80px; height:80px; border-radius:8px; object-fit:cover; flex-shrink:0;" alt="">
         <div class="il-info" style="flex:1; display:flex; flex-direction:column; gap:4px;">
             <div class="il-label" style="font-size:11px; font-weight:700; color:var(--primary); text-transform:uppercase;">Read Also</div>
             <div class="il-title" style="font-size:18px; font-weight:700; color:#4e5661; line-height:1.4;">연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)</div>
         </div>
-    </div><h2 style="font-size: 26px; font-weight: 700; color: #191f28; margin: 60px 0 24px 0; padding-bottom: 14px; border-bottom: 2px solid #191f28; letter-spacing: -0.02em;">📌 1. 문화비 소득공제란?</h2><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">2018년부터 시행된 문화비 소득공제는 근로자가 영화, 공연, 도서, 박물관 등 문화생활에 지출한 비용을 연말정산 시 소득공제로 인정해주는 제도예요.<br><br>국민의 문화향유 기회를 확대하고 내수 활성화를 돕기 위한 취지로 만들어졌으며, 특히 저소득·중산층 근로자의 세 부담을 실질적으로 줄여준다는 점에서 효과적인 제도랍니다.</p><div style="background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 32px 0;"><p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 700; color: #3b82f6; letter-spacing: 0.05em;">💡 핵심 조건 요약</p><p style="margin: 0; font-size: 16px; color: #1e3a5f; line-height: 1.7; font-weight: 500;">총급여 7,000만 원 이하 근로소득자 + 총급여의 25% 초과 사용 후 + 문화비 소득공제 등록 가맹점 + 본인 명의 결제 → 연간 최대 100만 원 추가 공제(공제율 30%)</p></div><div style="background: #fffbe6; border: 1px solid #ffe58f; border-radius: 12px; padding: 20px 24px; margin: 32px 0;"><p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 700; color: #92400e; letter-spacing: 0.05em;">⚠️ 주의</p><p style="margin: 0; font-size: 16px; color: #78350f; line-height: 1.7;">총급여의 25%를 먼저 초과해야 문화비 공제도 적용돼요. 25% 기준을 못 넘기면 문화비 지출이 아무리 많아도 공제가 시작되지 않습니다!</p></div><div class="interlink-card" data-modal-id="interlink-1771786864121" data-url="https://blogglow.com/contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
+    </div><h2 style="font-size: 26px; font-weight: 700; color: #191f28; margin: 60px 0 24px 0; padding-bottom: 14px; border-bottom: 2px solid #191f28; letter-spacing: -0.02em;">📌 1. 문화비 소득공제란?</h2><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">2018년부터 시행된 문화비 소득공제는 근로자가 영화, 공연, 도서, 박물관 등 문화생활에 지출한 비용을 연말정산 시 소득공제로 인정해주는 제도예요.<br><br>국민의 문화향유 기회를 확대하고 내수 활성화를 돕기 위한 취지로 만들어졌으며, 특히 저소득·중산층 근로자의 세 부담을 실질적으로 줄여준다는 점에서 효과적인 제도랍니다.</p><div style="background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 32px 0;"><p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 700; color: #3b82f6; letter-spacing: 0.05em;">💡 핵심 조건 요약</p><p style="margin: 0; font-size: 16px; color: #1e3a5f; line-height: 1.7; font-weight: 500;">총급여 7,000만 원 이하 근로소득자 + 총급여의 25% 초과 사용 후 + 문화비 소득공제 등록 가맹점 + 본인 명의 결제 → 연간 최대 100만 원 추가 공제(공제율 30%)</p></div><div style="background: #fffbe6; border: 1px solid #ffe58f; border-radius: 12px; padding: 20px 24px; margin: 32px 0;"><p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 700; color: #92400e; letter-spacing: 0.05em;">⚠️ 주의</p><p style="margin: 0; font-size: 16px; color: #78350f; line-height: 1.7;">총급여의 25%를 먼저 초과해야 문화비 공제도 적용돼요. 25% 기준을 못 넘기면 문화비 지출이 아무리 많아도 공제가 시작되지 않습니다!</p></div><div class="interlink-card" data-modal-id="interlink-1771787258096" data-url="https://blogglow.com/contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
         <img src="https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&amp;fit=crop&amp;w=950&amp;q=80" class="il-thumb" style="width:80px; height:80px; border-radius:8px; object-fit:cover; flex-shrink:0;" alt="">
         <div class="il-info" style="flex:1; display:flex; flex-direction:column; gap:4px;">
             <div class="il-label" style="font-size:11px; font-weight:700; color:var(--primary); text-transform:uppercase;">Read Also</div>
             <div class="il-title" style="font-size:18px; font-weight:700; color:#4e5661; line-height:1.4;">세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)</div>
         </div>
-    </div><h2 style="font-size: 26px; font-weight: 700; color: #191f28; margin: 60px 0 24px 0; padding-bottom: 14px; border-bottom: 2px solid #191f28; letter-spacing: -0.02em;">🏃 2. 2025년 하반기부터 확대: 체육시설 이용료</h2><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">기획재정부 발표에 따라 2025년 7월부터 등록된 민간 체육시설 이용료에 대해 <strong style="color: #191f28; font-weight: 600;">연 30만 원 한도 내 30% 소득공제</strong> 혜택이 생겼어요. 연간 최대 9만 원까지 세금이 줄어드는 효과!</p><div style="background: #f9fafb; border: 1px solid #e5e8eb; border-radius: 16px; padding: 24px; margin: 32px 0;"><p style="margin: 0 0 14px 0; font-size: 15px; font-weight: 700; color: #191f28;">📋 체육시설 공제율 구분</p><ul style="margin: 0; padding-left: 20px; color: #4e5968; font-size: 16px; line-height: 1.8;"><li style="margin-bottom: 10px;"><strong style="color: #191f28; font-weight: 600;">100% 적용 → 시설 이용료:</strong> 수영장·헬스장 일단위·월단위 이용료, 수건·운동복 대여료</li><li><strong style="color: #191f28; font-weight: 600;">50% 적용 → 강습비:</strong> 크로스핏, GX, 필라테스, 강습수영 등 강사를 통해 운영되는 프로그램</li></ul></div><div class="interlink-card" data-modal-id="interlink-1771786864123" data-url="https://blogglow.com/contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
+    </div><h2 style="font-size: 26px; font-weight: 700; color: #191f28; margin: 60px 0 24px 0; padding-bottom: 14px; border-bottom: 2px solid #191f28; letter-spacing: -0.02em;">🏃 2. 2025년 하반기부터 확대: 체육시설 이용료</h2><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">기획재정부 발표에 따라 2025년 7월부터 등록된 민간 체육시설 이용료에 대해 <strong style="color: #191f28; font-weight: 600;">연 30만 원 한도 내 30% 소득공제</strong> 혜택이 생겼어요. 연간 최대 9만 원까지 세금이 줄어드는 효과!</p><div style="background: #f9fafb; border: 1px solid #e5e8eb; border-radius: 16px; padding: 24px; margin: 32px 0;"><p style="margin: 0 0 14px 0; font-size: 15px; font-weight: 700; color: #191f28;">📋 체육시설 공제율 구분</p><ul style="margin: 0; padding-left: 20px; color: #4e5968; font-size: 16px; line-height: 1.8;"><li style="margin-bottom: 10px;"><strong style="color: #191f28; font-weight: 600;">100% 적용 → 시설 이용료:</strong> 수영장·헬스장 일단위·월단위 이용료, 수건·운동복 대여료</li><li><strong style="color: #191f28; font-weight: 600;">50% 적용 → 강습비:</strong> 크로스핏, GX, 필라테스, 강습수영 등 강사를 통해 운영되는 프로그램</li></ul></div><div class="interlink-card" data-modal-id="interlink-1771787258098" data-url="https://blogglow.com/contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
         <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&amp;fit=crop&amp;w=950&amp;q=80" class="il-thumb" style="width:80px; height:80px; border-radius:8px; object-fit:cover; flex-shrink:0;" alt="">
         <div class="il-info" style="flex:1; display:flex; flex-direction:column; gap:4px;">
             <div class="il-label" style="font-size:11px; font-weight:700; color:var(--primary); text-transform:uppercase;">Read Also</div>
@@ -563,35 +597,73 @@
     </div>
     <div class="footer-bottom">© 2026 Blogglow. All rights reserved.</div>
 </footer>
-
+<!-- [UI 개선] 플로팅 글자 크기 조절 위젯 -->
+    <div class="floating-font-control">
+        <span class="ffc-label">Font Size</span>
+        <button type="button" class="ffc-btn" id="btn-zoom-out" aria-label="글자 작게">
+            <span class="iconify" data-icon="carbon:subtract"></span>
+        </button>
+        <span class="ffc-display" id="font-size-display">18px</span>
+        <button type="button" class="ffc-btn" id="btn-zoom-in" aria-label="글자 크게">
+            <span class="iconify" data-icon="carbon:add"></span>
+        </button>
+    </div>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // [추가] 본문 폰트 크기 조절 로직 (LocalStorage 저장)
-        const contentEl = document.querySelector('.content');
-        const defaultSize = 18;
 
-        let currentSize = parseInt(localStorage.getItem('blog_font_size')) || defaultSize;
-        if(contentEl) contentEl.style.fontSize = currentSize + 'px';
 
-        const btnIn = document.getElementById('btn-zoom-in');
-        const btnOut = document.getElementById('btn-zoom-out');
 
-        if(btnIn && btnOut && contentEl) {
-            btnIn.onclick = function() {
-                if (currentSize < 32) {
-                    currentSize += 2;
-                    contentEl.style.fontSize = currentSize + 'px';
-                    localStorage.setItem('blog_font_size', currentSize);
+     // --- [FIX] 글자 크기 조절 기능 (디버깅 완료) ---
+        (function initFontControl() {
+            const contentEl = document.querySelector('.content');
+            const btnIn = document.getElementById('btn-zoom-in');
+            const btnOut = document.getElementById('btn-zoom-out');
+            const displayEl = document.getElementById('font-size-display');
+
+            // 요소가 없으면 중단 (에러 방지)
+            if (!contentEl || !btnIn || !btnOut) return;
+
+            // 기본값 및 범위 설정
+            const MIN_SIZE = 14;
+            const MAX_SIZE = 28;
+            const DEFAULT_SIZE = 18;
+
+            // 저장된 값 불러오기 (없으면 기본값)
+            let currentSize = parseInt(localStorage.getItem('blog_font_size'));
+            if (isNaN(currentSize)) currentSize = DEFAULT_SIZE;
+
+            // 초기 적용 함수
+            function applyFontSize(size) {
+                contentEl.style.fontSize = size + 'px';
+                // 줄간격도 같이 늘려야 가독성이 안 깨짐 (글자크기 * 1.8)
+                contentEl.style.lineHeight = (size * 1.7) + 'px';
+                if(displayEl) displayEl.textContent = size + 'px';
+                localStorage.setItem('blog_font_size', size);
+            }
+
+            // 최초 실행
+            applyFontSize(currentSize);
+
+            // 확대 버튼 이벤트
+            btnIn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation(); // 다른 클릭 이벤트 간섭 차단
+                if (currentSize < MAX_SIZE) {
+                    currentSize += 2; // 2px 단위 조절
+                    applyFontSize(currentSize);
                 }
-            };
-            btnOut.onclick = function() {
-                if (currentSize > 14) {
-                    currentSize -= 2;
-                    contentEl.style.fontSize = currentSize + 'px';
-                    localStorage.setItem('blog_font_size', currentSize);
+            });
+
+            // 축소 버튼 이벤트
+            btnOut.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation(); // 다른 클릭 이벤트 간섭 차단
+                if (currentSize > MIN_SIZE) {
+                    currentSize -= 2; // 2px 단위 조절
+                    applyFontSize(currentSize);
                 }
-            };
-        }
+            });
+        })();
 
     window.handleCardClick = function(el) {
         var coupangUrl = 'https://vvd.im/blogglow';
