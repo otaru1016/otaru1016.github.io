@@ -60,9 +60,10 @@
             --max-width: 1140px;
             --header-h: 72px;
             --radius: 12px;
+            --sidebar-w: 280px;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Pretendard', -apple-system, sans-serif; background: var(--bg-page); color: var(--text-main); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Pretendard', -apple-system, sans-serif; background: var(--bg-gray); color: var(--text-main); line-height: 1.6; -webkit-font-smoothing: antialiased; }
         a { text-decoration: none; color: inherit; }
         img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
@@ -113,27 +114,27 @@
     }
 
 
-        /* ── 히어로: 심플 에디토리얼 ── */
+        /* ── 히어로 ── */
         .hero {
+            background: #fff;
             border-bottom: 1px solid var(--border);
-            padding: 36px 24px 28px;
+            padding: 28px 24px 24px;
         }
         .hero-inner {
             max-width: var(--max-width);
             margin: 0 auto;
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             justify-content: space-between;
             gap: 24px;
         }
-        .hero-left {}
+        .hero-left { display: flex; flex-direction: column; gap: 6px; }
         .hero-eyebrow {
             font-size: 11px;
             font-weight: 700;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--primary);
-            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 6px;
@@ -141,44 +142,29 @@
         .hero-eyebrow::before {
             content: '';
             display: inline-block;
-            width: 20px;
-            height: 2px;
+            width: 18px; height: 2px;
             background: var(--primary);
             border-radius: 2px;
         }
         .hero h1 {
-            font-size: 2.2rem;
+            font-size: 1.75rem;
             font-weight: 800;
             color: var(--text-main);
             letter-spacing: -0.03em;
-            line-height: 1.2;
+            line-height: 1.25;
             word-break: keep-all;
         }
-        .hero h1 em {
-            font-style: normal;
-            color: var(--primary);
-        }
-        .hero-right {
-            display: flex;
-            gap: 32px;
-            flex-shrink: 0;
-            padding-bottom: 4px;
-        }
-        .hero-stat { text-align: right; }
+        .hero h1 em { font-style: normal; color: var(--primary); }
+        .hero-desc { font-size: 14px; color: var(--text-light); }
+        .hero-right { display: flex; gap: 28px; flex-shrink: 0; }
+        .hero-stat { text-align: center; }
         .hero-stat-num {
-            font-size: 26px;
-            font-weight: 800;
+            font-size: 22px; font-weight: 800;
             color: var(--text-main);
             letter-spacing: -0.03em;
-            display: block;
-            line-height: 1;
+            display: block; line-height: 1;
         }
-        .hero-stat-label {
-            font-size: 11px;
-            color: var(--text-light);
-            margin-top: 4px;
-            display: block;
-        }
+        .hero-stat-label { font-size: 11px; color: var(--text-light); margin-top: 4px; display: block; }
 
         /* ── 필터 바 ── */
         .filter-bar {
@@ -195,25 +181,18 @@
             padding: 0 24px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            height: 52px;
+            gap: 10px;
+            height: 50px;
         }
-        .tab-scroll {
-            display: flex;
-            gap: 2px;
-            overflow-x: auto;
-            scrollbar-width: none;
-            flex: 1;
-        }
+        .tab-scroll { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; flex: 1; }
         .tab-scroll::-webkit-scrollbar { display: none; }
         .cat-tab {
-            padding: 5px 14px;
+            padding: 5px 13px;
             border-radius: 6px;
             border: none;
             background: transparent;
             color: var(--text-light);
-            font-size: 13px;
-            font-weight: 600;
+            font-size: 13px; font-weight: 600;
             cursor: pointer;
             transition: all 0.15s;
             white-space: nowrap;
@@ -221,197 +200,149 @@
         }
         .cat-tab:hover { color: var(--text-main); background: var(--bg-gray); }
         .cat-tab.active { background: var(--text-main); color: #fff; }
-        .filter-divider { width: 1px; height: 20px; background: var(--border); flex-shrink: 0; }
+        .filter-divider { width: 1px; height: 18px; background: var(--border); flex-shrink: 0; }
         .sort-select {
             padding: 5px 10px;
             border: 1px solid var(--border);
             border-radius: 6px;
-            font-size: 13px;
-            font-weight: 600;
+            font-size: 13px; font-weight: 600;
             color: var(--text-sub);
             background: #fff;
-            cursor: pointer;
-            outline: none;
+            cursor: pointer; outline: none;
             font-family: 'Pretendard', sans-serif;
             flex-shrink: 0;
+        }
+
+        /* ── 메인 레이아웃 ── */
+        .main-layout {
+            max-width: var(--max-width);
+            margin: 24px auto;
+            padding: 0 24px 80px;
+            display: grid;
+            grid-template-columns: 1fr var(--sidebar-w);
+            gap: 28px;
+            align-items: start;
         }
 
         /* ── 결과 바 ── */
         .result-bar {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 20px 24px 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            margin-bottom: 16px;
         }
         .result-count { font-size: 13px; color: var(--text-light); }
         .result-count strong { color: var(--text-main); font-weight: 700; }
-        .section-label {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-light);
-        }
 
-        /* ── 그리드 ── */
-        .grid-wrap {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 24px 80px;
-        }
+        /* ── 포스트 그리드 (2열 균일) ── */
         .post-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: var(--border);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            overflow: hidden;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
         }
-
-        /* 첫 카드 와이드 */
-        .post-grid .post-card:first-child {
-            grid-column: span 2;
-            flex-direction: row;
-        }
-        .post-grid .post-card:first-child .card-thumb {
-            width: 48%;
-            height: auto;
-            min-height: 240px;
-            flex-shrink: 0;
-            border-radius: 0;
-        }
-        .post-grid .post-card:first-child .card-body { padding: 28px 24px; justify-content: center; }
-        .post-grid .post-card:first-child .card-title { font-size: 19px; -webkit-line-clamp: 3; }
-        .post-grid .post-card:first-child .card-desc { -webkit-line-clamp: 3; }
-        .post-grid .post-card:first-child .card-new-badge { display: inline-flex; }
-
-        /* 카드 공통 */
         .post-card {
             cursor: pointer;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
             background: #fff;
-            transition: background 0.15s;
+            transition: all 0.2s;
             display: flex;
             flex-direction: column;
-            position: relative;
         }
-        .post-card:hover { background: #fafbff; }
+        .post-card:hover {
+            box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+            transform: translateY(-3px);
+            border-color: #d1d5db;
+        }
         .post-card:hover .card-title { color: var(--primary); }
-        .card-thumb {
-            height: 180px;
-            overflow: hidden;
-            background: #f3f4f6;
-            flex-shrink: 0;
-        }
-        .card-thumb img { transition: transform 0.5s ease; }
+        .card-thumb { height: 170px; overflow: hidden; background: #f3f4f6; flex-shrink: 0; }
+        .card-thumb img { transition: transform 0.4s ease; }
         .post-card:hover .card-thumb img { transform: scale(1.05); }
-        .card-body {
-            padding: 16px 18px 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-        .card-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 2px;
-        }
-        .card-cat {
-            font-size: 10px;
-            font-weight: 700;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
+        .card-body { padding: 16px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+        .card-top { display: flex; align-items: center; justify-content: space-between; }
+        .card-cat { font-size: 10px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.08em; }
         .card-date { font-size: 11px; color: var(--text-light); }
-        .card-new-badge {
-            display: none;
-            font-size: 10px;
-            font-weight: 700;
-            color: #fff;
-            background: var(--primary);
-            padding: 2px 7px;
-            border-radius: 4px;
-            letter-spacing: 0.04em;
-        }
         .card-title {
-            font-size: 15px;
-            font-weight: 700;
-            line-height: 1.45;
-            color: var(--text-main);
-            word-break: keep-all;
+            font-size: 15px; font-weight: 700; line-height: 1.45;
+            color: var(--text-main); word-break: keep-all;
             transition: color 0.15s;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
         }
         .card-desc {
-            font-size: 13px;
-            color: var(--text-sub);
-            line-height: 1.6;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            flex: 1;
+            font-size: 13px; color: var(--text-sub); line-height: 1.6; flex: 1;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
         }
-        .card-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
-        .tag-pill {
-            font-size: 11px;
-            color: var(--text-light);
-            background: var(--bg-gray);
-            padding: 2px 7px;
-            border-radius: 4px;
-        }
+        .card-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 4px; }
+        .tag-pill { font-size: 11px; color: var(--text-light); background: var(--bg-gray); padding: 2px 7px; border-radius: 4px; }
 
         /* ── 더보기 ── */
-        .load-more-wrap { text-align: center; margin-top: 40px; }
+        .load-more-wrap { text-align: center; margin-top: 24px; grid-column: 1 / -1; }
         .load-more-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 40px;
-            background: #fff;
-            border: 1.5px solid var(--border);
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--text-sub);
-            cursor: pointer;
-            transition: all 0.15s;
-            font-family: 'Pretendard', sans-serif;
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 11px 36px;
+            background: #fff; border: 1.5px solid var(--border);
+            border-radius: 8px; font-size: 14px; font-weight: 700;
+            color: var(--text-sub); cursor: pointer;
+            transition: all 0.15s; font-family: 'Pretendard', sans-serif;
         }
         .load-more-btn:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
 
-        /* ── 빈 상태 ── */
-        .empty-state {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 80px 20px;
+        /* ── 사이드바 ── */
+        .sidebar { position: sticky; top: calc(var(--header-h) + 50px + 24px); display: flex; flex-direction: column; gap: 20px; }
+        .widget { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+        .widget-head {
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border);
+            font-size: 11px; font-weight: 700;
             color: var(--text-light);
-            background: #fff;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
-        .empty-state .empty-icon { font-size: 40px; margin-bottom: 12px; }
-        .empty-state p { font-size: 15px; }
+        .widget-body { padding: 16px 18px; }
 
-        /* ── 반응형 ── */
-        @media (max-width: 1024px) {
-            .post-grid { grid-template-columns: repeat(2, 1fr); }
-            .post-grid .post-card:first-child { grid-column: span 2; }
+        /* 인기글 위젯 */
+        .popular-item {
+            display: flex; align-items: flex-start; gap: 12px;
+            padding: 10px 0; border-bottom: 1px solid var(--border);
+            transition: opacity 0.15s;
         }
-        @media (max-width: 640px) {
-            .post-grid { grid-template-columns: 1fr; }
-            .post-grid .post-card:first-child { grid-column: span 1; flex-direction: column; }
-            .post-grid .post-card:first-child .card-thumb { width: 100%; min-height: 180px; }
-            .hero-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
-            .hero-right { gap: 20px; }
-            .hero h1 { font-size: 1.7rem; }
+        .popular-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .popular-item:hover { opacity: 0.7; }
+        .popular-num {
+            font-size: 16px; font-weight: 800;
+            color: var(--border); flex-shrink: 0;
+            line-height: 1.4; letter-spacing: -0.02em;
         }
+        .popular-item:first-child .popular-num { color: var(--primary); }
+        .popular-item:nth-child(2) .popular-num { color: #94a3b8; }
+        .popular-title {
+            font-size: 13px; font-weight: 600;
+            color: var(--text-sub); line-height: 1.45;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+        }
+
+        /* 태그 클라우드 위젯 */
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+        .tag-cloud-btn {
+            font-size: 12px; font-weight: 600;
+            color: var(--text-sub);
+            background: var(--bg-gray);
+            border: 1px solid var(--border);
+            padding: 4px 10px; border-radius: 6px;
+            cursor: pointer; transition: all 0.15s;
+            font-family: 'Pretendard', sans-serif;
+        }
+        .tag-cloud-btn:hover, .tag-cloud-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+        /* 빈 상태 */
+        .empty-state { grid-column: 1/-1; text-align: center; padding: 60px 20px; color: var(--text-light); background: #fff; border-radius: var(--radius); border: 1px solid var(--border); }
+        .empty-state .empty-icon { font-size: 36px; margin-bottom: 10px; }
+        .empty-state p { font-size: 14px; }
+
+        /* 반응형 */
+        @media (max-width: 900px) { .main-layout { grid-template-columns: 1fr; } .sidebar { display: none; } }
+        @media (max-width: 600px) { .post-grid { grid-template-columns: 1fr; } .hero-right { display: none; } .hero h1 { font-size: 1.4rem; } }
     </style>
 </head>
 <body>
@@ -441,6 +372,7 @@
         <div class="hero-left">
             <div class="hero-eyebrow">Latest Insights</div>
             <h1>검증된 정보로<br><em>더 나은 결정</em>을 돕습니다</h1>
+            <div class="hero-desc">SEO와 인사이트를 위한 콘텐츠 블로그입니다.</div>
         </div>
         <div class="hero-right">
             <div class="hero-stat">
@@ -492,6 +424,8 @@
             <button class="cat-tab " data-tag="신용카드">신용카드</button>
         
             <button class="cat-tab " data-tag="체크카드">체크카드</button>
+        
+            <button class="cat-tab " data-tag="절세전략">절세전략</button>
         </div>
         <div class="filter-divider"></div>
         <select class="sort-select" id="sort-select">
@@ -501,21 +435,91 @@
     </div>
 </div>
 
-<!-- 결과 바 -->
-<div class="result-bar">
-    <span class="result-count" id="result-count"></span>
-    <span class="section-label">All Articles</span>
-</div>
+<!-- 메인 레이아웃 -->
+<div class="main-layout">
 
-<!-- 그리드 -->
-<div class="grid-wrap">
-    <div class="post-grid" id="post-grid"></div>
-    <div class="load-more-wrap" id="load-more-wrap" style="display:none;">
-        <button class="load-more-btn" id="load-more-btn">
-            더 보기
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </button>
+    <!-- 좌측: 포스트 그리드 -->
+    <div>
+        <div class="result-bar">
+            <span class="result-count" id="result-count"></span>
+        </div>
+        <div class="post-grid" id="post-grid"></div>
+        <div class="load-more-wrap" id="load-more-wrap" style="display:none;">
+            <button class="load-more-btn" id="load-more-btn">
+                더 보기
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+        </div>
     </div>
+
+    <!-- 우측: 사이드바 -->
+    <aside class="sidebar">
+        <div class="widget">
+            <div class="widget-head">🔥 인기 아티클</div>
+            <div class="widget-body" style="padding:8px 18px;">
+                
+            <a href="contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html" class="popular-item">
+                <span class="popular-num">01</span>
+                <span class="popular-title">주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)</span>
+            </a>
+        
+            <a href="contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html" class="popular-item">
+                <span class="popular-num">02</span>
+                <span class="popular-title">문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)</span>
+            </a>
+        
+            <a href="contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html" class="popular-item">
+                <span class="popular-num">03</span>
+                <span class="popular-title">세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)</span>
+            </a>
+        
+            <a href="contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html" class="popular-item">
+                <span class="popular-num">04</span>
+                <span class="popular-title">연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)</span>
+            </a>
+        
+            </div>
+        </div>
+        <div class="widget">
+            <div class="widget-head">🏷️ 키워드</div>
+            <div class="widget-body">
+                <div class="tag-cloud" id="tag-cloud">
+                    
+            <button class="tag-cloud-btn" data-tag="주택담보대출">#주택담보대출</button>
+        
+            <button class="tag-cloud-btn" data-tag="이자소득공제">#이자소득공제</button>
+        
+            <button class="tag-cloud-btn" data-tag="연말정산">#연말정산</button>
+        
+            <button class="tag-cloud-btn" data-tag="개인사업자">#개인사업자</button>
+        
+            <button class="tag-cloud-btn" data-tag="절세">#절세</button>
+        
+            <button class="tag-cloud-btn" data-tag="문화비소득공제">#문화비소득공제</button>
+        
+            <button class="tag-cloud-btn" data-tag="헬스장공제">#헬스장공제</button>
+        
+            <button class="tag-cloud-btn" data-tag="도서공연">#도서공연</button>
+        
+            <button class="tag-cloud-btn" data-tag="소득공제">#소득공제</button>
+        
+            <button class="tag-cloud-btn" data-tag="세액공제">#세액공제</button>
+        
+            <button class="tag-cloud-btn" data-tag="IRP">#IRP</button>
+        
+            <button class="tag-cloud-btn" data-tag="연금저축">#연금저축</button>
+        
+            <button class="tag-cloud-btn" data-tag="신용카드">#신용카드</button>
+        
+            <button class="tag-cloud-btn" data-tag="체크카드">#체크카드</button>
+        
+            <button class="tag-cloud-btn" data-tag="절세전략">#절세전략</button>
+        
+                </div>
+            </div>
+        </div>
+    </aside>
+
 </div>
 
 
@@ -534,7 +538,7 @@
 
 <script>
 (function() {
-    const posts = [{"id":1771770467584,"title":"주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)","filename":"contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html","excerpt":"유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["주택담보대출","이자소득공제","연말정산","개인사업자","절세"],"thumbnail":"https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=950&q=80"},{"id":1771770467583,"title":"문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)","filename":"contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html","excerpt":"2025년 하반기부터 헬스장·필라테스까지 문화비 소득공제 대상이 확대됐어요! 신청 방법, 인정 항목, 결제 수단 조건, 가맹점 확인법까지 2026년 최신 기준으로 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["문화비소득공제","헬스장공제","연말정산","도서공연","소득공제"],"thumbnail":"https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=950&q=80"},{"id":1771770467582,"title":"세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)","filename":"contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html","excerpt":"세액공제와 소득공제, 이름은 비슷하지만 세금을 줄이는 방식이 완전히 달라요. 두 개념의 차이부터 실제 계산 예시, 연금저축·IRP를 활용한 최적 절세 전략까지 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["세액공제","소득공제","연말정산","IRP","연금저축"],"thumbnail":"https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=950&q=80"},{"id":1771770467581,"title":"연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)","filename":"contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html","excerpt":"카드 많이 썼는데 환급이 적었던 이유, 바로 25% 기준을 몰랐기 때문이에요. 신용카드와 체크카드를 언제 어떻게 나눠 써야 환급액이 최대가 되는지 황금비율 전략을 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["연말정산","소득공제","신용카드","체크카드","절세전략"],"thumbnail":"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=950&q=80"}];
+    const posts = [{"id":1771771712274,"title":"주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)","filename":"contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html","excerpt":"유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["주택담보대출","이자소득공제","연말정산","개인사업자","절세"],"thumbnail":"https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=950&q=80"},{"id":1771771712273,"title":"문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)","filename":"contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html","excerpt":"2025년 하반기부터 헬스장·필라테스까지 문화비 소득공제 대상이 확대됐어요! 신청 방법, 인정 항목, 결제 수단 조건, 가맹점 확인법까지 2026년 최신 기준으로 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["문화비소득공제","헬스장공제","연말정산","도서공연","소득공제"],"thumbnail":"https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=950&q=80"},{"id":1771771712272,"title":"세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)","filename":"contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html","excerpt":"세액공제와 소득공제, 이름은 비슷하지만 세금을 줄이는 방식이 완전히 달라요. 두 개념의 차이부터 실제 계산 예시, 연금저축·IRP를 활용한 최적 절세 전략까지 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["세액공제","소득공제","연말정산","IRP","연금저축"],"thumbnail":"https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=950&q=80"},{"id":1771771712271,"title":"연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)","filename":"contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html","excerpt":"카드 많이 썼는데 환급이 적었던 이유, 바로 25% 기준을 몰랐기 때문이에요. 신용카드와 체크카드를 언제 어떻게 나눠 써야 환급액이 최대가 되는지 황금비율 전략을 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["연말정산","소득공제","신용카드","체크카드","절세전략"],"thumbnail":"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=950&q=80"}];
     const PER_PAGE = 12;
     let currentPage = 1;
     let filteredPosts = [];
@@ -569,20 +573,18 @@
     }
 
     // 카드
-    function renderCard(post, isFirst) {
+    function renderCard(post) {
         const tags = (post.tags || []).slice(0, 3).map(t =>
             `<span class="tag-pill">#${t}</span>`
         ).join('');
-        const newBadge = isFirst ? `<span class="card-new-badge">NEW</span>` : '';
         return `
             <div class="post-card" onclick="location.href='${post.filename}'">
                 <div class="card-thumb">
-                    <img src="${post.thumbnail || ''}" alt="${post.title}" loading="${isFirst ? 'eager' : 'lazy'}">
+                    <img src="${post.thumbnail || ''}" alt="${post.title}" loading="lazy">
                 </div>
                 <div class="card-body">
                     <div class="card-top">
                         <span class="card-cat">${post.category || ''}</span>
-                        ${newBadge}
                         <span class="card-date">${post.date || ''}</span>
                     </div>
                     <div class="card-title">${post.title}</div>
@@ -607,17 +609,17 @@
 
         const start = reset ? 0 : (currentPage - 1) * PER_PAGE;
         const chunk = filteredPosts.slice(start, start + PER_PAGE);
-        const isFirstRender = reset || currentPage === 1;
-        postGrid.innerHTML += chunk.map((p, i) => renderCard(p, isFirstRender && i === 0)).join('');
+        postGrid.innerHTML += chunk.map(p => renderCard(p)).join('');
 
         const shown = Math.min(currentPage * PER_PAGE, filteredPosts.length);
         resultCount.innerHTML = `<strong>${filteredPosts.length}</strong>개 아티클`;
         loadMoreWrap.style.display = shown < filteredPosts.length ? 'block' : 'none';
     }
 
-    // 이벤트
+    // 더보기
     document.getElementById('load-more-btn').addEventListener('click', () => { currentPage++; render(false); });
 
+    // 탭
     document.querySelectorAll('.cat-tab').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
@@ -627,11 +629,28 @@
         });
     });
 
+    // 태그 클라우드 (사이드바)
+    document.querySelectorAll('.tag-cloud-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tag = btn.dataset.tag;
+            // 탭도 같이 연동
+            document.querySelectorAll('.cat-tab').forEach(b => {
+                b.classList.toggle('active', b.dataset.tag === tag || (tag === '전체' && b.dataset.tag === '전체'));
+            });
+            document.querySelectorAll('.tag-cloud-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeTag = tag;
+            render(true);
+        });
+    });
+
+    // 정렬
     document.getElementById('sort-select').addEventListener('change', e => {
         sortOrder = e.target.value;
         render(true);
     });
 
+    // 헤더 검색 연동
     if (headerSearch) {
         let timer;
         headerSearch.addEventListener('input', () => {
