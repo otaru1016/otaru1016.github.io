@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blogglow | Insight Platform</title>
-    <meta name="description" content="SEO와 인사이트를 위한 콘텐츠 블로그입니다.">
+    <meta name="description" content="직장인을 위한 실용 정보 블로그">
     <meta name="keywords" content="인사이트, 테크, 머니 & 팁, 블로그, 인사이트, SEO, 정보">
     <meta name="author" content="Blogglow">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://blogglow.com/index.html">
     <meta property="og:title" content="Blogglow | Insight Platform">
-    <meta property="og:description" content="SEO와 인사이트를 위한 콘텐츠 블로그입니다.">
+    <meta property="og:description" content="직장인을 위한 실용 정보 블로그">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://blogglow.com/index.html">
     <meta property="og:image" content="https://blogglow.com/images/og-image.jpg">
@@ -18,7 +18,7 @@
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Blogglow | Insight Platform">
-    <meta name="twitter:description" content="SEO와 인사이트를 위한 콘텐츠 블로그입니다.">
+    <meta name="twitter:description" content="직장인을 위한 실용 정보 블로그">
     <meta name="twitter:image" content="https://blogglow.com/images/og-image.jpg">
     <meta name="theme-color" content="#3b82f6">
     <link rel="icon" type="image/png" href="https://blogglow.com/images/favicon.png">
@@ -32,7 +32,7 @@
         "@type": "WebSite",
         "name": "Blogglow",
         "url": "https://blogglow.com/index.html",
-        "description": "SEO와 인사이트를 위한 콘텐츠 블로그입니다.",
+        "description": "직장인을 위한 실용 정보 블로그",
         "inLanguage": "ko-KR",
         "potentialAction": {
             "@type": "SearchAction",
@@ -215,11 +215,11 @@
 
         /* ── 메인 레이아웃 ── */
         .main-layout {
-            max-width: var(--max-width);
+            max-width: 1480px;
             margin: 24px auto;
             padding: 0 24px 80px;
             display: grid;
-            grid-template-columns: 1fr var(--sidebar-w);
+            grid-template-columns: var(--sidebar-w) 1fr 240px var(--sidebar-w);
             gap: 28px;
             align-items: start;
         }
@@ -341,14 +341,25 @@
         .empty-state p { font-size: 14px; }
 
         /* 반응형 */
-        @media (max-width: 900px) { .main-layout { grid-template-columns: 1fr; } .sidebar { display: none; } }
-        @media (max-width: 600px) { .post-grid { grid-template-columns: 1fr; } .hero-right { display: none; } .hero h1 { font-size: 1.4rem; } }
+       @media (max-width: 1200px) {
+    .main-layout { grid-template-columns: 1fr 240px; }
+    .sidebar:first-child, .sidebar:last-child { display: none; }
+      }
+      @media (max-width: 900px) {
+          .main-layout { grid-template-columns: 1fr; }
+          .sidebar { display: none; }
+      }
+      @media (max-width: 600px) {
+          .post-grid { grid-template-columns: 1fr; }
+          .hero-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+          .hero h1 { font-size: 1.4rem; }
+      }
     </style>
 </head>
 <body>
 
 
-<div class="notice-bar">👋 Blogglow 뉴스레터 — 매주 유익한 인사이트를 무료로 받아보세요</div>
+<div class="notice-bar">📌 세금, 재테크, 테크, 생활 — 직장인에게 꼭 필요한 정보를 정리합니다</div>
 <header class="site-header">
     <div class="header-inner">
         <div class="logo-area">
@@ -371,8 +382,8 @@
     <div class="hero-inner">
         <div class="hero-left">
             <div class="hero-eyebrow">Latest Insights</div>
-            <h1>검증된 정보로<br><em>더 나은 결정</em>을 돕습니다</h1>
-            <div class="hero-desc">SEO와 인사이트를 위한 콘텐츠 블로그입니다.</div>
+            <h1>직장인을 위한<br><em>실용 정보</em></h1>
+            <div class="hero-desc">세금, 재테크, 테크, 생활까지 — 바쁜 직장인이 꼭 알아야 할 정보만 골라 정리합니다.</div>
         </div>
         <div class="hero-right">
             <div class="hero-stat">
@@ -438,7 +449,15 @@
 <!-- 메인 레이아웃 -->
 <div class="main-layout">
 
-    <!-- 좌측: 포스트 그리드 -->
+    <!-- 좌측 광고 -->
+    <aside class="sidebar">
+        <div class="ad-block">
+            <div class="ad-label">ADVERTISEMENT</div>
+            <div class="ad-area">{{COUPANG_GRID}}</div>
+        </div>
+    </aside>
+
+    <!-- 중앙: 포스트 그리드 -->
     <div>
         <div class="result-bar">
             <span class="result-count" id="result-count"></span>
@@ -452,7 +471,7 @@
         </div>
     </div>
 
-    <!-- 우측: 사이드바 -->
+    <!-- 우측 위젯 -->
     <aside class="sidebar">
         <div class="widget">
             <div class="widget-head">🔥 인기 아티클</div>
@@ -520,14 +539,21 @@
         </div>
     </aside>
 
-</div>
+    <!-- 우측 광고 -->
+    <aside class="sidebar">
+        <div class="ad-block">
+            <div class="ad-label">ADVERTISEMENT</div>
+            <div class="ad-area">{{COUPANG_GRID}}</div>
+        </div>
+    </aside>
 
+</div>
 
 <footer class="footer">
     <div class="footer-inner">
         <div class="footer-brand">
             <div class="footer-logo">Blogglow</div>
-            <p>SEO와 인사이트를 위한 콘텐츠 블로그입니다.</p>
+            <p>직장인을 위한 실용 정보 블로그</p>
         </div>
         <div class="footer-col"><h4>콘텐츠</h4><a href="https://blogglow.com/index.html">인사이트</a></div><div class="footer-col"><h4>정보</h4><a href="#">운영정책</a></div><div class="footer-col"><h4>문의</h4><a href="#">문의하기</a></div>
     </div>
@@ -538,7 +564,7 @@
 
 <script>
 (function() {
-    const posts = [{"id":1771771712274,"title":"주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)","filename":"contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html","excerpt":"유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["주택담보대출","이자소득공제","연말정산","개인사업자","절세"],"thumbnail":"https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=950&q=80"},{"id":1771771712273,"title":"문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)","filename":"contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html","excerpt":"2025년 하반기부터 헬스장·필라테스까지 문화비 소득공제 대상이 확대됐어요! 신청 방법, 인정 항목, 결제 수단 조건, 가맹점 확인법까지 2026년 최신 기준으로 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["문화비소득공제","헬스장공제","연말정산","도서공연","소득공제"],"thumbnail":"https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=950&q=80"},{"id":1771771712272,"title":"세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)","filename":"contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html","excerpt":"세액공제와 소득공제, 이름은 비슷하지만 세금을 줄이는 방식이 완전히 달라요. 두 개념의 차이부터 실제 계산 예시, 연금저축·IRP를 활용한 최적 절세 전략까지 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["세액공제","소득공제","연말정산","IRP","연금저축"],"thumbnail":"https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=950&q=80"},{"id":1771771712271,"title":"연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)","filename":"contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html","excerpt":"카드 많이 썼는데 환급이 적었던 이유, 바로 25% 기준을 몰랐기 때문이에요. 신용카드와 체크카드를 언제 어떻게 나눠 써야 환급액이 최대가 되는지 황금비율 전략을 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["연말정산","소득공제","신용카드","체크카드","절세전략"],"thumbnail":"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=950&q=80"}];
+    const posts = [{"id":1771773893723,"title":"주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)","filename":"contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html","excerpt":"유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["주택담보대출","이자소득공제","연말정산","개인사업자","절세"],"thumbnail":"https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=950&q=80"},{"id":1771773893722,"title":"문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)","filename":"contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html","excerpt":"2025년 하반기부터 헬스장·필라테스까지 문화비 소득공제 대상이 확대됐어요! 신청 방법, 인정 항목, 결제 수단 조건, 가맹점 확인법까지 2026년 최신 기준으로 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["문화비소득공제","헬스장공제","연말정산","도서공연","소득공제"],"thumbnail":"https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=950&q=80"},{"id":1771773893721,"title":"세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)","filename":"contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html","excerpt":"세액공제와 소득공제, 이름은 비슷하지만 세금을 줄이는 방식이 완전히 달라요. 두 개념의 차이부터 실제 계산 예시, 연금저축·IRP를 활용한 최적 절세 전략까지 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["세액공제","소득공제","연말정산","IRP","연금저축"],"thumbnail":"https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=950&q=80"},{"id":1771773893720,"title":"연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)","filename":"contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html","excerpt":"카드 많이 썼는데 환급이 적었던 이유, 바로 25% 기준을 몰랐기 때문이에요. 신용카드와 체크카드를 언제 어떻게 나눠 써야 환급액이 최대가 되는지 황금비율 전략을 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["연말정산","소득공제","신용카드","체크카드","절세전략"],"thumbnail":"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=950&q=80"}];
     const PER_PAGE = 12;
     let currentPage = 1;
     let filteredPosts = [];
