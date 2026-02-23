@@ -110,7 +110,7 @@
     .footer-col a:hover { color: #fff; }
     .footer-bottom { max-width: 1140px; margin: 0 auto; padding-top: 24px; border-top: 1px solid #333; text-align: center; font-size: 13px; color: #71717a; }
 
-    @media (max-width: 768px) {
+   @media (max-width: 768px) {
         .nav { display: none !important; }
         .search-box {
             display: none;
@@ -120,17 +120,9 @@
         .search-box.active { display: block !important; }
         .m-btn { display: flex !important; }
 
-        /* [추가] 모바일 환경의 푸터 배열 변경 */
+        /* 모바일 환경의 푸터 배열 변경 */
         .footer-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
         .footer-brand { grid-column: 1 / -1; }
-    }
-        .search-box {
-            display: none;
-            position: absolute; top: var(--header-h); left: 0; width: 100%;
-            background: #1a1a1a; padding: 12px 24px; border-bottom: 1px solid #333;
-        }
-        .search-box.active { display: block !important; }
-        .m-btn { display: flex !important; }
     }
 
 
@@ -271,11 +263,11 @@
         .result-count { font-size: 13px; color: var(--text-light); }
         .result-count strong { color: var(--text-main); font-weight: 700; }
 
-        /* ── 포스트 그리드 (2열 균일) ── */
+        /* ── 포스트 그리드 (1열 와이드 리스트형) ── */
         .post-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
+            grid-template-columns: 1fr; /* 1단으로 변경 */
+            gap: 20px;
         }
         .post-card {
             cursor: pointer;
@@ -285,7 +277,8 @@
             background: #fff;
             transition: all 0.2s;
             display: flex;
-            flex-direction: column;
+            flex-direction: row; /* PC에서는 가로 배치 (좌 이미지, 우 텍스트) */
+            align-items: stretch;
         }
         .post-card:hover {
             box-shadow: 0 6px 24px rgba(0,0,0,0.08);
@@ -293,31 +286,45 @@
             border-color: #d1d5db;
         }
         .post-card:hover .card-title { color: var(--primary); }
-        .card-thumb { height: 170px; overflow: hidden; background: #f3f4f6; flex-shrink: 0; }
-        .card-thumb img { transition: transform 0.4s ease; }
-        .post-card:hover .card-thumb img { transform: scale(1.05); }
-        .card-body { padding: 16px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
-        .card-top { display: flex; align-items: center; justify-content: space-between; }
-        .card-cat { font-size: 10px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.08em; }
-        .card-date { font-size: 11px; color: var(--text-light); }
-        .card-title {
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1.4;
-    color: var(--text-main);
-    word-break: keep-all;
-    transition: color 0.15s;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-        .card-desc {
-            font-size: 13px; color: var(--text-sub); line-height: 1.6; flex: 1;
-            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+        .card-thumb {
+            width: 260px; /* 썸네일 너비 고정 */
+            overflow: hidden;
+            background: #f3f4f6;
+            flex-shrink: 0;
+            border-right: 1px solid var(--border); /* 구분선 추가 */
         }
-        .card-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 4px; }
-        .tag-pill { font-size: 11px; color: var(--text-light); background: var(--bg-gray); padding: 2px 7px; border-radius: 4px; }
+        .card-thumb img { transition: transform 0.4s ease; height: 100%; object-fit: cover; }
+        .post-card:hover .card-thumb img { transform: scale(1.05); }
+        .card-body {
+            padding: 24px 28px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 12px;
+        }
+        .card-top { display: flex; align-items: center; justify-content: space-between; }
+        .card-cat { font-size: 11px; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 0.08em; }
+        .card-date { font-size: 12px; color: var(--text-light); }
+        .card-title {
+            font-size: 22px; /* 1단에 맞춰 폰트 크기 확대 */
+            font-weight: 800;
+            line-height: 1.4;
+            color: var(--text-main);
+            word-break: keep-all;
+            transition: color 0.15s;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .card-desc {
+            font-size: 14px; color: var(--text-sub); line-height: 1.6; flex: 1;
+            display: -webkit-box; -webkit-line-clamp: 3; /* 요약 내용 3줄까지 보이게 확대 */
+            -webkit-box-orient: vertical; overflow: hidden;
+        }
+        .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+        .tag-pill { font-size: 12px; font-weight: 600; color: var(--text-light); background: var(--bg-gray); padding: 4px 10px; border-radius: 6px; }
 
         /* ── 더보기 ── */
         .load-more-wrap { text-align: center; margin-top: 24px; grid-column: 1 / -1; }
@@ -336,13 +343,13 @@
 
         /* 광고 블록 추가 */
         .ad-block {
-            background: #fff;
-            border: 1px dashed var(--border);
-            border-radius: var(--radius);
-            overflow: hidden;
-            transition: border-color 0.2s;
-        }
-        .ad-block:hover { border-color: var(--primary); }
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+
         .ad-label {
             font-size: 10px; font-weight: 700;
             color: var(--text-light); letter-spacing: 0.08em;
@@ -420,12 +427,16 @@
           .main-layout { grid-template-columns: 1fr; }
           .sidebar { display: none; }
       }
+      @media (max-width: 768px) {
+          /* 모바일에서는 세로(카드형) 배열로 복귀 */
+          .post-card { flex-direction: column; }
+          .card-thumb { width: 100%; height: 200px; border-right: none; border-bottom: 1px solid var(--border); }
+          .card-body { padding: 20px; }
+          .card-title { font-size: 19px; }
+      }
       @media (max-width: 600px) {
-          .post-grid { grid-template-columns: 1fr; }
           .hero h1 { font-size: 1.8rem; }
-              .hero-desc {
-        font-size: 14px;
-    }
+          .hero-desc { font-size: 14px; }
       }
     </style>
 </head>
@@ -550,6 +561,13 @@
                  onclick="event.preventDefault();">
                   <img src="https://thumbnail.coupangcdn.com/thumbnails/remote/320x320ex/image/vendor_inventory/87b5/732d407226f351492405f487eade6a0a405d31ae6a3fdae9cd7da36844ff.jpg" style="width:100%; height:100%; object-fit:cover;" alt="쿠팡 추천상품" loading="lazy">
               </a>
+          
+              <a href="#" target="_self" rel="noopener sponsored"
+                 style="display:block; aspect-ratio:1; overflow:hidden; border-radius:6px; border:1px solid #e2e8f0; transition:transform 0.2s;"
+                 onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"
+                 onclick="event.preventDefault();">
+                  <img src="https://thumbnail.coupangcdn.com/thumbnails/remote/320x320ex/image/vendor_inventory/7607/5695f90a003c73cd87a6f63a0a30113f2da893211da3ae09ca71d5f2e005.jpg" style="width:100%; height:100%; object-fit:cover;" alt="쿠팡 추천상품" loading="lazy">
+              </a>
           </div></div>
         </div>
     </aside>
@@ -592,11 +610,6 @@
             <a href="contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html" class="popular-item">
                 <span class="popular-num">04</span>
                 <span class="popular-title">연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)</span>
-            </a>
-        
-            <a href="contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html" class="popular-item">
-                <span class="popular-num">05</span>
-                <span class="popular-title">주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)</span>
             </a>
         
             </div>
@@ -650,6 +663,13 @@
                  style="display:block; aspect-ratio:1; overflow:hidden; border-radius:6px; border:1px solid #e2e8f0; transition:transform 0.2s;"
                  onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"
                  onclick="event.preventDefault();">
+                  <img src="https://thumbnail.coupangcdn.com/thumbnails/remote/320x320ex/image/vendor_inventory/7607/5695f90a003c73cd87a6f63a0a30113f2da893211da3ae09ca71d5f2e005.jpg" style="width:100%; height:100%; object-fit:cover;" alt="알리익스프레스 추천상품" loading="lazy">
+              </a>
+          
+              <a href="#" target="_self" rel="noopener sponsored"
+                 style="display:block; aspect-ratio:1; overflow:hidden; border-radius:6px; border:1px solid #e2e8f0; transition:transform 0.2s;"
+                 onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"
+                 onclick="event.preventDefault();">
                   <img src="https://thumbnail.coupangcdn.com/thumbnails/remote/320x320ex/image/vendor_inventory/87b5/732d407226f351492405f487eade6a0a405d31ae6a3fdae9cd7da36844ff.jpg" style="width:100%; height:100%; object-fit:cover;" alt="알리익스프레스 추천상품" loading="lazy">
               </a>
           </div></div> <!-- 여기 수정됨 -->
@@ -673,7 +693,7 @@
 
 <script>
 (function() {
-    const posts = [{"id":1771807996815,"title":"주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)","filename":"contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html","excerpt":"유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["주택담보대출","이자소득공제","연말정산","개인사업자","절세"],"thumbnail":"https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=950&q=80"},{"id":1771807996814,"title":"문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)","filename":"contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html","excerpt":"2025년 하반기부터 헬스장·필라테스까지 문화비 소득공제 대상이 확대됐어요! 신청 방법, 인정 항목, 결제 수단 조건, 가맹점 확인법까지 2026년 최신 기준으로 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["문화비소득공제","헬스장공제","연말정산","도서공연","소득공제"],"thumbnail":"https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=950&q=80"},{"id":1771807996813,"title":"세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)","filename":"contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html","excerpt":"세액공제와 소득공제, 이름은 비슷하지만 세금을 줄이는 방식이 완전히 달라요. 두 개념의 차이부터 실제 계산 예시, 연금저축·IRP를 활용한 최적 절세 전략까지 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["세액공제","소득공제","연말정산","IRP","연금저축"],"thumbnail":"https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=950&q=80"},{"id":1771807996812,"title":"연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)","filename":"contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html","excerpt":"카드 많이 썼는데 환급이 적었던 이유, 바로 25% 기준을 몰랐기 때문이에요. 신용카드와 체크카드를 언제 어떻게 나눠 써야 환급액이 최대가 되는지 황금비율 전략을 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["연말정산","소득공제","신용카드","체크카드","절세전략"],"thumbnail":"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=950&q=80"},{"id":1771807538395,"title":"주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)","filename":"contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html","excerpt":"유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["주택담보대출","이자소득공제","연말정산","개인사업자","절세"],"thumbnail":"https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=950&q=80"},{"id":1771807538394,"title":"문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)","filename":"contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html","excerpt":"2025년 하반기부터 헬스장·필라테스까지 문화비 소득공제 대상이 확대됐어요! 신청 방법, 인정 항목, 결제 수단 조건, 가맹점 확인법까지 2026년 최신 기준으로 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["문화비소득공제","헬스장공제","연말정산","도서공연","소득공제"],"thumbnail":"https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=950&q=80"},{"id":1771807538393,"title":"세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)","filename":"contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html","excerpt":"세액공제와 소득공제, 이름은 비슷하지만 세금을 줄이는 방식이 완전히 달라요. 두 개념의 차이부터 실제 계산 예시, 연금저축·IRP를 활용한 최적 절세 전략까지 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["세액공제","소득공제","연말정산","IRP","연금저축"],"thumbnail":"https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=950&q=80"},{"id":1771807538392,"title":"연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)","filename":"contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html","excerpt":"카드 많이 썼는데 환급이 적었던 이유, 바로 25% 기준을 몰랐기 때문이에요. 신용카드와 체크카드를 언제 어떻게 나눠 써야 환급액이 최대가 되는지 황금비율 전략을 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["연말정산","소득공제","신용카드","체크카드","절세전략"],"thumbnail":"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=950&q=80"}];
+    const posts = [{"id":1771808873772,"title":"주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)","filename":"contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html","excerpt":"유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["주택담보대출","이자소득공제","연말정산","개인사업자","절세"],"thumbnail":"https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=950&q=80"},{"id":1771808873771,"title":"문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)","filename":"contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html","excerpt":"2025년 하반기부터 헬스장·필라테스까지 문화비 소득공제 대상이 확대됐어요! 신청 방법, 인정 항목, 결제 수단 조건, 가맹점 확인법까지 2026년 최신 기준으로 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["문화비소득공제","헬스장공제","연말정산","도서공연","소득공제"],"thumbnail":"https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=950&q=80"},{"id":1771808873770,"title":"세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)","filename":"contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html","excerpt":"세액공제와 소득공제, 이름은 비슷하지만 세금을 줄이는 방식이 완전히 달라요. 두 개념의 차이부터 실제 계산 예시, 연금저축·IRP를 활용한 최적 절세 전략까지 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["세액공제","소득공제","연말정산","IRP","연금저축"],"thumbnail":"https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=950&q=80"},{"id":1771808873769,"title":"연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)","filename":"contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html","excerpt":"카드 많이 썼는데 환급이 적었던 이유, 바로 25% 기준을 몰랐기 때문이에요. 신용카드와 체크카드를 언제 어떻게 나눠 써야 환급액이 최대가 되는지 황금비율 전략을 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["연말정산","소득공제","신용카드","체크카드","절세전략"],"thumbnail":"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=950&q=80"}];
     const PER_PAGE = 12;
     let currentPage = 1;
     let filteredPosts = [];
