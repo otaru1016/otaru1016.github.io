@@ -4,291 +4,479 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>금융 계산기 | Blogglow</title>
-    <meta name="description" content="연말정산 환급 예상, 퇴직금, 건강보험료, 실업급여 등 직장인에게 꼭 필요한 금융 계산기를 무료로 제공합니다.">
+    <meta name="description" content="연말정산 환급 예상, 퇴직금, 건강보험료, 실업급여, 대출이자 계산기. 직장인을 위한 무료 금융 계산 도구.">
     <link rel="icon" type="image/png" href="https://blogglow.com/images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <style>
         :root {
-            --bg: #ffffff;
-            --text: #111827;
-            --text-sub: #4b5563;
-            --text-light: #9ca3af;
-            --primary: #01a3f0;
-            --primary-dark: #0284c7;
-            --primary-light: #e0f2fe;
-            --border: #e5e7eb;
-            --bg-gray: #f9fafb;
-            --header-h: 72px;
-            --radius: 16px;
-            --shadow: 0 4px 24px rgba(0,0,0,0.07);
-            --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
+            --ink: #0d0d0d;
+            --ink-2: #3a3a3a;
+            --ink-3: #6b6b6b;
+            --ink-4: #a0a0a0;
+            --rule: #e4e4e4;
+            --rule-light: #f0f0f0;
+            --surface: #ffffff;
+            --surface-2: #f7f7f7;
+            --surface-3: #f0f0f0;
+            --accent: #01a3f0;
+            --accent-dim: rgba(1,163,240,0.08);
+            --accent-border: rgba(1,163,240,0.25);
+            --positive: #059669;
+            --negative: #dc2626;
+            --header-h: 64px;
+            --mono: 'DM Mono', monospace;
+            --sans: 'DM Sans', 'Pretendard', sans-serif;
+            --kr: 'Pretendard', sans-serif;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            font-family: 'Pretendard', -apple-system, sans-serif;
-            background: var(--bg-gray);
-            color: var(--text);
+            font-family: var(--kr);
+            background: var(--surface-2);
+            color: var(--ink);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
         }
+
         a { text-decoration: none; color: inherit; }
-        img { display: block; }
+        button { font-family: var(--kr); }
+        input, select, textarea { font-family: var(--kr); }
 
         /* ── 헤더 ── */
-        .notice-bar { background: #111; color: #fff; text-align: center; padding: 10px 24px; font-size: 13px; }
-        .site-header { position: sticky; top: 0; z-index: 100; background: rgba(0,0,0,0.95); backdrop-filter: blur(10px); }
-        .header-inner { max-width: 1140px; margin: 0 auto; padding: 0 24px; height: var(--header-h); display: flex; align-items: center; justify-content: space-between; }
-        .logo img { height: 30px; width: auto; }
-        .nav { display: flex; gap: 24px; }
-        .nav a { font-size: 15px; font-weight: 600; color: #94a3b8; transition: color 0.2s; }
-        .nav a:hover, .nav a.active { color: #fff; }
-
-        /* ── 히어로 ── */
-        .hero {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #0c4a6e 100%);
-            padding: 80px 24px 100px;
+        .notice-bar {
+            background: var(--ink);
+            color: rgba(255,255,255,0.6);
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            padding: 9px 24px;
+            font-size: 12px;
+            letter-spacing: 0.01em;
         }
-        .hero::before {
-            content: '';
-            position: absolute; inset: 0;
-            background: radial-gradient(ellipse at 30% 50%, rgba(1,163,240,0.15) 0%, transparent 60%),
-                        radial-gradient(ellipse at 70% 20%, rgba(56,189,248,0.1) 0%, transparent 50%);
+        .site-header {
+            position: sticky; top: 0; z-index: 200;
+            background: rgba(10,10,10,0.96);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
         }
-        .hero-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 6px;
-            background: rgba(1,163,240,0.2); border: 1px solid rgba(1,163,240,0.4);
-            color: #7dd3fc; padding: 6px 16px; border-radius: 100px;
-            font-size: 13px; font-weight: 700; margin-bottom: 24px; letter-spacing: 0.05em;
+        .header-inner {
+            max-width: 1200px; margin: 0 auto;
+            padding: 0 32px; height: var(--header-h);
+            display: flex; align-items: center; justify-content: space-between;
         }
-        .hero h1 {
-            font-size: 3rem; font-weight: 800; color: #fff;
-            line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 20px;
+        .logo img { height: 28px; width: auto; }
+        .nav { display: flex; gap: 32px; }
+        .nav a {
+            font-size: 14px; font-weight: 400;
+            color: rgba(255,255,255,0.45);
+            letter-spacing: 0.01em;
+            transition: color 0.15s;
         }
-        .hero h1 span { color: #38bdf8; }
-        .hero p { font-size: 17px; color: #94a3b8; line-height: 1.7; }
+        .nav a:hover { color: rgba(255,255,255,0.85); }
+        .nav a.active { color: #fff; }
 
-        /* ── 계산기 선택 탭 ── */
-        .calc-nav-wrap {
-            background: #fff;
-            border-bottom: 1px solid var(--border);
-            position: sticky; top: var(--header-h); z-index: 50;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        /* ── 페이지 헤더 ── */
+        .page-top {
+            background: var(--surface);
+            border-bottom: 1px solid var(--rule);
+            padding: 64px 32px 0;
         }
-        .calc-nav {
-            max-width: 960px; margin: 0 auto;
-            display: flex; overflow-x: auto; scrollbar-width: none;
-            padding: 0 24px;
+        .page-top-inner {
+            max-width: 1200px; margin: 0 auto;
         }
-        .calc-nav::-webkit-scrollbar { display: none; }
-        .calc-tab {
+        .page-top-kicker {
+            font-family: var(--mono);
+            font-size: 11px; color: var(--accent);
+            letter-spacing: 0.12em; text-transform: uppercase;
+            margin-bottom: 16px;
             display: flex; align-items: center; gap: 8px;
-            padding: 18px 24px; white-space: nowrap;
-            font-size: 14px; font-weight: 600; color: var(--text-light);
-            border-bottom: 3px solid transparent;
-            cursor: pointer; transition: all 0.2s;
-            background: none; border-left: none; border-right: none; border-top: none;
-            font-family: 'Pretendard', sans-serif;
         }
-        .calc-tab:hover { color: var(--primary); }
-        .calc-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
-        .calc-tab .tab-icon { font-size: 18px; }
+        .page-top-kicker::after {
+            content: ''; display: block;
+            width: 32px; height: 1px; background: var(--accent);
+        }
+        .page-top h1 {
+            font-family: var(--sans);
+            font-size: 2.6rem; font-weight: 300;
+            letter-spacing: -0.04em; line-height: 1.1;
+            color: var(--ink); margin-bottom: 12px;
+        }
+        .page-top h1 strong { font-weight: 600; }
+        .page-top-desc {
+            font-size: 15px; color: var(--ink-3);
+            font-weight: 400; margin-bottom: 40px;
+            max-width: 480px; line-height: 1.7;
+        }
+
+        /* ── 탭 네비 ── */
+        .tab-nav {
+            display: flex; gap: 0;
+            overflow-x: auto; scrollbar-width: none;
+            margin-top: 0;
+        }
+        .tab-nav::-webkit-scrollbar { display: none; }
+        .tab-btn {
+            display: flex; align-items: center; gap: 7px;
+            padding: 14px 20px;
+            font-size: 13px; font-weight: 500;
+            color: var(--ink-4);
+            background: none; border: none;
+            border-bottom: 2px solid transparent;
+            cursor: pointer; white-space: nowrap;
+            transition: all 0.15s;
+            position: relative; top: 1px;
+        }
+        .tab-btn .iconify { font-size: 15px; }
+        .tab-btn:hover { color: var(--ink-2); }
+        .tab-btn.active {
+            color: var(--ink);
+            border-bottom-color: var(--ink);
+            font-weight: 600;
+        }
 
         /* ── 메인 레이아웃 ── */
-        .main { max-width: 960px; margin: 48px auto; padding: 0 24px 80px; }
+        .main {
+            max-width: 1200px; margin: 0 auto;
+            padding: 40px 32px 100px;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 24px;
+            align-items: start;
+        }
 
-        /* ── 계산기 패널 ── */
+        /* ── 패널 ── */
         .calc-panel { display: none; }
-        .calc-panel.active { display: block; animation: fadeUp 0.35s ease; }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(16px); }
+        .calc-panel.active { display: contents; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        .panel-left, .panel-right {
+            animation: fadeIn 0.25s ease;
+        }
 
-        .panel-header { margin-bottom: 32px; }
-        .panel-header h2 { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
-        .panel-header p { color: var(--text-sub); font-size: 15px; }
+        /* ── 입력 카드 ── */
+        .input-card {
+            background: var(--surface);
+            border: 1px solid var(--rule);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .input-card + .input-card { margin-top: 12px; }
 
-        /* ── 카드 ── */
-        .card {
-            background: #fff; border-radius: var(--radius);
-            border: 1px solid var(--border); box-shadow: var(--shadow);
-            padding: 32px;
-            margin-bottom: 20px;
+        .card-header {
+            padding: 20px 24px 18px;
+            border-bottom: 1px solid var(--rule-light);
+            display: flex; align-items: center; gap: 10px;
         }
-        .card-title {
-            font-size: 15px; font-weight: 700; color: var(--text-sub);
-            margin-bottom: 20px; padding-bottom: 14px;
-            border-bottom: 1px solid var(--border);
-            display: flex; align-items: center; gap: 8px;
+        .card-header-icon {
+            width: 28px; height: 28px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--ink-3); font-size: 16px;
         }
-        .card-title .iconify { color: var(--primary); font-size: 18px; }
+        .card-header-title {
+            font-size: 13px; font-weight: 500;
+            color: var(--ink-2); letter-spacing: 0.01em;
+        }
 
-        /* ── 폼 요소 ── */
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .form-group { display: flex; flex-direction: column; gap: 8px; }
-        .form-group.full { grid-column: 1 / -1; }
-        .form-group label {
-            font-size: 13px; font-weight: 700; color: var(--text-sub);
-            display: flex; align-items: center; gap: 6px;
+        .card-body { padding: 24px; }
+
+        /* ── 폼 그리드 ── */
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-group { display: flex; flex-direction: column; gap: 6px; }
+        .form-group.span-2 { grid-column: 1 / -1; }
+
+        .form-label {
+            font-size: 11px; font-weight: 500;
+            color: var(--ink-4); letter-spacing: 0.04em;
+            text-transform: uppercase;
         }
-        .form-group label .tip {
-            font-size: 11px; font-weight: 400; color: var(--text-light);
-            background: var(--bg-gray); padding: 2px 8px; border-radius: 10px;
-        }
-        .input-wrap { position: relative; }
-        .input-wrap input, .input-wrap select {
-            width: 100%; padding: 12px 48px 12px 16px;
-            border: 1.5px solid var(--border); border-radius: 10px;
-            font-size: 15px; font-weight: 600; color: var(--text);
-            background: #fff; outline: none;
-            transition: border-color 0.2s, box-shadow 0.2s;
-            font-family: 'Pretendard', sans-serif;
+
+        .field-wrap { position: relative; }
+        .field-wrap input,
+        .field-wrap select {
+            width: 100%;
+            padding: 10px 40px 10px 14px;
+            font-size: 15px; font-weight: 400;
+            color: var(--ink);
+            background: var(--surface-2);
+            border: 1px solid var(--rule);
+            border-radius: 3px;
+            outline: none;
+            transition: border-color 0.15s, background 0.15s;
             appearance: none;
+            -webkit-appearance: none;
         }
-        .input-wrap select { padding-right: 40px; cursor: pointer; }
-        .input-wrap input:focus, .input-wrap select:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(1,163,240,0.12);
+        .field-wrap input:hover,
+        .field-wrap select:hover { border-color: #c0c0c0; }
+        .field-wrap input:focus,
+        .field-wrap select:focus {
+            border-color: var(--ink);
+            background: var(--surface);
         }
-        .input-unit {
-            position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
-            font-size: 13px; font-weight: 700; color: var(--text-light);
+        .field-unit {
+            position: absolute; right: 14px; top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--mono);
+            font-size: 11px; color: var(--ink-4);
             pointer-events: none;
         }
-        .range-wrap { display: flex; flex-direction: column; gap: 8px; }
-        .range-wrap input[type="range"] {
-            width: 100%; -webkit-appearance: none; height: 6px;
-            border-radius: 3px; background: var(--border); outline: none;
-            padding: 0; border: none; box-shadow: none;
+        .field-wrap select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%23a0a0a0' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
+
+        /* 날짜 인풋 */
+        .field-wrap input[type="date"] {
+            padding-right: 14px;
         }
-        .range-wrap input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none; width: 20px; height: 20px;
-            border-radius: 50%; background: var(--primary);
-            cursor: pointer; border: 3px solid #fff;
-            box-shadow: 0 2px 8px rgba(1,163,240,0.4);
+
+        /* ── 범위 슬라이더 ── */
+        .range-field {
+            display: flex; flex-direction: column; gap: 10px;
         }
-        .range-labels { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-light); }
+        .range-display {
+            display: flex; justify-content: space-between; align-items: baseline;
+        }
+        .range-value {
+            font-family: var(--mono);
+            font-size: 20px; font-weight: 500;
+            color: var(--ink); letter-spacing: -0.02em;
+        }
+        .range-unit { font-size: 12px; color: var(--ink-4); }
+        .range-limits { font-size: 11px; color: var(--ink-4); }
+
+        input[type="range"] {
+            width: 100%; height: 2px;
+            -webkit-appearance: none;
+            background: var(--rule);
+            border-radius: 1px;
+            outline: none;
+            padding: 0; border: none;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px; height: 16px;
+            border-radius: 50%;
+            background: var(--ink);
+            cursor: pointer;
+            border: 2px solid var(--surface);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+            transition: transform 0.15s;
+        }
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        /* ── 체크 옵션 ── */
+        .check-group { display: flex; flex-wrap: wrap; gap: 8px; }
+        .check-item {
+            display: flex; align-items: center; gap: 6px;
+            padding: 7px 14px;
+            border: 1px solid var(--rule);
+            border-radius: 3px;
+            font-size: 13px; font-weight: 400;
+            color: var(--ink-2);
+            cursor: pointer; user-select: none;
+            transition: all 0.12s;
+            background: var(--surface);
+        }
+        .check-item input { display: none; }
+        .check-dot {
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            border: 1.5px solid var(--rule);
+            transition: all 0.12s;
+            flex-shrink: 0;
+        }
+        .check-item.on {
+            border-color: var(--ink);
+            color: var(--ink);
+            background: var(--surface);
+        }
+        .check-item.on .check-dot {
+            background: var(--ink);
+            border-color: var(--ink);
+        }
 
         /* ── 계산 버튼 ── */
         .calc-btn {
-            width: 100%; padding: 16px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: #fff; border: none; border-radius: 12px;
-            font-size: 16px; font-weight: 800;
-            cursor: pointer; margin-top: 24px;
-            transition: all 0.2s;
+            width: 100%; margin-top: 20px;
+            padding: 13px 24px;
+            background: var(--ink); color: #fff;
+            border: none; border-radius: 3px;
+            font-size: 14px; font-weight: 500;
+            cursor: pointer; letter-spacing: 0.02em;
+            transition: opacity 0.15s, transform 0.1s;
             display: flex; align-items: center; justify-content: center; gap: 8px;
-            font-family: 'Pretendard', sans-serif;
-            box-shadow: 0 4px 16px rgba(1,163,240,0.3);
         }
-        .calc-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(1,163,240,0.4);
-        }
-        .calc-btn:active { transform: translateY(0); }
+        .calc-btn:hover { opacity: 0.88; }
+        .calc-btn:active { transform: scale(0.99); }
+        .calc-btn .iconify { font-size: 16px; }
 
-        /* ── 결과 카드 ── */
-        .result-card {
-            background: linear-gradient(135deg, #0f172a, #1e3a5f);
-            border-radius: var(--radius); padding: 32px;
-            margin-top: 20px; display: none;
-            animation: fadeUp 0.4s ease;
+        /* ── 결과 패널 (오른쪽) ── */
+        .panel-right {
+            position: sticky;
+            top: calc(var(--header-h) + 24px);
         }
-        .result-card.show { display: block; }
-        .result-label {
-            font-size: 13px; font-weight: 700; color: #7dd3fc;
-            letter-spacing: 0.08em; text-transform: uppercase;
-            margin-bottom: 8px;
+
+        .result-empty {
+            background: var(--surface);
+            border: 1px solid var(--rule);
+            border-radius: 4px;
+            padding: 48px 32px;
+            text-align: center;
+            color: var(--ink-4);
+        }
+        .result-empty .iconify { font-size: 32px; margin-bottom: 12px; opacity: 0.3; }
+        .result-empty p { font-size: 13px; line-height: 1.6; }
+
+        .result-card {
+            background: var(--ink);
+            border-radius: 4px;
+            overflow: hidden;
+            display: none;
+        }
+        .result-card.show { display: block; animation: fadeIn 0.3s ease; }
+
+        .result-main {
+            padding: 32px 28px 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .result-kicker {
+            font-family: var(--mono);
+            font-size: 10px; color: rgba(255,255,255,0.35);
+            letter-spacing: 0.12em; text-transform: uppercase;
+            margin-bottom: 12px;
         }
         .result-amount {
-            font-size: 3rem; font-weight: 900; color: #fff;
-            letter-spacing: -0.03em; line-height: 1;
-            margin-bottom: 24px;
+            font-family: var(--sans);
+            font-size: 2.8rem; font-weight: 300;
+            color: #fff; letter-spacing: -0.04em;
+            line-height: 1;
+            margin-bottom: 6px;
         }
-        .result-amount span { font-size: 1.2rem; font-weight: 600; color: #94a3b8; margin-left: 4px; }
+        .result-amount.positive { color: #34d399; }
+        .result-amount.negative { color: #f87171; }
+        .result-label {
+            font-size: 12px; color: rgba(255,255,255,0.35);
+        }
+
         .result-breakdown {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 16px; padding-top: 24px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 20px 28px;
+            display: flex; flex-direction: column;
+            gap: 0;
         }
-        .breakdown-item { display: flex; flex-direction: column; gap: 4px; }
-        .breakdown-label { font-size: 12px; color: #64748b; font-weight: 600; }
-        .breakdown-value { font-size: 18px; font-weight: 800; color: #e2e8f0; }
-        .breakdown-value.positive { color: #34d399; }
-        .breakdown-value.negative { color: #f87171; }
+        .breakdown-row {
+            display: flex; justify-content: space-between; align-items: baseline;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .breakdown-row:last-child { border-bottom: none; }
+        .bd-label {
+            font-size: 12px; color: rgba(255,255,255,0.4);
+        }
+        .bd-value {
+            font-family: var(--mono);
+            font-size: 13px; color: rgba(255,255,255,0.75);
+            font-weight: 400;
+        }
+        .bd-value.pos { color: #34d399; }
+        .bd-value.neg { color: #f87171; }
+        .bd-value.accent { color: var(--accent); }
 
         /* ── 안내 박스 ── */
-        .info-box {
-            background: var(--primary-light); border: 1px solid rgba(1,163,240,0.2);
-            border-radius: 10px; padding: 16px 20px;
-            font-size: 13px; color: #0369a1; line-height: 1.6;
-            margin-top: 16px; display: flex; gap: 10px;
+        .info-strip {
+            background: var(--surface);
+            border: 1px solid var(--rule);
+            border-top: 2px solid var(--accent);
+            border-radius: 4px;
+            padding: 16px 20px;
+            margin-top: 12px;
+            font-size: 12px; color: var(--ink-3);
+            line-height: 1.7;
+            display: flex; gap: 10px;
         }
-        .info-box .iconify { flex-shrink: 0; font-size: 16px; margin-top: 1px; }
+        .info-strip .iconify {
+            flex-shrink: 0; font-size: 14px;
+            color: var(--accent); margin-top: 2px;
+        }
+
+        /* ── 섹션 구분 ── */
+        .section-divider {
+            grid-column: 1 / -1;
+            display: flex; align-items: center; gap: 16px;
+            margin: 8px 0 4px;
+        }
+        .section-divider span {
+            font-size: 11px; color: var(--ink-4);
+            white-space: nowrap; font-weight: 500;
+            letter-spacing: 0.06em; text-transform: uppercase;
+        }
+        .section-divider::before, .section-divider::after {
+            content: ''; flex: 1; height: 1px; background: var(--rule-light);
+        }
+
+        /* ── 면책 ── */
         .disclaimer {
-            background: #fffbeb; border: 1px solid #fde68a;
-            border-radius: 10px; padding: 14px 18px;
-            font-size: 12px; color: #92400e; line-height: 1.6;
-            margin-top: 16px; display: flex; gap: 8px; align-items: flex-start;
+            background: #fffdf0;
+            border: 1px solid #f0e8c0;
+            border-radius: 3px;
+            padding: 12px 16px;
+            font-size: 11px; color: #8a7530;
+            line-height: 1.65; margin-top: 12px;
+            display: flex; gap: 8px; align-items: flex-start;
         }
-
-        /* ── 퀵 가이드 ── */
-        .guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
-        .guide-item {
-            background: #fff; border: 1px solid var(--border); border-radius: 12px;
-            padding: 20px; text-align: center; transition: all 0.2s;
-        }
-        .guide-item:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: var(--shadow); }
-        .guide-icon { font-size: 32px; margin-bottom: 10px; }
-        .guide-title { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
-        .guide-desc { font-size: 12px; color: var(--text-light); line-height: 1.5; }
-
-        /* ── 체크박스 ── */
-        .checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; }
-        .checkbox-item {
-            display: flex; align-items: center; gap: 8px;
-            background: var(--bg-gray); border: 1.5px solid var(--border);
-            border-radius: 8px; padding: 10px 16px; cursor: pointer;
-            transition: all 0.15s; font-size: 14px; font-weight: 600;
-            user-select: none;
-        }
-        .checkbox-item input { display: none; }
-        .checkbox-item.checked {
-            background: var(--primary-light); border-color: var(--primary);
-            color: var(--primary-dark);
-        }
-
-        /* 반응형 */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .form-grid { grid-template-columns: 1fr; }
-            .guide-grid { grid-template-columns: 1fr 1fr; }
-            .result-amount { font-size: 2.2rem; }
-            .nav { display: none; }
-        }
-        @media (max-width: 480px) {
-            .guide-grid { grid-template-columns: 1fr; }
-            .card { padding: 20px; }
-        }
+        .disclaimer .iconify { flex-shrink: 0; margin-top: 1px; }
 
         /* ── 푸터 ── */
-        .footer { background: #1a1a1a; color: #a1a1aa; padding: 40px 24px; text-align: center; font-size: 13px; }
-        .footer-logo { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 8px; }
-        .footer-links { display: flex; justify-content: center; gap: 24px; margin-top: 16px; }
-        .footer-links a { color: #52525b; font-size: 13px; transition: color 0.2s; }
-        .footer-links a:hover { color: #fff; }
-        .footer-bottom { margin-top: 20px; padding-top: 20px; border-top: 1px solid #333; font-size: 12px; color: #52525b; }
+        footer {
+            background: var(--ink);
+            color: rgba(255,255,255,0.3);
+            padding: 40px 32px;
+            text-align: center;
+            font-size: 12px;
+        }
+        .footer-logo {
+            font-family: var(--sans);
+            font-size: 18px; font-weight: 500;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 12px; letter-spacing: -0.02em;
+        }
+        .footer-links {
+            display: flex; justify-content: center; gap: 24px;
+            margin-top: 20px; padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+        }
+        .footer-links a {
+            font-size: 12px; color: rgba(255,255,255,0.3);
+            transition: color 0.15s;
+        }
+        .footer-links a:hover { color: rgba(255,255,255,0.6); }
+
+        /* ── 모바일 ── */
+        @media (max-width: 900px) {
+            .main { grid-template-columns: 1fr; }
+            .calc-panel.active { display: block; }
+            .panel-right { position: static; }
+        }
+        @media (max-width: 600px) {
+            .page-top { padding: 40px 20px 0; }
+            .page-top h1 { font-size: 1.9rem; }
+            .main { padding: 24px 20px 60px; }
+            .tab-btn { padding: 12px 14px; font-size: 12px; }
+            .header-inner { padding: 0 20px; }
+            .nav { display: none; }
+            .form-grid { grid-template-columns: 1fr; }
+            .result-amount { font-size: 2.2rem; }
+        }
     </style>
 </head>
 <body>
 
-<!-- 헤더 -->
-<div class="notice-bar">📌 경제, 세금, 재테크, 생활 — 꼭 알아야 할 돈 되는 정보를 정리합니다</div>
+<div class="notice-bar">경제, 세금, 재테크 — 꼭 알아야 할 돈 되는 정보를 정리합니다</div>
 <header class="site-header">
     <div class="header-inner">
         <a href="/index.html" class="logo">
@@ -303,481 +491,568 @@
     </div>
 </header>
 
-<!-- 히어로 -->
-<section class="hero">
-    <div class="hero-inner">
-        <div class="hero-badge">
-            <span class="iconify" data-icon="carbon:calculator"></span>
-            FREE FINANCIAL TOOLS
-        </div>
-        <h1>돈 계산,<br><span>복잡하게 하지 마세요</span></h1>
-        <p>직장인에게 꼭 필요한 금융 계산기 모음<br>연말정산부터 퇴직금까지, 10초 안에 확인하세요.</p>
-    </div>
-</section>
+<!-- 페이지 상단 -->
+<div class="page-top">
+    <div class="page-top-inner">
+        <div class="page-top-kicker">Financial Calculator</div>
+        <h1>복잡한 계산,<br><strong>직접 해보세요</strong></h1>
+        <p class="page-top-desc">연말정산부터 대출이자까지. 내 상황에 맞는 수치를 바로 확인하세요.</p>
 
-<!-- 계산기 탭 -->
-<div class="calc-nav-wrap">
-    <div class="calc-nav">
-        <button class="calc-tab active" onclick="switchTab('yearend', this)">
-            <span class="iconify tab-icon" data-icon="carbon:document-tax"></span> 연말정산
-        </button>
-        <button class="calc-tab" onclick="switchTab('severance', this)">
-            <span class="iconify tab-icon" data-icon="carbon:piggy-bank"></span> 퇴직금
-        </button>
-        <button class="calc-tab" onclick="switchTab('health', this)">
-            <span class="iconify tab-icon" data-icon="carbon:hospital"></span> 건강보험료
-        </button>
-        <button class="calc-tab" onclick="switchTab('unemployment', this)">
-            <span class="iconify tab-icon" data-icon="carbon:user-multiple"></span> 실업급여
-        </button>
-        <button class="calc-tab" onclick="switchTab('loan', this)">
-            <span class="iconify tab-icon" data-icon="carbon:home"></span> 대출이자
-        </button>
+        <div class="tab-nav" id="tab-nav">
+            <button class="tab-btn active" data-panel="yearend" onclick="switchPanel('yearend', this)">
+                <span class="iconify" data-icon="carbon:document-tax"></span>
+                연말정산
+            </button>
+            <button class="tab-btn" data-panel="severance" onclick="switchPanel('severance', this)">
+                <span class="iconify" data-icon="carbon:piggy-bank"></span>
+                퇴직금
+            </button>
+            <button class="tab-btn" data-panel="health" onclick="switchPanel('health', this)">
+                <span class="iconify" data-icon="carbon:hospital"></span>
+                건강보험료
+            </button>
+            <button class="tab-btn" data-panel="unemployment" onclick="switchPanel('unemployment', this)">
+                <span class="iconify" data-icon="carbon:user-certification"></span>
+                실업급여
+            </button>
+            <button class="tab-btn" data-panel="loan" onclick="switchPanel('loan', this)">
+                <span class="iconify" data-icon="carbon:building"></span>
+                대출이자
+            </button>
+        </div>
     </div>
 </div>
 
-<main class="main">
+<!-- 메인 -->
+<main class="main" id="main-area">
 
-    <!-- ① 연말정산 -->
+    <!-- ━━━━━ 연말정산 ━━━━━ -->
     <div class="calc-panel active" id="panel-yearend">
-        <div class="panel-header">
-            <h2>🧾 연말정산 환급 계산기</h2>
-            <p>총급여와 공제항목을 입력하면 예상 환급액을 계산해드립니다.</p>
-        </div>
-
-        <div class="card">
-            <div class="card-title"><span class="iconify" data-icon="carbon:user-profile"></span> 기본 정보</div>
-            <div class="form-grid">
-                <div class="form-group">
-                    <label>총 급여 <span class="tip">세전 연봉</span></label>
-                    <div class="input-wrap">
-                        <input type="number" id="ye-salary" placeholder="45000000" value="45000000">
-                        <span class="input-unit">원</span>
-                    </div>
+        <div class="panel-left">
+            <div class="input-card">
+                <div class="card-header">
+                    <div class="card-header-icon"><span class="iconify" data-icon="carbon:user"></span></div>
+                    <span class="card-header-title">기본 정보</span>
                 </div>
-                <div class="form-group">
-                    <label>이미 납부한 세금 <span class="tip">원천징수 합계</span></label>
-                    <div class="input-wrap">
-                        <input type="number" id="ye-paid" placeholder="1500000" value="1500000">
-                        <span class="input-unit">원</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-title"><span class="iconify" data-icon="carbon:subtract-alt"></span> 공제 항목</div>
-            <div class="form-grid">
-                <div class="form-group">
-                    <label>부양가족 수 <span class="tip">본인 포함</span></label>
-                    <div class="input-wrap">
-                        <select id="ye-family">
-                            <option value="1">1명 (본인만)</option>
-                            <option value="2" selected>2명</option>
-                            <option value="3">3명</option>
-                            <option value="4">4명</option>
-                            <option value="5">5명 이상</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>의료비 지출</label>
-                    <div class="input-wrap">
-                        <input type="number" id="ye-medical" placeholder="0" value="0">
-                        <span class="input-unit">원</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>교육비 지출</label>
-                    <div class="input-wrap">
-                        <input type="number" id="ye-edu" placeholder="0" value="0">
-                        <span class="input-unit">원</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>기부금</label>
-                    <div class="input-wrap">
-                        <input type="number" id="ye-donation" placeholder="0" value="0">
-                        <span class="input-unit">원</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>신용카드 사용액</label>
-                    <div class="input-wrap">
-                        <input type="number" id="ye-credit" placeholder="12000000" value="12000000">
-                        <span class="input-unit">원</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>체크카드/현금영수증</label>
-                    <div class="input-wrap">
-                        <input type="number" id="ye-debit" placeholder="5000000" value="5000000">
-                        <span class="input-unit">원</span>
+                <div class="card-body">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">총 급여 (세전 연봉)</label>
+                            <div class="field-wrap">
+                                <input type="number" id="ye-salary" value="45000000">
+                                <span class="field-unit">원</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">원천징수 납부 세액</label>
+                            <div class="field-wrap">
+                                <input type="number" id="ye-paid" value="1500000">
+                                <span class="field-unit">원</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">부양가족 수 (본인 포함)</label>
+                            <div class="field-wrap">
+                                <select id="ye-family">
+                                    <option value="1">1명 — 본인만</option>
+                                    <option value="2" selected>2명</option>
+                                    <option value="3">3명</option>
+                                    <option value="4">4명</option>
+                                    <option value="5">5명 이상</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="form-group" style="margin-top:20px;">
-                <label>해당 항목 선택</label>
-                <div class="checkbox-group">
-                    <label class="checkbox-item" onclick="toggleCheck(this)">
-                        <input type="checkbox" id="ye-pension" checked> 연금저축
-                    </label>
-                    <label class="checkbox-item checked" onclick="toggleCheck(this)">
-                        <input type="checkbox" id="ye-housing" checked> 주택청약
-                    </label>
-                    <label class="checkbox-item" onclick="toggleCheck(this)">
-                        <input type="checkbox" id="ye-isa"> ISA 계좌
-                    </label>
-                    <label class="checkbox-item" onclick="toggleCheck(this)">
-                        <input type="checkbox" id="ye-irp"> IRP (퇴직연금)
-                    </label>
+            <div class="input-card">
+                <div class="card-header">
+                    <div class="card-header-icon"><span class="iconify" data-icon="carbon:subtract-alt"></span></div>
+                    <span class="card-header-title">공제 항목</span>
+                </div>
+                <div class="card-body">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">의료비 지출</label>
+                            <div class="field-wrap">
+                                <input type="number" id="ye-medical" value="0">
+                                <span class="field-unit">원</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">교육비 지출</label>
+                            <div class="field-wrap">
+                                <input type="number" id="ye-edu" value="0">
+                                <span class="field-unit">원</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">기부금</label>
+                            <div class="field-wrap">
+                                <input type="number" id="ye-donation" value="0">
+                                <span class="field-unit">원</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">신용카드 사용액</label>
+                            <div class="field-wrap">
+                                <input type="number" id="ye-credit" value="12000000">
+                                <span class="field-unit">원</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">체크카드 / 현금영수증</label>
+                            <div class="field-wrap">
+                                <input type="number" id="ye-debit" value="5000000">
+                                <span class="field-unit">원</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group span-2" style="margin-top:20px;">
+                        <label class="form-label" style="margin-bottom:10px;">추가 공제 항목</label>
+                        <div class="check-group">
+                            <label class="check-item" onclick="toggleCheck(this)">
+                                <span class="check-dot"></span>
+                                <input type="checkbox" id="ye-pension">
+                                연금저축
+                            </label>
+                            <label class="check-item on" onclick="toggleCheck(this)">
+                                <span class="check-dot"></span>
+                                <input type="checkbox" id="ye-housing" checked>
+                                주택청약
+                            </label>
+                            <label class="check-item" onclick="toggleCheck(this)">
+                                <span class="check-dot"></span>
+                                <input type="checkbox" id="ye-isa">
+                                ISA 계좌
+                            </label>
+                            <label class="check-item" onclick="toggleCheck(this)">
+                                <span class="check-dot"></span>
+                                <input type="checkbox" id="ye-irp">
+                                IRP (퇴직연금)
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="calc-btn" onclick="calcYearend()">
+                        <span class="iconify" data-icon="carbon:arrow-right"></span>
+                        환급액 계산
+                    </button>
                 </div>
             </div>
 
-            <button class="calc-btn" onclick="calcYearend()">
-                <span class="iconify" data-icon="carbon:calculator"></span>
-                환급액 계산하기
-            </button>
-        </div>
-
-        <div class="result-card" id="result-yearend">
-            <div class="result-label">예상 환급액</div>
-            <div class="result-amount" id="ye-result-main">0<span>원</span></div>
-            <div class="result-breakdown">
-                <div class="breakdown-item">
-                    <div class="breakdown-label">과세표준</div>
-                    <div class="breakdown-value" id="ye-taxbase">-</div>
-                </div>
-                <div class="breakdown-item">
-                    <div class="breakdown-label">산출세액</div>
-                    <div class="breakdown-value" id="ye-tax">-</div>
-                </div>
-                <div class="breakdown-item">
-                    <div class="breakdown-label">납부세액</div>
-                    <div class="breakdown-value" id="ye-paid-show">-</div>
-                </div>
-                <div class="breakdown-item">
-                    <div class="breakdown-label">결과</div>
-                    <div class="breakdown-value" id="ye-result-label">환급</div>
-                </div>
+            <div class="disclaimer">
+                <span class="iconify" data-icon="carbon:warning-alt-filled"></span>
+                본 계산기는 참고용이며 실제 세액과 차이가 있을 수 있습니다. 정확한 금액은 홈택스(국세청)를 통해 확인하세요.
             </div>
         </div>
 
-        <div class="disclaimer">
-            <span class="iconify" data-icon="carbon:warning" style="font-size:15px; flex-shrink:0; margin-top:1px;"></span>
-            본 계산기는 참고용이며 실제 세액과 차이가 있을 수 있습니다. 정확한 금액은 홈택스(국세청)를 통해 확인하세요.
+        <div class="panel-right" id="right-yearend">
+            <div class="result-empty" id="empty-yearend">
+                <span class="iconify" data-icon="carbon:calculator" style="display:block;"></span>
+                <p>값을 입력하고<br>계산 버튼을 눌러주세요</p>
+            </div>
+            <div class="result-card" id="result-yearend">
+                <div class="result-main">
+                    <div class="result-kicker">예상 결과</div>
+                    <div class="result-amount" id="ye-amount">0</div>
+                    <div class="result-label" id="ye-result-label">계산 중...</div>
+                </div>
+                <div class="result-breakdown">
+                    <div class="breakdown-row">
+                        <span class="bd-label">과세표준</span>
+                        <span class="bd-value" id="ye-taxbase">—</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="bd-label">산출세액</span>
+                        <span class="bd-value" id="ye-tax">—</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="bd-label">원천징수액</span>
+                        <span class="bd-value" id="ye-paid-show">—</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="bd-label">지방소득세 포함</span>
+                        <span class="bd-value accent" id="ye-final">—</span>
+                    </div>
+                </div>
+            </div>
+            <div class="info-strip" style="margin-top:12px;" id="info-yearend" style="display:none;">
+                <span class="iconify" data-icon="carbon:information"></span>
+                <span>산출 기준: 근로소득공제 → 인적공제 → 소득공제 → 세율 적용 → 세액공제 순서로 계산됩니다.</span>
+            </div>
         </div>
     </div>
 
-    <!-- ② 퇴직금 -->
+    <!-- ━━━━━ 퇴직금 ━━━━━ -->
     <div class="calc-panel" id="panel-severance">
-        <div class="panel-header">
-            <h2>💰 퇴직금 계산기</h2>
-            <p>근무 기간과 평균임금을 입력하면 예상 퇴직금을 계산합니다.</p>
-        </div>
-
-        <div class="card">
-            <div class="card-title"><span class="iconify" data-icon="carbon:calendar"></span> 근무 정보</div>
-            <div class="form-grid">
-                <div class="form-group">
-                    <label>입사일</label>
-                    <div class="input-wrap">
-                        <input type="date" id="sv-start" value="2020-01-01" style="padding-right:16px;">
-                    </div>
+        <div class="panel-left">
+            <div class="input-card">
+                <div class="card-header">
+                    <div class="card-header-icon"><span class="iconify" data-icon="carbon:calendar"></span></div>
+                    <span class="card-header-title">근무 기간</span>
                 </div>
-                <div class="form-group">
-                    <label>퇴사일</label>
-                    <div class="input-wrap">
-                        <input type="date" id="sv-end" value="2025-02-23" style="padding-right:16px;">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>최근 3개월 월급 합계 <span class="tip">세전</span></label>
-                    <div class="input-wrap">
-                        <input type="number" id="sv-salary3" placeholder="12000000" value="12000000">
-                        <span class="input-unit">원</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>최근 3개월 일수</label>
-                    <div class="input-wrap">
-                        <input type="number" id="sv-days3" placeholder="92" value="92">
-                        <span class="input-unit">일</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>연간 상여금</label>
-                    <div class="input-wrap">
-                        <input type="number" id="sv-bonus" placeholder="0" value="0">
-                        <span class="input-unit">원</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>연간 연차수당</label>
-                    <div class="input-wrap">
-                        <input type="number" id="sv-leave" placeholder="0" value="0">
-                        <span class="input-unit">원</span>
+                <div class="card-body">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">입사일</label>
+                            <div class="field-wrap">
+                                <input type="date" id="sv-start" value="2020-01-01">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">퇴사일</label>
+                            <div class="field-wrap">
+                                <input type="date" id="sv-end" value="2025-02-23">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <button class="calc-btn" onclick="calcSeverance()">
-                <span class="iconify" data-icon="carbon:calculator"></span>
-                퇴직금 계산하기
-            </button>
-        </div>
+            <div class="input-card">
+                <div class="card-header">
+                    <div class="card-header-icon"><span class="iconify" data-icon="carbon:currency-won"></span></div>
+                    <span class="card-header-title">임금 정보</span>
+                </div>
+                <div class="card-body">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">최근 3개월 급여 합계 (세전)</label>
+                            <div class="field-wrap">
+                                <input type="number" id="sv-salary3" value="12000000">
+                                <span class="field-unit">원</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">최근 3개월 일수</label>
+                            <div class="field-wrap">
+                                <input type="number" id="sv-days3" value="92">
+                                <span class="field-unit">일</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">연간 상여금</label>
+                            <div class="field-wrap">
+                                <input type="number" id="sv-bonus" value="0">
+                                <span class="field-unit">원</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">연간 연차수당</label>
+                            <div class="field-wrap">
+                                <input type="number" id="sv-leave" value="0">
+                                <span class="field-unit">원</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="calc-btn" onclick="calcSeverance()">
+                        <span class="iconify" data-icon="carbon:arrow-right"></span>
+                        퇴직금 계산
+                    </button>
+                </div>
+            </div>
 
-        <div class="result-card" id="result-severance">
-            <div class="result-label">예상 퇴직금</div>
-            <div class="result-amount" id="sv-result-main">0<span>원</span></div>
-            <div class="result-breakdown">
-                <div class="breakdown-item">
-                    <div class="breakdown-label">근속 연수</div>
-                    <div class="breakdown-value" id="sv-years">-</div>
-                </div>
-                <div class="breakdown-item">
-                    <div class="breakdown-label">1일 평균임금</div>
-                    <div class="breakdown-value" id="sv-daily">-</div>
-                </div>
-                <div class="breakdown-item">
-                    <div class="breakdown-label">30일분 평균임금</div>
-                    <div class="breakdown-value" id="sv-monthly">-</div>
-                </div>
-                <div class="breakdown-item">
-                    <div class="breakdown-label">세후 예상액</div>
-                    <div class="breakdown-value positive" id="sv-after-tax">-</div>
-                </div>
+            <div class="info-strip">
+                <span class="iconify" data-icon="carbon:information"></span>
+                <span>퇴직금 지급 조건: <strong>1년 이상</strong> 근무 + <strong>주 15시간 이상</strong> 근로. 공식: 1일 평균임금 × 30일 × (근속일수 ÷ 365)</span>
             </div>
         </div>
 
-        <div class="info-box">
-            <span class="iconify" data-icon="carbon:information"></span>
-            <span>퇴직금은 <strong>1년 이상 근무</strong>하고 <strong>주 15시간 이상</strong> 일한 경우 지급됩니다. 산출 공식: 1일 평균임금 × 30일 × (근속일수 ÷ 365)</span>
+        <div class="panel-right">
+            <div class="result-empty" id="empty-severance">
+                <span class="iconify" data-icon="carbon:calculator" style="display:block;"></span>
+                <p>값을 입력하고<br>계산 버튼을 눌러주세요</p>
+            </div>
+            <div class="result-card" id="result-severance">
+                <div class="result-main">
+                    <div class="result-kicker">예상 퇴직금</div>
+                    <div class="result-amount" id="sv-amount">0</div>
+                    <div class="result-label">세전 기준</div>
+                </div>
+                <div class="result-breakdown">
+                    <div class="breakdown-row">
+                        <span class="bd-label">근속 연수</span>
+                        <span class="bd-value" id="sv-years">—</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="bd-label">1일 평균임금</span>
+                        <span class="bd-value" id="sv-daily">—</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="bd-label">30일분 평균임금</span>
+                        <span class="bd-value" id="sv-monthly">—</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="bd-label">세후 예상액 (간이)</span>
+                        <span class="bd-value pos" id="sv-after">—</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- ③ 건강보험료 -->
+    <!-- ━━━━━ 건강보험료 ━━━━━ -->
     <div class="calc-panel" id="panel-health">
-        <div class="panel-header">
-            <h2>🏥 건강보험료 계산기</h2>
-            <p>월 보수액을 기준으로 직장가입자 건강보험료를 계산합니다.</p>
+        <div class="panel-left">
+            <div class="input-card">
+                <div class="card-header">
+                    <div class="card-header-icon"><span class="iconify" data-icon="carbon:currency-won"></span></div>
+                    <span class="card-header-title">소득 정보</span>
+                </div>
+                <div class="card-body">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">월 보수월액 (세전 월급)</label>
+                            <div class="field-wrap">
+                                <input type="number" id="hi-salary" value="4000000" oninput="syncRange(this.value)">
+                                <span class="field-unit">원</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">가입 유형</label>
+                            <div class="field-wrap">
+                                <select id="hi-type">
+                                    <option value="employee" selected>직장가입자</option>
+                                    <option value="self">지역가입자</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group span-2">
+                            <label class="form-label">금액 조절</label>
+                            <div class="range-field">
+                                <div class="range-display">
+                                    <span class="range-value" id="range-display">4,000,000</span>
+                                    <span class="range-limits">100만 — 1,500만</span>
+                                </div>
+                                <input type="range" id="hi-range"
+                                    min="1000000" max="15000000" step="100000" value="4000000"
+                                    oninput="syncSalary(this.value)">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="calc-btn" onclick="calcHealth()">
+                        <span class="iconify" data-icon="carbon:arrow-right"></span>
+                        보험료 계산
+                    </button>
+                </div>
+            </div>
+
+            <div class="info-strip">
+                <span class="iconify" data-icon="carbon:information"></span>
+                <span>2025년 기준: 건강보험료율 <strong>7.09%</strong> (본인 3.545%), 장기요양보험료 건강보험료의 <strong>12.95%</strong></span>
+            </div>
         </div>
 
-        <div class="card">
-            <div class="card-title"><span class="iconify" data-icon="carbon:currency-won"></span> 소득 정보</div>
-            <div class="form-grid">
-                <div class="form-group">
-                    <label>월 보수월액 <span class="tip">세전 월급</span></label>
-                    <div class="input-wrap">
-                        <input type="number" id="hi-salary" placeholder="4000000" value="4000000">
-                        <span class="input-unit">원</span>
+        <div class="panel-right">
+            <div class="result-empty" id="empty-health">
+                <span class="iconify" data-icon="carbon:calculator" style="display:block;"></span>
+                <p>값을 입력하고<br>계산 버튼을 눌러주세요</p>
+            </div>
+            <div class="result-card" id="result-health">
+                <div class="result-main">
+                    <div class="result-kicker">월 본인부담 보험료</div>
+                    <div class="result-amount" id="hi-amount">0</div>
+                    <div class="result-label">건강보험 + 장기요양</div>
+                </div>
+                <div class="result-breakdown">
+                    <div class="breakdown-row">
+                        <span class="bd-label">건강보험료 (전체)</span>
+                        <span class="bd-value" id="hi-total">—</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="bd-label">본인부담 (50%)</span>
+                        <span class="bd-value" id="hi-self">—</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="bd-label">장기요양보험료</span>
+                        <span class="bd-value" id="hi-care">—</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="bd-label">연간 납부 합계</span>
+                        <span class="bd-value pos" id="hi-annual">—</span>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label>가입 유형</label>
-                    <div class="input-wrap">
-                        <select id="hi-type">
-                            <option value="employee" selected>직장가입자</option>
-                            <option value="self">지역가입자</option>
-                        </select>
-                    </div>
-                </div>
             </div>
-
-            <div class="form-group full" style="margin-top:20px;">
-                <label>월 보수 조절</label>
-                <div class="range-wrap">
-                    <input type="range" id="hi-range" min="1000000" max="15000000" step="100000" value="4000000"
-                        oninput="document.getElementById('hi-salary').value=this.value; calcHealth()">
-                    <div class="range-labels"><span>100만원</span><span>500만원</span><span>1,000만원</span><span>1,500만원</span></div>
-                </div>
-            </div>
-
-            <button class="calc-btn" onclick="calcHealth()">
-                <span class="iconify" data-icon="carbon:calculator"></span>
-                보험료 계산하기
-            </button>
-        </div>
-
-        <div class="result-card" id="result-health">
-            <div class="result-label">월 납부 보험료 (본인부담)</div>
-            <div class="result-amount" id="hi-result-main">0<span>원</span></div>
-            <div class="result-breakdown">
-                <div class="breakdown-item">
-                    <div class="breakdown-label">건강보험료 (전체)</div>
-                    <div class="breakdown-value" id="hi-total">-</div>
-                </div>
-                <div class="breakdown-item">
-                    <div class="breakdown-label">본인부담 (50%)</div>
-                    <div class="breakdown-value" id="hi-self">-</div>
-                </div>
-                <div class="breakdown-item">
-                    <div class="breakdown-label">장기요양보험료</div>
-                    <div class="breakdown-value" id="hi-care">-</div>
-                </div>
-                <div class="breakdown-item">
-                    <div class="breakdown-label">연간 합계</div>
-                    <div class="breakdown-value positive" id="hi-annual">-</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="info-box">
-            <span class="iconify" data-icon="carbon:information"></span>
-            <span>2025년 건강보험료율: <strong>7.09%</strong> (본인 3.545%), 장기요양보험료: 건강보험료의 <strong>12.95%</strong> 적용</span>
         </div>
     </div>
 
-    <!-- ④ 실업급여 -->
+    <!-- ━━━━━ 실업급여 ━━━━━ -->
     <div class="calc-panel" id="panel-unemployment">
-        <div class="panel-header">
-            <h2>📋 실업급여 계산기</h2>
-            <p>이직 전 평균임금과 고용보험 가입기간으로 실업급여를 계산합니다.</p>
-        </div>
-
-        <div class="card">
-            <div class="card-title"><span class="iconify" data-icon="carbon:user-multiple"></span> 고용 정보</div>
-            <div class="form-grid">
-                <div class="form-group">
-                    <label>퇴직 전 3개월 월급 평균</label>
-                    <div class="input-wrap">
-                        <input type="number" id="ub-salary" placeholder="3500000" value="3500000">
-                        <span class="input-unit">원</span>
-                    </div>
+        <div class="panel-left">
+            <div class="input-card">
+                <div class="card-header">
+                    <div class="card-header-icon"><span class="iconify" data-icon="carbon:user-certification"></span></div>
+                    <span class="card-header-title">고용 정보</span>
                 </div>
-                <div class="form-group">
-                    <label>고용보험 가입 기간</label>
-                    <div class="input-wrap">
-                        <select id="ub-period">
-                            <option value="150">1년 미만 (150일)</option>
-                            <option value="180" selected>1년~3년 (180일)</option>
-                            <option value="210">3년~5년 (210일)</option>
-                            <option value="240">5년~10년 (240일)</option>
-                            <option value="270">10년 이상 (270일)</option>
-                        </select>
+                <div class="card-body">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">퇴직 전 3개월 평균 월급</label>
+                            <div class="field-wrap">
+                                <input type="number" id="ub-salary" value="3500000">
+                                <span class="field-unit">원</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">고용보험 가입 기간</label>
+                            <div class="field-wrap">
+                                <select id="ub-period">
+                                    <option value="150">1년 미만 — 150일</option>
+                                    <option value="180" selected>1년~3년 — 180일</option>
+                                    <option value="210">3년~5년 — 210일</option>
+                                    <option value="240">5년~10년 — 240일</option>
+                                    <option value="270">10년 이상 — 270일</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">연령</label>
+                            <div class="field-wrap">
+                                <select id="ub-age">
+                                    <option value="young" selected>50세 미만</option>
+                                    <option value="old">50세 이상 / 장애인</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label>나이</label>
-                    <div class="input-wrap">
-                        <select id="ub-age">
-                            <option value="young" selected>50세 미만</option>
-                            <option value="old">50세 이상 또는 장애인</option>
-                        </select>
-                    </div>
+                    <button class="calc-btn" onclick="calcUnemployment()">
+                        <span class="iconify" data-icon="carbon:arrow-right"></span>
+                        실업급여 계산
+                    </button>
                 </div>
             </div>
 
-            <button class="calc-btn" onclick="calcUnemployment()">
-                <span class="iconify" data-icon="carbon:calculator"></span>
-                실업급여 계산하기
-            </button>
-        </div>
-
-        <div class="result-card" id="result-unemployment">
-            <div class="result-label">총 예상 실업급여</div>
-            <div class="result-amount" id="ub-result-main">0<span>원</span></div>
-            <div class="result-breakdown">
-                <div class="breakdown-item">
-                    <div class="breakdown-label">1일 수급액</div>
-                    <div class="breakdown-value" id="ub-daily">-</div>
-                </div>
-                <div class="breakdown-item">
-                    <div class="breakdown-label">수급 기간</div>
-                    <div class="breakdown-value" id="ub-period-show">-</div>
-                </div>
-                <div class="breakdown-item">
-                    <div class="breakdown-label">상한액 적용 여부</div>
-                    <div class="breakdown-value" id="ub-cap">-</div>
-                </div>
-                <div class="breakdown-item">
-                    <div class="breakdown-label">월 예상 수령액</div>
-                    <div class="breakdown-value positive" id="ub-monthly">-</div>
-                </div>
+            <div class="info-strip">
+                <span class="iconify" data-icon="carbon:information"></span>
+                <span>1일 상한액 <strong>66,000원</strong>, 하한액 최저임금의 80% 적용 (2025년 기준). 비자발적 퇴사 + 180일 이상 가입이 기본 수급 조건입니다.</span>
             </div>
         </div>
 
-        <div class="info-box">
-            <span class="iconify" data-icon="carbon:information"></span>
-            <span>실업급여 1일 상한액 <strong>66,000원</strong>, 하한액 최저임금의 80% 적용 (2025년 기준). 비자발적 퇴사 + 180일 이상 가입이 기본 조건입니다.</span>
+        <div class="panel-right">
+            <div class="result-empty" id="empty-unemployment">
+                <span class="iconify" data-icon="carbon:calculator" style="display:block;"></span>
+                <p>값을 입력하고<br>계산 버튼을 눌러주세요</p>
+            </div>
+            <div class="result-card" id="result-unemployment">
+                <div class="result-main">
+                    <div class="result-kicker">총 예상 실업급여</div>
+                    <div class="result-amount" id="ub-amount">0</div>
+                    <div class="result-label">수급 기간 전체</div>
+                </div>
+                <div class="result-breakdown">
+                    <div class="breakdown-row">
+                        <span class="bd-label">1일 수급액</span>
+                        <span class="bd-value" id="ub-daily">—</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="bd-label">수급 기간</span>
+                        <span class="bd-value" id="ub-days">—</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="bd-label">상한/하한 적용</span>
+                        <span class="bd-value accent" id="ub-cap">—</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="bd-label">월 예상 수령액</span>
+                        <span class="bd-value pos" id="ub-monthly">—</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- ⑤ 대출이자 -->
+    <!-- ━━━━━ 대출이자 ━━━━━ -->
     <div class="calc-panel" id="panel-loan">
-        <div class="panel-header">
-            <h2>🏠 대출이자 계산기</h2>
-            <p>대출 원금, 금리, 기간을 입력하면 월 상환액을 계산합니다.</p>
-        </div>
-
-        <div class="card">
-            <div class="card-title"><span class="iconify" data-icon="carbon:home"></span> 대출 정보</div>
-            <div class="form-grid">
-                <div class="form-group">
-                    <label>대출 원금</label>
-                    <div class="input-wrap">
-                        <input type="number" id="ln-principal" placeholder="300000000" value="300000000">
-                        <span class="input-unit">원</span>
-                    </div>
+        <div class="panel-left">
+            <div class="input-card">
+                <div class="card-header">
+                    <div class="card-header-icon"><span class="iconify" data-icon="carbon:building"></span></div>
+                    <span class="card-header-title">대출 정보</span>
                 </div>
-                <div class="form-group">
-                    <label>연 이자율</label>
-                    <div class="input-wrap">
-                        <input type="number" id="ln-rate" placeholder="4.5" value="4.5" step="0.1">
-                        <span class="input-unit">%</span>
+                <div class="card-body">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">대출 원금</label>
+                            <div class="field-wrap">
+                                <input type="number" id="ln-principal" value="300000000">
+                                <span class="field-unit">원</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">연 이자율</label>
+                            <div class="field-wrap">
+                                <input type="number" id="ln-rate" value="4.5" step="0.1">
+                                <span class="field-unit">%</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">대출 기간</label>
+                            <div class="field-wrap">
+                                <select id="ln-term">
+                                    <option value="12">1년</option>
+                                    <option value="60">5년</option>
+                                    <option value="120">10년</option>
+                                    <option value="180">15년</option>
+                                    <option value="240">20년</option>
+                                    <option value="360" selected>30년</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">상환 방식</label>
+                            <div class="field-wrap">
+                                <select id="ln-method">
+                                    <option value="equal" selected>원리금균등상환</option>
+                                    <option value="principal">원금균등상환</option>
+                                    <option value="bullet">만기일시상환</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label>대출 기간</label>
-                    <div class="input-wrap">
-                        <select id="ln-term">
-                            <option value="12">1년</option>
-                            <option value="60">5년</option>
-                            <option value="120">10년</option>
-                            <option value="180">15년</option>
-                            <option value="240">20년</option>
-                            <option value="360" selected>30년</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>상환 방식</label>
-                    <div class="input-wrap">
-                        <select id="ln-method">
-                            <option value="equal" selected>원리금균등상환</option>
-                            <option value="principal">원금균등상환</option>
-                            <option value="bullet">만기일시상환</option>
-                        </select>
-                    </div>
+                    <button class="calc-btn" onclick="calcLoan()">
+                        <span class="iconify" data-icon="carbon:arrow-right"></span>
+                        월 납부액 계산
+                    </button>
                 </div>
             </div>
 
-            <button class="calc-btn" onclick="calcLoan()">
-                <span class="iconify" data-icon="carbon:calculator"></span>
-                월 납부액 계산하기
-            </button>
+            <div class="info-strip">
+                <span class="iconify" data-icon="carbon:information"></span>
+                <span>원리금균등상환: 매달 동일 금액 납부. 원금균등상환: 초기 부담 크고 총이자 적음. 만기일시: 매달 이자만 납부.</span>
+            </div>
         </div>
 
-        <div class="result-card" id="result-loan">
-            <div class="result-label">월 납부액</div>
-            <div class="result-amount" id="ln-result-main">0<span>원</span></div>
-            <div class="result-breakdown">
-                <div class="breakdown-item">
-                    <div class="breakdown-label">총 납부액</div>
-                    <div class="breakdown-value" id="ln-total">-</div>
+        <div class="panel-right">
+            <div class="result-empty" id="empty-loan">
+                <span class="iconify" data-icon="carbon:calculator" style="display:block;"></span>
+                <p>값을 입력하고<br>계산 버튼을 눌러주세요</p>
+            </div>
+            <div class="result-card" id="result-loan">
+                <div class="result-main">
+                    <div class="result-kicker">월 납부액</div>
+                    <div class="result-amount" id="ln-amount">0</div>
+                    <div class="result-label" id="ln-method-label">원리금균등상환 기준</div>
                 </div>
-                <div class="breakdown-item">
-                    <div class="breakdown-label">총 이자</div>
-                    <div class="breakdown-value negative" id="ln-interest">-</div>
-                </div>
-                <div class="breakdown-item">
-                    <div class="breakdown-label">원금</div>
-                    <div class="breakdown-value" id="ln-principal-show">-</div>
-                </div>
-                <div class="breakdown-item">
-                    <div class="breakdown-label">이자 비율</div>
-                    <div class="breakdown-value" id="ln-ratio">-</div>
+                <div class="result-breakdown">
+                    <div class="breakdown-row">
+                        <span class="bd-label">총 납부액</span>
+                        <span class="bd-value" id="ln-total">—</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="bd-label">총 이자</span>
+                        <span class="bd-value neg" id="ln-interest">—</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="bd-label">대출 원금</span>
+                        <span class="bd-value" id="ln-principal-show">—</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="bd-label">이자 비율</span>
+                        <span class="bd-value accent" id="ln-ratio">—</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -785,66 +1060,81 @@
 
 </main>
 
-<!-- 푸터 -->
-<footer class="footer">
+<footer>
     <div class="footer-logo">Blogglow</div>
-    <p>직장인을 위한 실용 정보 블로그</p>
+    <p>직장인을 위한 실용 정보 블로그 · 본 계산기는 참고용이며 법적 효력이 없습니다</p>
     <div class="footer-links">
         <a href="/index.html">홈</a>
         <a href="/about.html">소개</a>
         <a href="/policy.html">운영정책</a>
     </div>
-    <div class="footer-bottom">© 2025 Blogglow. All rights reserved. 본 계산기는 참고용이며 법적 효력이 없습니다.</div>
 </footer>
 
 <script>
-// ── 탭 전환 ──
-function switchTab(id, el) {
+// ── 패널 전환 ──
+function switchPanel(id, btn) {
     document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.calc-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('panel-' + id).classList.add('active');
-    el.classList.add('active');
+    btn.classList.add('active');
 }
 
-// ── 체크박스 토글 ──
+// ── 체크 토글 ──
 function toggleCheck(label) {
-    const cb = label.querySelector('input');
+    const cb = label.querySelector('input[type="checkbox"]');
     cb.checked = !cb.checked;
-    label.classList.toggle('checked', cb.checked);
+    label.classList.toggle('on', cb.checked);
 }
-// 초기 상태 동기화
-document.querySelectorAll('.checkbox-item').forEach(label => {
-    const cb = label.querySelector('input');
-    label.classList.toggle('checked', cb.checked);
+document.querySelectorAll('.check-item').forEach(l => {
+    const cb = l.querySelector('input[type="checkbox"]');
+    l.classList.toggle('on', cb.checked);
 });
 
+// ── 슬라이더 동기화 ──
+function syncRange(val) {
+    const v = Math.min(15000000, Math.max(1000000, +val || 1000000));
+    document.getElementById('hi-range').value = v;
+    document.getElementById('range-display').textContent = v.toLocaleString('ko-KR');
+}
+function syncSalary(val) {
+    document.getElementById('hi-salary').value = val;
+    document.getElementById('range-display').textContent = (+val).toLocaleString('ko-KR');
+}
+
 // ── 숫자 포맷 ──
-const fmt = n => Math.round(n).toLocaleString('ko-KR') + '원';
-const fmtN = n => Math.round(n).toLocaleString('ko-KR');
+const won = n => Math.round(n).toLocaleString('ko-KR') + '원';
+const wonShort = n => {
+    const v = Math.round(Math.abs(n));
+    if (v >= 100000000) return (v / 100000000).toFixed(1) + '억원';
+    if (v >= 10000) return (v / 10000).toFixed(0) + '만원';
+    return v.toLocaleString('ko-KR') + '원';
+};
+
+function showResult(resultId, emptyId) {
+    document.getElementById(emptyId).style.display = 'none';
+    document.getElementById(resultId).classList.add('show');
+}
 
 // ── ① 연말정산 ──
 function calcYearend() {
-    const salary = +document.getElementById('ye-salary').value || 0;
-    const paid   = +document.getElementById('ye-paid').value  || 0;
-    const family = +document.getElementById('ye-family').value || 1;
-    const medical= +document.getElementById('ye-medical').value || 0;
-    const edu    = +document.getElementById('ye-edu').value   || 0;
-    const donation=+document.getElementById('ye-donation').value || 0;
-    const credit = +document.getElementById('ye-credit').value || 0;
-    const debit  = +document.getElementById('ye-debit').value  || 0;
+    const salary   = +document.getElementById('ye-salary').value   || 0;
+    const paid     = +document.getElementById('ye-paid').value     || 0;
+    const family   = +document.getElementById('ye-family').value   || 1;
+    const medical  = +document.getElementById('ye-medical').value  || 0;
+    const edu      = +document.getElementById('ye-edu').value      || 0;
+    const donation = +document.getElementById('ye-donation').value || 0;
+    const credit   = +document.getElementById('ye-credit').value   || 0;
+    const debit    = +document.getElementById('ye-debit').value    || 0;
 
-    // 근로소득공제
     let workDeduct = 0;
-    if (salary <= 5000000)       workDeduct = salary * 0.7;
-    else if (salary <= 15000000) workDeduct = 3500000 + (salary - 5000000) * 0.4;
-    else if (salary <= 45000000) workDeduct = 7500000 + (salary - 15000000) * 0.15;
-    else if (salary <= 100000000)workDeduct = 12000000 + (salary - 45000000) * 0.05;
-    else                         workDeduct = 14750000;
+    if (salary <= 5000000)        workDeduct = salary * 0.7;
+    else if (salary <= 15000000)  workDeduct = 3500000  + (salary - 5000000)   * 0.4;
+    else if (salary <= 45000000)  workDeduct = 7500000  + (salary - 15000000)  * 0.15;
+    else if (salary <= 100000000) workDeduct = 12000000 + (salary - 45000000)  * 0.05;
+    else                          workDeduct = 14750000;
 
-    // 인적공제 (1인당 150만원)
     const personalDeduct = family * 1500000;
 
-    // 신용카드 공제 (총급여 25% 초과분, 신용15%, 체크30%)
     const threshold = salary * 0.25;
     const totalCard = credit + debit;
     let cardDeduct = 0;
@@ -855,203 +1145,138 @@ function calcYearend() {
         cardDeduct = Math.min(cardDeduct, 3000000);
     }
 
-    // 의료비 공제 (총급여 3% 초과분, 15%)
-    const medicalDeduct = Math.max(0, medical - salary * 0.03) * 0.15;
-
-    // 교육비 세액공제 (15%)
-    const eduDeduct = edu * 0.15;
-
-    // 기부금 공제 (15~30%)
+    const medicalDeduct  = Math.max(0, medical - salary * 0.03) * 0.15;
+    const eduDeduct      = edu * 0.15;
     const donationDeduct = donation * 0.15;
 
-    // 연금/청약 추가 공제
     let extraDeduct = 0;
     if (document.getElementById('ye-pension').checked) extraDeduct += 400000 * 0.15;
     if (document.getElementById('ye-housing').checked) extraDeduct += 240000;
-    if (document.getElementById('ye-isa').checked) extraDeduct += 90000;
-    if (document.getElementById('ye-irp').checked) extraDeduct += 700000 * 0.165;
+    if (document.getElementById('ye-isa').checked)     extraDeduct += 90000;
+    if (document.getElementById('ye-irp').checked)     extraDeduct += 700000 * 0.165;
 
-    // 과세표준
     const grossIncome = salary - workDeduct;
-    const taxBase = Math.max(0, grossIncome - personalDeduct - cardDeduct);
+    const taxBase     = Math.max(0, grossIncome - personalDeduct - cardDeduct);
 
-    // 세율 적용
     let tax = 0;
     if (taxBase <= 14000000)       tax = taxBase * 0.06;
-    else if (taxBase <= 50000000)  tax = 840000 + (taxBase - 14000000) * 0.15;
-    else if (taxBase <= 88000000)  tax = 6240000 + (taxBase - 50000000) * 0.24;
-    else if (taxBase <= 150000000) tax = 15360000 + (taxBase - 88000000) * 0.35;
+    else if (taxBase <= 50000000)  tax = 840000   + (taxBase - 14000000)  * 0.15;
+    else if (taxBase <= 88000000)  tax = 6240000  + (taxBase - 50000000)  * 0.24;
+    else if (taxBase <= 150000000) tax = 15360000 + (taxBase - 88000000)  * 0.35;
     else                           tax = 37060000 + (taxBase - 150000000) * 0.38;
 
-    // 세액공제 적용
-    const finalTax = Math.max(0, tax - medicalDeduct - eduDeduct - donationDeduct - extraDeduct);
-    const localTax = finalTax * 0.1;
-    const totalTax = finalTax + localTax;
+    const finalTax  = Math.max(0, tax - medicalDeduct - eduDeduct - donationDeduct - extraDeduct);
+    const totalTax  = finalTax * 1.1;
+    const refund    = paid - Math.round(totalTax);
+    const isRefund  = refund >= 0;
 
-    const refund = paid - Math.round(totalTax);
+    showResult('result-yearend', 'empty-yearend');
 
-    // 결과 표시
-    const card = document.getElementById('result-yearend');
-    card.classList.add('show');
-
-    const mainEl = document.getElementById('ye-result-main');
-    const labelEl = document.getElementById('ye-result-label');
-
-    mainEl.innerHTML = fmtN(Math.abs(refund)) + '<span>원</span>';
-    if (refund >= 0) {
-        mainEl.style.color = '#34d399';
-        labelEl.textContent = '환급';
-        labelEl.className = 'breakdown-value positive';
-    } else {
-        mainEl.style.color = '#f87171';
-        labelEl.textContent = '추가납부';
-        labelEl.className = 'breakdown-value negative';
-    }
-
-    document.getElementById('ye-taxbase').textContent = fmt(taxBase);
-    document.getElementById('ye-tax').textContent = fmt(finalTax);
-    document.getElementById('ye-paid-show').textContent = fmt(paid);
-
-    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    const amtEl = document.getElementById('ye-amount');
+    amtEl.textContent = wonShort(Math.abs(refund));
+    amtEl.className = 'result-amount ' + (isRefund ? 'positive' : 'negative');
+    document.getElementById('ye-result-label').textContent = isRefund ? '환급 예상' : '추가 납부 예상';
+    document.getElementById('ye-taxbase').textContent    = won(taxBase);
+    document.getElementById('ye-tax').textContent        = won(finalTax);
+    document.getElementById('ye-paid-show').textContent  = won(paid);
+    document.getElementById('ye-final').textContent      = won(Math.round(totalTax));
 }
 
 // ── ② 퇴직금 ──
 function calcSeverance() {
-    const start = new Date(document.getElementById('sv-start').value);
-    const end   = new Date(document.getElementById('sv-end').value);
-    const salary3 = +document.getElementById('sv-salary3').value || 0;
-    const days3   = +document.getElementById('sv-days3').value  || 92;
-    const bonus   = +document.getElementById('sv-bonus').value  || 0;
-    const leave   = +document.getElementById('sv-leave').value  || 0;
+    const start   = new Date(document.getElementById('sv-start').value);
+    const end     = new Date(document.getElementById('sv-end').value);
+    const sal3    = +document.getElementById('sv-salary3').value || 0;
+    const days3   = +document.getElementById('sv-days3').value   || 92;
+    const bonus   = +document.getElementById('sv-bonus').value   || 0;
+    const leave   = +document.getElementById('sv-leave').value   || 0;
 
-    const diffMs = end - start;
-    const diffDays = diffMs / (1000 * 60 * 60 * 24);
-    const years = diffDays / 365;
+    const diffDays = (end - start) / 86400000;
+    const years    = diffDays / 365;
 
-    if (years < 1) {
-        alert('퇴직금은 1년 이상 근무한 경우에만 지급됩니다.');
-        return;
-    }
+    if (years < 1) { alert('퇴직금은 1년 이상 근무한 경우에만 지급됩니다.'); return; }
 
-    const dailyAvg = (salary3 + bonus / 12 * 3 + leave / 12 * 3) / days3;
+    const dailyAvg  = (sal3 + bonus / 12 * 3 + leave / 12 * 3) / days3;
     const severance = dailyAvg * 30 * (diffDays / 365);
+    const taxRate   = severance > 50000000 ? 0.15 : (severance > 20000000 ? 0.08 : 0.03);
+    const afterTax  = severance * (1 - taxRate);
 
-    // 퇴직소득세 (간이 계산)
-    const taxRate = severance > 50000000 ? 0.15 : (severance > 20000000 ? 0.08 : 0.03);
-    const afterTax = severance * (1 - taxRate);
-
-    const card = document.getElementById('result-severance');
-    card.classList.add('show');
-
-    document.getElementById('sv-result-main').innerHTML = fmtN(Math.round(severance)) + '<span>원</span>';
-    document.getElementById('sv-years').textContent = years.toFixed(1) + '년';
-    document.getElementById('sv-daily').textContent = Math.round(dailyAvg).toLocaleString() + '원';
-    document.getElementById('sv-monthly').textContent = Math.round(dailyAvg * 30).toLocaleString() + '원';
-    document.getElementById('sv-after-tax').textContent = Math.round(afterTax).toLocaleString() + '원';
-
-    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    showResult('result-severance', 'empty-severance');
+    document.getElementById('sv-amount').textContent = wonShort(severance);
+    document.getElementById('sv-years').textContent  = years.toFixed(1) + '년';
+    document.getElementById('sv-daily').textContent  = won(dailyAvg);
+    document.getElementById('sv-monthly').textContent = won(dailyAvg * 30);
+    document.getElementById('sv-after').textContent  = won(afterTax);
 }
 
 // ── ③ 건강보험료 ──
 function calcHealth() {
-    const salary = +document.getElementById('hi-salary').value || 0;
-    document.getElementById('hi-range').value = salary;
+    const salary    = +document.getElementById('hi-salary').value || 0;
+    const totalH    = salary * 0.0709;
+    const selfH     = totalH / 2;
+    const care      = selfH * 0.1295;
+    const monthly   = Math.round(selfH + care);
 
-    const rate = 0.0709;
-    const careRate = 0.1295;
-
-    const totalHealth = salary * rate;
-    const selfHealth = totalHealth / 2;
-    const careInsurance = selfHealth * careRate;
-    const totalMonthly = Math.round(selfHealth + careInsurance);
-
-    const card = document.getElementById('result-health');
-    card.classList.add('show');
-
-    document.getElementById('hi-result-main').innerHTML = fmtN(totalMonthly) + '<span>원</span>';
-    document.getElementById('hi-total').textContent = Math.round(totalHealth).toLocaleString() + '원';
-    document.getElementById('hi-self').textContent = Math.round(selfHealth).toLocaleString() + '원';
-    document.getElementById('hi-care').textContent = Math.round(careInsurance).toLocaleString() + '원';
-    document.getElementById('hi-annual').textContent = Math.round(totalMonthly * 12).toLocaleString() + '원';
-
-    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    showResult('result-health', 'empty-health');
+    document.getElementById('hi-amount').textContent  = wonShort(monthly);
+    document.getElementById('hi-total').textContent   = won(totalH);
+    document.getElementById('hi-self').textContent    = won(selfH);
+    document.getElementById('hi-care').textContent    = won(care);
+    document.getElementById('hi-annual').textContent  = won(monthly * 12);
 }
 
 // ── ④ 실업급여 ──
 function calcUnemployment() {
-    const salary = +document.getElementById('ub-salary').value || 0;
-    const period = +document.getElementById('ub-period').value || 180;
+    const salary  = +document.getElementById('ub-salary').value  || 0;
+    const period  = +document.getElementById('ub-period').value  || 180;
+    const raw60   = (salary / 30) * 0.6;
+    const maxD    = 66000;
+    const minD    = 8720 * 0.8 * 8;
+    const daily   = Math.min(maxD, Math.max(minD, raw60));
+    const cap     = raw60 > maxD ? '상한 적용' : (raw60 < minD ? '하한 적용' : '없음');
+    const total   = daily * period;
+    const monthly = daily * 30;
 
-    const dailySalary = salary / 30;
-    const dailyBenefit60 = dailySalary * 0.6;
-
-    // 상한/하한 적용
-    const maxDaily = 66000;
-    const minDaily = 63104 * 0.8; // 2025년 최저임금 기준 (일 8시간)
-    const dailyBenefit = Math.min(maxDaily, Math.max(minDaily, dailyBenefit60));
-    const capApplied = dailyBenefit60 > maxDaily ? '상한 적용' : (dailyBenefit60 < minDaily ? '하한 적용' : '없음');
-
-    const total = dailyBenefit * period;
-    const monthly = dailyBenefit * 30;
-
-    const card = document.getElementById('result-unemployment');
-    card.classList.add('show');
-
-    document.getElementById('ub-result-main').innerHTML = fmtN(Math.round(total)) + '<span>원</span>';
-    document.getElementById('ub-daily').textContent = Math.round(dailyBenefit).toLocaleString() + '원';
-    document.getElementById('ub-period-show').textContent = period + '일';
-    document.getElementById('ub-cap').textContent = capApplied;
-    document.getElementById('ub-monthly').textContent = Math.round(monthly).toLocaleString() + '원';
-
-    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    showResult('result-unemployment', 'empty-unemployment');
+    document.getElementById('ub-amount').textContent  = wonShort(total);
+    document.getElementById('ub-daily').textContent   = won(daily);
+    document.getElementById('ub-days').textContent    = period + '일';
+    document.getElementById('ub-cap').textContent     = cap;
+    document.getElementById('ub-monthly').textContent = won(monthly);
 }
 
 // ── ⑤ 대출이자 ──
 function calcLoan() {
-    const P = +document.getElementById('ln-principal').value || 0;
-    const annualRate = +document.getElementById('ln-rate').value || 0;
-    const n = +document.getElementById('ln-term').value || 360;
+    const P      = +document.getElementById('ln-principal').value || 0;
+    const r      = (+document.getElementById('ln-rate').value || 0) / 100 / 12;
+    const n      = +document.getElementById('ln-term').value || 360;
     const method = document.getElementById('ln-method').value;
 
-    const r = annualRate / 100 / 12;
-
-    let monthlyPayment, totalPayment, totalInterest;
+    let monthly, totalPay, totalInt;
 
     if (method === 'equal') {
-        // 원리금균등
-        if (r === 0) {
-            monthlyPayment = P / n;
-        } else {
-            monthlyPayment = P * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
-        }
-        totalPayment = monthlyPayment * n;
-        totalInterest = totalPayment - P;
+        monthly  = r === 0 ? P / n : P * r * Math.pow(1+r,n) / (Math.pow(1+r,n) - 1);
+        totalPay = monthly * n;
+        totalInt = totalPay - P;
     } else if (method === 'principal') {
-        // 원금균등 (첫 달 기준)
-        const principalMonthly = P / n;
-        const firstInterest = P * r;
-        monthlyPayment = principalMonthly + firstInterest;
-        totalInterest = P * r * (n + 1) / 2;
-        totalPayment = P + totalInterest;
+        const pm   = P / n;
+        monthly    = pm + P * r;
+        totalInt   = P * r * (n + 1) / 2;
+        totalPay   = P + totalInt;
     } else {
-        // 만기일시
-        monthlyPayment = P * r;
-        totalInterest = monthlyPayment * n;
-        totalPayment = P + totalInterest;
+        monthly  = P * r;
+        totalInt = monthly * n;
+        totalPay = P + totalInt;
     }
 
-    const interestRatio = (totalInterest / totalPayment * 100).toFixed(1);
-
-    const card = document.getElementById('result-loan');
-    card.classList.add('show');
-
-    document.getElementById('ln-result-main').innerHTML = fmtN(Math.round(monthlyPayment)) + '<span>원</span>';
-    document.getElementById('ln-total').textContent = Math.round(totalPayment).toLocaleString() + '원';
-    document.getElementById('ln-interest').textContent = Math.round(totalInterest).toLocaleString() + '원';
-    document.getElementById('ln-principal-show').textContent = P.toLocaleString() + '원';
-    document.getElementById('ln-ratio').textContent = interestRatio + '%';
-
-    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    const methodNames = { equal: '원리금균등상환', principal: '원금균등상환 (첫달)', bullet: '만기일시상환' };
+    showResult('result-loan', 'empty-loan');
+    document.getElementById('ln-amount').textContent       = wonShort(monthly);
+    document.getElementById('ln-method-label').textContent = methodNames[method] + ' 기준';
+    document.getElementById('ln-total').textContent        = won(totalPay);
+    document.getElementById('ln-interest').textContent     = won(totalInt);
+    document.getElementById('ln-principal-show').textContent = won(P);
+    document.getElementById('ln-ratio').textContent        = (totalInt / totalPay * 100).toFixed(1) + '%';
 }
 </script>
 </body>
