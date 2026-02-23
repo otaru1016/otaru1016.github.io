@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>운영정책 | Blogglow</title>
+    <meta name="description" content="Blogglow 개인정보처리방침, 면책조항, 저작권 정책 안내입니다.">
+    <link rel="icon" type="image/png" href="https://blogglow.com/images/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #111827;
+            --text-sub: #4b5563;
+            --text-light: #9ca3af;
+            --primary: #01a3f0;
+            --primary-light: #e0f2fe;
+            --border: #e5e7eb;
+            --bg-gray: #f9fafb;
+            --header-h: 72px;
+            --radius: 12px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Pretendard', -apple-system, sans-serif;
+            background: var(--bg-gray);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { text-decoration: none; color: var(--primary); }
+        a:hover { text-decoration: underline; }
+
+        /* ── 헤더 ── */
+        .notice-bar { background: #111; color: #fff; text-align: center; padding: 10px 24px; font-size: 13px; }
+        .site-header { position: sticky; top: 0; z-index: 100; background: rgba(0,0,0,0.95); backdrop-filter: blur(10px); }
+        .header-inner { max-width: 1140px; margin: 0 auto; padding: 0 24px; height: var(--header-h); display: flex; align-items: center; justify-content: space-between; }
+        .logo img { height: 30px; width: auto; }
+        .nav { display: flex; gap: 24px; }
+        .nav a { font-size: 15px; font-weight: 600; color: #94a3b8; transition: color 0.2s; text-decoration: none; }
+        .nav a:hover, .nav a.active { color: #fff; }
+
+        /* ── 페이지 헤더 ── */
+        .page-header {
+            background: #fff; border-bottom: 1px solid var(--border);
+            padding: 60px 24px 48px;
+        }
+        .page-header-inner { max-width: 760px; margin: 0 auto; }
+        .page-label {
+            font-size: 12px; font-weight: 800; color: var(--primary);
+            letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 16px;
+        }
+        .page-header h1 {
+            font-size: 2.8rem; font-weight: 900; letter-spacing: -0.04em;
+            margin-bottom: 16px; line-height: 1.15;
+        }
+        .page-header-meta {
+            display: flex; gap: 24px; flex-wrap: wrap;
+            font-size: 13px; color: var(--text-light);
+            margin-top: 20px; padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+        .meta-item { display: flex; align-items: center; gap: 6px; font-weight: 600; }
+
+        /* ── 레이아웃 ── */
+        .layout {
+            max-width: 1100px; margin: 48px auto; padding: 0 24px 100px;
+            display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start;
+        }
+
+        /* ── 사이드 네비 ── */
+        .side-nav { position: sticky; top: calc(var(--header-h) + 24px); }
+        .side-nav-title { font-size: 11px; font-weight: 800; color: var(--text-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+        .side-nav-list { list-style: none; }
+        .side-nav-list li + li { margin-top: 2px; }
+        .side-nav-list a {
+            display: block; padding: 8px 12px; border-radius: 8px;
+            font-size: 14px; font-weight: 600; color: var(--text-sub);
+            text-decoration: none; transition: all 0.15s;
+            border-left: 2px solid transparent;
+        }
+        .side-nav-list a:hover { color: var(--primary); background: var(--primary-light); }
+        .side-nav-list a.active { color: var(--primary); background: var(--primary-light); border-left-color: var(--primary); }
+
+        /* ── 콘텐츠 ── */
+        .content { min-width: 0; }
+
+        /* ── 섹션 ── */
+        .policy-section {
+            background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+            margin-bottom: 24px; overflow: hidden; scroll-margin-top: calc(var(--header-h) + 80px);
+        }
+        .policy-section-header {
+            padding: 24px 32px; border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 12px;
+            background: var(--bg-gray);
+        }
+        .policy-section-icon {
+            width: 40px; height: 40px; border-radius: 10px;
+            background: var(--primary-light); display: flex; align-items: center; justify-content: center;
+            font-size: 20px; color: var(--primary); flex-shrink: 0;
+        }
+        .policy-section-title { font-size: 17px; font-weight: 800; }
+        .policy-section-body { padding: 32px; }
+
+        /* ── 타이포그래피 ── */
+        .policy-section-body h3 {
+            font-size: 15px; font-weight: 800; color: var(--text);
+            margin: 28px 0 12px; padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        .policy-section-body h3:first-child { margin-top: 0; }
+        .policy-section-body p {
+            font-size: 14px; color: var(--text-sub); line-height: 1.85; margin-bottom: 12px;
+        }
+        .policy-section-body ul, .policy-section-body ol {
+            margin: 12px 0 16px 20px; display: flex; flex-direction: column; gap: 8px;
+        }
+        .policy-section-body li { font-size: 14px; color: var(--text-sub); line-height: 1.7; }
+        .policy-section-body strong { color: var(--text); font-weight: 700; }
+
+        /* ── 하이라이트 박스 ── */
+        .highlight-box {
+            background: var(--primary-light); border: 1px solid rgba(1,163,240,0.2);
+            border-radius: 10px; padding: 16px 20px; margin: 16px 0;
+            font-size: 14px; color: #0369a1; line-height: 1.7;
+            display: flex; gap: 10px;
+        }
+        .highlight-box .iconify { flex-shrink: 0; font-size: 16px; margin-top: 2px; }
+        .warning-box {
+            background: #fffbeb; border: 1px solid #fde68a;
+            border-radius: 10px; padding: 16px 20px; margin: 16px 0;
+            font-size: 14px; color: #92400e; line-height: 1.7;
+            display: flex; gap: 10px;
+        }
+        .warning-box .iconify { flex-shrink: 0; font-size: 16px; margin-top: 2px; }
+
+        /* ── 테이블 ── */
+        .policy-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+        .policy-table th {
+            background: var(--bg-gray); text-align: left;
+            padding: 12px 16px; font-size: 12px; font-weight: 800;
+            color: var(--text-light); letter-spacing: 0.05em; text-transform: uppercase;
+            border-bottom: 2px solid var(--border);
+        }
+        .policy-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); color: var(--text-sub); vertical-align: top; }
+        .policy-table tr:last-child td { border-bottom: none; }
+        .policy-table tr:hover td { background: var(--bg-gray); }
+
+        /* ── 버전 배지 ── */
+        .version-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: var(--bg-gray); border: 1px solid var(--border);
+            border-radius: 100px; padding: 4px 12px;
+            font-size: 12px; font-weight: 700; color: var(--text-light);
+        }
+
+        /* ── 푸터 ── */
+        .footer { background: #1a1a1a; color: #a1a1aa; padding: 40px 24px; text-align: center; font-size: 13px; }
+        .footer-logo { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+        .footer-links { display: flex; justify-content: center; gap: 24px; margin-top: 16px; }
+        .footer-links a { color: #52525b; font-size: 13px; transition: color 0.2s; text-decoration: none; }
+        .footer-links a:hover { color: #fff; }
+        .footer-bottom { margin-top: 20px; padding-top: 20px; border-top: 1px solid #333; font-size: 12px; color: #52525b; }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .layout { grid-template-columns: 1fr; }
+            .side-nav { display: none; }
+            .page-header h1 { font-size: 2rem; }
+            .nav { display: none; }
+            .policy-section-body { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 헤더 -->
+<div class="notice-bar">📌 경제, 세금, 재테크, 생활 — 꼭 알아야 할 돈 되는 정보를 정리합니다</div>
+<header class="site-header">
+    <div class="header-inner">
+        <a href="/index.html" class="logo">
+            <img src="https://blogglow.com/images/logo.png" alt="Blogglow">
+        </a>
+        <nav class="nav">
+            <a href="/index.html">인사이트</a>
+            <a href="/calculator.html">계산기</a>
+            <a href="/about.html">소개</a>
+            <a href="/policy.html" class="active">운영정책</a>
+        </nav>
+    </div>
+</header>
+
+<!-- 페이지 헤더 -->
+<div class="page-header">
+    <div class="page-header-inner">
+        <div class="page-label">Legal & Policy</div>
+        <h1>운영정책</h1>
+        <p style="color:var(--text-sub); font-size:15px;">Blogglow의 개인정보처리방침, 면책조항, 저작권 정책을 안내합니다.</p>
+        <div class="page-header-meta">
+            <div class="meta-item">
+                <span class="iconify" data-icon="carbon:calendar"></span>
+                최초 시행일: 2025년 01월 01일
+            </div>
+            <div class="meta-item">
+                <span class="iconify" data-icon="carbon:update-now"></span>
+                최종 수정: 2025년 02월 23일
+            </div>
+            <div class="version-badge">v1.0</div>
+        </div>
+    </div>
+</div>
+
+<!-- 본문 -->
+<div class="layout">
+
+    <!-- 사이드 네비 -->
+    <nav class="side-nav">
+        <div class="side-nav-title">목차</div>
+        <ul class="side-nav-list">
+            <li><a href="#privacy" class="active">개인정보처리방침</a></li>
+            <li><a href="#disclaimer">면책조항</a></li>
+            <li><a href="#copyright">저작권 정책</a></li>
+            <li><a href="#ads">광고 정책</a></li>
+            <li><a href="#cookie">쿠키 정책</a></li>
+            <li><a href="#contact">문의</a></li>
+        </ul>
+    </nav>
+
+    <!-- 콘텐츠 -->
+    <div class="content">
+
+        <!-- 1. 개인정보처리방침 -->
+        <div class="policy-section" id="privacy">
+            <div class="policy-section-header">
+                <div class="policy-section-icon">
+                    <span class="iconify" data-icon="carbon:security"></span>
+                </div>
+                <div class="policy-section-title">개인정보처리방침</div>
+            </div>
+            <div class="policy-section-body">
+                <div class="highlight-box">
+                    <span class="iconify" data-icon="carbon:information"></span>
+                    Blogglow(이하 "블로그")는 「개인정보 보호법」에 따라 이용자의 개인정보를 보호하고 관련 권리를 보장합니다.
+                </div>
+
+                <h3>제1조 수집하는 개인정보 항목</h3>
+                <p>블로그는 서비스 제공을 위해 아래와 같은 정보를 수집할 수 있습니다.</p>
+                <table class="policy-table">
+                    <thead>
+                        <tr>
+                            <th>수집 방법</th>
+                            <th>항목</th>
+                            <th>목적</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>자동 수집</td>
+                            <td>IP 주소, 방문 페이지, 접속 시간, 브라우저 정보</td>
+                            <td>서비스 개선, 통계 분석</td>
+                        </tr>
+                        <tr>
+                            <td>Google Analytics</td>
+                            <td>방문 행동 데이터 (익명화 처리)</td>
+                            <td>방문자 통계 분석</td>
+                        </tr>
+                        <tr>
+                            <td>댓글/문의</td>
+                            <td>닉네임, 이메일 (선택 입력 시)</td>
+                            <td>소통 및 답변 제공</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>제2조 개인정보 수집 및 이용 목적</h3>
+                <ul>
+                    <li>블로그 서비스 제공 및 유지보수</li>
+                    <li>콘텐츠 개선을 위한 방문 패턴 분석</li>
+                    <li>이용자 문의 및 피드백 처리</li>
+                </ul>
+
+                <h3>제3조 개인정보 보유 및 이용 기간</h3>
+                <p>수집된 개인정보는 수집 목적 달성 후 지체 없이 파기합니다. 단, 법령에 의거 보존할 필요가 있는 경우 해당 기간 동안 보관합니다.</p>
+                <ul>
+                    <li>전자상거래 기록: 5년 (전자상거래 등에서의 소비자보호에 관한 법률)</li>
+                    <li>방문 로그 데이터: 3개월 (통신비밀보호법)</li>
+                </ul>
+
+                <h3>제4조 개인정보의 제3자 제공</h3>
+                <p>블로그는 원칙적으로 이용자의 개인정보를 외부에 제공하지 않습니다. 다만, 다음의 경우는 예외입니다.</p>
+                <ul>
+                    <li>이용자가 사전에 동의한 경우</li>
+                    <li>법령에 특별한 규정이 있는 경우</li>
+                </ul>
+
+                <h3>제5조 이용자의 권리</h3>
+                <p>이용자는 언제든지 다음의 권리를 행사할 수 있습니다.</p>
+                <ul>
+                    <li>개인정보 열람 요구</li>
+                    <li>개인정보 오류 정정 요구</li>
+                    <li>개인정보 삭제 요구</li>
+                    <li>개인정보 처리정지 요구</li>
+                </ul>
+                <p>권리 행사는 문의 이메일을 통해 요청하실 수 있으며, 지체 없이 처리하겠습니다.</p>
+
+                <h3>제6조 Google Analytics 사용</h3>
+                <p>본 블로그는 방문 통계 수집을 위해 Google Analytics를 사용합니다. Google Analytics는 쿠키를 사용하여 방문자 행동을 익명으로 분석합니다. Google의 개인정보 정책은 <a href="https://policies.google.com/privacy" target="_blank">Google 개인정보처리방침</a>에서 확인하실 수 있습니다.</p>
+            </div>
+        </div>
+
+        <!-- 2. 면책조항 -->
+        <div class="policy-section" id="disclaimer">
+            <div class="policy-section-header">
+                <div class="policy-section-icon">
+                    <span class="iconify" data-icon="carbon:warning-alt"></span>
+                </div>
+                <div class="policy-section-title">면책조항</div>
+            </div>
+            <div class="policy-section-body">
+                <div class="warning-box">
+                    <span class="iconify" data-icon="carbon:warning"></span>
+                    <span>본 블로그의 모든 콘텐츠는 <strong>정보 제공 목적</strong>으로만 작성되었으며, 법적·금융적 조언이 아닙니다.</span>
+                </div>
+
+                <h3>제1조 정보의 정확성</h3>
+                <p>Blogglow는 콘텐츠의 정확성을 위해 최선을 다하지만, 세법 개정, 정부 정책 변경 등으로 인해 정보가 변경될 수 있습니다. 중요한 금융 결정을 내리기 전에 반드시 관련 기관이나 전문가에게 확인하시기 바랍니다.</p>
+
+                <h3>제2조 계산기 사용 관련</h3>
+                <p>본 사이트에서 제공하는 모든 계산기(연말정산, 퇴직금, 건강보험료 등)는 <strong>참고용</strong>이며, 실제 세액 또는 수령액과 차이가 있을 수 있습니다. 계산 결과를 법적 근거로 사용할 수 없으며, 실제 금액은 국세청, 근로복지공단 등 관련 기관을 통해 확인하시기 바랍니다.</p>
+
+                <h3>제3조 외부 링크</h3>
+                <p>본 블로그에는 외부 웹사이트로의 링크가 포함될 수 있습니다. 외부 사이트의 콘텐츠 및 개인정보처리방침에 대해서는 책임을 지지 않습니다.</p>
+
+                <h3>제4조 투자 관련 면책</h3>
+                <p>블로그에 포함된 투자 관련 내용은 특정 종목 또는 상품의 매수·매도를 권유하는 것이 아닙니다. 투자 결정에 대한 책임은 전적으로 투자자 본인에게 있으며, 투자로 인한 손실에 대해 블로그는 어떠한 책임도 지지 않습니다.</p>
+
+                <h3>제5조 콘텐츠 최신성</h3>
+                <p>세법, 보험료율, 지원 정책 등은 매년 변경될 수 있습니다. 콘텐츠 작성일 이후 변경된 사항이 반영되지 않을 수 있으므로, 최신 정보는 해당 기관의 공식 발표를 기준으로 하시기 바랍니다.</p>
+
+                <table class="policy-table">
+                    <thead>
+                        <tr>
+                            <th>항목</th>
+                            <th>확인 기관</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>세금·연말정산</td>
+                            <td><a href="https://www.hometax.go.kr" target="_blank">국세청 홈택스</a></td>
+                        </tr>
+                        <tr>
+                            <td>퇴직금·고용보험</td>
+                            <td><a href="https://www.comwel.or.kr" target="_blank">근로복지공단</a></td>
+                        </tr>
+                        <tr>
+                            <td>건강보험료</td>
+                            <td><a href="https://www.nhis.or.kr" target="_blank">국민건강보험공단</a></td>
+                        </tr>
+                        <tr>
+                            <td>실업급여</td>
+                            <td><a href="https://www.ei.go.kr" target="_blank">고용보험 사이트</a></td>
+                        </tr>
+                        <tr>
+                            <td>청약·주택정책</td>
+                            <td><a href="https://www.applyhome.co.kr" target="_blank">청약홈</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 3. 저작권 정책 -->
+        <div class="policy-section" id="copyright">
+            <div class="policy-section-header">
+                <div class="policy-section-icon">
+                    <span class="iconify" data-icon="carbon:copyright"></span>
+                </div>
+                <div class="policy-section-title">저작권 정책</div>
+            </div>
+            <div class="policy-section-body">
+                <h3>제1조 블로그 콘텐츠의 저작권</h3>
+                <p>Blogglow에 게시된 모든 글, 이미지, 계산기, 디자인 등의 콘텐츠는 저작권법의 보호를 받습니다. 무단 복제, 배포, 수정은 금지됩니다.</p>
+
+                <h3>제2조 허용되는 사용</h3>
+                <ul>
+                    <li>개인적·비상업적 목적의 내용 참고</li>
+                    <li>출처(Blogglow + 원문 URL)를 명시한 짧은 인용</li>
+                    <li>SNS 공유 (링크 공유 방식)</li>
+                </ul>
+
+                <h3>제3조 금지되는 사용</h3>
+                <ul>
+                    <li>무단 전재·복사 (전체 또는 상당 부분)</li>
+                    <li>상업적 목적의 무단 이용</li>
+                    <li>원본 내용 변형 후 자신의 것으로 게시</li>
+                    <li>AI 학습 데이터로의 무단 활용</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <span class="iconify" data-icon="carbon:information"></span>
+                    콘텐츠 사용 협의나 제휴 문의는 하단 이메일로 연락주시면 검토 후 회신드립니다.
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. 광고 정책 -->
+        <div class="policy-section" id="ads">
+            <div class="policy-section-header">
+                <div class="policy-section-icon">
+                    <span class="iconify" data-icon="carbon:advertisement"></span>
+                </div>
+                <div class="policy-section-title">광고 정책</div>
+            </div>
+            <div class="policy-section-body">
+                <h3>제1조 광고 운영 방식</h3>
+                <p>Blogglow는 블로그 운영 비용 충당을 위해 다음과 같은 광고를 운영합니다.</p>
+                <ul>
+                    <li><strong>Google AdSense</strong>: 자동화된 상황별 광고</li>
+                    <li><strong>제휴 마케팅(Affiliate)</strong>: 쿠팡, 알리익스프레스 등 제휴 상품 추천</li>
+                </ul>
+
+                <h3>제2조 콘텐츠와 광고의 분리</h3>
+                <p>광고 수익은 블로그 콘텐츠의 방향에 영향을 주지 않습니다. 제휴 링크가 포함된 콘텐츠의 경우, 객관적 정보 제공을 우선으로 하며 제품 선택에 편향이 없도록 노력합니다.</p>
+
+                <h3>제3조 제휴 링크 표시</h3>
+                <p>제휴 마케팅 링크를 통해 구매 시 블로그 운영자에게 소정의 수수료가 지급될 수 있습니다. 이는 독자에게 추가 비용을 발생시키지 않습니다.</p>
+
+                <div class="warning-box">
+                    <span class="iconify" data-icon="carbon:warning"></span>
+                    광고 차단 프로그램을 비활성화해 주시면 블로그 운영에 큰 도움이 됩니다. 감사합니다.
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. 쿠키 정책 -->
+        <div class="policy-section" id="cookie">
+            <div class="policy-section-header">
+                <div class="policy-section-icon">
+                    <span class="iconify" data-icon="carbon:cookie"></span>
+                </div>
+                <div class="policy-section-title">쿠키 정책</div>
+            </div>
+            <div class="policy-section-body">
+                <h3>제1조 쿠키 사용 목적</h3>
+                <p>쿠키(Cookie)는 웹사이트가 이용자의 브라우저에 저장하는 작은 텍스트 파일입니다. 본 블로그는 다음 목적으로 쿠키를 사용합니다.</p>
+
+                <table class="policy-table">
+                    <thead>
+                        <tr>
+                            <th>쿠키 종류</th>
+                            <th>제공자</th>
+                            <th>목적</th>
+                            <th>보관 기간</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>분석 쿠키</td>
+                            <td>Google Analytics</td>
+                            <td>방문자 행동 분석</td>
+                            <td>2년</td>
+                        </tr>
+                        <tr>
+                            <td>광고 쿠키</td>
+                            <td>Google AdSense</td>
+                            <td>맞춤형 광고 제공</td>
+                            <td>13개월</td>
+                        </tr>
+                        <tr>
+                            <td>기능 쿠키</td>
+                            <td>Blogglow</td>
+                            <td>글자 크기 설정 저장</td>
+                            <td>로컬스토리지</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>제2조 쿠키 거부 방법</h3>
+                <p>브라우저 설정을 통해 쿠키 저장을 거부할 수 있습니다. 다만, 일부 서비스 이용에 제한이 있을 수 있습니다.</p>
+                <ul>
+                    <li>Chrome: 설정 → 개인정보 및 보안 → 쿠키 및 기타 사이트 데이터</li>
+                    <li>Safari: 환경설정 → 개인정보 → 쿠키 및 웹 사이트 데이터</li>
+                    <li>Firefox: 설정 → 개인 정보 및 보안 → 쿠키와 사이트 데이터</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 6. 문의 -->
+        <div class="policy-section" id="contact">
+            <div class="policy-section-header">
+                <div class="policy-section-icon">
+                    <span class="iconify" data-icon="carbon:email"></span>
+                </div>
+                <div class="policy-section-title">문의</div>
+            </div>
+            <div class="policy-section-body">
+                <p>운영정책 관련 문의 또는 개인정보 권리 행사는 아래를 통해 연락주세요.</p>
+
+                <div style="margin-top:20px; display:flex; flex-direction:column; gap:12px;">
+                    <div style="display:flex; align-items:center; gap:12px; padding:16px 20px; background:var(--bg-gray); border-radius:10px;">
+                        <span class="iconify" data-icon="carbon:email" style="font-size:20px; color:var(--primary);"></span>
+                        <div>
+                            <div style="font-size:12px; font-weight:700; color:var(--text-light); margin-bottom:2px;">이메일</div>
+                            <div style="font-size:15px; font-weight:700; color:var(--text);">contact@blogglow.com</div>
+                        </div>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:12px; padding:16px 20px; background:var(--bg-gray); border-radius:10px;">
+                        <span class="iconify" data-icon="carbon:time" style="font-size:20px; color:var(--primary);"></span>
+                        <div>
+                            <div style="font-size:12px; font-weight:700; color:var(--text-light); margin-bottom:2px;">답변 시간</div>
+                            <div style="font-size:15px; font-weight:700; color:var(--text);">영업일 기준 2~3일 이내</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top:24px; padding:20px; background:#f8fafc; border-radius:10px; border:1px solid var(--border); font-size:13px; color:var(--text-sub); line-height:1.7;">
+                    본 운영정책은 법령 개정이나 서비스 변경에 따라 수정될 수 있습니다. 중요한 변경사항이 있을 경우 블로그 공지를 통해 안내드립니다.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 푸터 -->
+<footer class="footer">
+    <div class="footer-logo">Blogglow</div>
+    <p>직장인을 위한 실용 정보 블로그</p>
+    <div class="footer-links">
+        <a href="/index.html">홈</a>
+        <a href="/calculator.html">계산기</a>
+        <a href="/about.html">소개</a>
+    </div>
+    <div class="footer-bottom">© 2025 Blogglow. All rights reserved.</div>
+</footer>
+
+<script>
+// 스크롤 시 사이드 네비 활성화
+const sections = document.querySelectorAll('.policy-section');
+const navLinks = document.querySelectorAll('.side-nav-list a');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            const id = entry.target.getAttribute('id');
+            const active = document.querySelector('.side-nav-list a[href="#' + id + '"]');
+            if (active) active.classList.add('active');
+        }
+    });
+}, { rootMargin: '-20% 0px -70% 0px' });
+
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
