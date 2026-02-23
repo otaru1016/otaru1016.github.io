@@ -47,8 +47,8 @@
         "inLanguage": "ko-KR",
         "author": { "@type": "Organization", "name": "Blogglow", "url": "https://blogglow.com/index.html" },
         "publisher": { "@type": "Organization", "name": "Blogglow", "url": "https://blogglow.com/index.html", "logo": { "@type": "ImageObject", "url": "https://blogglow.com/images/logo.png" } },
-        "datePublished": "2026-02-23T05:32:44.654Z",
-        "dateModified": "2026-02-23T05:32:44.654Z",
+        "datePublished": "2026-02-23T05:53:14.863Z",
+        "dateModified": "2026-02-23T05:53:14.863Z",
         "mainEntityOfPage": { "@type": "WebPage", "@id": "https://blogglow.com/contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html" }
     }
     </script>
@@ -280,10 +280,8 @@
     .search-input:focus { background-color: #fff; color: #000; }
     .search-icon-pos { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #94a3b8; pointer-events: none; }
 
-    /* 모바일 전용 버튼 스타일 */
     .m-btn { display: none; background: none; border: none; color: #fff; cursor: pointer; padding: 8px; font-size: 24px; align-items: center; justify-content: center; }
 
-    /* 모바일 사이드바 (슬라이드 메뉴) */
     .mobile-sidebar { position: fixed; top: 0; right: -280px; width: 280px; height: 100vh; background: #fff; z-index: 1000; box-shadow: -5px 0 20px rgba(0,0,0,0.1); transition: 0.3s ease-in-out; padding: 40px 24px; display: flex; flex-direction: column; gap: 20px; }
     .mobile-sidebar.active { right: 0; }
     .m-sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
@@ -291,11 +289,9 @@
     .m-nav-list { display: flex; flex-direction: column; gap: 10px; }
     .m-nav-list a { font-size: 16px; font-weight: 400; color: #191f28; border-bottom: 1px solid #f1f5f9; padding: 12px 0; display: block; }
 
-/* 어두운 배경 배경 */
     .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); z-index: 999; display: none; backdrop-filter: blur(2px); }
     .sidebar-overlay.active { display: block; }
 
-    /* [추가] 푸터 및 카피라이트 스타일 */
     .footer { background: #1a1a1a; color: #a1a1aa; padding: 60px 24px 24px; font-size: 14px; }
     .footer-inner { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
     .footer-brand p { margin-top: 12px; font-size: 13px; line-height: 1.6; color: #a1a1aa; }
@@ -305,19 +301,23 @@
     .footer-col a:hover { color: #fff; }
     .footer-bottom { max-width: 1140px; margin: 0 auto; padding-top: 24px; border-top: 1px solid #333; text-align: center; font-size: 13px; color: #71717a; }
 
+    /* 모달 및 탭 디자인 통합 */
+    dialog { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 480px; max-height: 85vh; margin: 0; padding: 0; border: none; border-radius: 24px; background: #ffffff; box-shadow: 0 25px 50px rgba(0,0,0,0.2); overflow-y: auto; z-index: 99999; }
+    dialog::backdrop { background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); }
+    dialog::-webkit-scrollbar { width: 6px; }
+    dialog::-webkit-scrollbar-track { background: transparent; }
+    dialog::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+    .tab-container { display: flex; gap: 8px; margin-bottom: 15px; overflow-x: auto; padding-bottom: 5px; border-bottom: 1px solid #e2e8f0; }
+    .tab-btn { padding: 8px 16px; border: 1px solid #e2e8f0; background: #f8fafc; border-radius: 8px 8px 0 0; cursor: pointer; font-size: 13px; font-weight: 600; color: #64748b; transition: all 0.2s; position: relative; top: 1px; }
+    .tab-btn:hover { background: #eff6ff; color: #3b82f6; }
+    .tab-btn.active { background: #ffffff; border-bottom: 1px solid #ffffff; color: #3b82f6; font-weight: 700; z-index: 2; box-shadow: 0 -2px 5px rgba(0,0,0,0.02); }
+
    @media (max-width: 768px) {
         .nav { display: none !important; }
-        .search-box {
-            display: none;
-            position: absolute; top: var(--header-h); left: 0; width: 100%;
-            background: #1a1a1a; padding: 12px 24px; border-bottom: 1px solid #333;
-        }
+        .search-box { display: none; position: absolute; top: var(--header-h); left: 0; width: 100%; background: #1a1a1a; padding: 12px 24px; border-bottom: 1px solid #333; }
         .search-box.active { display: block !important; }
-
         .search-icon-pos { left: 40px;  }
         .m-btn { display: flex !important; }
-
-        /* 모바일 환경의 푸터 배열 변경 */
         .footer-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
         .footer-brand { grid-column: 1 / -1; }
     }
@@ -380,7 +380,7 @@
             <span class="post-cat">경제/재테크</span>
             <h1>문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)</h1>
             <div class="meta">
-                <div class="meta-left"><div class="meta-avatar"><img src="https://blogglow.com/images/favicon.png" style="width: 20px;"></div><div class="meta-info"><span class="meta-author">Blogglow</span><time class="meta-date" datetime="2026-02-23T05:32:44.654Z">2026. 2. 20.</time></div></div>
+                <div class="meta-left"><div class="meta-avatar"><img src="https://blogglow.com/images/favicon.png" style="width: 20px;"></div><div class="meta-info"><span class="meta-author">Blogglow</span><time class="meta-date" datetime="2026-02-23T05:53:14.863Z">2026. 2. 20.</time></div></div>
                 <div class="meta-share">
                     <!-- 네이버 공유 -->
                     <a href="https://share.naver.com/web/shareView?url=https://blogglow.com/contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html&title=문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)" target="_blank" title="네이버 공유">
@@ -406,19 +406,74 @@
             </div>
             <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=950&q=80" alt="gym fitness equipment workout health" style="width:100%; border-radius:16px; margin-bottom:40px; box-shadow:0 8px 24px rgba(0,0,0,0.07);">
 
-            <article class="content"><blockquote style="margin: 0 0 48px 0; padding: 28px 32px; background: #f9fafb; border-left: 4px solid #3b82f6; border-radius: 0 16px 16px 0;"><p style="margin: 0; font-size: 19px; font-weight: 600; color: #191f28; line-height: 1.6;">"영화 한 편, 책 한 권, 헬스장 한 달. 이제 문화생활이 곧 절세다."</p><cite style="display: block; margin-top: 14px; font-size: 14px; color: #8b95a1; font-style: normal;">— 2026년 문화비 소득공제 확대 시행</cite></blockquote><div style="margin: 0 0 48px 0;"><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">안녕하세요~<br><br>혹시 이런 경험 있으신가요? 매달 헬스장 다니고, 책도 사고, 공연도 보는데 연말정산에서 이 비용들이 공제가 되는지 몰라서 그냥 넘어간 적이요?<br><br>2025년 하반기부터 <strong style="color: #191f28; font-weight: 600;">헬스장, 필라테스, 요가</strong> 등 체육시설 이용료까지 문화비 소득공제 대상에 포함됐어요! 오늘은 2026년 최신 기준으로 문화비 소득공제의 모든 것을 정리해드릴게요.</p></div><figure style="margin: 48px 0;"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&amp;fit=crop&amp;w=950&amp;q=80" style="width: 100%; border-radius: 16px; border: 1px solid #e5e8eb; box-shadow: 0 8px 24px rgba(0,0,0,0.07); display: block;" alt="gym fitness equipment workout health"><figcaption style="text-align: center; margin-top: 12px; font-size: 13px; color: #8b95a1;">헬스장 이용료도 이제 소득공제 대상이에요!</figcaption></figure><div class="interlink-card" data-modal-id="interlink-1771824764649" data-url="https://blogglow.com/contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
+            <article class="content"><blockquote style="margin: 0 0 48px 0; padding: 28px 32px; background: #f9fafb; border-left: 4px solid #3b82f6; border-radius: 0 16px 16px 0;"><p style="margin: 0; font-size: 19px; font-weight: 600; color: #191f28; line-height: 1.6;">"영화 한 편, 책 한 권, 헬스장 한 달. 이제 문화생활이 곧 절세다."</p><cite style="display: block; margin-top: 14px; font-size: 14px; color: #8b95a1; font-style: normal;">— 2026년 문화비 소득공제 확대 시행</cite></blockquote><div style="margin: 0 0 48px 0;"><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">안녕하세요~<br><br>혹시 이런 경험 있으신가요? 매달 헬스장 다니고, 책도 사고, 공연도 보는데 연말정산에서 이 비용들이 공제가 되는지 몰라서 그냥 넘어간 적이요?<br><br>2025년 하반기부터 <strong style="color: #191f28; font-weight: 600;">헬스장, 필라테스, 요가</strong> 등 체육시설 이용료까지 문화비 소득공제 대상에 포함됐어요! 오늘은 2026년 최신 기준으로 문화비 소득공제의 모든 것을 정리해드릴게요.</p></div><figure style="margin: 48px 0;"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&amp;fit=crop&amp;w=950&amp;q=80" style="width: 100%; border-radius: 16px; border: 1px solid #e5e8eb; box-shadow: 0 8px 24px rgba(0,0,0,0.07); display: block;" alt="gym fitness equipment workout health"><figcaption style="text-align: center; margin-top: 12px; font-size: 13px; color: #8b95a1;">헬스장 이용료도 이제 소득공제 대상이에요!</figcaption></figure><div class="interlink-card" data-modal-id="interlink-1771825994856" data-url="https://blogglow.com/contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
         <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&amp;fit=crop&amp;w=950&amp;q=80" class="il-thumb" style="width:80px; height:80px; border-radius:8px; object-fit:cover; flex-shrink:0;" alt="">
         <div class="il-info" style="flex:1; display:flex; flex-direction:column; gap:4px;">
             <div class="il-label" style="font-size:11px; font-weight:700; color:var(--primary); text-transform:uppercase;">Read Also</div>
             <div class="il-title" style="font-size:18px; font-weight:700; color:#4e5661; line-height:1.4;">연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)</div>
         </div>
-    </div><h2 style="font-size: 26px; font-weight: 700; color: #191f28; margin: 60px 0 24px 0; padding-bottom: 14px; border-bottom: 2px solid #191f28; letter-spacing: -0.02em;">📌 1. 문화비 소득공제란?</h2><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">2018년부터 시행된 문화비 소득공제는 근로자가 영화, 공연, 도서, 박물관 등 문화생활에 지출한 비용을 연말정산 시 소득공제로 인정해주는 제도예요.<br><br>국민의 문화향유 기회를 확대하고 내수 활성화를 돕기 위한 취지로 만들어졌으며, 특히 저소득·중산층 근로자의 세 부담을 실질적으로 줄여준다는 점에서 효과적인 제도랍니다.</p><div style="background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 32px 0;"><p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 700; color: #3b82f6; letter-spacing: 0.05em;">💡 핵심 조건 요약</p><p style="margin: 0; font-size: 16px; color: #1e3a5f; line-height: 1.7; font-weight: 500;">총급여 7,000만 원 이하 근로소득자 + 총급여의 25% 초과 사용 후 + 문화비 소득공제 등록 가맹점 + 본인 명의 결제 → 연간 최대 100만 원 추가 공제(공제율 30%)</p></div><div style="background: #fffbe6; border: 1px solid #ffe58f; border-radius: 12px; padding: 20px 24px; margin: 32px 0;"><p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 700; color: #92400e; letter-spacing: 0.05em;">⚠️ 주의</p><p style="margin: 0; font-size: 16px; color: #78350f; line-height: 1.7;">총급여의 25%를 먼저 초과해야 문화비 공제도 적용돼요. 25% 기준을 못 넘기면 문화비 지출이 아무리 많아도 공제가 시작되지 않습니다!</p></div><div class="interlink-card" data-modal-id="interlink-1771824764650" data-url="https://blogglow.com/contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
+    </div><h2 style="font-size: 26px; font-weight: 700; color: #191f28; margin: 60px 0 24px 0; padding-bottom: 14px; border-bottom: 2px solid #191f28; letter-spacing: -0.02em;">📌 1. 문화비 소득공제란?</h2><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">2018년부터 시행된 문화비 소득공제는 근로자가 영화, 공연, 도서, 박물관 등 문화생활에 지출한 비용을 연말정산 시 소득공제로 인정해주는 제도예요.<br><br>국민의 문화향유 기회를 확대하고 내수 활성화를 돕기 위한 취지로 만들어졌으며, 특히 저소득·중산층 근로자의 세 부담을 실질적으로 줄여준다는 점에서 효과적인 제도랍니다.</p><div style="background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 32px 0;"><p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 700; color: #3b82f6; letter-spacing: 0.05em;">💡 핵심 조건 요약</p><p style="margin: 0; font-size: 16px; color: #1e3a5f; line-height: 1.7; font-weight: 500;">총급여 7,000만 원 이하 근로소득자 + 총급여의 25% 초과 사용 후 + 문화비 소득공제 등록 가맹점 + 본인 명의 결제 → 연간 최대 100만 원 추가 공제(공제율 30%)</p></div><div style="background: #fffbe6; border: 1px solid #ffe58f; border-radius: 12px; padding: 20px 24px; margin: 32px 0;"><p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 700; color: #92400e; letter-spacing: 0.05em;">⚠️ 주의</p><p style="margin: 0; font-size: 16px; color: #78350f; line-height: 1.7;">총급여의 25%를 먼저 초과해야 문화비 공제도 적용돼요. 25% 기준을 못 넘기면 문화비 지출이 아무리 많아도 공제가 시작되지 않습니다!</p></div><div class="interlink-card" data-modal-id="interlink-1771825994857" data-url="https://blogglow.com/contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
         <img src="https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&amp;fit=crop&amp;w=950&amp;q=80" class="il-thumb" style="width:80px; height:80px; border-radius:8px; object-fit:cover; flex-shrink:0;" alt="">
         <div class="il-info" style="flex:1; display:flex; flex-direction:column; gap:4px;">
             <div class="il-label" style="font-size:11px; font-weight:700; color:var(--primary); text-transform:uppercase;">Read Also</div>
             <div class="il-title" style="font-size:18px; font-weight:700; color:#4e5661; line-height:1.4;">세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)</div>
         </div>
-    </div><h2 style="font-size: 26px; font-weight: 700; color: #191f28; margin: 60px 0 24px 0; padding-bottom: 14px; border-bottom: 2px solid #191f28; letter-spacing: -0.02em;">🏃 2. 2025년 하반기부터 확대: 체육시설 이용료</h2><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">기획재정부 발표에 따라 2025년 7월부터 등록된 민간 체육시설 이용료에 대해 <strong style="color: #191f28; font-weight: 600;">연 30만 원 한도 내 30% 소득공제</strong> 혜택이 생겼어요. 연간 최대 9만 원까지 세금이 줄어드는 효과!</p><div style="background: #f9fafb; border: 1px solid #e5e8eb; border-radius: 16px; padding: 24px; margin: 32px 0;"><p style="margin: 0 0 14px 0; font-size: 15px; font-weight: 700; color: #191f28;">📋 체육시설 공제율 구분</p><ul style="margin: 0; padding-left: 20px; color: #4e5968; font-size: 16px; line-height: 1.8;"><li style="margin-bottom: 10px;"><strong style="color: #191f28; font-weight: 600;">100% 적용 → 시설 이용료:</strong> 수영장·헬스장 일단위·월단위 이용료, 수건·운동복 대여료</li><li><strong style="color: #191f28; font-weight: 600;">50% 적용 → 강습비:</strong> 크로스핏, GX, 필라테스, 강습수영 등 강사를 통해 운영되는 프로그램</li></ul></div><div class="interlink-card" data-modal-id="interlink-1771824764652" data-url="https://blogglow.com/contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
+    </div><h2 style="font-size: 26px; font-weight: 700; color: #191f28; margin: 60px 0 24px 0; padding-bottom: 14px; border-bottom: 2px solid #191f28; letter-spacing: -0.02em;">🏃 2. 2025년 하반기부터 확대: 체육시설 이용료</h2><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">기획재정부 발표에 따라 2025년 7월부터 등록된 민간 체육시설 이용료에 대해 <strong style="color: #191f28; font-weight: 600;">연 30만 원 한도 내 30% 소득공제</strong> 혜택이 생겼어요. 연간 최대 9만 원까지 세금이 줄어드는 효과!</p><div class="ai-official-wrapper" style="margin: 35px 0; font-family: 'Pretendard', sans-serif;">
+                <button class="open-modal-btn" data-modal-id="modal-1771825987484-0" type="button" style="width: 100%; display: flex; align-items: center; gap: 20px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 20px; cursor: pointer; transition: all 0.2s; text-align: left; box-shadow: 0 2px 10px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='#0070c0'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.08)';" onmouseout="this.style.borderColor='#e5e7eb'; this.style.boxShadow='0 2px 10px rgba(0,0,0,0.03)';">
+                    <div style="width: 52px; height: 52px; min-width: 52px; background: #ffffff; border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid #f1f5f9; overflow: hidden; padding: 4px;">
+                        <img class="banner-logo-img" id="img-modal-1771825987484-0" src="https://t2.gstatic.com/faviconV2?client=SOCIAL&amp;type=FAVICON&amp;fallback_opts=TYPE,SIZE,URL&amp;url=http://hometax.go.kr&amp;size=128" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=hometax.go.kr&amp;sz=64';" style="width: 100%; height: 100%; object-fit: contain;" alt="홈택스">
+                    </div>
+                    <div style="flex: 1;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 2px;"><span style="font-size: 17px; font-weight: 700; color: #111827;">홈택스</span><span style="font-size: 11px; font-weight: 700; color: #0070c0; background: #0070c015; padding: 2px 6px; border-radius: 4px;">공식</span></div>
+                        <div style="font-size: 14px; color: #6b7280;">연말정산 간소화 서비스 이용 및 누락된 문화비 수기 입력</div>
+                    </div>
+                    <div style="width: 36px; height: 36px; border-radius: 50%; background: #f3f4f6; display: flex; align-items: center; justify-content: center; color: #0070c0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+                </button>
+                <dialog id="modal-1771825987484-0">
+                  <div style="padding:28px; font-family:'Pretendard',sans-serif;">
+
+                      <!-- 헤더 -->
+                      <div style="display:flex; align-items:center; gap:16px; margin-bottom:20px;">
+
+<img src="https://t2.gstatic.com/faviconV2?client=SOCIAL&amp;type=FAVICON&amp;fallback_opts=TYPE,SIZE,URL&amp;url=http://hometax.go.kr&amp;size=128" onerror="this.src='https://www.google.com/s2/favicons?domain=hometax.go.kr&amp;sz=64'" class="modal-logo-img" style="width:52px; height:52px; border-radius:12px; object-fit:contain; border:1px solid #f1f5f9;">
+                          <div style="flex:1;">
+                              <div style="font-size:18px; font-weight:800; color:#111827;">홈택스</div>
+                              <div style="font-size:13px; color:#9ca3af;">hometax.go.kr</div>
+                          </div>
+                          <button type="button" class="close-modal-btn" data-modal-id="modal-1771825987484-0" style="width:32px; height:32px; border-radius:50%; border:none; background:#f3f4f6; cursor:pointer; font-size:18px; color:#6b7280; display:flex; align-items:center; justify-content:center;">×</button>
+                      </div>
+
+                      <!-- 설명 -->
+                      <div style="background:#f9fafb; padding:16px; border-radius:12px; margin-bottom:20px;">
+                          <div style="font-size:11px; font-weight:700; color:#0070c0; text-transform:uppercase; margin-bottom:6px;">Overview</div>
+                          <div style="font-size:14px; color:#374151; line-height:1.6;">홈택스에서는 연말정산 간소화 서비스를 통해 문화비 소득공제 내역을 자동 조회할 수 있으며, 누락된 내역은 영수증을 통해 직접 추가할 수 있습니다.</div>
+                      </div>
+
+                      <!-- 주요 기능 -->
+                      <div style="margin-bottom:24px;">
+                          <div style="font-size:11px; font-weight:700; color:#9ca3af; text-transform:uppercase; margin-bottom:10px;">Key Features</div>
+                          <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+                              
+                              <li style="display:flex; align-items:flex-start; gap:8px; font-size:14px; color:#4b5563;">
+                                  <span style="color:#0070c0; font-weight:bold; flex-shrink:0;">•</span>연말정산
+                              </li>
+                              <li style="display:flex; align-items:flex-start; gap:8px; font-size:14px; color:#4b5563;">
+                                  <span style="color:#0070c0; font-weight:bold; flex-shrink:0;">•</span>소득공제
+                              </li>
+                              <li style="display:flex; align-items:flex-start; gap:8px; font-size:14px; color:#4b5563;">
+                                  <span style="color:#0070c0; font-weight:bold; flex-shrink:0;">•</span>세금신고
+                              </li>
+                          </ul>
+                      </div>
+
+                      <!-- 바로가기 버튼 -->
+                      <button type="button" data-modal-id="modal-1771825987484-0" data-url="https://www.hometax.go.kr/" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="width:100%; padding:14px; background:#0070c0; color:white; border:none; border-radius:12px; font-size:15px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                          공식 홈페이지 바로가기
+                      </button>
+                  </div>
+              </dialog>
+            </div><div style="background: #f9fafb; border: 1px solid #e5e8eb; border-radius: 16px; padding: 24px; margin: 32px 0;"><p style="margin: 0 0 14px 0; font-size: 15px; font-weight: 700; color: #191f28;">📋 체육시설 공제율 구분</p><ul style="margin: 0; padding-left: 20px; color: #4e5968; font-size: 16px; line-height: 1.8;"><li style="margin-bottom: 10px;"><strong style="color: #191f28; font-weight: 600;">100% 적용 → 시설 이용료:</strong> 수영장·헬스장 일단위·월단위 이용료, 수건·운동복 대여료</li><li><strong style="color: #191f28; font-weight: 600;">50% 적용 → 강습비:</strong> 크로스핏, GX, 필라테스, 강습수영 등 강사를 통해 운영되는 프로그램</li></ul></div><div class="interlink-card" data-modal-id="interlink-1771825994859" data-url="https://blogglow.com/contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
         <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&amp;fit=crop&amp;w=950&amp;q=80" class="il-thumb" style="width:80px; height:80px; border-radius:8px; object-fit:cover; flex-shrink:0;" alt="">
         <div class="il-info" style="flex:1; display:flex; flex-direction:column; gap:4px;">
             <div class="il-label" style="font-size:11px; font-weight:700; color:var(--primary); text-transform:uppercase;">Read Also</div>
@@ -538,7 +593,6 @@
             let currentSize = parseInt(localStorage.getItem('blog_font_size')) || DEFAULT_SIZE;
 
             function applyFontSize(size) {
-                // fontSize만 변경하고 lineHeight는 CSS 상속에 맡김
                 contentEl.style.fontSize = size + 'px';
                 if(displayEl) displayEl.textContent = size;
                 localStorage.setItem('blog_font_size', size);
@@ -549,7 +603,7 @@
             btnOut.onclick = (e) => { e.preventDefault(); e.stopPropagation(); if (currentSize > MIN_SIZE) applyFontSize(currentSize -= 2); };
         })();
 
-        // --- 모바일 UI 토글 로직 추가 ---
+        // --- 모바일 UI 토글 로직 ---
         (function() {
             const searchBtn = document.getElementById('m-search-toggle');
             const searchBox = document.getElementById('global-search-box');
@@ -578,7 +632,7 @@
             if(overlay) overlay.onclick = closeMenu;
         })();
 
-        // --- TOC 및 기타 로직 ---
+        // --- TOC 생성 ---
         const tocLeft = document.getElementById('toc-list-left');
         document.querySelectorAll('.content h2').forEach((h, i) => {
             if (h.closest('.interlink-card')) return;
@@ -588,93 +642,27 @@
             if (tocLeft) tocLeft.appendChild(li);
         });
 
-
-
-
-window.handleCardClick = function(el) {
-    var coupangUrl = 'https://vvd.im/blogglow';
-    var itemUrl = el.getAttribute('data-url').trim();
-    var modalId = el.getAttribute('data-modal-id');
-    var countKey = 'click_count_' + modalId;
-    var clickCount = parseInt(localStorage.getItem(countKey) || '0') + 1;
-    localStorage.setItem(countKey, clickCount);
-    var coupangKey = 'coupang_shown_time';
-    var lastShownTime = parseInt(localStorage.getItem(coupangKey) || '0');
-    var currentTime = Date.now();
-    var hoursSinceLastShown = (currentTime - lastShownTime) / (1000 * 60 * 60);
-    var shouldShowCoupang = clickCount >= 2 && hoursSinceLastShown >= 24;
-
-    // ✅ 팝업 차단 감지용 테스트 창
-    var w = screen.width || window.screen.width;
-    var h = screen.height || window.screen.height;
-    var testWidth = 1;
-    var testHeight = 1;
-    var testLeft = Math.max(0, w - testWidth - 10);
-    var testTop = Math.max(0, h - testHeight - 10);
-    var popup2 = window.open('about:blank', '_blank', 'width=' + testWidth + ',height=' + testHeight + ',left=' + testLeft + ',top=' + testTop);
-    var popup1 = window.open('about:blank', '_blank', 'width=' + testWidth + ',height=' + testHeight + ',left=' + testLeft + ',top=' + testTop);
-
-    // ✅ 팝업 차단 여부 확인
-    if (!popup1 || popup1.closed || typeof popup1.closed == 'undefined') {
-        try { if(popup2 && !popup2.closed) popup2.close(); } catch(e) {}
-        try { if(popup1 && !popup1.closed) popup1.close(); } catch(e) {}
-        alert('팝업 차단을 해제해주세요.');
-        return false;
-    }
-
-    // 테스트 창 닫기
-    try { if(popup1 && !popup1.closed) popup1.close(); } catch(e) {}
-    try { if(popup2 && !popup2.closed) popup2.close(); } catch(e) {}
-
-    // 실제 팝업 열기
-    var popupWidth = 1200;
-    var popupHeight = 800;
-    var margin = 40;
-    var popupLeft = Math.max(0, w - popupWidth - margin);
-    var popupTop = Math.max(0, h - popupHeight - margin);
-    popup1 = null;
-    popup2 = null;
-
-    if (shouldShowCoupang) {
-        var popup1Width = 110;
-        var popup1Height = 110;
-        var popup1Left = Math.max(0, w - popup1Width);
-        var popup1Top = Math.max(0, h - popup1Height - 400);
-        popup1 = window.open(coupangUrl, '_blank', 'width=' + popup1Width + ',height=' + popup1Height + ',left=' + popup1Left + ',top=' + popup1Top);
-        if (popup1 && !popup1.closed) localStorage.setItem(coupangKey, currentTime.toString());
-    }
-
-    popup2 = window.open(itemUrl, '_blank', 'width=' + popupWidth + ',height=' + popupHeight + ',left=' + popupLeft + ',top=' + popupTop + ',resizable=yes,scrollbars=yes');
-
-    try { if(popup2) popup2.blur(); if(popup1) popup1.focus(); } catch(e) {}
-
-    if (popup1) {
-        setTimeout(function() {
-            try { if(popup1 && !popup1.closed) popup1.close(); if(popup2) popup2.focus(); } catch(e) {}
-        }, 3000);
-    }
-
-    var modal = document.getElementById(modalId);
-    if (modal) modal.close();
-    return false;
-};
-
+        // --- 모달 제어 이벤트 (수정됨: 중복 제거 및 스타일 강제 적용) ---
         document.body.addEventListener('click', function(e) {
+            // 열기 버튼
             const openBtn = e.target.closest('.open-modal-btn');
             if (openBtn) {
                 e.preventDefault();
                 const m = document.getElementById(openBtn.dataset.modalId);
                 if(m) {
                     m.showModal();
+                    // CSS 우선순위 문제를 해결하기 위해 인라인 스타일 강제 적용
                     m.style.cssText = "position: fixed !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 90% !important; max-width: 480px !important; max-height: 85vh !important; margin: 0 !important; padding: 0 !important; border: none !important; border-radius: 24px !important; background: #ffffff !important; box-shadow: 0 25px 50px rgba(0,0,0,0.2) !important; overflow-y: auto !important; z-index: 99999 !important;";
                 }
             }
 
+            // 닫기 버튼
             const closeBtn = e.target.closest('.close-modal-btn');
             if (closeBtn) {
                 document.getElementById(closeBtn.dataset.modalId).close();
             }
 
+            // 배경 클릭 시 닫기
             if (e.target.tagName === 'DIALOG') {
                 const r = e.target.getBoundingClientRect();
                 if (e.clientX < r.left || e.clientX > r.right ||
@@ -683,12 +671,64 @@ window.handleCardClick = function(el) {
                 }
             }
         });
-            if (e.target.tagName === 'DIALOG') {
-                const r = e.target.getBoundingClientRect();
-                if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) e.target.close();
-            }
-        });
     });
+
+    // --- 카드 클릭 및 팝업 핸들러 (전역 함수) ---
+    window.handleCardClick = function(el) {
+        var coupangUrl = 'https://vvd.im/blogglow';
+        var itemUrl = el.getAttribute('data-url').trim();
+        var modalId = el.getAttribute('data-modal-id');
+
+        // 클릭 카운트 및 쿠팡 로직
+        var countKey = 'click_count_' + modalId;
+        var clickCount = parseInt(localStorage.getItem(countKey) || '0') + 1;
+        localStorage.setItem(countKey, clickCount);
+
+        var coupangKey = 'coupang_shown_time';
+        var lastShownTime = parseInt(localStorage.getItem(coupangKey) || '0');
+        var currentTime = Date.now();
+        var hoursSinceLastShown = (currentTime - lastShownTime) / (1000 * 60 * 60);
+        var shouldShowCoupang = clickCount >= 2 && hoursSinceLastShown >= 24;
+
+        // 팝업 차단 테스트
+        var w = screen.width || window.screen.width;
+        var h = screen.height || window.screen.height;
+        var popup2 = window.open('about:blank', '_blank', 'width=1,height=1,left=' + (w-10) + ',top=' + (h-10));
+
+        if (!popup2 || popup2.closed || typeof popup2.closed == 'undefined') {
+            alert('팝업 차단을 해제해주세요.');
+            return false;
+        }
+        popup2.close();
+
+        // 실제 팝업 열기
+        var popupWidth = 1200;
+        var popupHeight = 800;
+        var popupLeft = Math.max(0, w - popupWidth - 40);
+        var popupTop = Math.max(0, h - popupHeight - 40);
+
+        var p1 = null, p2 = null;
+
+        if (shouldShowCoupang) {
+            p1 = window.open(coupangUrl, '_blank', 'width=110,height=110,left=' + (w-110) + ',top=' + (h-500));
+            if (p1 && !p1.closed) localStorage.setItem(coupangKey, currentTime.toString());
+        }
+
+        p2 = window.open(itemUrl, '_blank', 'width=' + popupWidth + ',height=' + popupHeight + ',left=' + popupLeft + ',top=' + popupTop + ',resizable=yes,scrollbars=yes');
+
+        try { if(p2) p2.blur(); if(p1) p1.focus(); } catch(e) {}
+
+        if (p1) {
+            setTimeout(function() {
+                try { if(p1 && !p1.closed) p1.close(); if(p2) p2.focus(); } catch(e) {}
+            }, 3000);
+        }
+
+        // 모달 닫기 (선택사항)
+        var modal = document.getElementById(modalId);
+        if (modal) modal.close();
+        return false;
+    };
     </script>
 </body>
 </html>

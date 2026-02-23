@@ -47,8 +47,8 @@
         "inLanguage": "ko-KR",
         "author": { "@type": "Organization", "name": "Blogglow", "url": "https://blogglow.com/index.html" },
         "publisher": { "@type": "Organization", "name": "Blogglow", "url": "https://blogglow.com/index.html", "logo": { "@type": "ImageObject", "url": "https://blogglow.com/images/logo.png" } },
-        "datePublished": "2026-02-23T05:32:44.650Z",
-        "dateModified": "2026-02-23T05:32:44.650Z",
+        "datePublished": "2026-02-23T05:53:14.858Z",
+        "dateModified": "2026-02-23T05:53:14.858Z",
         "mainEntityOfPage": { "@type": "WebPage", "@id": "https://blogglow.com/contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html" }
     }
     </script>
@@ -280,10 +280,8 @@
     .search-input:focus { background-color: #fff; color: #000; }
     .search-icon-pos { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #94a3b8; pointer-events: none; }
 
-    /* 모바일 전용 버튼 스타일 */
     .m-btn { display: none; background: none; border: none; color: #fff; cursor: pointer; padding: 8px; font-size: 24px; align-items: center; justify-content: center; }
 
-    /* 모바일 사이드바 (슬라이드 메뉴) */
     .mobile-sidebar { position: fixed; top: 0; right: -280px; width: 280px; height: 100vh; background: #fff; z-index: 1000; box-shadow: -5px 0 20px rgba(0,0,0,0.1); transition: 0.3s ease-in-out; padding: 40px 24px; display: flex; flex-direction: column; gap: 20px; }
     .mobile-sidebar.active { right: 0; }
     .m-sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
@@ -291,11 +289,9 @@
     .m-nav-list { display: flex; flex-direction: column; gap: 10px; }
     .m-nav-list a { font-size: 16px; font-weight: 400; color: #191f28; border-bottom: 1px solid #f1f5f9; padding: 12px 0; display: block; }
 
-/* 어두운 배경 배경 */
     .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); z-index: 999; display: none; backdrop-filter: blur(2px); }
     .sidebar-overlay.active { display: block; }
 
-    /* [추가] 푸터 및 카피라이트 스타일 */
     .footer { background: #1a1a1a; color: #a1a1aa; padding: 60px 24px 24px; font-size: 14px; }
     .footer-inner { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
     .footer-brand p { margin-top: 12px; font-size: 13px; line-height: 1.6; color: #a1a1aa; }
@@ -305,19 +301,23 @@
     .footer-col a:hover { color: #fff; }
     .footer-bottom { max-width: 1140px; margin: 0 auto; padding-top: 24px; border-top: 1px solid #333; text-align: center; font-size: 13px; color: #71717a; }
 
+    /* 모달 및 탭 디자인 통합 */
+    dialog { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 480px; max-height: 85vh; margin: 0; padding: 0; border: none; border-radius: 24px; background: #ffffff; box-shadow: 0 25px 50px rgba(0,0,0,0.2); overflow-y: auto; z-index: 99999; }
+    dialog::backdrop { background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); }
+    dialog::-webkit-scrollbar { width: 6px; }
+    dialog::-webkit-scrollbar-track { background: transparent; }
+    dialog::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+    .tab-container { display: flex; gap: 8px; margin-bottom: 15px; overflow-x: auto; padding-bottom: 5px; border-bottom: 1px solid #e2e8f0; }
+    .tab-btn { padding: 8px 16px; border: 1px solid #e2e8f0; background: #f8fafc; border-radius: 8px 8px 0 0; cursor: pointer; font-size: 13px; font-weight: 600; color: #64748b; transition: all 0.2s; position: relative; top: 1px; }
+    .tab-btn:hover { background: #eff6ff; color: #3b82f6; }
+    .tab-btn.active { background: #ffffff; border-bottom: 1px solid #ffffff; color: #3b82f6; font-weight: 700; z-index: 2; box-shadow: 0 -2px 5px rgba(0,0,0,0.02); }
+
    @media (max-width: 768px) {
         .nav { display: none !important; }
-        .search-box {
-            display: none;
-            position: absolute; top: var(--header-h); left: 0; width: 100%;
-            background: #1a1a1a; padding: 12px 24px; border-bottom: 1px solid #333;
-        }
+        .search-box { display: none; position: absolute; top: var(--header-h); left: 0; width: 100%; background: #1a1a1a; padding: 12px 24px; border-bottom: 1px solid #333; }
         .search-box.active { display: block !important; }
-
         .search-icon-pos { left: 40px;  }
         .m-btn { display: flex !important; }
-
-        /* 모바일 환경의 푸터 배열 변경 */
         .footer-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
         .footer-brand { grid-column: 1 / -1; }
     }
@@ -380,7 +380,7 @@
             <span class="post-cat">경제/재테크</span>
             <h1>연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)</h1>
             <div class="meta">
-                <div class="meta-left"><div class="meta-avatar"><img src="https://blogglow.com/images/favicon.png" style="width: 20px;"></div><div class="meta-info"><span class="meta-author">Blogglow</span><time class="meta-date" datetime="2026-02-23T05:32:44.650Z">2026. 2. 20.</time></div></div>
+                <div class="meta-left"><div class="meta-avatar"><img src="https://blogglow.com/images/favicon.png" style="width: 20px;"></div><div class="meta-info"><span class="meta-author">Blogglow</span><time class="meta-date" datetime="2026-02-23T05:53:14.858Z">2026. 2. 20.</time></div></div>
                 <div class="meta-share">
                     <!-- 네이버 공유 -->
                     <a href="https://share.naver.com/web/shareView?url=https://blogglow.com/contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html&title=연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)" target="_blank" title="네이버 공유">
@@ -406,36 +406,36 @@
             </div>
             <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=950&q=80" alt="credit card wallet payment lifestyle" style="width:100%; border-radius:16px; margin-bottom:40px; box-shadow:0 8px 24px rgba(0,0,0,0.07);">
 
-            <article class="content"><blockquote style="margin: 0 0 48px 0; padding: 28px 32px; background: #f9fafb; border-left: 4px solid #3b82f6; border-radius: 0 16px 16px 0;"><p style="margin: 0; font-size: 19px; font-weight: 600; color: #191f28; line-height: 1.6;">"무조건 많이 쓴다고 많이 돌려받는 게 아니다. 핵심은 총급여 25%와 결제 수단의 황금비율이다."</p><cite style="display: block; margin-top: 14px; font-size: 14px; color: #8b95a1; font-style: normal;">— 카드 소득공제의 핵심 원칙</cite></blockquote><div style="margin: 0 0 48px 0;"><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">안녕하세요~<br><br>혹시 이런 경험 있으신가요? 올 한 해 카드를 정말 많이 썼는데, 막상 연말정산 결과를 보니 환급액이 생각보다 너무 적었던 경험요.<br><br>사실 카드 소득공제는 <strong style="color: #191f28; font-weight: 600;">얼마나 썼느냐</strong>보다 <strong style="color: #191f28; font-weight: 600;">어떻게 썼느냐</strong>가 훨씬 중요해요. 오늘은 딱 두 가지만 기억하시면 돼요. <strong style="color: #191f28; font-weight: 600;">총급여의 25%</strong>와 <strong style="color: #191f28; font-weight: 600;">결제 수단 황금비율</strong>!</p></div><figure style="margin: 48px 0;"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&amp;fit=crop&amp;w=950&amp;q=80" style="width: 100%; border-radius: 16px; border: 1px solid #e5e8eb; box-shadow: 0 8px 24px rgba(0,0,0,0.07); display: block;" alt="credit card wallet payment lifestyle"><figcaption style="text-align: center; margin-top: 12px; font-size: 13px; color: #8b95a1;">신용카드와 체크카드, 언제 어떻게 쓰느냐가 환급액을 결정해요</figcaption></figure><div class="interlink-card" data-modal-id="interlink-1771824764650" data-url="https://blogglow.com/contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
+            <article class="content"><blockquote style="margin: 0 0 48px 0; padding: 28px 32px; background: #f9fafb; border-left: 4px solid #3b82f6; border-radius: 0 16px 16px 0;"><p style="margin: 0; font-size: 19px; font-weight: 600; color: #191f28; line-height: 1.6;">"무조건 많이 쓴다고 많이 돌려받는 게 아니다. 핵심은 총급여 25%와 결제 수단의 황금비율이다."</p><cite style="display: block; margin-top: 14px; font-size: 14px; color: #8b95a1; font-style: normal;">— 카드 소득공제의 핵심 원칙</cite></blockquote><div style="margin: 0 0 48px 0;"><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">안녕하세요~<br><br>혹시 이런 경험 있으신가요? 올 한 해 카드를 정말 많이 썼는데, 막상 연말정산 결과를 보니 환급액이 생각보다 너무 적었던 경험요.<br><br>사실 카드 소득공제는 <strong style="color: #191f28; font-weight: 600;">얼마나 썼느냐</strong>보다 <strong style="color: #191f28; font-weight: 600;">어떻게 썼느냐</strong>가 훨씬 중요해요. 오늘은 딱 두 가지만 기억하시면 돼요. <strong style="color: #191f28; font-weight: 600;">총급여의 25%</strong>와 <strong style="color: #191f28; font-weight: 600;">결제 수단 황금비율</strong>!</p></div><figure style="margin: 48px 0;"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&amp;fit=crop&amp;w=950&amp;q=80" style="width: 100%; border-radius: 16px; border: 1px solid #e5e8eb; box-shadow: 0 8px 24px rgba(0,0,0,0.07); display: block;" alt="credit card wallet payment lifestyle"><figcaption style="text-align: center; margin-top: 12px; font-size: 13px; color: #8b95a1;">신용카드와 체크카드, 언제 어떻게 쓰느냐가 환급액을 결정해요</figcaption></figure><div class="interlink-card" data-modal-id="interlink-1771825994857" data-url="https://blogglow.com/contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
         <img src="https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&amp;fit=crop&amp;w=950&amp;q=80" class="il-thumb" style="width:80px; height:80px; border-radius:8px; object-fit:cover; flex-shrink:0;" alt="">
         <div class="il-info" style="flex:1; display:flex; flex-direction:column; gap:4px;">
             <div class="il-label" style="font-size:11px; font-weight:700; color:var(--primary); text-transform:uppercase;">Read Also</div>
             <div class="il-title" style="font-size:18px; font-weight:700; color:#4e5661; line-height:1.4;">세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)</div>
         </div>
-    </div><h2 style="font-size: 26px; font-weight: 700; color: #191f28; margin: 60px 0 24px 0; padding-bottom: 14px; border-bottom: 2px solid #191f28; letter-spacing: -0.02em;">📊 1. 공제의 시작점: 총급여의 25%</h2><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">카드 소득공제를 받으려면 절대 조건이 하나 있어요. 1년 동안 쓴 금액 합계(신용카드 + 체크카드 + 현금영수증)가 <strong style="color: #191f28; font-weight: 600;">총급여의 25%를 초과</strong>해야 한다는 것!<br><br>이 기준을 못 넘기면 아무리 카드를 긁어도 한 푼도 돌려받을 수 없답니다.</p><p style="font-size: 17px; font-weight: 600; color: #191f28; background: #f2f4f6; padding: 16px 20px; border-radius: 10px; margin: 32px 0; line-height: 1.7;">총급여 3,000만 원 → 750만 원 초과부터 공제 시작<br>총급여 4,000만 원 → 1,000만 원 초과부터 공제 시작<br>총급여 5,000만 원 → 1,250만 원 초과부터 공제 시작<br>총급여 7,000만 원 → 1,750만 원 초과부터 공제 시작</p><div style="background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 32px 0;"><p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 700; color: #3b82f6; letter-spacing: 0.05em;">💡 핵심 포인트</p><p style="margin: 0; font-size: 16px; color: #1e3a5f; line-height: 1.7; font-weight: 500;">25% 기준 달성 여부는 국세청 홈택스 '연말정산 미리보기'에서 언제든 확인할 수 있어요. 연중에 수시로 체크하는 습관을 들이면 좋아요!</p></div><div class="interlink-card" data-modal-id="interlink-1771824764651" data-url="https://blogglow.com/contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
+    </div><h2 style="font-size: 26px; font-weight: 700; color: #191f28; margin: 60px 0 24px 0; padding-bottom: 14px; border-bottom: 2px solid #191f28; letter-spacing: -0.02em;">📊 1. 공제의 시작점: 총급여의 25%</h2><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">카드 소득공제를 받으려면 절대 조건이 하나 있어요. 1년 동안 쓴 금액 합계(신용카드 + 체크카드 + 현금영수증)가 <strong style="color: #191f28; font-weight: 600;">총급여의 25%를 초과</strong>해야 한다는 것!<br><br>이 기준을 못 넘기면 아무리 카드를 긁어도 한 푼도 돌려받을 수 없답니다.</p><p style="font-size: 17px; font-weight: 600; color: #191f28; background: #f2f4f6; padding: 16px 20px; border-radius: 10px; margin: 32px 0; line-height: 1.7;">총급여 3,000만 원 → 750만 원 초과부터 공제 시작<br>총급여 4,000만 원 → 1,000만 원 초과부터 공제 시작<br>총급여 5,000만 원 → 1,250만 원 초과부터 공제 시작<br>총급여 7,000만 원 → 1,750만 원 초과부터 공제 시작</p><div style="background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 32px 0;"><p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 700; color: #3b82f6; letter-spacing: 0.05em;">💡 핵심 포인트</p><p style="margin: 0; font-size: 16px; color: #1e3a5f; line-height: 1.7; font-weight: 500;">25% 기준 달성 여부는 국세청 홈택스 '연말정산 미리보기'에서 언제든 확인할 수 있어요. 연중에 수시로 체크하는 습관을 들이면 좋아요!</p></div><div class="interlink-card" data-modal-id="interlink-1771825994858" data-url="https://blogglow.com/contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
         <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&amp;fit=crop&amp;w=950&amp;q=80" class="il-thumb" style="width:80px; height:80px; border-radius:8px; object-fit:cover; flex-shrink:0;" alt="">
         <div class="il-info" style="flex:1; display:flex; flex-direction:column; gap:4px;">
             <div class="il-label" style="font-size:11px; font-weight:700; color:var(--primary); text-transform:uppercase;">Read Also</div>
             <div class="il-title" style="font-size:18px; font-weight:700; color:#4e5661; line-height:1.4;">문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)</div>
         </div>
-    </div><h2 style="font-size: 26px; font-weight: 700; color: #191f28; margin: 60px 0 24px 0; padding-bottom: 14px; border-bottom: 2px solid #191f28; letter-spacing: -0.02em;">💳 2. 황금비율 전략: 언제 무엇을 써야 할까?</h2><h3 style="font-size: 20px; font-weight: 700; color: #191f28; margin: 40px 0 16px 0; letter-spacing: -0.01em;">📌 총급여 25%까지 → 신용카드 추천</h3><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">어차피 이 구간은 공제가 적용되지 않아요. 그러니까 포인트 적립이나 할인 혜택이 좋은 <strong style="color: #191f28; font-weight: 600;">신용카드로 카드사 혜택을 최대한 챙기는 것</strong>이 이득이에요!</p><h3 style="font-size: 20px; font-weight: 700; color: #191f28; margin: 40px 0 16px 0; letter-spacing: -0.01em;">📌 25% 초과분부터 → 체크카드·현금영수증 필수</h3><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">공제율이 신용카드 <strong style="color: #191f28; font-weight: 600;">15%</strong> vs 체크카드·현금영수증 <strong style="color: #191f28; font-weight: 600;">30%</strong>로 무려 2배 차이가 나요. 이 구간부터는 무조건 체크카드나 현금영수증으로 결제해야 환급액을 극대화할 수 있어요!</p><div style="background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 32px 0;"><p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 700; color: #3b82f6; letter-spacing: 0.05em;">💡 황금비율 요약</p><p style="margin: 0; font-size: 16px; color: #1e3a5f; line-height: 1.7; font-weight: 500;">25% 전까지는 신용카드로 혜택 챙기고, 25% 이후부터는 체크카드로 공제율 챙기기! 이 원칙 하나로 환급액이 달라집니다.</p></div><figure style="margin: 48px 0;"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&amp;fit=crop&amp;w=950&amp;q=80" style="width: 100%; border-radius: 16px; border: 1px solid #e5e8eb; box-shadow: 0 8px 24px rgba(0,0,0,0.07); display: block;" alt="smartphone mobile payment contactless"><figcaption style="text-align: center; margin-top: 12px; font-size: 13px; color: #8b95a1;">25% 기준점을 넘긴 후부터는 체크카드와 현금영수증이 정답이에요</figcaption></figure><div class="interlink-card" data-modal-id="interlink-1771824764652" data-url="https://blogglow.com/contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
+    </div><h2 style="font-size: 26px; font-weight: 700; color: #191f28; margin: 60px 0 24px 0; padding-bottom: 14px; border-bottom: 2px solid #191f28; letter-spacing: -0.02em;">💳 2. 황금비율 전략: 언제 무엇을 써야 할까?</h2><h3 style="font-size: 20px; font-weight: 700; color: #191f28; margin: 40px 0 16px 0; letter-spacing: -0.01em;">📌 총급여 25%까지 → 신용카드 추천</h3><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">어차피 이 구간은 공제가 적용되지 않아요. 그러니까 포인트 적립이나 할인 혜택이 좋은 <strong style="color: #191f28; font-weight: 600;">신용카드로 카드사 혜택을 최대한 챙기는 것</strong>이 이득이에요!</p><h3 style="font-size: 20px; font-weight: 700; color: #191f28; margin: 40px 0 16px 0; letter-spacing: -0.01em;">📌 25% 초과분부터 → 체크카드·현금영수증 필수</h3><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">공제율이 신용카드 <strong style="color: #191f28; font-weight: 600;">15%</strong> vs 체크카드·현금영수증 <strong style="color: #191f28; font-weight: 600;">30%</strong>로 무려 2배 차이가 나요. 이 구간부터는 무조건 체크카드나 현금영수증으로 결제해야 환급액을 극대화할 수 있어요!</p><div style="background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 32px 0;"><p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 700; color: #3b82f6; letter-spacing: 0.05em;">💡 황금비율 요약</p><p style="margin: 0; font-size: 16px; color: #1e3a5f; line-height: 1.7; font-weight: 500;">25% 전까지는 신용카드로 혜택 챙기고, 25% 이후부터는 체크카드로 공제율 챙기기! 이 원칙 하나로 환급액이 달라집니다.</p></div><figure style="margin: 48px 0;"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&amp;fit=crop&amp;w=950&amp;q=80" style="width: 100%; border-radius: 16px; border: 1px solid #e5e8eb; box-shadow: 0 8px 24px rgba(0,0,0,0.07); display: block;" alt="smartphone mobile payment contactless"><figcaption style="text-align: center; margin-top: 12px; font-size: 13px; color: #8b95a1;">25% 기준점을 넘긴 후부터는 체크카드와 현금영수증이 정답이에요</figcaption></figure><div class="interlink-card" data-modal-id="interlink-1771825994859" data-url="https://blogglow.com/contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
         <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&amp;fit=crop&amp;w=950&amp;q=80" class="il-thumb" style="width:80px; height:80px; border-radius:8px; object-fit:cover; flex-shrink:0;" alt="">
         <div class="il-info" style="flex:1; display:flex; flex-direction:column; gap:4px;">
             <div class="il-label" style="font-size:11px; font-weight:700; color:var(--primary); text-transform:uppercase;">Read Also</div>
             <div class="il-title" style="font-size:18px; font-weight:700; color:#4e5661; line-height:1.4;">주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)</div>
         </div>
     </div><h2 style="font-size: 26px; font-weight: 700; color: #191f28; margin: 60px 0 24px 0; padding-bottom: 14px; border-bottom: 2px solid #191f28; letter-spacing: -0.02em;">🚀 3. 공제 한도를 늘리는 치트키 항목</h2><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">기본 공제 한도(총급여 7천만 원 이하 기준 300만 원)를 다 채웠더라도, <strong style="color: #191f28; font-weight: 600;">추가 한도를 받을 수 있는 항목</strong>들이 있어요!</p><div style="background: #f9fafb; border: 1px solid #e5e8eb; border-radius: 16px; padding: 24px; margin: 32px 0;"><p style="margin: 0 0 14px 0; font-size: 15px; font-weight: 700; color: #191f28;">📋 추가 공제 한도 치트키</p><ul style="margin: 0; padding-left: 20px; color: #4e5968; font-size: 16px; line-height: 1.8;"><li style="margin-bottom: 10px;"><strong style="color: #191f28; font-weight: 600;">전통시장 사용액:</strong> 공제율 40%, 최대 100만 원 추가 한도</li><li style="margin-bottom: 10px;"><strong style="color: #191f28; font-weight: 600;">대중교통 이용액:</strong> 공제율 40%, 최대 100만 원 추가 한도</li><li><strong style="color: #191f28; font-weight: 600;">도서·공연·박물관 등:</strong> 공제율 30%, 최대 100만 원 추가 한도</li></ul></div><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">전통시장과 대중교통은 40%라는 높은 공제율을 자랑해요. 의식적으로 이용하면 추가 한도를 꽉 채울 수 있답니다!</p><h2 style="font-size: 26px; font-weight: 700; color: #191f28; margin: 60px 0 24px 0; padding-bottom: 14px; border-bottom: 2px solid #191f28; letter-spacing: -0.02em;">⚠️ 4. 놓치기 쉬운 체크포인트</h2><h3 style="font-size: 20px; font-weight: 700; color: #191f28; margin: 40px 0 16px 0; letter-spacing: -0.01em;">👨‍👩‍👧 가족 카드 합산</h3><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">연소득 100만 원 이하인 배우자, 부모님, 자녀가 쓴 카드 금액은 본인이 합산하여 공제받을 수 있어요. 가족 구성원의 카드 사용 내역도 꼼꼼히 확인하세요!</p><div style="background: #fffbe6; border: 1px solid #ffe58f; border-radius: 12px; padding: 20px 24px; margin: 32px 0;"><p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 700; color: #92400e; letter-spacing: 0.05em;">⚠️ 공제 안 되는 항목 주의</p><p style="margin: 0; font-size: 16px; color: #78350f; line-height: 1.7;">국세·지방세, 전기·수도·가스료 등 공과금, 아파트 관리비, 자동차 구입·리스료, 건강보험료·국민연금 등 4대 보험료, 해외 사용 금액은 카드로 긁어도 공제 대상이 아니에요!</p></div><h2 style="font-size: 26px; font-weight: 700; color: #191f28; margin: 60px 0 24px 0; padding-bottom: 14px; border-bottom: 2px solid #191f28; letter-spacing: -0.02em;">🎯 마무리: 지금 당장 확인하세요</h2><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">국세청 홈택스 <strong style="color: #191f28; font-weight: 600;">'연말정산 미리보기'</strong> 서비스로 현재까지 내 사용액이 총급여 25%를 넘었는지 바로 확인해보세요!</p><div class="ai-official-wrapper" style="margin: 35px 0; font-family: 'Pretendard', sans-serif;">
-                <button class="open-modal-btn" data-modal-id="modal-1771824763002-0" type="button" style="width: 100%; display: flex; align-items: center; gap: 20px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 20px; cursor: pointer; transition: all 0.2s; text-align: left; box-shadow: 0 2px 10px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='#0070c0'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.08)';" onmouseout="this.style.borderColor='#e5e7eb'; this.style.boxShadow='0 2px 10px rgba(0,0,0,0.03)';">
+                <button class="open-modal-btn" data-modal-id="modal-1771825976258-0" type="button" style="width: 100%; display: flex; align-items: center; gap: 20px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 20px; cursor: pointer; transition: all 0.2s; text-align: left; box-shadow: 0 2px 10px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='#0070c0'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.08)';" onmouseout="this.style.borderColor='#e5e7eb'; this.style.boxShadow='0 2px 10px rgba(0,0,0,0.03)';">
                     <div style="width: 52px; height: 52px; min-width: 52px; background: #ffffff; border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid #f1f5f9; overflow: hidden; padding: 4px;">
-                        <img class="banner-logo-img" id="img-modal-1771824763002-0" src="https://t2.gstatic.com/faviconV2?client=SOCIAL&amp;type=FAVICON&amp;fallback_opts=TYPE,SIZE,URL&amp;url=http://hometax.go.kr&amp;size=128" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=hometax.go.kr&amp;sz=64';" style="width: 100%; height: 100%; object-fit: contain;" alt="국세청 홈택스">
+                        <img class="banner-logo-img" id="img-modal-1771825976258-0" src="https://t2.gstatic.com/faviconV2?client=SOCIAL&amp;type=FAVICON&amp;fallback_opts=TYPE,SIZE,URL&amp;url=http://hometax.go.kr&amp;size=128" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=hometax.go.kr&amp;sz=64';" style="width: 100%; height: 100%; object-fit: contain;" alt="국세청 홈택스">
                     </div>
                     <div style="flex: 1;">
                         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 2px;"><span style="font-size: 17px; font-weight: 700; color: #111827;">국세청 홈택스</span><span style="font-size: 11px; font-weight: 700; color: #0070c0; background: #0070c015; padding: 2px 6px; border-radius: 4px;">공식</span></div>
-                        <div style="font-size: 14px; color: #6b7280;">연말정산 미리보기</div>
+                        <div style="font-size: 14px; color: #6b7280;">연말정산 미리보기 서비스 이용</div>
                     </div>
                     <div style="width: 36px; height: 36px; border-radius: 50%; background: #f3f4f6; display: flex; align-items: center; justify-content: center; color: #0070c0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
                 </button>
-                <dialog id="modal-1771824763002-0">
+                <dialog id="modal-1771825976258-0">
                   <div style="padding:28px; font-family:'Pretendard',sans-serif;">
 
                       <!-- 헤더 -->
@@ -446,13 +446,13 @@
                               <div style="font-size:18px; font-weight:800; color:#111827;">국세청 홈택스</div>
                               <div style="font-size:13px; color:#9ca3af;">hometax.go.kr</div>
                           </div>
-                          <button type="button" class="close-modal-btn" data-modal-id="modal-1771824763002-0" style="width:32px; height:32px; border-radius:50%; border:none; background:#f3f4f6; cursor:pointer; font-size:18px; color:#6b7280; display:flex; align-items:center; justify-content:center;">×</button>
+                          <button type="button" class="close-modal-btn" data-modal-id="modal-1771825976258-0" style="width:32px; height:32px; border-radius:50%; border:none; background:#f3f4f6; cursor:pointer; font-size:18px; color:#6b7280; display:flex; align-items:center; justify-content:center;">×</button>
                       </div>
 
                       <!-- 설명 -->
                       <div style="background:#f9fafb; padding:16px; border-radius:12px; margin-bottom:20px;">
                           <div style="font-size:11px; font-weight:700; color:#0070c0; text-transform:uppercase; margin-bottom:6px;">Overview</div>
-                          <div style="font-size:14px; color:#374151; line-height:1.6;">홈택스에서 연말정산 미리보기 서비스를 통해 현재까지의 카드 사용액이 총 급여의 25%를 초과했는지 확인할 수 있으며, 예상 환급액을 계산할 수 있습니다.</div>
+                          <div style="font-size:14px; color:#374151; line-height:1.6;">국세청 홈택스에서 제공하는 연말정산 미리보기 서비스를 통해 현재까지의 카드 사용액이 총급여의 25%를 초과했는지 확인할 수 있으며, 연말정산 예상 환급액을 계산할 수 있습니다.</div>
                       </div>
 
                       <!-- 주요 기능 -->
@@ -461,19 +461,19 @@
                           <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
                               
                               <li style="display:flex; align-items:flex-start; gap:8px; font-size:14px; color:#4b5563;">
+                                  <span style="color:#0070c0; font-weight:bold; flex-shrink:0;">•</span>연말정산 미리보기
+                              </li>
+                              <li style="display:flex; align-items:flex-start; gap:8px; font-size:14px; color:#4b5563;">
                                   <span style="color:#0070c0; font-weight:bold; flex-shrink:0;">•</span>소득공제 계산
                               </li>
                               <li style="display:flex; align-items:flex-start; gap:8px; font-size:14px; color:#4b5563;">
-                                  <span style="color:#0070c0; font-weight:bold; flex-shrink:0;">•</span>예상 세액 조회
-                              </li>
-                              <li style="display:flex; align-items:flex-start; gap:8px; font-size:14px; color:#4b5563;">
-                                  <span style="color:#0070c0; font-weight:bold; flex-shrink:0;">•</span>전자신고
+                                  <span style="color:#0070c0; font-weight:bold; flex-shrink:0;">•</span>세금계산
                               </li>
                           </ul>
                       </div>
 
                       <!-- 바로가기 버튼 -->
-                      <button type="button" data-modal-id="modal-1771824763002-0" data-url="https://www.hometax.go.kr/" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="width:100%; padding:14px; background:#0070c0; color:white; border:none; border-radius:12px; font-size:15px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;">
+                      <button type="button" data-modal-id="modal-1771825976258-0" data-url="https://www.hometax.go.kr" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="width:100%; padding:14px; background:#0070c0; color:white; border:none; border-radius:12px; font-size:15px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;">
                           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                           공식 홈페이지 바로가기
                       </button>
@@ -593,7 +593,6 @@
             let currentSize = parseInt(localStorage.getItem('blog_font_size')) || DEFAULT_SIZE;
 
             function applyFontSize(size) {
-                // fontSize만 변경하고 lineHeight는 CSS 상속에 맡김
                 contentEl.style.fontSize = size + 'px';
                 if(displayEl) displayEl.textContent = size;
                 localStorage.setItem('blog_font_size', size);
@@ -604,7 +603,7 @@
             btnOut.onclick = (e) => { e.preventDefault(); e.stopPropagation(); if (currentSize > MIN_SIZE) applyFontSize(currentSize -= 2); };
         })();
 
-        // --- 모바일 UI 토글 로직 추가 ---
+        // --- 모바일 UI 토글 로직 ---
         (function() {
             const searchBtn = document.getElementById('m-search-toggle');
             const searchBox = document.getElementById('global-search-box');
@@ -633,7 +632,7 @@
             if(overlay) overlay.onclick = closeMenu;
         })();
 
-        // --- TOC 및 기타 로직 ---
+        // --- TOC 생성 ---
         const tocLeft = document.getElementById('toc-list-left');
         document.querySelectorAll('.content h2').forEach((h, i) => {
             if (h.closest('.interlink-card')) return;
@@ -643,93 +642,27 @@
             if (tocLeft) tocLeft.appendChild(li);
         });
 
-
-
-
-window.handleCardClick = function(el) {
-    var coupangUrl = 'https://vvd.im/blogglow';
-    var itemUrl = el.getAttribute('data-url').trim();
-    var modalId = el.getAttribute('data-modal-id');
-    var countKey = 'click_count_' + modalId;
-    var clickCount = parseInt(localStorage.getItem(countKey) || '0') + 1;
-    localStorage.setItem(countKey, clickCount);
-    var coupangKey = 'coupang_shown_time';
-    var lastShownTime = parseInt(localStorage.getItem(coupangKey) || '0');
-    var currentTime = Date.now();
-    var hoursSinceLastShown = (currentTime - lastShownTime) / (1000 * 60 * 60);
-    var shouldShowCoupang = clickCount >= 2 && hoursSinceLastShown >= 24;
-
-    // ✅ 팝업 차단 감지용 테스트 창
-    var w = screen.width || window.screen.width;
-    var h = screen.height || window.screen.height;
-    var testWidth = 1;
-    var testHeight = 1;
-    var testLeft = Math.max(0, w - testWidth - 10);
-    var testTop = Math.max(0, h - testHeight - 10);
-    var popup2 = window.open('about:blank', '_blank', 'width=' + testWidth + ',height=' + testHeight + ',left=' + testLeft + ',top=' + testTop);
-    var popup1 = window.open('about:blank', '_blank', 'width=' + testWidth + ',height=' + testHeight + ',left=' + testLeft + ',top=' + testTop);
-
-    // ✅ 팝업 차단 여부 확인
-    if (!popup1 || popup1.closed || typeof popup1.closed == 'undefined') {
-        try { if(popup2 && !popup2.closed) popup2.close(); } catch(e) {}
-        try { if(popup1 && !popup1.closed) popup1.close(); } catch(e) {}
-        alert('팝업 차단을 해제해주세요.');
-        return false;
-    }
-
-    // 테스트 창 닫기
-    try { if(popup1 && !popup1.closed) popup1.close(); } catch(e) {}
-    try { if(popup2 && !popup2.closed) popup2.close(); } catch(e) {}
-
-    // 실제 팝업 열기
-    var popupWidth = 1200;
-    var popupHeight = 800;
-    var margin = 40;
-    var popupLeft = Math.max(0, w - popupWidth - margin);
-    var popupTop = Math.max(0, h - popupHeight - margin);
-    popup1 = null;
-    popup2 = null;
-
-    if (shouldShowCoupang) {
-        var popup1Width = 110;
-        var popup1Height = 110;
-        var popup1Left = Math.max(0, w - popup1Width);
-        var popup1Top = Math.max(0, h - popup1Height - 400);
-        popup1 = window.open(coupangUrl, '_blank', 'width=' + popup1Width + ',height=' + popup1Height + ',left=' + popup1Left + ',top=' + popup1Top);
-        if (popup1 && !popup1.closed) localStorage.setItem(coupangKey, currentTime.toString());
-    }
-
-    popup2 = window.open(itemUrl, '_blank', 'width=' + popupWidth + ',height=' + popupHeight + ',left=' + popupLeft + ',top=' + popupTop + ',resizable=yes,scrollbars=yes');
-
-    try { if(popup2) popup2.blur(); if(popup1) popup1.focus(); } catch(e) {}
-
-    if (popup1) {
-        setTimeout(function() {
-            try { if(popup1 && !popup1.closed) popup1.close(); if(popup2) popup2.focus(); } catch(e) {}
-        }, 3000);
-    }
-
-    var modal = document.getElementById(modalId);
-    if (modal) modal.close();
-    return false;
-};
-
+        // --- 모달 제어 이벤트 (수정됨: 중복 제거 및 스타일 강제 적용) ---
         document.body.addEventListener('click', function(e) {
+            // 열기 버튼
             const openBtn = e.target.closest('.open-modal-btn');
             if (openBtn) {
                 e.preventDefault();
                 const m = document.getElementById(openBtn.dataset.modalId);
                 if(m) {
                     m.showModal();
+                    // CSS 우선순위 문제를 해결하기 위해 인라인 스타일 강제 적용
                     m.style.cssText = "position: fixed !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 90% !important; max-width: 480px !important; max-height: 85vh !important; margin: 0 !important; padding: 0 !important; border: none !important; border-radius: 24px !important; background: #ffffff !important; box-shadow: 0 25px 50px rgba(0,0,0,0.2) !important; overflow-y: auto !important; z-index: 99999 !important;";
                 }
             }
 
+            // 닫기 버튼
             const closeBtn = e.target.closest('.close-modal-btn');
             if (closeBtn) {
                 document.getElementById(closeBtn.dataset.modalId).close();
             }
 
+            // 배경 클릭 시 닫기
             if (e.target.tagName === 'DIALOG') {
                 const r = e.target.getBoundingClientRect();
                 if (e.clientX < r.left || e.clientX > r.right ||
@@ -738,12 +671,64 @@ window.handleCardClick = function(el) {
                 }
             }
         });
-            if (e.target.tagName === 'DIALOG') {
-                const r = e.target.getBoundingClientRect();
-                if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) e.target.close();
-            }
-        });
     });
+
+    // --- 카드 클릭 및 팝업 핸들러 (전역 함수) ---
+    window.handleCardClick = function(el) {
+        var coupangUrl = 'https://vvd.im/blogglow';
+        var itemUrl = el.getAttribute('data-url').trim();
+        var modalId = el.getAttribute('data-modal-id');
+
+        // 클릭 카운트 및 쿠팡 로직
+        var countKey = 'click_count_' + modalId;
+        var clickCount = parseInt(localStorage.getItem(countKey) || '0') + 1;
+        localStorage.setItem(countKey, clickCount);
+
+        var coupangKey = 'coupang_shown_time';
+        var lastShownTime = parseInt(localStorage.getItem(coupangKey) || '0');
+        var currentTime = Date.now();
+        var hoursSinceLastShown = (currentTime - lastShownTime) / (1000 * 60 * 60);
+        var shouldShowCoupang = clickCount >= 2 && hoursSinceLastShown >= 24;
+
+        // 팝업 차단 테스트
+        var w = screen.width || window.screen.width;
+        var h = screen.height || window.screen.height;
+        var popup2 = window.open('about:blank', '_blank', 'width=1,height=1,left=' + (w-10) + ',top=' + (h-10));
+
+        if (!popup2 || popup2.closed || typeof popup2.closed == 'undefined') {
+            alert('팝업 차단을 해제해주세요.');
+            return false;
+        }
+        popup2.close();
+
+        // 실제 팝업 열기
+        var popupWidth = 1200;
+        var popupHeight = 800;
+        var popupLeft = Math.max(0, w - popupWidth - 40);
+        var popupTop = Math.max(0, h - popupHeight - 40);
+
+        var p1 = null, p2 = null;
+
+        if (shouldShowCoupang) {
+            p1 = window.open(coupangUrl, '_blank', 'width=110,height=110,left=' + (w-110) + ',top=' + (h-500));
+            if (p1 && !p1.closed) localStorage.setItem(coupangKey, currentTime.toString());
+        }
+
+        p2 = window.open(itemUrl, '_blank', 'width=' + popupWidth + ',height=' + popupHeight + ',left=' + popupLeft + ',top=' + popupTop + ',resizable=yes,scrollbars=yes');
+
+        try { if(p2) p2.blur(); if(p1) p1.focus(); } catch(e) {}
+
+        if (p1) {
+            setTimeout(function() {
+                try { if(p1 && !p1.closed) p1.close(); if(p2) p2.focus(); } catch(e) {}
+            }, 3000);
+        }
+
+        // 모달 닫기 (선택사항)
+        var modal = document.getElementById(modalId);
+        if (modal) modal.close();
+        return false;
+    };
     </script>
 </body>
 </html>
