@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>금융 계산기 | Blogglow</title>
-    <meta name="description" content="연말정산 환급 예상, 퇴직금, 건강보험료, 실업급여, 대출이자 계산기. 직장인을 위한 무료 금융 계산 도구.">
-    <link rel="icon" type="image/png" href="https://blogglow.com/images/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>금융 계산기 | Blogglow — 연말정산·퇴직금·대출이자 계산</title>
+
+<meta name="description" content="연말정산 환급액, 퇴직금, 건강보험료, 실업급여, 대출이자를 간편하게 계산할 수 있는 무료 금융 계산기 모음입니다.">
+<meta name="keywords" content="연말정산계산기, 퇴직금계산기, 건강보험료계산기, 실업급여계산기, 대출이자계산기, 금융계산기, 세금계산기">
+<meta name="author" content="Blogglow">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://blogglow.com/calculator.html">
+
+<meta property="og:title" content="금융 계산기 | Blogglow — 연말정산·퇴직금·대출이자 계산">
+<meta property="og:description" content="연말정산, 퇴직금, 건강보험료, 실업급여, 대출이자를 간편하게 계산할 수 있는 무료 금융 계산기 모음입니다.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blogglow.com/calculator.html">
+<meta property="og:image" content="https://blogglow.com/images/og-image.jpg">
+<meta property="og:site_name" content="Blogglow">
+<meta property="og:locale" content="ko_KR">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="금융 계산기 | Blogglow — 연말정산·퇴직금·대출이자 계산">
+<meta name="twitter:description" content="연말정산, 퇴직금, 건강보험료, 실업급여, 대출이자를 간편하게 계산할 수 있는 무료 금융 계산기 모음입니다.">
+<meta name="twitter:image" content="https://blogglow.com/images/og-image.jpg">
+
+<meta name="theme-color" content="#01a3f0">
+<link rel="icon" type="image/png" href="https://blogglow.com/images/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
     <style>
         :root {
             --ink: #0d0d0d;
@@ -382,35 +404,24 @@
         .disclaimer svg { flex-shrink: 0; width: 14px; height: 14px; stroke: #8a7530; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; margin-top: 2px; }
 
         /* ── 푸터 ── */
-        footer {
-            background: var(--ink);
-            color: rgba(255,255,255,0.3);
-            padding: 40px 32px;
-            text-align: center;
-            font-size: 13px;
-        }
-        .footer-logo {
-            font-family: var(--sans);
-            font-size: 18px; font-weight: 500;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 12px; letter-spacing: -0.02em;
-        }
-        .footer-links {
-            display: flex; justify-content: center; gap: 24px;
-            margin-top: 20px; padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.07);
-        }
-        .footer-links a {
-            font-size: 13px; color: rgba(255,255,255,0.3);
-            transition: color 0.15s;
-        }
-        .footer-links a:hover { color: rgba(255,255,255,0.6); }
+        .footer { background: #1a1a1a; color: #a1a1aa; padding: 60px 24px 24px; font-size: 14px; }
+        .footer-inner { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-brand p { margin-top: 12px; font-size: 13px; line-height: 1.6; color: #a1a1aa; }
+        .footer-logo { font-size: 20px; font-weight: 800; color: #fff; }
+        .footer-col h4 { color: #fff; font-size: 15px; font-weight: 700; margin-bottom: 16px; }
+        .footer-col a { display: block; color: #a1a1aa; margin-bottom: 10px; font-size: 14px; transition: color 0.2s; }
+        .footer-col a:hover { color: #fff; }
+        .footer-bottom { max-width: 1140px; margin: 0 auto; padding-top: 24px; border-top: 1px solid #333; text-align: center; font-size: 13px; color: #71717a; }
 
         /* ── 모바일 ── */
         @media (max-width: 900px) {
             .main { grid-template-columns: 1fr; }
             .calc-panel.active { display: block; }
             .panel-right { position: static; }
+        }
+        @media (max-width: 768px) {
+            .footer-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
+            .footer-brand { grid-column: 1 / -1; }
         }
         @media (max-width: 600px) {
             .page-top { padding: 40px 20px 0; }
@@ -893,14 +904,26 @@
 
 </main>
 
-<footer>
-    <div class="footer-logo">Blogglow</div>
-    <p>직장인을 위한 실용 정보 블로그 · 본 계산기는 참고용이며 법적 효력이 없습니다</p>
-    <div class="footer-links">
-        <a href="/index.html">홈</a>
-        <a href="/about.html">소개</a>
-        <a href="/policy.html">운영정책</a>
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="footer-logo">Blogglow</div>
+            <p>직장인을 위한 실용 정보 블로그<br>본 계산기는 참고용이며 법적 효력이 없습니다.</p>
+        </div>
+        <div class="footer-col">
+            <h4>콘텐츠</h4>
+            <a href="/index.html">인사이트</a>
+        </div>
+        <div class="footer-col">
+            <h4>정보</h4>
+            <a href="/policy.html">운영정책</a>
+        </div>
+        <div class="footer-col">
+            <h4>문의</h4>
+            <a href="#">문의하기</a>
+        </div>
     </div>
+    <div class="footer-bottom">© 2025 Blogglow. All rights reserved.</div>
 </footer>
 
 <script>
