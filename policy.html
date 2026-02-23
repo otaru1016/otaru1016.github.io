@@ -3,11 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>운영정책 | Blogglow</title>
+
+    <title>운영정책 | Blogglow — 경제, 세금, 재테크 실용 정보 블로그</title>
+
     <meta name="description" content="Blogglow 개인정보처리방침, 면책조항, 저작권 정책 안내입니다.">
+    <meta name="keywords" content="운영정책, 개인정보처리방침, 면책조항, 저작권, Blogglow">
+    <meta name="author" content="Blogglow">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://blogglow.com/policy.html">
+
+    <meta property="og:title" content="운영정책 | Blogglow — 경제, 세금, 재테크 실용 정보 블로그">
+    <meta property="og:description" content="Blogglow 개인정보처리방침, 면책조항, 저작권 정책 안내입니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://blogglow.com/policy.html">
+    <meta property="og:image" content="https://blogglow.com/images/og-image.jpg">
+    <meta property="og:site_name" content="Blogglow">
+    <meta property="og:locale" content="ko_KR">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="운영정책 | Blogglow — 경제, 세금, 재테크 실용 정보 블로그">
+    <meta name="twitter:description" content="Blogglow 개인정보처리방침, 면책조항, 저작권 정책 안내입니다.">
+    <meta name="twitter:image" content="https://blogglow.com/images/og-image.jpg">
+    <meta name="theme-color" content="#01a3f0">
     <link rel="icon" type="image/png" href="https://blogglow.com/images/favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
-    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <style>
         :root {
             --bg: #ffffff;
@@ -15,140 +34,87 @@
             --text-sub: #4b5563;
             --text-light: #9ca3af;
             --primary: #01a3f0;
-            --primary-light: #e0f2fe;
+            --primary-dark: #0284c7;
+            --primary-light: #e8f5fd;
             --border: #e5e7eb;
-            --bg-gray: #f9fafb;
-            --header-h: 72px;
-            --radius: 12px;
+            --bg-gray: #f8f9fb;
+            --header-h: 68px;
+            --radius: 14px;
+            --shadow: 0 2px 16px rgba(0,0,0,0.06);
+            --shadow-md: 0 8px 32px rgba(0,0,0,0.1);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Pretendard', -apple-system, sans-serif;
-            background: var(--bg-gray);
+            background: var(--bg);
             color: var(--text);
+            font-size: 16px;
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
-        a { text-decoration: none; color: var(--primary); }
-        a:hover { text-decoration: underline; }
+        a { text-decoration: none; color: inherit; }
+
+        /* ── notice bar ── */
+        .notice-bar {
+            background: #292929;
+            color: #fff;
+            text-align: center;
+            padding: 10px 24px;
+            font-size: 13px;
+            letter-spacing: -0.01em;
+        }
 
         /* ── 헤더 ── */
-        .notice-bar { background: #111; color: #fff; text-align: center; padding: 10px 24px; font-size: 13px; }
-        .site-header { position: sticky; top: 0; z-index: 100; background: rgba(0,0,0,0.95); backdrop-filter: blur(10px); }
-        .header-inner { max-width: 1140px; margin: 0 auto; padding: 0 24px; height: var(--header-h); display: flex; align-items: center; justify-content: space-between; }
-        .logo img { height: 30px; width: auto; }
-        .nav { display: flex; gap: 24px; }
-        .nav a { font-size: 15px; font-weight: 600; color: #94a3b8; transition: color 0.2s; text-decoration: none; }
+        .site-header {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(10,10,10,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .header-inner {
+            max-width: 1140px; margin: 0 auto; padding: 0 32px;
+            height: var(--header-h);
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo img { height: 28px; width: auto; }
+        .nav { display: flex; gap: 28px; }
+        .nav a { font-size: 15px; font-weight: 600; color: #6b7280; transition: color 0.2s; letter-spacing: -0.01em; }
         .nav a:hover, .nav a.active { color: #fff; }
 
-        /* ── 페이지 헤더 ── */
-        .page-header {
-            background: #fff; border-bottom: 1px solid var(--border);
-            padding: 60px 24px 48px;
-        }
-        .page-header-inner { max-width: 760px; margin: 0 auto; }
-        .page-label {
-            font-size: 12px; font-weight: 800; color: var(--primary);
-            letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 16px;
-        }
-        .page-header h1 {
-            font-size: 2.8rem; font-weight: 900; letter-spacing: -0.04em;
-            margin-bottom: 16px; line-height: 1.15;
-        }
-        .page-header-meta {
-            display: flex; gap: 24px; flex-wrap: wrap;
-            font-size: 13px; color: var(--text-light);
-            margin-top: 20px; padding-top: 20px;
-            border-top: 1px solid var(--border);
-        }
-        .meta-item { display: flex; align-items: center; gap: 6px; font-weight: 600; }
-
-        /* ── 레이아웃 ── */
-        .layout {
-            max-width: 1100px; margin: 48px auto; padding: 0 24px 100px;
-            display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start;
-        }
-
-        /* ── 사이드 네비 ── */
-        .side-nav { position: sticky; top: calc(var(--header-h) + 24px); }
-        .side-nav-title { font-size: 11px; font-weight: 800; color: var(--text-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
-        .side-nav-list { list-style: none; }
-        .side-nav-list li + li { margin-top: 2px; }
-        .side-nav-list a {
-            display: block; padding: 8px 12px; border-radius: 8px;
-            font-size: 14px; font-weight: 600; color: var(--text-sub);
-            text-decoration: none; transition: all 0.15s;
-            border-left: 2px solid transparent;
-        }
-        .side-nav-list a:hover { color: var(--primary); background: var(--primary-light); }
-        .side-nav-list a.active { color: var(--primary); background: var(--primary-light); border-left-color: var(--primary); }
-
-        /* ── 콘텐츠 ── */
-        .content { min-width: 0; }
-
-        /* ── 섹션 ── */
-        .policy-section {
-            background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
-            margin-bottom: 24px; overflow: hidden; scroll-margin-top: calc(var(--header-h) + 80px);
-        }
-        .policy-section-header {
-            padding: 24px 32px; border-bottom: 1px solid var(--border);
-            display: flex; align-items: center; gap: 12px;
-            background: var(--bg-gray);
-        }
-        .policy-section-icon {
-            width: 40px; height: 40px; border-radius: 10px;
-            background: var(--primary-light); display: flex; align-items: center; justify-content: center;
-            font-size: 20px; color: var(--primary); flex-shrink: 0;
-        }
-        .policy-section-title { font-size: 17px; font-weight: 800; }
-        .policy-section-body { padding: 32px; }
-
-        /* ── 타이포그래피 ── */
-        .policy-section-body h3 {
-            font-size: 15px; font-weight: 800; color: var(--text);
-            margin: 28px 0 12px; padding-bottom: 8px;
+        /* ── 히어로 ── */
+        .hero {
+            padding: 140px 32px 120px;
+            background: #fff;
             border-bottom: 1px solid var(--border);
         }
-        .policy-section-body h3:first-child { margin-top: 0; }
-        .policy-section-body p {
-            font-size: 14px; color: var(--text-sub); line-height: 1.85; margin-bottom: 12px;
+        .hero-inner { max-width: 720px; margin: 0 auto; }
+        .hero-eyebrow {
+            display: inline-block;
+            font-size: 12px; font-weight: 700; color: var(--primary);
+            letter-spacing: 0.14em; text-transform: uppercase;
+            background: var(--primary-light);
+            padding: 5px 14px; border-radius: 100px;
+            margin-bottom: 28px;
         }
-        .policy-section-body ul, .policy-section-body ol {
-            margin: 12px 0 16px 20px; display: flex; flex-direction: column; gap: 8px;
+        .hero h1 {
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            font-weight: 900; line-height: 1.12;
+            letter-spacing: -0.04em; color: var(--text);
+            margin-bottom: 24px;
         }
-        .policy-section-body li { font-size: 14px; color: var(--text-sub); line-height: 1.7; }
-        .policy-section-body strong { color: var(--text); font-weight: 700; }
-
-        /* ── 하이라이트 박스 ── */
-        .highlight-box {
-            background: var(--primary-light); border: 1px solid rgba(1,163,240,0.2);
-            border-radius: 10px; padding: 16px 20px; margin: 16px 0;
-            font-size: 14px; color: #0369a1; line-height: 1.7;
-            display: flex; gap: 10px;
+        .hero h1 em { font-style: normal; color: var(--primary); }
+        .hero-desc {
+            font-size: 18px; color: var(--text-sub); line-height: 1.85;
+            max-width: 520px; font-weight: 400;
         }
-        .highlight-box .iconify { flex-shrink: 0; font-size: 16px; margin-top: 2px; }
-        .warning-box {
-            background: #fffbeb; border: 1px solid #fde68a;
-            border-radius: 10px; padding: 16px 20px; margin: 16px 0;
-            font-size: 14px; color: #92400e; line-height: 1.7;
-            display: flex; gap: 10px;
+        .hero-meta {
+            display: flex; gap: 24px; flex-wrap: wrap;
+            font-size: 13px; color: var(--text-light);
+            margin-top: 32px; padding-top: 24px;
+            border-top: 1px solid var(--border);
         }
-        .warning-box .iconify { flex-shrink: 0; font-size: 16px; margin-top: 2px; }
-
-        /* ── 테이블 ── */
-        .policy-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
-        .policy-table th {
-            background: var(--bg-gray); text-align: left;
-            padding: 12px 16px; font-size: 12px; font-weight: 800;
-            color: var(--text-light); letter-spacing: 0.05em; text-transform: uppercase;
-            border-bottom: 2px solid var(--border);
-        }
-        .policy-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); color: var(--text-sub); vertical-align: top; }
-        .policy-table tr:last-child td { border-bottom: none; }
-        .policy-table tr:hover td { background: var(--bg-gray); }
-
-        /* ── 버전 배지 ── */
+        .meta-item { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+        .meta-item svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
         .version-badge {
             display: inline-flex; align-items: center; gap: 6px;
             background: var(--bg-gray); border: 1px solid var(--border);
@@ -156,21 +122,236 @@
             font-size: 12px; font-weight: 700; color: var(--text-light);
         }
 
-        /* ── 푸터 ── */
-        .footer { background: #1a1a1a; color: #a1a1aa; padding: 40px 24px; text-align: center; font-size: 13px; }
-        .footer-logo { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 8px; }
-        .footer-links { display: flex; justify-content: center; gap: 24px; margin-top: 16px; }
-        .footer-links a { color: #52525b; font-size: 13px; transition: color 0.2s; text-decoration: none; }
-        .footer-links a:hover { color: #fff; }
-        .footer-bottom { margin-top: 20px; padding-top: 20px; border-top: 1px solid #333; font-size: 12px; color: #52525b; }
+        /* ── 레이아웃 ── */
+        .layout {
+            max-width: 1140px; margin: 0 auto; padding: 0 32px 100px;
+            display: grid; grid-template-columns: 220px 1fr; gap: 56px; align-items: start;
+        }
 
-        /* 반응형 */
+        /* ── 사이드 네비 ── */
+        .side-nav { position: sticky; top: calc(var(--header-h) + 32px); }
+        .side-nav-title { 
+            font-size: 11px; font-weight: 800; color: var(--text-light); 
+            letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px; 
+        }
+        .side-nav-list { list-style: none; }
+        .side-nav-list li + li { margin-top: 4px; }
+        .side-nav-list a {
+            display: block; padding: 10px 14px; border-radius: 10px;
+            font-size: 14px; font-weight: 600; color: var(--text-sub);
+            text-decoration: none; transition: all 0.2s;
+            border-left: 3px solid transparent;
+            letter-spacing: -0.01em;
+        }
+        .side-nav-list a:hover { 
+            color: var(--primary); 
+            background: var(--primary-light); 
+        }
+        .side-nav-list a.active { 
+            color: var(--primary); 
+            background: var(--primary-light); 
+            border-left-color: var(--primary); 
+            font-weight: 700;
+        }
+
+        /* ── 콘텐츠 ── */
+        .content { min-width: 0; }
+
+        /* ── 섹션 ── */
+        .policy-section {
+            background: #fff; border: 1px solid var(--border); 
+            border-radius: var(--radius);
+            margin-bottom: 24px; overflow: hidden; 
+            scroll-margin-top: calc(var(--header-h) + 80px);
+            transition: box-shadow 0.3s;
+        }
+        .policy-section:hover {
+            box-shadow: var(--shadow);
+        }
+        .policy-section-header {
+            padding: 28px 32px; border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 14px;
+            background: linear-gradient(135deg, #fafbfc 0%, #fff 100%);
+        }
+        .policy-section-icon {
+            width: 48px; height: 48px; border-radius: 12px;
+            background: var(--primary-light); 
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .policy-section-icon svg { 
+            width: 22px; height: 22px; 
+            stroke: var(--primary); fill: none; 
+            stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; 
+        }
+        .policy-section-title { 
+            font-size: 18px; font-weight: 800; 
+            letter-spacing: -0.02em; 
+        }
+        .policy-section-body { padding: 36px 32px; }
+
+        /* ── 타이포그래피 ── */
+        .policy-section-body h3 {
+            font-size: 16px; font-weight: 800; color: var(--text);
+            margin: 32px 0 16px; padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+            letter-spacing: -0.02em;
+        }
+        .policy-section-body h3:first-child { margin-top: 0; }
+        .policy-section-body p {
+            font-size: 15px; color: var(--text-sub); line-height: 1.85; 
+            margin-bottom: 16px;
+        }
+        .policy-section-body ul, .policy-section-body ol {
+            margin: 16px 0 20px 24px; display: flex; flex-direction: column; gap: 10px;
+        }
+        .policy-section-body li { 
+            font-size: 15px; color: var(--text-sub); line-height: 1.75; 
+        }
+        .policy-section-body strong { color: var(--text); font-weight: 700; }
+        .policy-section-body a {
+            color: var(--primary);
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .policy-section-body a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        /* ── 하이라이트 박스 ── */
+        .highlight-box {
+            background: var(--primary-light); 
+            border: 1px solid rgba(1,163,240,0.2);
+            border-radius: 12px; padding: 18px 22px; margin: 20px 0;
+            font-size: 15px; color: #0369a1; line-height: 1.75;
+            display: flex; gap: 12px; align-items: flex-start;
+        }
+        .highlight-box svg { 
+            flex-shrink: 0; margin-top: 2px;
+            width: 18px; height: 18px;
+            stroke: currentColor; fill: none;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .warning-box {
+            background: #fffbeb; border: 1px solid #fde68a;
+            border-radius: 12px; padding: 18px 22px; margin: 20px 0;
+            font-size: 15px; color: #92400e; line-height: 1.75;
+            display: flex; gap: 12px; align-items: flex-start;
+        }
+        .warning-box svg { 
+            flex-shrink: 0; margin-top: 2px;
+            width: 18px; height: 18px;
+            stroke: currentColor; fill: none;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+
+        /* ── 테이블 ── */
+        .policy-table { 
+            width: 100%; border-collapse: collapse; 
+            margin: 20px 0; font-size: 14px; 
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .policy-table th {
+            background: var(--bg-gray); text-align: left;
+            padding: 14px 18px; font-size: 12px; font-weight: 800;
+            color: var(--text-light); letter-spacing: 0.08em; 
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--border);
+        }
+        .policy-table td { 
+            padding: 16px 18px; border-bottom: 1px solid var(--border); 
+            color: var(--text-sub); vertical-align: top; 
+        }
+        .policy-table tr:last-child td { border-bottom: none; }
+        .policy-table tr:hover td { background: var(--bg-gray); }
+
+        /* ── 컨택트 박스 ── */
+        .contact-box {
+            display: flex; align-items: center; gap: 14px; 
+            padding: 18px 22px; background: var(--bg-gray); 
+            border-radius: 12px; border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+        .contact-box:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+        .contact-box-icon {
+            width: 44px; height: 44px; border-radius: 10px;
+            background: var(--primary-light);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-box-icon svg {
+            width: 20px; height: 20px;
+            stroke: var(--primary); fill: none;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .contact-box-label {
+            font-size: 11px; font-weight: 800; color: var(--text-light); 
+            margin-bottom: 4px; letter-spacing: 0.08em; text-transform: uppercase;
+        }
+        .contact-box-value {
+            font-size: 15px; font-weight: 700; color: var(--text);
+            letter-spacing: -0.01em;
+        }
+
+        /* ── 푸터 ── */
+        .footer { 
+            background: #1a1a1a; color: #a1a1aa; 
+            padding: 60px 24px 24px; font-size: 14px; 
+        }
+        .footer-inner { 
+            max-width: 1140px; margin: 0 auto; 
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; 
+            gap: 40px; margin-bottom: 40px; 
+        }
+        .footer-brand p { 
+            margin-top: 12px; font-size: 13px; 
+            line-height: 1.6; color: #a1a1aa; 
+        }
+        .footer-logo { font-size: 20px; font-weight: 800; color: #fff; }
+        .footer-col h4 { 
+            color: #fff; font-size: 15px; font-weight: 700; 
+            margin-bottom: 16px; 
+        }
+        .footer-col a { 
+            display: block; color: #a1a1aa; margin-bottom: 10px; 
+            font-size: 14px; transition: color 0.2s; text-decoration: none;
+        }
+        .footer-col a:hover { color: #fff; }
+        .footer-bottom { 
+            max-width: 1140px; margin: 0 auto; 
+            padding-top: 24px; border-top: 1px solid #333; 
+            text-align: center; font-size: 13px; color: #71717a; 
+        }
+
+        /* ── 반응형 ── */
+        @media (max-width: 900px) {
+            .layout { grid-template-columns: 1fr; gap: 0; }
+            .side-nav { 
+                position: relative; top: 0; 
+                background: var(--bg-gray);
+                padding: 20px;
+                border-radius: var(--radius);
+                margin-bottom: 32px;
+            }
+        }
         @media (max-width: 768px) {
-            .layout { grid-template-columns: 1fr; }
-            .side-nav { display: none; }
-            .page-header h1 { font-size: 2rem; }
+            .hero { padding: 100px 20px 80px; }
+            .hero-desc { font-size: 17px; }
+            .layout { padding: 0 20px 80px; }
             .nav { display: none; }
-            .policy-section-body { padding: 20px; }
+            .footer-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
+            .footer-brand { grid-column: 1 / -1; }
+            .policy-section-body { padding: 24px 20px; }
+            .hero-meta { flex-direction: column; gap: 12px; }
+        }
+        @media (max-width: 480px) {
+            .hero { padding: 80px 20px 60px; }
         }
     </style>
 </head>
@@ -192,25 +373,28 @@
     </div>
 </header>
 
-<!-- 페이지 헤더 -->
-<div class="page-header">
-    <div class="page-header-inner">
-        <div class="page-label">Legal & Policy</div>
-        <h1>운영정책</h1>
-        <p style="color:var(--text-sub); font-size:15px;">Blogglow의 개인정보처리방침, 면책조항, 저작권 정책을 안내합니다.</p>
-        <div class="page-header-meta">
+<!-- 히어로 -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-eyebrow">Legal & Policy</div>
+        <h1>안전하고 <em>투명하게</em></h1>
+        <p class="hero-desc">
+            Blogglow의 개인정보처리방침, 면책조항, 저작권 정책을 안내합니다.<br>
+            <strong>이용자의 권리를 최우선으로 보호합니다.</strong>
+        </p>
+        <div class="hero-meta">
             <div class="meta-item">
-                <span class="iconify" data-icon="carbon:calendar"></span>
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 최초 시행일: 2025년 01월 01일
             </div>
             <div class="meta-item">
-                <span class="iconify" data-icon="carbon:update-now"></span>
+                <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
                 최종 수정: 2025년 02월 23일
             </div>
             <div class="version-badge">v1.0</div>
         </div>
     </div>
-</div>
+</section>
 
 <!-- 본문 -->
 <div class="layout">
@@ -235,14 +419,14 @@
         <div class="policy-section" id="privacy">
             <div class="policy-section-header">
                 <div class="policy-section-icon">
-                    <span class="iconify" data-icon="carbon:security"></span>
+                    <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                 </div>
                 <div class="policy-section-title">개인정보처리방침</div>
             </div>
             <div class="policy-section-body">
                 <div class="highlight-box">
-                    <span class="iconify" data-icon="carbon:information"></span>
-                    Blogglow(이하 "블로그")는 「개인정보 보호법」에 따라 이용자의 개인정보를 보호하고 관련 권리를 보장합니다.
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    <span>Blogglow(이하 "블로그")는 「개인정보 보호법」에 따라 이용자의 개인정보를 보호하고 관련 권리를 보장합니다.</span>
                 </div>
 
                 <h3>제1조 수집하는 개인정보 항목</h3>
@@ -314,13 +498,13 @@
         <div class="policy-section" id="disclaimer">
             <div class="policy-section-header">
                 <div class="policy-section-icon">
-                    <span class="iconify" data-icon="carbon:warning-alt"></span>
+                    <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                 </div>
                 <div class="policy-section-title">면책조항</div>
             </div>
             <div class="policy-section-body">
                 <div class="warning-box">
-                    <span class="iconify" data-icon="carbon:warning"></span>
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
                     <span>본 블로그의 모든 콘텐츠는 <strong>정보 제공 목적</strong>으로만 작성되었으며, 법적·금융적 조언이 아닙니다.</span>
                 </div>
 
@@ -376,7 +560,7 @@
         <div class="policy-section" id="copyright">
             <div class="policy-section-header">
                 <div class="policy-section-icon">
-                    <span class="iconify" data-icon="carbon:copyright"></span>
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
                 </div>
                 <div class="policy-section-title">저작권 정책</div>
             </div>
@@ -400,8 +584,8 @@
                 </ul>
 
                 <div class="highlight-box">
-                    <span class="iconify" data-icon="carbon:information"></span>
-                    콘텐츠 사용 협의나 제휴 문의는 하단 이메일로 연락주시면 검토 후 회신드립니다.
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    <span>콘텐츠 사용 협의나 제휴 문의는 하단 이메일로 연락주시면 검토 후 회신드립니다.</span>
                 </div>
             </div>
         </div>
@@ -410,7 +594,7 @@
         <div class="policy-section" id="ads">
             <div class="policy-section-header">
                 <div class="policy-section-icon">
-                    <span class="iconify" data-icon="carbon:advertisement"></span>
+                    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
                 </div>
                 <div class="policy-section-title">광고 정책</div>
             </div>
@@ -429,8 +613,8 @@
                 <p>제휴 마케팅 링크를 통해 구매 시 블로그 운영자에게 소정의 수수료가 지급될 수 있습니다. 이는 독자에게 추가 비용을 발생시키지 않습니다.</p>
 
                 <div class="warning-box">
-                    <span class="iconify" data-icon="carbon:warning"></span>
-                    광고 차단 프로그램을 비활성화해 주시면 블로그 운영에 큰 도움이 됩니다. 감사합니다.
+                    <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    <span>광고 차단 프로그램을 비활성화해 주시면 블로그 운영에 큰 도움이 됩니다. 감사합니다.</span>
                 </div>
             </div>
         </div>
@@ -439,7 +623,7 @@
         <div class="policy-section" id="cookie">
             <div class="policy-section-header">
                 <div class="policy-section-icon">
-                    <span class="iconify" data-icon="carbon:cookie"></span>
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="6" r="1"/><circle cx="6" cy="12" r="1"/><circle cx="18" cy="12" r="1"/><circle cx="9" cy="17" r="1"/><circle cx="15" cy="17" r="1"/></svg>
                 </div>
                 <div class="policy-section-title">쿠키 정책</div>
             </div>
@@ -492,31 +676,35 @@
         <div class="policy-section" id="contact">
             <div class="policy-section-header">
                 <div class="policy-section-icon">
-                    <span class="iconify" data-icon="carbon:email"></span>
+                    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 </div>
                 <div class="policy-section-title">문의</div>
             </div>
             <div class="policy-section-body">
                 <p>운영정책 관련 문의 또는 개인정보 권리 행사는 아래를 통해 연락주세요.</p>
 
-                <div style="margin-top:20px; display:flex; flex-direction:column; gap:12px;">
-                    <div style="display:flex; align-items:center; gap:12px; padding:16px 20px; background:var(--bg-gray); border-radius:10px;">
-                        <span class="iconify" data-icon="carbon:email" style="font-size:20px; color:var(--primary);"></span>
+                <div style="margin-top:28px; display:flex; flex-direction:column; gap:16px;">
+                    <div class="contact-box">
+                        <div class="contact-box-icon">
+                            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
                         <div>
-                            <div style="font-size:12px; font-weight:700; color:var(--text-light); margin-bottom:2px;">이메일</div>
-                            <div style="font-size:15px; font-weight:700; color:var(--text);">contact@blogglow.com</div>
+                            <div class="contact-box-label">이메일</div>
+                            <div class="contact-box-value">contact@blogglow.com</div>
                         </div>
                     </div>
-                    <div style="display:flex; align-items:center; gap:12px; padding:16px 20px; background:var(--bg-gray); border-radius:10px;">
-                        <span class="iconify" data-icon="carbon:time" style="font-size:20px; color:var(--primary);"></span>
+                    <div class="contact-box">
+                        <div class="contact-box-icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
                         <div>
-                            <div style="font-size:12px; font-weight:700; color:var(--text-light); margin-bottom:2px;">답변 시간</div>
-                            <div style="font-size:15px; font-weight:700; color:var(--text);">영업일 기준 2~3일 이내</div>
+                            <div class="contact-box-label">답변 시간</div>
+                            <div class="contact-box-value">영업일 기준 2~3일 이내</div>
                         </div>
                     </div>
                 </div>
 
-                <div style="margin-top:24px; padding:20px; background:#f8fafc; border-radius:10px; border:1px solid var(--border); font-size:13px; color:var(--text-sub); line-height:1.7;">
+                <div style="margin-top:28px; padding:22px; background:var(--bg-gray); border-radius:12px; border:1px solid var(--border); font-size:14px; color:var(--text-sub); line-height:1.8;">
                     본 운영정책은 법령 개정이나 서비스 변경에 따라 수정될 수 있습니다. 중요한 변경사항이 있을 경우 블로그 공지를 통해 안내드립니다.
                 </div>
             </div>
@@ -527,12 +715,23 @@
 
 <!-- 푸터 -->
 <footer class="footer">
-    <div class="footer-logo">Blogglow</div>
-    <p>직장인을 위한 실용 정보 블로그</p>
-    <div class="footer-links">
-        <a href="/index.html">홈</a>
-        <a href="/calculator.html">계산기</a>
-        <a href="/about.html">소개</a>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="footer-logo">Blogglow</div>
+            <p>직장인을 위한 실용 정보 블로그</p>
+        </div>
+        <div class="footer-col">
+            <h4>콘텐츠</h4>
+            <a href="/index.html">인사이트</a>
+        </div>
+        <div class="footer-col">
+            <h4>정보</h4>
+            <a href="/policy.html">운영정책</a>
+        </div>
+        <div class="footer-col">
+            <h4>문의</h4>
+            <a href="#">문의하기</a>
+        </div>
     </div>
     <div class="footer-bottom">© 2025 Blogglow. All rights reserved.</div>
 </footer>
