@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>소개 | Blogglow</title>
-    <meta name="description" content="Blogglow는 직장인을 위한 경제, 세금, 재테크 실용 정보 블로그입니다. 복잡한 금융 정보를 쉽고 정확하게 전달합니다.">
+    <meta name="description" content="Blogglow는 직장인을 위한 경제, 세금, 재테크 실용 정보 블로그입니다.">
     <link rel="icon" type="image/png" href="https://blogglow.com/images/favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
-    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <style>
         :root {
             --bg: #ffffff;
@@ -16,203 +15,259 @@
             --text-light: #9ca3af;
             --primary: #01a3f0;
             --primary-dark: #0284c7;
-            --primary-light: #e0f2fe;
+            --primary-light: #e8f5fd;
             --border: #e5e7eb;
-            --bg-gray: #f9fafb;
-            --header-h: 72px;
-            --radius: 16px;
-            --shadow: 0 4px 24px rgba(0,0,0,0.07);
+            --bg-gray: #f8f9fb;
+            --header-h: 68px;
+            --radius: 14px;
+            --shadow: 0 2px 16px rgba(0,0,0,0.06);
+            --shadow-md: 0 8px 32px rgba(0,0,0,0.1);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Pretendard', -apple-system, sans-serif;
             background: var(--bg);
             color: var(--text);
+            font-size: 16px;
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
         a { text-decoration: none; color: inherit; }
 
+        /* ── notice bar ── */
+        .notice-bar {
+            background: #292929;
+            color: #fff;
+            text-align: center;
+            padding: 10px 24px;
+            font-size: 13px;
+            letter-spacing: -0.01em;
+        }
+
         /* ── 헤더 ── */
-        .notice-bar { background: #111; color: #fff; text-align: center; padding: 10px 24px; font-size: 13px; }
-        .site-header { position: sticky; top: 0; z-index: 100; background: rgba(0,0,0,0.95); backdrop-filter: blur(10px); }
-        .header-inner { max-width: 1140px; margin: 0 auto; padding: 0 24px; height: var(--header-h); display: flex; align-items: center; justify-content: space-between; }
-        .logo img { height: 30px; width: auto; }
-        .nav { display: flex; gap: 24px; }
-        .nav a { font-size: 15px; font-weight: 600; color: #94a3b8; transition: color 0.2s; }
+        .site-header {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(10,10,10,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .header-inner {
+            max-width: 1140px; margin: 0 auto; padding: 0 32px;
+            height: var(--header-h);
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo img { height: 28px; width: auto; }
+        .nav { display: flex; gap: 28px; }
+        .nav a { font-size: 15px; font-weight: 600; color: #6b7280; transition: color 0.2s; letter-spacing: -0.01em; }
         .nav a:hover, .nav a.active { color: #fff; }
 
         /* ── 히어로 ── */
         .hero {
-            padding: 120px 24px;
+            padding: 140px 32px 120px;
             background: #fff;
-            position: relative; overflow: hidden;
+            border-bottom: 1px solid var(--border);
         }
-        .hero::after {
-            content: '';
-            position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--border), transparent);
-        }
-        .hero-inner { max-width: 760px; margin: 0 auto; }
+        .hero-inner { max-width: 720px; margin: 0 auto; }
         .hero-eyebrow {
-            font-size: 13px; font-weight: 800; color: var(--primary);
-            letter-spacing: 0.12em; text-transform: uppercase;
-            margin-bottom: 20px; display: flex; align-items: center; gap: 8px;
-        }
-        .hero-eyebrow::before, .hero-eyebrow::after {
-            content: ''; flex: none; width: 24px; height: 2px; background: var(--primary); border-radius: 1px;
+            display: inline-block;
+            font-size: 12px; font-weight: 700; color: var(--primary);
+            letter-spacing: 0.14em; text-transform: uppercase;
+            background: var(--primary-light);
+            padding: 5px 14px; border-radius: 100px;
+            margin-bottom: 28px;
         }
         .hero h1 {
-            font-size: 4rem; font-weight: 900; line-height: 1.1;
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            font-weight: 900; line-height: 1.12;
             letter-spacing: -0.04em; color: var(--text);
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
         .hero h1 em { font-style: normal; color: var(--primary); }
         .hero-desc {
-            font-size: 18px; color: var(--text-sub); line-height: 1.8;
-            max-width: 580px;
-        }
-        .hero-deco {
-            position: absolute; right: 10%; top: 50%; transform: translateY(-50%);
-            font-size: 200px; line-height: 1; opacity: 0.04; font-weight: 900;
-            color: var(--primary); pointer-events: none; user-select: none;
+            font-size: 18px; color: var(--text-sub); line-height: 1.85;
+            max-width: 520px; font-weight: 400;
         }
 
         /* ── 섹션 공통 ── */
-        section { padding: 100px 24px; }
+        section { padding: 96px 32px; }
         .section-inner { max-width: 960px; margin: 0 auto; }
         .section-label {
-            font-size: 12px; font-weight: 800; color: var(--primary);
-            letter-spacing: 0.15em; text-transform: uppercase;
-            margin-bottom: 16px;
+            font-size: 12px; font-weight: 700; color: var(--primary);
+            letter-spacing: 0.14em; text-transform: uppercase;
+            margin-bottom: 12px;
         }
         .section-title {
-            font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em;
-            line-height: 1.2; margin-bottom: 16px;
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            font-weight: 800; letter-spacing: -0.03em;
+            line-height: 1.25; margin-bottom: 14px;
         }
         .section-desc { font-size: 16px; color: var(--text-sub); line-height: 1.8; }
 
-        /* ── 미션 섹션 ── */
+        /* ── 미션 ── */
         .mission { background: var(--bg-gray); }
-        .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-top: 60px; }
-        .mission-text h3 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 20px; }
-        .mission-text p { color: var(--text-sub); font-size: 16px; line-height: 1.85; margin-bottom: 16px; }
-        .mission-visual {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
-            border-radius: 24px; padding: 48px;
-            display: flex; flex-direction: column; gap: 20px;
+        .mission-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 56px; align-items: center; margin-top: 64px;
         }
-        .stat-row { display: flex; align-items: flex-end; gap: 12px; }
-        .big-stat { font-size: 4rem; font-weight: 900; color: #fff; line-height: 1; letter-spacing: -0.04em; }
-        .big-stat-label { font-size: 15px; color: #94a3b8; font-weight: 600; padding-bottom: 8px; }
-        .stat-divider { height: 1px; background: rgba(255,255,255,0.1); }
+        .mission-text h3 {
+            font-size: 1.6rem; font-weight: 800;
+            letter-spacing: -0.025em; margin-bottom: 20px; line-height: 1.3;
+        }
+        .mission-text p {
+            color: var(--text-sub); font-size: 16px;
+            line-height: 1.9; margin-bottom: 14px;
+        }
+        .mission-visual {
+            background: #0d1117;
+            border-radius: 20px; padding: 44px;
+            display: flex; flex-direction: column; gap: 28px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .stat-row { display: flex; align-items: flex-end; gap: 14px; }
+        .big-stat {
+            font-size: 3.4rem; font-weight: 900; color: #fff;
+            line-height: 1; letter-spacing: -0.04em;
+        }
+        .big-stat-label { font-size: 15px; color: #6b7280; font-weight: 500; padding-bottom: 6px; line-height: 1.5; }
+        .stat-divider { height: 1px; background: rgba(255,255,255,0.07); }
 
         /* ── 가치 카드 ── */
         .values { background: #fff; }
-        .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+        .values-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 20px; margin-top: 56px;
+        }
         .value-card {
-            border: 1px solid var(--border); border-radius: var(--radius); padding: 32px;
-            transition: all 0.3s; position: relative; overflow: hidden;
+            padding: 32px 28px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: box-shadow 0.25s, transform 0.25s;
+            background: #fff;
         }
-        .value-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-            background: var(--primary); transform: scaleX(0); transform-origin: left;
-            transition: transform 0.3s;
+        .value-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
         }
-        .value-card:hover { box-shadow: var(--shadow); transform: translateY(-4px); }
-        .value-card:hover::before { transform: scaleX(1); }
         .value-icon {
-            width: 52px; height: 52px; border-radius: 14px;
-            background: var(--primary-light); display: flex; align-items: center; justify-content: center;
-            font-size: 24px; margin-bottom: 20px; color: var(--primary);
+            width: 50px; height: 50px; border-radius: 12px;
+            background: var(--primary-light);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px;
         }
-        .value-title { font-size: 18px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.02em; }
-        .value-desc { font-size: 14px; color: var(--text-sub); line-height: 1.7; }
+        .value-icon svg { width: 22px; height: 22px; stroke: var(--primary); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+        .value-title { font-size: 17px; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.02em; }
+        .value-desc { font-size: 15px; color: var(--text-sub); line-height: 1.75; }
 
-        /* ── 콘텐츠 범주 ── */
+        /* ── 카테고리 ── */
         .categories { background: var(--bg-gray); }
-        .cat-list { display: flex; flex-direction: column; gap: 16px; margin-top: 48px; }
+        .cat-list { display: flex; flex-direction: column; gap: 12px; margin-top: 48px; }
         .cat-item {
-            background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
-            padding: 24px 28px; display: flex; align-items: center; gap: 24px;
-            transition: all 0.2s;
+            background: #fff; border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 22px 26px;
+            display: flex; align-items: center; gap: 20px;
+            transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
         }
-        .cat-item:hover { border-color: var(--primary); box-shadow: var(--shadow); transform: translateX(4px); }
-        .cat-emoji { font-size: 32px; flex-shrink: 0; }
+        .cat-item:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+            transform: translateX(3px);
+        }
+        .cat-icon {
+            width: 48px; height: 48px; border-radius: 11px;
+            background: var(--primary-light);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .cat-icon svg { width: 22px; height: 22px; stroke: var(--primary); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
         .cat-info { flex: 1; }
-        .cat-name { font-size: 18px; font-weight: 800; margin-bottom: 4px; letter-spacing: -0.02em; }
-        .cat-desc { font-size: 14px; color: var(--text-sub); }
+        .cat-name { font-size: 17px; font-weight: 800; margin-bottom: 4px; letter-spacing: -0.02em; }
+        .cat-desc { font-size: 15px; color: var(--text-sub); line-height: 1.6; }
         .cat-tag {
             font-size: 12px; font-weight: 700; color: var(--primary);
-            background: var(--primary-light); padding: 4px 12px; border-radius: 100px;
-            white-space: nowrap;
+            background: var(--primary-light); padding: 4px 12px;
+            border-radius: 100px; white-space: nowrap; letter-spacing: 0.04em;
         }
 
-        /* ── 약속 섹션 ── */
+        /* ── 약속 ── */
         .promise { background: #fff; }
-        .promise-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 48px; }
+        .promise-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 16px; margin-top: 48px;
+        }
         .promise-item {
-            display: flex; gap: 16px; padding: 24px;
-            border: 1px solid var(--border); border-radius: 12px;
+            display: flex; gap: 18px; padding: 28px;
+            border: 1px solid var(--border); border-radius: var(--radius);
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
+        .promise-item:hover { border-color: #d0e8f7; box-shadow: var(--shadow); }
         .promise-num {
-            font-size: 2rem; font-weight: 900; color: var(--border);
+            font-size: 1.6rem; font-weight: 900; color: #e5e7eb;
             line-height: 1; flex-shrink: 0; letter-spacing: -0.04em;
+            font-variant-numeric: tabular-nums;
         }
-        .promise-item h4 { font-size: 16px; font-weight: 800; margin-bottom: 8px; }
-        .promise-item p { font-size: 14px; color: var(--text-sub); line-height: 1.65; }
+        .promise-item h4 { font-size: 16px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.01em; }
+        .promise-item p { font-size: 15px; color: var(--text-sub); line-height: 1.75; }
 
         /* ── CTA ── */
         .cta {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
-            padding: 100px 24px; text-align: center;
+            background: #0d1117;
+            padding: 100px 32px; text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
-        .cta h2 { font-size: 2.5rem; font-weight: 900; color: #fff; letter-spacing: -0.04em; margin-bottom: 20px; }
-        .cta p { font-size: 17px; color: #94a3b8; margin-bottom: 40px; line-height: 1.7; }
-        .cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+        .cta-inner { max-width: 580px; margin: 0 auto; }
+        .cta h2 {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 900; color: #fff;
+            letter-spacing: -0.04em; margin-bottom: 16px; line-height: 1.2;
+        }
+        .cta p { font-size: 17px; color: #6b7280; margin-bottom: 40px; line-height: 1.8; }
+        .cta-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
         .btn-primary {
             display: inline-flex; align-items: center; gap: 8px;
-            padding: 16px 32px; background: var(--primary); color: #fff;
-            border-radius: 100px; font-size: 15px; font-weight: 800;
-            transition: all 0.2s; border: none; cursor: pointer;
-            font-family: 'Pretendard', sans-serif;
+            padding: 15px 30px; background: var(--primary); color: #fff;
+            border-radius: 100px; font-size: 15px; font-weight: 700;
+            transition: all 0.2s; font-family: 'Pretendard', sans-serif;
+            letter-spacing: -0.01em;
         }
-        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(1,163,240,0.4); }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(1,163,240,0.35); }
+        .btn-primary svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
         .btn-outline {
             display: inline-flex; align-items: center; gap: 8px;
-            padding: 16px 32px; background: transparent;
-            border: 1.5px solid rgba(255,255,255,0.3); color: #fff;
-            border-radius: 100px; font-size: 15px; font-weight: 700;
-            transition: all 0.2s; cursor: pointer;
-            font-family: 'Pretendard', sans-serif;
+            padding: 15px 30px; background: transparent;
+            border: 1.5px solid rgba(255,255,255,0.18); color: #e5e7eb;
+            border-radius: 100px; font-size: 15px; font-weight: 600;
+            transition: all 0.2s; font-family: 'Pretendard', sans-serif;
+            letter-spacing: -0.01em;
         }
-        .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.05); }
+        .btn-outline:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
+        .btn-outline svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
         /* ── 푸터 ── */
-        .footer { background: #1a1a1a; color: #a1a1aa; padding: 40px 24px; text-align: center; font-size: 13px; }
-        .footer-logo { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 8px; }
-        .footer-links { display: flex; justify-content: center; gap: 24px; margin-top: 16px; }
-        .footer-links a { color: #52525b; font-size: 13px; transition: color 0.2s; }
-        .footer-links a:hover { color: #fff; }
-        .footer-bottom { margin-top: 20px; padding-top: 20px; border-top: 1px solid #333; font-size: 12px; color: #52525b; }
+        .footer { background: #111; color: #6b7280; padding: 40px 32px; text-align: center; font-size: 14px; }
+        .footer-logo { font-size: 19px; font-weight: 800; color: #fff; margin-bottom: 6px; letter-spacing: -0.02em; }
+        .footer-sub { font-size: 14px; color: #4b5563; }
+        .footer-links { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
+        .footer-links a { color: #4b5563; font-size: 14px; transition: color 0.2s; }
+        .footer-links a:hover { color: #9ca3af; }
+        .footer-bottom { margin-top: 20px; padding-top: 20px; border-top: 1px solid #1f1f1f; font-size: 13px; color: #374151; }
 
-        /* 반응형 */
+        /* ── 반응형 ── */
         @media (max-width: 900px) {
-            .mission-grid { grid-template-columns: 1fr; }
+            .mission-grid { grid-template-columns: 1fr; gap: 40px; }
             .values-grid { grid-template-columns: 1fr 1fr; }
-            .hero-deco { display: none; }
         }
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .section-title { font-size: 1.8rem; }
+            section { padding: 72px 20px; }
+            .hero { padding: 100px 20px 80px; }
+            .hero-desc { font-size: 17px; }
             .values-grid { grid-template-columns: 1fr; }
             .promise-grid { grid-template-columns: 1fr; }
             .nav { display: none; }
         }
         @media (max-width: 480px) {
-            .hero { padding: 80px 24px; }
-            .hero h1 { font-size: 2.2rem; }
-            section { padding: 70px 24px; }
+            .hero { padding: 80px 20px 60px; }
+            section { padding: 60px 20px; }
         }
     </style>
 </head>
@@ -236,13 +291,12 @@
 
 <!-- 히어로 -->
 <section class="hero">
-    <div class="hero-deco">B</div>
     <div class="hero-inner">
         <div class="hero-eyebrow">About Blogglow</div>
-        <h1>복잡한 돈 이야기를<br><em>쉽게</em> 풀어드립니다</h1>
+        <h1>필요한 정보를,<br><em>읽기 쉽게</em></h1>
         <p class="hero-desc">
-            세금, 재테크, 경제 뉴스... 알아야 한다는 건 알지만 매번 어렵게 느껴지셨나요?<br>
-            Blogglow는 직장인 눈높이에 맞춰, 진짜 쓸모 있는 정보만 골라 전달합니다.
+            세금, 재테크, 경제 흐름. 알아야 한다는 건 알지만 막상 찾아보면 어렵거나 너무 파편화돼 있습니다.<br>
+            Blogglow는 그 간극을 줄이기 위해 만들어진 블로그입니다.
         </p>
     </div>
 </section>
@@ -251,24 +305,24 @@
 <section class="mission">
     <div class="section-inner">
         <div class="section-label">Our Mission</div>
-        <h2 class="section-title">당신의 마지막 검색지가 되겠습니다</h2>
-        <p class="section-desc">여러 블로그를 헤매지 않아도 되도록, 핵심만 꺼내 정리합니다.</p>
+        <h2 class="section-title">한 번 읽으면 충분한 글</h2>
+        <p class="section-desc">여러 탭을 열어놓고 헤매지 않아도 되도록, 핵심만 꺼내 정리합니다.</p>
 
         <div class="mission-grid">
             <div class="mission-text">
-                <h3>직장인이 모르면<br>손해 보는 정보들</h3>
-                <p>매년 달라지는 세법, 신청 기간이 짧은 정부 지원금, 안 쓰면 사라지는 공제 혜택들. 알고 있는 것과 모르는 것의 차이가 실제 수십만원에서 수백만원이 됩니다.</p>
-                <p>Blogglow는 복잡한 조건과 예외사항을 걷어내고, <strong>"나한테 해당되는 부분"</strong>만 빠르게 파악할 수 있도록 정리합니다.</p>
+                <h3>모르면 지나치기 쉬운<br>것들이 있습니다</h3>
+                <p>매년 바뀌는 세법, 신청 기간이 짧은 지원금, 요건을 충족해도 몰라서 못 받는 혜택들. 정보의 차이가 실제 금액으로 이어집니다.</p>
+                <p>Blogglow는 복잡한 조건을 걷어내고, <strong>나에게 해당되는 부분</strong>만 빠르게 파악할 수 있도록 씁니다.</p>
             </div>
             <div class="mission-visual">
                 <div class="stat-row">
                     <div class="big-stat">73%</div>
-                    <div class="big-stat-label">직장인이 연말정산<br>공제를 놓친다</div>
+                    <div class="big-stat-label">직장인이 연말정산<br>공제 일부를 놓친다</div>
                 </div>
                 <div class="stat-divider"></div>
                 <div class="stat-row">
                     <div class="big-stat">2.1M</div>
-                    <div class="big-stat-label">평균 연말정산<br>미환급액 (원)</div>
+                    <div class="big-stat-label">평균 미환급액<br>(원 기준)</div>
                 </div>
                 <div class="stat-divider"></div>
                 <div class="stat-row">
@@ -284,29 +338,29 @@
 <section class="values">
     <div class="section-inner">
         <div class="section-label">Our Values</div>
-        <h2 class="section-title">세 가지 원칙으로 씁니다</h2>
+        <h2 class="section-title">글을 쓸 때 지키는 세 가지</h2>
 
         <div class="values-grid">
             <div class="value-card">
                 <div class="value-icon">
-                    <span class="iconify" data-icon="carbon:checkmark-outline"></span>
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="9 12 11 14 15 10"/></svg>
                 </div>
-                <div class="value-title">정확성 우선</div>
-                <p class="value-desc">법령, 국세청 고시, 공식 자료를 기반으로 작성합니다. 추측이나 카더라 정보는 싣지 않으며, 변경사항이 생기면 즉시 업데이트합니다.</p>
+                <div class="value-title">정확성</div>
+                <p class="value-desc">법령, 국세청 고시, 공식 자료를 기반으로 씁니다. 변경사항이 생기면 즉시 반영하고, 불확실한 내용은 싣지 않습니다.</p>
             </div>
             <div class="value-card">
                 <div class="value-icon">
-                    <span class="iconify" data-icon="carbon:user-avatar"></span>
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
                 </div>
-                <div class="value-title">독자 눈높이</div>
-                <p class="value-desc">세무사나 금융 전문가가 아닌, 평범한 직장인을 위해 씁니다. 전문 용어는 쉬운 말로 풀고, 사례 중심으로 이해할 수 있게 구성합니다.</p>
+                <div class="value-title">눈높이</div>
+                <p class="value-desc">전문가가 아닌 일반 직장인을 기준으로 씁니다. 어려운 용어는 풀어서 설명하고, 실제 사례를 들어 이해하기 쉽게 구성합니다.</p>
             </div>
             <div class="value-card">
                 <div class="value-icon">
-                    <span class="iconify" data-icon="carbon:time"></span>
+                    <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                 </div>
-                <div class="value-title">실용적 정보</div>
-                <p class="value-desc">이론보다 "지금 당장 내가 할 수 있는 것"에 집중합니다. 신청 방법, 계산 방법, 주의사항까지 한 글에서 해결할 수 있도록 씁니다.</p>
+                <div class="value-title">실용성</div>
+                <p class="value-desc">이론보다 지금 당장 할 수 있는 것에 집중합니다. 신청 방법, 계산 방법, 주의사항까지 한 글 안에서 해결되도록 씁니다.</p>
             </div>
         </div>
     </div>
@@ -316,39 +370,47 @@
 <section class="categories">
     <div class="section-inner">
         <div class="section-label">Content</div>
-        <h2 class="section-title">이런 글을 씁니다</h2>
-        <p class="section-desc">직장인의 경제생활 전반에 걸쳐 꼭 필요한 정보를 다룹니다.</p>
+        <h2 class="section-title">다루는 주제들</h2>
+        <p class="section-desc">직장인의 경제생활 전반에서 실제로 마주치는 주제를 씁니다.</p>
 
         <div class="cat-list">
             <div class="cat-item">
-                <div class="cat-emoji">🧾</div>
+                <div class="cat-icon">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
                 <div class="cat-info">
                     <div class="cat-name">경제 & 세금</div>
-                    <div class="cat-desc">연말정산, 종합소득세, 부가세, 원천징수, 세금 절감 방법. 복잡한 세금을 쉽게 정리합니다.</div>
+                    <div class="cat-desc">연말정산, 종합소득세, 원천징수, 절세 방법. 매년 바뀌는 내용을 정리합니다.</div>
                 </div>
                 <div class="cat-tag">Economy</div>
             </div>
             <div class="cat-item">
-                <div class="cat-emoji">💰</div>
+                <div class="cat-icon">
+                    <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
                 <div class="cat-info">
-                    <div class="cat-name">머니 & 팁</div>
-                    <div class="cat-desc">청약, 대출, 청년 지원금, 카드 혜택, ISA·IRP 활용법. 실생활에서 바로 쓸 수 있는 재테크 팁.</div>
+                    <div class="cat-name">머니 & 재테크</div>
+                    <div class="cat-desc">청약, 대출, 청년 지원금, ISA·IRP 활용. 실생활에 바로 쓸 수 있는 내용 위주입니다.</div>
                 </div>
                 <div class="cat-tag">Money</div>
             </div>
             <div class="cat-item">
-                <div class="cat-emoji">📊</div>
+                <div class="cat-icon">
+                    <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
                 <div class="cat-info">
                     <div class="cat-name">인사이트</div>
-                    <div class="cat-desc">금리 흐름, 부동산 시장, 환율 상식, 경제 뉴스 해석. 알아두면 쓸모 있는 경제 상식.</div>
+                    <div class="cat-desc">금리, 부동산, 환율, 경제 뉴스 해석. 흐름을 이해하는 데 도움이 되는 글입니다.</div>
                 </div>
                 <div class="cat-tag">Insight</div>
             </div>
             <div class="cat-item">
-                <div class="cat-emoji">🛠️</div>
+                <div class="cat-icon">
+                    <svg viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+                </div>
                 <div class="cat-info">
                     <div class="cat-name">계산기 & 도구</div>
-                    <div class="cat-desc">연말정산 환급 계산기, 퇴직금, 건강보험료, 대출이자 계산기. 직접 계산해보세요.</div>
+                    <div class="cat-desc">연말정산, 퇴직금, 건강보험료, 대출이자 계산기. 숫자로 직접 확인해보세요.</div>
                 </div>
                 <div class="cat-tag">Tools</div>
             </div>
@@ -360,35 +422,35 @@
 <section class="promise">
     <div class="section-inner">
         <div class="section-label">Our Promise</div>
-        <h2 class="section-title">독자에게 드리는 약속</h2>
+        <h2 class="section-title">지키려고 노력하는 것들</h2>
 
         <div class="promise-grid">
             <div class="promise-item">
                 <div class="promise-num">01</div>
                 <div>
                     <h4>광고와 콘텐츠를 분리합니다</h4>
-                    <p>광고 수익이 콘텐츠 방향에 영향을 주지 않습니다. 추천하는 상품이나 서비스는 실제로 유용하다고 판단한 것만 소개합니다.</p>
+                    <p>광고 수익이 글의 방향에 영향을 주지 않습니다. 소개하는 서비스는 실제로 유용하다고 판단한 것만 씁니다.</p>
                 </div>
             </div>
             <div class="promise-item">
                 <div class="promise-num">02</div>
                 <div>
-                    <h4>잘못된 정보는 즉시 수정합니다</h4>
-                    <p>법령이 바뀌거나 오류가 발견되면 즉시 수정하고 변경 내역을 명시합니다. 독자의 피드백은 언제나 환영합니다.</p>
+                    <h4>오류는 바로 수정합니다</h4>
+                    <p>법령이 바뀌거나 잘못된 내용이 발견되면 즉시 수정하고 변경 내역을 표시합니다. 피드백은 언제나 환영합니다.</p>
                 </div>
             </div>
             <div class="promise-item">
                 <div class="promise-num">03</div>
                 <div>
-                    <h4>전문가 의견이 필요한 건 안내합니다</h4>
-                    <p>복잡한 세금 문제나 법적 분쟁은 세무사·변호사 상담이 필요합니다. 블로그로 해결할 수 없는 영역은 명확히 안내합니다.</p>
+                    <h4>한계를 명확히 안내합니다</h4>
+                    <p>복잡한 세금 문제나 법적 사안은 전문가 상담이 필요합니다. 블로그로 해결하기 어려운 영역은 솔직하게 밝힙니다.</p>
                 </div>
             </div>
             <div class="promise-item">
                 <div class="promise-num">04</div>
                 <div>
-                    <h4>개인정보를 소중히 다룹니다</h4>
-                    <p>수집하는 데이터는 서비스 개선에만 사용하며 제3자에게 제공하지 않습니다. 자세한 내용은 운영정책에서 확인하세요.</p>
+                    <h4>개인정보를 함부로 쓰지 않습니다</h4>
+                    <p>수집한 데이터는 서비스 개선 외에 사용하지 않으며 외부에 제공하지 않습니다. 자세한 내용은 운영정책을 참고하세요.</p>
                 </div>
             </div>
         </div>
@@ -397,16 +459,16 @@
 
 <!-- CTA -->
 <section class="cta">
-    <div style="max-width:640px; margin:0 auto;">
-        <h2>지금 바로 시작해보세요</h2>
-        <p>최신 글부터 읽거나, 금융 계산기로<br>직접 내 상황을 계산해보세요.</p>
+    <div class="cta-inner">
+        <h2>읽어보시겠어요?</h2>
+        <p>최신 글부터 둘러보거나,<br>계산기로 직접 숫자를 확인해보세요.</p>
         <div class="cta-btns">
             <a href="/index.html" class="btn-primary">
-                <span class="iconify" data-icon="carbon:document"></span>
-                최신 글 보러가기
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                최신 글 보기
             </a>
             <a href="/calculator.html" class="btn-outline">
-                <span class="iconify" data-icon="carbon:calculator"></span>
+                <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="14" y1="14" x2="16" y2="14"/><line x1="14" y1="18" x2="16" y2="18"/></svg>
                 계산기 사용하기
             </a>
         </div>
@@ -416,7 +478,7 @@
 <!-- 푸터 -->
 <footer class="footer">
     <div class="footer-logo">Blogglow</div>
-    <p>직장인을 위한 실용 정보 블로그</p>
+    <div class="footer-sub">직장인을 위한 실용 정보 블로그</div>
     <div class="footer-links">
         <a href="/index.html">홈</a>
         <a href="/calculator.html">계산기</a>
