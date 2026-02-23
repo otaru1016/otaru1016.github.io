@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
-    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <style>
         :root {
             --ink: #0d0d0d;
@@ -39,6 +38,7 @@
             font-family: var(--kr);
             background: var(--surface-2);
             color: var(--ink);
+            font-size: 16px;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             min-height: 100vh;
@@ -50,12 +50,12 @@
 
         /* ── 헤더 ── */
         .notice-bar {
-            background: var(--ink);
-            color: rgba(255,255,255,0.6);
+            background: #292929;
+            color: #fff;
             text-align: center;
-            padding: 9px 24px;
-            font-size: 12px;
-            letter-spacing: 0.01em;
+            padding: 10px 24px;
+            font-size: 13px;
+            letter-spacing: -0.01em;
         }
         .site-header {
             position: sticky; top: 0; z-index: 200;
@@ -71,9 +71,9 @@
         .logo img { height: 28px; width: auto; }
         .nav { display: flex; gap: 32px; }
         .nav a {
-            font-size: 14px; font-weight: 400;
+            font-size: 15px; font-weight: 500;
             color: rgba(255,255,255,0.45);
-            letter-spacing: 0.01em;
+            letter-spacing: -0.01em;
             transition: color 0.15s;
         }
         .nav a:hover { color: rgba(255,255,255,0.85); }
@@ -85,9 +85,7 @@
             border-bottom: 1px solid var(--rule);
             padding: 64px 32px 0;
         }
-        .page-top-inner {
-            max-width: 1200px; margin: 0 auto;
-        }
+        .page-top-inner { max-width: 1200px; margin: 0 auto; }
         .page-top-kicker {
             font-family: var(--mono);
             font-size: 11px; color: var(--accent);
@@ -107,36 +105,32 @@
         }
         .page-top h1 strong { font-weight: 600; }
         .page-top-desc {
-            font-size: 15px; color: var(--ink-3);
+            font-size: 16px; color: var(--ink-3);
             font-weight: 400; margin-bottom: 40px;
-            max-width: 480px; line-height: 1.7;
+            max-width: 480px; line-height: 1.75;
         }
 
         /* ── 탭 네비 ── */
         .tab-nav {
             display: flex; gap: 0;
             overflow-x: auto; scrollbar-width: none;
-            margin-top: 0;
         }
         .tab-nav::-webkit-scrollbar { display: none; }
         .tab-btn {
             display: flex; align-items: center; gap: 7px;
-            padding: 14px 20px;
-            font-size: 13px; font-weight: 500;
+            padding: 15px 22px;
+            font-size: 14px; font-weight: 500;
             color: var(--ink-4);
             background: none; border: none;
             border-bottom: 2px solid transparent;
             cursor: pointer; white-space: nowrap;
             transition: all 0.15s;
             position: relative; top: 1px;
+            letter-spacing: -0.01em;
         }
-        .tab-btn .iconify { font-size: 15px; }
+        .tab-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
         .tab-btn:hover { color: var(--ink-2); }
-        .tab-btn.active {
-            color: var(--ink);
-            border-bottom-color: var(--ink);
-            font-weight: 600;
-        }
+        .tab-btn.active { color: var(--ink); border-bottom-color: var(--ink); font-weight: 600; }
 
         /* ── 메인 레이아웃 ── */
         .main {
@@ -156,9 +150,7 @@
             from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .panel-left, .panel-right {
-            animation: fadeIn 0.25s ease;
-        }
+        .panel-left, .panel-right { animation: fadeIn 0.25s ease; }
 
         /* ── 입력 카드 ── */
         .input-card {
@@ -177,23 +169,24 @@
         .card-header-icon {
             width: 28px; height: 28px;
             display: flex; align-items: center; justify-content: center;
-            color: var(--ink-3); font-size: 16px;
+            color: var(--ink-3);
         }
+        .card-header-icon svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
         .card-header-title {
-            font-size: 13px; font-weight: 500;
-            color: var(--ink-2); letter-spacing: 0.01em;
+            font-size: 14px; font-weight: 600;
+            color: var(--ink-2); letter-spacing: -0.01em;
         }
 
         .card-body { padding: 24px; }
 
         /* ── 폼 그리드 ── */
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .form-group { display: flex; flex-direction: column; gap: 6px; }
+        .form-group { display: flex; flex-direction: column; gap: 7px; }
         .form-group.span-2 { grid-column: 1 / -1; }
 
         .form-label {
-            font-size: 11px; font-weight: 500;
-            color: var(--ink-4); letter-spacing: 0.04em;
+            font-size: 12px; font-weight: 600;
+            color: var(--ink-4); letter-spacing: 0.03em;
             text-transform: uppercase;
         }
 
@@ -201,8 +194,8 @@
         .field-wrap input,
         .field-wrap select {
             width: 100%;
-            padding: 10px 40px 10px 14px;
-            font-size: 15px; font-weight: 400;
+            padding: 11px 44px 11px 14px;
+            font-size: 16px; font-weight: 400;
             color: var(--ink);
             background: var(--surface-2);
             border: 1px solid var(--rule);
@@ -215,38 +208,31 @@
         .field-wrap input:hover,
         .field-wrap select:hover { border-color: #c0c0c0; }
         .field-wrap input:focus,
-        .field-wrap select:focus {
-            border-color: var(--ink);
-            background: var(--surface);
-        }
+        .field-wrap select:focus { border-color: var(--ink); background: var(--surface); }
         .field-unit {
             position: absolute; right: 14px; top: 50%;
             transform: translateY(-50%);
             font-family: var(--mono);
-            font-size: 11px; color: var(--ink-4);
+            font-size: 12px; color: var(--ink-4);
             pointer-events: none;
         }
-        .field-wrap select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%23a0a0a0' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
-
-        /* 날짜 인풋 */
-        .field-wrap input[type="date"] {
-            padding-right: 14px;
+        .field-wrap select {
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%23a0a0a0' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
         }
+        .field-wrap input[type="date"] { padding-right: 14px; }
 
         /* ── 범위 슬라이더 ── */
-        .range-field {
-            display: flex; flex-direction: column; gap: 10px;
-        }
-        .range-display {
-            display: flex; justify-content: space-between; align-items: baseline;
-        }
+        .range-field { display: flex; flex-direction: column; gap: 10px; }
+        .range-display { display: flex; justify-content: space-between; align-items: baseline; }
         .range-value {
             font-family: var(--mono);
             font-size: 20px; font-weight: 500;
             color: var(--ink); letter-spacing: -0.02em;
         }
-        .range-unit { font-size: 12px; color: var(--ink-4); }
-        .range-limits { font-size: 11px; color: var(--ink-4); }
+        .range-limits { font-size: 12px; color: var(--ink-4); }
 
         input[type="range"] {
             width: 100%; height: 2px;
@@ -266,18 +252,16 @@
             box-shadow: 0 1px 4px rgba(0,0,0,0.2);
             transition: transform 0.15s;
         }
-        input[type="range"]::-webkit-slider-thumb:hover {
-            transform: scale(1.2);
-        }
+        input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
 
         /* ── 체크 옵션 ── */
         .check-group { display: flex; flex-wrap: wrap; gap: 8px; }
         .check-item {
-            display: flex; align-items: center; gap: 6px;
-            padding: 7px 14px;
+            display: flex; align-items: center; gap: 7px;
+            padding: 8px 16px;
             border: 1px solid var(--rule);
             border-radius: 3px;
-            font-size: 13px; font-weight: 400;
+            font-size: 14px; font-weight: 400;
             color: var(--ink-2);
             cursor: pointer; user-select: none;
             transition: all 0.12s;
@@ -291,36 +275,26 @@
             transition: all 0.12s;
             flex-shrink: 0;
         }
-        .check-item.on {
-            border-color: var(--ink);
-            color: var(--ink);
-            background: var(--surface);
-        }
-        .check-item.on .check-dot {
-            background: var(--ink);
-            border-color: var(--ink);
-        }
+        .check-item.on { border-color: var(--ink); color: var(--ink); }
+        .check-item.on .check-dot { background: var(--ink); border-color: var(--ink); }
 
         /* ── 계산 버튼 ── */
         .calc-btn {
             width: 100%; margin-top: 20px;
-            padding: 13px 24px;
+            padding: 14px 24px;
             background: var(--ink); color: #fff;
             border: none; border-radius: 3px;
-            font-size: 14px; font-weight: 500;
-            cursor: pointer; letter-spacing: 0.02em;
+            font-size: 15px; font-weight: 500;
+            cursor: pointer; letter-spacing: -0.01em;
             transition: opacity 0.15s, transform 0.1s;
             display: flex; align-items: center; justify-content: center; gap: 8px;
         }
+        .calc-btn svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
         .calc-btn:hover { opacity: 0.88; }
         .calc-btn:active { transform: scale(0.99); }
-        .calc-btn .iconify { font-size: 16px; }
 
-        /* ── 결과 패널 (오른쪽) ── */
-        .panel-right {
-            position: sticky;
-            top: calc(var(--header-h) + 24px);
-        }
+        /* ── 결과 패널 ── */
+        .panel-right { position: sticky; top: calc(var(--header-h) + 24px); }
 
         .result-empty {
             background: var(--surface);
@@ -330,8 +304,8 @@
             text-align: center;
             color: var(--ink-4);
         }
-        .result-empty .iconify { font-size: 32px; margin-bottom: 12px; opacity: 0.3; }
-        .result-empty p { font-size: 13px; line-height: 1.6; }
+        .result-empty svg { width: 32px; height: 32px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.3; display: block; margin: 0 auto 12px; }
+        .result-empty p { font-size: 15px; line-height: 1.65; }
 
         .result-card {
             background: var(--ink);
@@ -347,7 +321,7 @@
         }
         .result-kicker {
             font-family: var(--mono);
-            font-size: 10px; color: rgba(255,255,255,0.35);
+            font-size: 11px; color: rgba(255,255,255,0.35);
             letter-spacing: 0.12em; text-transform: uppercase;
             margin-bottom: 12px;
         }
@@ -355,32 +329,26 @@
             font-family: var(--sans);
             font-size: 2.8rem; font-weight: 300;
             color: #fff; letter-spacing: -0.04em;
-            line-height: 1;
-            margin-bottom: 6px;
+            line-height: 1; margin-bottom: 6px;
         }
         .result-amount.positive { color: #34d399; }
         .result-amount.negative { color: #f87171; }
-        .result-label {
-            font-size: 12px; color: rgba(255,255,255,0.35);
-        }
+        .result-label { font-size: 14px; color: rgba(255,255,255,0.35); }
 
         .result-breakdown {
             padding: 20px 28px;
-            display: flex; flex-direction: column;
-            gap: 0;
+            display: flex; flex-direction: column; gap: 0;
         }
         .breakdown-row {
             display: flex; justify-content: space-between; align-items: baseline;
-            padding: 12px 0;
+            padding: 13px 0;
             border-bottom: 1px solid rgba(255,255,255,0.06);
         }
         .breakdown-row:last-child { border-bottom: none; }
-        .bd-label {
-            font-size: 12px; color: rgba(255,255,255,0.4);
-        }
+        .bd-label { font-size: 13px; color: rgba(255,255,255,0.4); }
         .bd-value {
             font-family: var(--mono);
-            font-size: 13px; color: rgba(255,255,255,0.75);
+            font-size: 14px; color: rgba(255,255,255,0.75);
             font-weight: 400;
         }
         .bd-value.pos { color: #34d399; }
@@ -395,41 +363,23 @@
             border-radius: 4px;
             padding: 16px 20px;
             margin-top: 12px;
-            font-size: 12px; color: var(--ink-3);
-            line-height: 1.7;
+            font-size: 14px; color: var(--ink-3);
+            line-height: 1.75;
             display: flex; gap: 10px;
         }
-        .info-strip .iconify {
-            flex-shrink: 0; font-size: 14px;
-            color: var(--accent); margin-top: 2px;
-        }
-
-        /* ── 섹션 구분 ── */
-        .section-divider {
-            grid-column: 1 / -1;
-            display: flex; align-items: center; gap: 16px;
-            margin: 8px 0 4px;
-        }
-        .section-divider span {
-            font-size: 11px; color: var(--ink-4);
-            white-space: nowrap; font-weight: 500;
-            letter-spacing: 0.06em; text-transform: uppercase;
-        }
-        .section-divider::before, .section-divider::after {
-            content: ''; flex: 1; height: 1px; background: var(--rule-light);
-        }
+        .info-strip svg { flex-shrink: 0; width: 15px; height: 15px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; margin-top: 3px; }
 
         /* ── 면책 ── */
         .disclaimer {
             background: #fffdf0;
             border: 1px solid #f0e8c0;
             border-radius: 3px;
-            padding: 12px 16px;
-            font-size: 11px; color: #8a7530;
-            line-height: 1.65; margin-top: 12px;
+            padding: 13px 16px;
+            font-size: 13px; color: #8a7530;
+            line-height: 1.7; margin-top: 12px;
             display: flex; gap: 8px; align-items: flex-start;
         }
-        .disclaimer .iconify { flex-shrink: 0; margin-top: 1px; }
+        .disclaimer svg { flex-shrink: 0; width: 14px; height: 14px; stroke: #8a7530; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; margin-top: 2px; }
 
         /* ── 푸터 ── */
         footer {
@@ -437,7 +387,7 @@
             color: rgba(255,255,255,0.3);
             padding: 40px 32px;
             text-align: center;
-            font-size: 12px;
+            font-size: 13px;
         }
         .footer-logo {
             font-family: var(--sans);
@@ -451,7 +401,7 @@
             border-top: 1px solid rgba(255,255,255,0.07);
         }
         .footer-links a {
-            font-size: 12px; color: rgba(255,255,255,0.3);
+            font-size: 13px; color: rgba(255,255,255,0.3);
             transition: color 0.15s;
         }
         .footer-links a:hover { color: rgba(255,255,255,0.6); }
@@ -465,8 +415,9 @@
         @media (max-width: 600px) {
             .page-top { padding: 40px 20px 0; }
             .page-top h1 { font-size: 1.9rem; }
+            .page-top-desc { font-size: 15px; }
             .main { padding: 24px 20px 60px; }
-            .tab-btn { padding: 12px 14px; font-size: 12px; }
+            .tab-btn { padding: 12px 14px; font-size: 13px; }
             .header-inner { padding: 0 20px; }
             .nav { display: none; }
             .form-grid { grid-template-columns: 1fr; }
@@ -476,7 +427,7 @@
 </head>
 <body>
 
-<div class="notice-bar">경제, 세금, 재테크 — 꼭 알아야 할 돈 되는 정보를 정리합니다</div>
+<div class="notice-bar">📌 경제, 세금, 재테크, 생활 — 꼭 알아야 할 돈 되는 정보를 정리합니다</div>
 <header class="site-header">
     <div class="header-inner">
         <a href="/index.html" class="logo">
@@ -500,23 +451,23 @@
 
         <div class="tab-nav" id="tab-nav">
             <button class="tab-btn active" data-panel="yearend" onclick="switchPanel('yearend', this)">
-                <span class="iconify" data-icon="carbon:document-tax"></span>
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                 연말정산
             </button>
             <button class="tab-btn" data-panel="severance" onclick="switchPanel('severance', this)">
-                <span class="iconify" data-icon="carbon:piggy-bank"></span>
+                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
                 퇴직금
             </button>
             <button class="tab-btn" data-panel="health" onclick="switchPanel('health', this)">
-                <span class="iconify" data-icon="carbon:hospital"></span>
+                <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                 건강보험료
             </button>
             <button class="tab-btn" data-panel="unemployment" onclick="switchPanel('unemployment', this)">
-                <span class="iconify" data-icon="carbon:user-certification"></span>
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
                 실업급여
             </button>
             <button class="tab-btn" data-panel="loan" onclick="switchPanel('loan', this)">
-                <span class="iconify" data-icon="carbon:building"></span>
+                <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                 대출이자
             </button>
         </div>
@@ -531,7 +482,7 @@
         <div class="panel-left">
             <div class="input-card">
                 <div class="card-header">
-                    <div class="card-header-icon"><span class="iconify" data-icon="carbon:user"></span></div>
+                    <div class="card-header-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
                     <span class="card-header-title">기본 정보</span>
                 </div>
                 <div class="card-body">
@@ -568,90 +519,59 @@
 
             <div class="input-card">
                 <div class="card-header">
-                    <div class="card-header-icon"><span class="iconify" data-icon="carbon:subtract-alt"></span></div>
+                    <div class="card-header-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
                     <span class="card-header-title">공제 항목</span>
                 </div>
                 <div class="card-body">
                     <div class="form-grid">
                         <div class="form-group">
                             <label class="form-label">의료비 지출</label>
-                            <div class="field-wrap">
-                                <input type="number" id="ye-medical" value="0">
-                                <span class="field-unit">원</span>
-                            </div>
+                            <div class="field-wrap"><input type="number" id="ye-medical" value="0"><span class="field-unit">원</span></div>
                         </div>
                         <div class="form-group">
                             <label class="form-label">교육비 지출</label>
-                            <div class="field-wrap">
-                                <input type="number" id="ye-edu" value="0">
-                                <span class="field-unit">원</span>
-                            </div>
+                            <div class="field-wrap"><input type="number" id="ye-edu" value="0"><span class="field-unit">원</span></div>
                         </div>
                         <div class="form-group">
                             <label class="form-label">기부금</label>
-                            <div class="field-wrap">
-                                <input type="number" id="ye-donation" value="0">
-                                <span class="field-unit">원</span>
-                            </div>
+                            <div class="field-wrap"><input type="number" id="ye-donation" value="0"><span class="field-unit">원</span></div>
                         </div>
                         <div class="form-group">
                             <label class="form-label">신용카드 사용액</label>
-                            <div class="field-wrap">
-                                <input type="number" id="ye-credit" value="12000000">
-                                <span class="field-unit">원</span>
-                            </div>
+                            <div class="field-wrap"><input type="number" id="ye-credit" value="12000000"><span class="field-unit">원</span></div>
                         </div>
                         <div class="form-group">
                             <label class="form-label">체크카드 / 현금영수증</label>
-                            <div class="field-wrap">
-                                <input type="number" id="ye-debit" value="5000000">
-                                <span class="field-unit">원</span>
-                            </div>
+                            <div class="field-wrap"><input type="number" id="ye-debit" value="5000000"><span class="field-unit">원</span></div>
                         </div>
                     </div>
 
                     <div class="form-group span-2" style="margin-top:20px;">
                         <label class="form-label" style="margin-bottom:10px;">추가 공제 항목</label>
                         <div class="check-group">
-                            <label class="check-item" onclick="toggleCheck(this)">
-                                <span class="check-dot"></span>
-                                <input type="checkbox" id="ye-pension">
-                                연금저축
-                            </label>
-                            <label class="check-item on" onclick="toggleCheck(this)">
-                                <span class="check-dot"></span>
-                                <input type="checkbox" id="ye-housing" checked>
-                                주택청약
-                            </label>
-                            <label class="check-item" onclick="toggleCheck(this)">
-                                <span class="check-dot"></span>
-                                <input type="checkbox" id="ye-isa">
-                                ISA 계좌
-                            </label>
-                            <label class="check-item" onclick="toggleCheck(this)">
-                                <span class="check-dot"></span>
-                                <input type="checkbox" id="ye-irp">
-                                IRP (퇴직연금)
-                            </label>
+                            <label class="check-item" onclick="toggleCheck(this)"><span class="check-dot"></span><input type="checkbox" id="ye-pension">연금저축</label>
+                            <label class="check-item on" onclick="toggleCheck(this)"><span class="check-dot"></span><input type="checkbox" id="ye-housing" checked>주택청약</label>
+                            <label class="check-item" onclick="toggleCheck(this)"><span class="check-dot"></span><input type="checkbox" id="ye-isa">ISA 계좌</label>
+                            <label class="check-item" onclick="toggleCheck(this)"><span class="check-dot"></span><input type="checkbox" id="ye-irp">IRP (퇴직연금)</label>
                         </div>
                     </div>
 
                     <button class="calc-btn" onclick="calcYearend()">
-                        <span class="iconify" data-icon="carbon:arrow-right"></span>
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                         환급액 계산
                     </button>
                 </div>
             </div>
 
             <div class="disclaimer">
-                <span class="iconify" data-icon="carbon:warning-alt-filled"></span>
+                <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                 본 계산기는 참고용이며 실제 세액과 차이가 있을 수 있습니다. 정확한 금액은 홈택스(국세청)를 통해 확인하세요.
             </div>
         </div>
 
         <div class="panel-right" id="right-yearend">
             <div class="result-empty" id="empty-yearend">
-                <span class="iconify" data-icon="carbon:calculator" style="display:block;"></span>
+                <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
                 <p>값을 입력하고<br>계산 버튼을 눌러주세요</p>
             </div>
             <div class="result-card" id="result-yearend">
@@ -661,26 +581,14 @@
                     <div class="result-label" id="ye-result-label">계산 중...</div>
                 </div>
                 <div class="result-breakdown">
-                    <div class="breakdown-row">
-                        <span class="bd-label">과세표준</span>
-                        <span class="bd-value" id="ye-taxbase">—</span>
-                    </div>
-                    <div class="breakdown-row">
-                        <span class="bd-label">산출세액</span>
-                        <span class="bd-value" id="ye-tax">—</span>
-                    </div>
-                    <div class="breakdown-row">
-                        <span class="bd-label">원천징수액</span>
-                        <span class="bd-value" id="ye-paid-show">—</span>
-                    </div>
-                    <div class="breakdown-row">
-                        <span class="bd-label">지방소득세 포함</span>
-                        <span class="bd-value accent" id="ye-final">—</span>
-                    </div>
+                    <div class="breakdown-row"><span class="bd-label">과세표준</span><span class="bd-value" id="ye-taxbase">—</span></div>
+                    <div class="breakdown-row"><span class="bd-label">산출세액</span><span class="bd-value" id="ye-tax">—</span></div>
+                    <div class="breakdown-row"><span class="bd-label">원천징수액</span><span class="bd-value" id="ye-paid-show">—</span></div>
+                    <div class="breakdown-row"><span class="bd-label">지방소득세 포함</span><span class="bd-value accent" id="ye-final">—</span></div>
                 </div>
             </div>
-            <div class="info-strip" style="margin-top:12px;" id="info-yearend" style="display:none;">
-                <span class="iconify" data-icon="carbon:information"></span>
+            <div class="info-strip" style="margin-top:12px;" id="info-yearend">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
                 <span>산출 기준: 근로소득공제 → 인적공제 → 소득공제 → 세율 적용 → 세액공제 순서로 계산됩니다.</span>
             </div>
         </div>
@@ -691,22 +599,18 @@
         <div class="panel-left">
             <div class="input-card">
                 <div class="card-header">
-                    <div class="card-header-icon"><span class="iconify" data-icon="carbon:calendar"></span></div>
+                    <div class="card-header-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
                     <span class="card-header-title">근무 기간</span>
                 </div>
                 <div class="card-body">
                     <div class="form-grid">
                         <div class="form-group">
                             <label class="form-label">입사일</label>
-                            <div class="field-wrap">
-                                <input type="date" id="sv-start" value="2020-01-01">
-                            </div>
+                            <div class="field-wrap"><input type="date" id="sv-start" value="2020-01-01"></div>
                         </div>
                         <div class="form-group">
                             <label class="form-label">퇴사일</label>
-                            <div class="field-wrap">
-                                <input type="date" id="sv-end" value="2025-02-23">
-                            </div>
+                            <div class="field-wrap"><input type="date" id="sv-end" value="2025-02-23"></div>
                         </div>
                     </div>
                 </div>
@@ -714,56 +618,44 @@
 
             <div class="input-card">
                 <div class="card-header">
-                    <div class="card-header-icon"><span class="iconify" data-icon="carbon:currency-won"></span></div>
+                    <div class="card-header-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
                     <span class="card-header-title">임금 정보</span>
                 </div>
                 <div class="card-body">
                     <div class="form-grid">
                         <div class="form-group">
                             <label class="form-label">최근 3개월 급여 합계 (세전)</label>
-                            <div class="field-wrap">
-                                <input type="number" id="sv-salary3" value="12000000">
-                                <span class="field-unit">원</span>
-                            </div>
+                            <div class="field-wrap"><input type="number" id="sv-salary3" value="12000000"><span class="field-unit">원</span></div>
                         </div>
                         <div class="form-group">
                             <label class="form-label">최근 3개월 일수</label>
-                            <div class="field-wrap">
-                                <input type="number" id="sv-days3" value="92">
-                                <span class="field-unit">일</span>
-                            </div>
+                            <div class="field-wrap"><input type="number" id="sv-days3" value="92"><span class="field-unit">일</span></div>
                         </div>
                         <div class="form-group">
                             <label class="form-label">연간 상여금</label>
-                            <div class="field-wrap">
-                                <input type="number" id="sv-bonus" value="0">
-                                <span class="field-unit">원</span>
-                            </div>
+                            <div class="field-wrap"><input type="number" id="sv-bonus" value="0"><span class="field-unit">원</span></div>
                         </div>
                         <div class="form-group">
                             <label class="form-label">연간 연차수당</label>
-                            <div class="field-wrap">
-                                <input type="number" id="sv-leave" value="0">
-                                <span class="field-unit">원</span>
-                            </div>
+                            <div class="field-wrap"><input type="number" id="sv-leave" value="0"><span class="field-unit">원</span></div>
                         </div>
                     </div>
                     <button class="calc-btn" onclick="calcSeverance()">
-                        <span class="iconify" data-icon="carbon:arrow-right"></span>
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                         퇴직금 계산
                     </button>
                 </div>
             </div>
 
             <div class="info-strip">
-                <span class="iconify" data-icon="carbon:information"></span>
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
                 <span>퇴직금 지급 조건: <strong>1년 이상</strong> 근무 + <strong>주 15시간 이상</strong> 근로. 공식: 1일 평균임금 × 30일 × (근속일수 ÷ 365)</span>
             </div>
         </div>
 
         <div class="panel-right">
             <div class="result-empty" id="empty-severance">
-                <span class="iconify" data-icon="carbon:calculator" style="display:block;"></span>
+                <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
                 <p>값을 입력하고<br>계산 버튼을 눌러주세요</p>
             </div>
             <div class="result-card" id="result-severance">
@@ -773,22 +665,10 @@
                     <div class="result-label">세전 기준</div>
                 </div>
                 <div class="result-breakdown">
-                    <div class="breakdown-row">
-                        <span class="bd-label">근속 연수</span>
-                        <span class="bd-value" id="sv-years">—</span>
-                    </div>
-                    <div class="breakdown-row">
-                        <span class="bd-label">1일 평균임금</span>
-                        <span class="bd-value" id="sv-daily">—</span>
-                    </div>
-                    <div class="breakdown-row">
-                        <span class="bd-label">30일분 평균임금</span>
-                        <span class="bd-value" id="sv-monthly">—</span>
-                    </div>
-                    <div class="breakdown-row">
-                        <span class="bd-label">세후 예상액 (간이)</span>
-                        <span class="bd-value pos" id="sv-after">—</span>
-                    </div>
+                    <div class="breakdown-row"><span class="bd-label">근속 연수</span><span class="bd-value" id="sv-years">—</span></div>
+                    <div class="breakdown-row"><span class="bd-label">1일 평균임금</span><span class="bd-value" id="sv-daily">—</span></div>
+                    <div class="breakdown-row"><span class="bd-label">30일분 평균임금</span><span class="bd-value" id="sv-monthly">—</span></div>
+                    <div class="breakdown-row"><span class="bd-label">세후 예상액 (간이)</span><span class="bd-value pos" id="sv-after">—</span></div>
                 </div>
             </div>
         </div>
@@ -799,7 +679,7 @@
         <div class="panel-left">
             <div class="input-card">
                 <div class="card-header">
-                    <div class="card-header-icon"><span class="iconify" data-icon="carbon:currency-won"></span></div>
+                    <div class="card-header-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
                     <span class="card-header-title">소득 정보</span>
                 </div>
                 <div class="card-body">
@@ -827,28 +707,26 @@
                                     <span class="range-value" id="range-display">4,000,000</span>
                                     <span class="range-limits">100만 — 1,500만</span>
                                 </div>
-                                <input type="range" id="hi-range"
-                                    min="1000000" max="15000000" step="100000" value="4000000"
-                                    oninput="syncSalary(this.value)">
+                                <input type="range" id="hi-range" min="1000000" max="15000000" step="100000" value="4000000" oninput="syncSalary(this.value)">
                             </div>
                         </div>
                     </div>
                     <button class="calc-btn" onclick="calcHealth()">
-                        <span class="iconify" data-icon="carbon:arrow-right"></span>
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                         보험료 계산
                     </button>
                 </div>
             </div>
 
             <div class="info-strip">
-                <span class="iconify" data-icon="carbon:information"></span>
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
                 <span>2025년 기준: 건강보험료율 <strong>7.09%</strong> (본인 3.545%), 장기요양보험료 건강보험료의 <strong>12.95%</strong></span>
             </div>
         </div>
 
         <div class="panel-right">
             <div class="result-empty" id="empty-health">
-                <span class="iconify" data-icon="carbon:calculator" style="display:block;"></span>
+                <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
                 <p>값을 입력하고<br>계산 버튼을 눌러주세요</p>
             </div>
             <div class="result-card" id="result-health">
@@ -858,22 +736,10 @@
                     <div class="result-label">건강보험 + 장기요양</div>
                 </div>
                 <div class="result-breakdown">
-                    <div class="breakdown-row">
-                        <span class="bd-label">건강보험료 (전체)</span>
-                        <span class="bd-value" id="hi-total">—</span>
-                    </div>
-                    <div class="breakdown-row">
-                        <span class="bd-label">본인부담 (50%)</span>
-                        <span class="bd-value" id="hi-self">—</span>
-                    </div>
-                    <div class="breakdown-row">
-                        <span class="bd-label">장기요양보험료</span>
-                        <span class="bd-value" id="hi-care">—</span>
-                    </div>
-                    <div class="breakdown-row">
-                        <span class="bd-label">연간 납부 합계</span>
-                        <span class="bd-value pos" id="hi-annual">—</span>
-                    </div>
+                    <div class="breakdown-row"><span class="bd-label">건강보험료 (전체)</span><span class="bd-value" id="hi-total">—</span></div>
+                    <div class="breakdown-row"><span class="bd-label">본인부담 (50%)</span><span class="bd-value" id="hi-self">—</span></div>
+                    <div class="breakdown-row"><span class="bd-label">장기요양보험료</span><span class="bd-value" id="hi-care">—</span></div>
+                    <div class="breakdown-row"><span class="bd-label">연간 납부 합계</span><span class="bd-value pos" id="hi-annual">—</span></div>
                 </div>
             </div>
         </div>
@@ -884,17 +750,14 @@
         <div class="panel-left">
             <div class="input-card">
                 <div class="card-header">
-                    <div class="card-header-icon"><span class="iconify" data-icon="carbon:user-certification"></span></div>
+                    <div class="card-header-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
                     <span class="card-header-title">고용 정보</span>
                 </div>
                 <div class="card-body">
                     <div class="form-grid">
                         <div class="form-group">
                             <label class="form-label">퇴직 전 3개월 평균 월급</label>
-                            <div class="field-wrap">
-                                <input type="number" id="ub-salary" value="3500000">
-                                <span class="field-unit">원</span>
-                            </div>
+                            <div class="field-wrap"><input type="number" id="ub-salary" value="3500000"><span class="field-unit">원</span></div>
                         </div>
                         <div class="form-group">
                             <label class="form-label">고용보험 가입 기간</label>
@@ -919,21 +782,21 @@
                         </div>
                     </div>
                     <button class="calc-btn" onclick="calcUnemployment()">
-                        <span class="iconify" data-icon="carbon:arrow-right"></span>
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                         실업급여 계산
                     </button>
                 </div>
             </div>
 
             <div class="info-strip">
-                <span class="iconify" data-icon="carbon:information"></span>
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
                 <span>1일 상한액 <strong>66,000원</strong>, 하한액 최저임금의 80% 적용 (2025년 기준). 비자발적 퇴사 + 180일 이상 가입이 기본 수급 조건입니다.</span>
             </div>
         </div>
 
         <div class="panel-right">
             <div class="result-empty" id="empty-unemployment">
-                <span class="iconify" data-icon="carbon:calculator" style="display:block;"></span>
+                <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
                 <p>값을 입력하고<br>계산 버튼을 눌러주세요</p>
             </div>
             <div class="result-card" id="result-unemployment">
@@ -943,22 +806,10 @@
                     <div class="result-label">수급 기간 전체</div>
                 </div>
                 <div class="result-breakdown">
-                    <div class="breakdown-row">
-                        <span class="bd-label">1일 수급액</span>
-                        <span class="bd-value" id="ub-daily">—</span>
-                    </div>
-                    <div class="breakdown-row">
-                        <span class="bd-label">수급 기간</span>
-                        <span class="bd-value" id="ub-days">—</span>
-                    </div>
-                    <div class="breakdown-row">
-                        <span class="bd-label">상한/하한 적용</span>
-                        <span class="bd-value accent" id="ub-cap">—</span>
-                    </div>
-                    <div class="breakdown-row">
-                        <span class="bd-label">월 예상 수령액</span>
-                        <span class="bd-value pos" id="ub-monthly">—</span>
-                    </div>
+                    <div class="breakdown-row"><span class="bd-label">1일 수급액</span><span class="bd-value" id="ub-daily">—</span></div>
+                    <div class="breakdown-row"><span class="bd-label">수급 기간</span><span class="bd-value" id="ub-days">—</span></div>
+                    <div class="breakdown-row"><span class="bd-label">상한/하한 적용</span><span class="bd-value accent" id="ub-cap">—</span></div>
+                    <div class="breakdown-row"><span class="bd-label">월 예상 수령액</span><span class="bd-value pos" id="ub-monthly">—</span></div>
                 </div>
             </div>
         </div>
@@ -969,24 +820,18 @@
         <div class="panel-left">
             <div class="input-card">
                 <div class="card-header">
-                    <div class="card-header-icon"><span class="iconify" data-icon="carbon:building"></span></div>
+                    <div class="card-header-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-4"/></svg></div>
                     <span class="card-header-title">대출 정보</span>
                 </div>
                 <div class="card-body">
                     <div class="form-grid">
                         <div class="form-group">
                             <label class="form-label">대출 원금</label>
-                            <div class="field-wrap">
-                                <input type="number" id="ln-principal" value="300000000">
-                                <span class="field-unit">원</span>
-                            </div>
+                            <div class="field-wrap"><input type="number" id="ln-principal" value="300000000"><span class="field-unit">원</span></div>
                         </div>
                         <div class="form-group">
                             <label class="form-label">연 이자율</label>
-                            <div class="field-wrap">
-                                <input type="number" id="ln-rate" value="4.5" step="0.1">
-                                <span class="field-unit">%</span>
-                            </div>
+                            <div class="field-wrap"><input type="number" id="ln-rate" value="4.5" step="0.1"><span class="field-unit">%</span></div>
                         </div>
                         <div class="form-group">
                             <label class="form-label">대출 기간</label>
@@ -1013,21 +858,21 @@
                         </div>
                     </div>
                     <button class="calc-btn" onclick="calcLoan()">
-                        <span class="iconify" data-icon="carbon:arrow-right"></span>
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                         월 납부액 계산
                     </button>
                 </div>
             </div>
 
             <div class="info-strip">
-                <span class="iconify" data-icon="carbon:information"></span>
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
                 <span>원리금균등상환: 매달 동일 금액 납부. 원금균등상환: 초기 부담 크고 총이자 적음. 만기일시: 매달 이자만 납부.</span>
             </div>
         </div>
 
         <div class="panel-right">
             <div class="result-empty" id="empty-loan">
-                <span class="iconify" data-icon="carbon:calculator" style="display:block;"></span>
+                <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
                 <p>값을 입력하고<br>계산 버튼을 눌러주세요</p>
             </div>
             <div class="result-card" id="result-loan">
@@ -1037,22 +882,10 @@
                     <div class="result-label" id="ln-method-label">원리금균등상환 기준</div>
                 </div>
                 <div class="result-breakdown">
-                    <div class="breakdown-row">
-                        <span class="bd-label">총 납부액</span>
-                        <span class="bd-value" id="ln-total">—</span>
-                    </div>
-                    <div class="breakdown-row">
-                        <span class="bd-label">총 이자</span>
-                        <span class="bd-value neg" id="ln-interest">—</span>
-                    </div>
-                    <div class="breakdown-row">
-                        <span class="bd-label">대출 원금</span>
-                        <span class="bd-value" id="ln-principal-show">—</span>
-                    </div>
-                    <div class="breakdown-row">
-                        <span class="bd-label">이자 비율</span>
-                        <span class="bd-value accent" id="ln-ratio">—</span>
-                    </div>
+                    <div class="breakdown-row"><span class="bd-label">총 납부액</span><span class="bd-value" id="ln-total">—</span></div>
+                    <div class="breakdown-row"><span class="bd-label">총 이자</span><span class="bd-value neg" id="ln-interest">—</span></div>
+                    <div class="breakdown-row"><span class="bd-label">대출 원금</span><span class="bd-value" id="ln-principal-show">—</span></div>
+                    <div class="breakdown-row"><span class="bd-label">이자 비율</span><span class="bd-value accent" id="ln-ratio">—</span></div>
                 </div>
             </div>
         </div>
@@ -1071,15 +904,12 @@
 </footer>
 
 <script>
-// ── 패널 전환 ──
 function switchPanel(id, btn) {
     document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('panel-' + id).classList.add('active');
     btn.classList.add('active');
 }
-
-// ── 체크 토글 ──
 function toggleCheck(label) {
     const cb = label.querySelector('input[type="checkbox"]');
     cb.checked = !cb.checked;
@@ -1089,8 +919,6 @@ document.querySelectorAll('.check-item').forEach(l => {
     const cb = l.querySelector('input[type="checkbox"]');
     l.classList.toggle('on', cb.checked);
 });
-
-// ── 슬라이더 동기화 ──
 function syncRange(val) {
     const v = Math.min(15000000, Math.max(1000000, +val || 1000000));
     document.getElementById('hi-range').value = v;
@@ -1100,8 +928,6 @@ function syncSalary(val) {
     document.getElementById('hi-salary').value = val;
     document.getElementById('range-display').textContent = (+val).toLocaleString('ko-KR');
 }
-
-// ── 숫자 포맷 ──
 const won = n => Math.round(n).toLocaleString('ko-KR') + '원';
 const wonShort = n => {
     const v = Math.round(Math.abs(n));
@@ -1109,174 +935,89 @@ const wonShort = n => {
     if (v >= 10000) return (v / 10000).toFixed(0) + '만원';
     return v.toLocaleString('ko-KR') + '원';
 };
-
 function showResult(resultId, emptyId) {
     document.getElementById(emptyId).style.display = 'none';
     document.getElementById(resultId).classList.add('show');
 }
-
-// ── ① 연말정산 ──
 function calcYearend() {
-    const salary   = +document.getElementById('ye-salary').value   || 0;
-    const paid     = +document.getElementById('ye-paid').value     || 0;
-    const family   = +document.getElementById('ye-family').value   || 1;
-    const medical  = +document.getElementById('ye-medical').value  || 0;
-    const edu      = +document.getElementById('ye-edu').value      || 0;
-    const donation = +document.getElementById('ye-donation').value || 0;
-    const credit   = +document.getElementById('ye-credit').value   || 0;
-    const debit    = +document.getElementById('ye-debit').value    || 0;
-
-    let workDeduct = 0;
-    if (salary <= 5000000)        workDeduct = salary * 0.7;
-    else if (salary <= 15000000)  workDeduct = 3500000  + (salary - 5000000)   * 0.4;
-    else if (salary <= 45000000)  workDeduct = 7500000  + (salary - 15000000)  * 0.15;
-    else if (salary <= 100000000) workDeduct = 12000000 + (salary - 45000000)  * 0.05;
-    else                          workDeduct = 14750000;
-
-    const personalDeduct = family * 1500000;
-
-    const threshold = salary * 0.25;
-    const totalCard = credit + debit;
-    let cardDeduct = 0;
-    if (totalCard > threshold) {
-        const excess = totalCard - threshold;
-        const creditExcess = Math.min(excess, credit);
-        cardDeduct = creditExcess * 0.15 + Math.max(0, excess - creditExcess) * 0.3;
-        cardDeduct = Math.min(cardDeduct, 3000000);
-    }
-
-    const medicalDeduct  = Math.max(0, medical - salary * 0.03) * 0.15;
-    const eduDeduct      = edu * 0.15;
-    const donationDeduct = donation * 0.15;
-
-    let extraDeduct = 0;
-    if (document.getElementById('ye-pension').checked) extraDeduct += 400000 * 0.15;
-    if (document.getElementById('ye-housing').checked) extraDeduct += 240000;
-    if (document.getElementById('ye-isa').checked)     extraDeduct += 90000;
-    if (document.getElementById('ye-irp').checked)     extraDeduct += 700000 * 0.165;
-
-    const grossIncome = salary - workDeduct;
-    const taxBase     = Math.max(0, grossIncome - personalDeduct - cardDeduct);
-
-    let tax = 0;
-    if (taxBase <= 14000000)       tax = taxBase * 0.06;
-    else if (taxBase <= 50000000)  tax = 840000   + (taxBase - 14000000)  * 0.15;
-    else if (taxBase <= 88000000)  tax = 6240000  + (taxBase - 50000000)  * 0.24;
-    else if (taxBase <= 150000000) tax = 15360000 + (taxBase - 88000000)  * 0.35;
-    else                           tax = 37060000 + (taxBase - 150000000) * 0.38;
-
-    const finalTax  = Math.max(0, tax - medicalDeduct - eduDeduct - donationDeduct - extraDeduct);
-    const totalTax  = finalTax * 1.1;
-    const refund    = paid - Math.round(totalTax);
-    const isRefund  = refund >= 0;
-
-    showResult('result-yearend', 'empty-yearend');
-
-    const amtEl = document.getElementById('ye-amount');
-    amtEl.textContent = wonShort(Math.abs(refund));
-    amtEl.className = 'result-amount ' + (isRefund ? 'positive' : 'negative');
-    document.getElementById('ye-result-label').textContent = isRefund ? '환급 예상' : '추가 납부 예상';
-    document.getElementById('ye-taxbase').textContent    = won(taxBase);
-    document.getElementById('ye-tax').textContent        = won(finalTax);
-    document.getElementById('ye-paid-show').textContent  = won(paid);
-    document.getElementById('ye-final').textContent      = won(Math.round(totalTax));
+    const salary=+document.getElementById('ye-salary').value||0,paid=+document.getElementById('ye-paid').value||0,family=+document.getElementById('ye-family').value||1,medical=+document.getElementById('ye-medical').value||0,edu=+document.getElementById('ye-edu').value||0,donation=+document.getElementById('ye-donation').value||0,credit=+document.getElementById('ye-credit').value||0,debit=+document.getElementById('ye-debit').value||0;
+    let workDeduct=0;
+    if(salary<=5000000)workDeduct=salary*0.7;
+    else if(salary<=15000000)workDeduct=3500000+(salary-5000000)*0.4;
+    else if(salary<=45000000)workDeduct=7500000+(salary-15000000)*0.15;
+    else if(salary<=100000000)workDeduct=12000000+(salary-45000000)*0.05;
+    else workDeduct=14750000;
+    const personalDeduct=family*1500000,threshold=salary*0.25,totalCard=credit+debit;
+    let cardDeduct=0;
+    if(totalCard>threshold){const excess=totalCard-threshold,creditExcess=Math.min(excess,credit);cardDeduct=creditExcess*0.15+Math.max(0,excess-creditExcess)*0.3;cardDeduct=Math.min(cardDeduct,3000000);}
+    const medicalDeduct=Math.max(0,medical-salary*0.03)*0.15,eduDeduct=edu*0.15,donationDeduct=donation*0.15;
+    let extraDeduct=0;
+    if(document.getElementById('ye-pension').checked)extraDeduct+=400000*0.15;
+    if(document.getElementById('ye-housing').checked)extraDeduct+=240000;
+    if(document.getElementById('ye-isa').checked)extraDeduct+=90000;
+    if(document.getElementById('ye-irp').checked)extraDeduct+=700000*0.165;
+    const grossIncome=salary-workDeduct,taxBase=Math.max(0,grossIncome-personalDeduct-cardDeduct);
+    let tax=0;
+    if(taxBase<=14000000)tax=taxBase*0.06;
+    else if(taxBase<=50000000)tax=840000+(taxBase-14000000)*0.15;
+    else if(taxBase<=88000000)tax=6240000+(taxBase-50000000)*0.24;
+    else if(taxBase<=150000000)tax=15360000+(taxBase-88000000)*0.35;
+    else tax=37060000+(taxBase-150000000)*0.38;
+    const finalTax=Math.max(0,tax-medicalDeduct-eduDeduct-donationDeduct-extraDeduct),totalTax=finalTax*1.1,refund=paid-Math.round(totalTax),isRefund=refund>=0;
+    showResult('result-yearend','empty-yearend');
+    const amtEl=document.getElementById('ye-amount');
+    amtEl.textContent=wonShort(Math.abs(refund));
+    amtEl.className='result-amount '+(isRefund?'positive':'negative');
+    document.getElementById('ye-result-label').textContent=isRefund?'환급 예상':'추가 납부 예상';
+    document.getElementById('ye-taxbase').textContent=won(taxBase);
+    document.getElementById('ye-tax').textContent=won(finalTax);
+    document.getElementById('ye-paid-show').textContent=won(paid);
+    document.getElementById('ye-final').textContent=won(Math.round(totalTax));
 }
-
-// ── ② 퇴직금 ──
 function calcSeverance() {
-    const start   = new Date(document.getElementById('sv-start').value);
-    const end     = new Date(document.getElementById('sv-end').value);
-    const sal3    = +document.getElementById('sv-salary3').value || 0;
-    const days3   = +document.getElementById('sv-days3').value   || 92;
-    const bonus   = +document.getElementById('sv-bonus').value   || 0;
-    const leave   = +document.getElementById('sv-leave').value   || 0;
-
-    const diffDays = (end - start) / 86400000;
-    const years    = diffDays / 365;
-
-    if (years < 1) { alert('퇴직금은 1년 이상 근무한 경우에만 지급됩니다.'); return; }
-
-    const dailyAvg  = (sal3 + bonus / 12 * 3 + leave / 12 * 3) / days3;
-    const severance = dailyAvg * 30 * (diffDays / 365);
-    const taxRate   = severance > 50000000 ? 0.15 : (severance > 20000000 ? 0.08 : 0.03);
-    const afterTax  = severance * (1 - taxRate);
-
-    showResult('result-severance', 'empty-severance');
-    document.getElementById('sv-amount').textContent = wonShort(severance);
-    document.getElementById('sv-years').textContent  = years.toFixed(1) + '년';
-    document.getElementById('sv-daily').textContent  = won(dailyAvg);
-    document.getElementById('sv-monthly').textContent = won(dailyAvg * 30);
-    document.getElementById('sv-after').textContent  = won(afterTax);
+    const start=new Date(document.getElementById('sv-start').value),end=new Date(document.getElementById('sv-end').value),sal3=+document.getElementById('sv-salary3').value||0,days3=+document.getElementById('sv-days3').value||92,bonus=+document.getElementById('sv-bonus').value||0,leave=+document.getElementById('sv-leave').value||0;
+    const diffDays=(end-start)/86400000,years=diffDays/365;
+    if(years<1){alert('퇴직금은 1년 이상 근무한 경우에만 지급됩니다.');return;}
+    const dailyAvg=(sal3+bonus/12*3+leave/12*3)/days3,severance=dailyAvg*30*(diffDays/365),taxRate=severance>50000000?0.15:(severance>20000000?0.08:0.03),afterTax=severance*(1-taxRate);
+    showResult('result-severance','empty-severance');
+    document.getElementById('sv-amount').textContent=wonShort(severance);
+    document.getElementById('sv-years').textContent=years.toFixed(1)+'년';
+    document.getElementById('sv-daily').textContent=won(dailyAvg);
+    document.getElementById('sv-monthly').textContent=won(dailyAvg*30);
+    document.getElementById('sv-after').textContent=won(afterTax);
 }
-
-// ── ③ 건강보험료 ──
 function calcHealth() {
-    const salary    = +document.getElementById('hi-salary').value || 0;
-    const totalH    = salary * 0.0709;
-    const selfH     = totalH / 2;
-    const care      = selfH * 0.1295;
-    const monthly   = Math.round(selfH + care);
-
-    showResult('result-health', 'empty-health');
-    document.getElementById('hi-amount').textContent  = wonShort(monthly);
-    document.getElementById('hi-total').textContent   = won(totalH);
-    document.getElementById('hi-self').textContent    = won(selfH);
-    document.getElementById('hi-care').textContent    = won(care);
-    document.getElementById('hi-annual').textContent  = won(monthly * 12);
+    const salary=+document.getElementById('hi-salary').value||0,totalH=salary*0.0709,selfH=totalH/2,care=selfH*0.1295,monthly=Math.round(selfH+care);
+    showResult('result-health','empty-health');
+    document.getElementById('hi-amount').textContent=wonShort(monthly);
+    document.getElementById('hi-total').textContent=won(totalH);
+    document.getElementById('hi-self').textContent=won(selfH);
+    document.getElementById('hi-care').textContent=won(care);
+    document.getElementById('hi-annual').textContent=won(monthly*12);
 }
-
-// ── ④ 실업급여 ──
 function calcUnemployment() {
-    const salary  = +document.getElementById('ub-salary').value  || 0;
-    const period  = +document.getElementById('ub-period').value  || 180;
-    const raw60   = (salary / 30) * 0.6;
-    const maxD    = 66000;
-    const minD    = 8720 * 0.8 * 8;
-    const daily   = Math.min(maxD, Math.max(minD, raw60));
-    const cap     = raw60 > maxD ? '상한 적용' : (raw60 < minD ? '하한 적용' : '없음');
-    const total   = daily * period;
-    const monthly = daily * 30;
-
-    showResult('result-unemployment', 'empty-unemployment');
-    document.getElementById('ub-amount').textContent  = wonShort(total);
-    document.getElementById('ub-daily').textContent   = won(daily);
-    document.getElementById('ub-days').textContent    = period + '일';
-    document.getElementById('ub-cap').textContent     = cap;
-    document.getElementById('ub-monthly').textContent = won(monthly);
+    const salary=+document.getElementById('ub-salary').value||0,period=+document.getElementById('ub-period').value||180,raw60=(salary/30)*0.6,maxD=66000,minD=8720*0.8*8,daily=Math.min(maxD,Math.max(minD,raw60)),cap=raw60>maxD?'상한 적용':(raw60<minD?'하한 적용':'없음'),total=daily*period,monthly=daily*30;
+    showResult('result-unemployment','empty-unemployment');
+    document.getElementById('ub-amount').textContent=wonShort(total);
+    document.getElementById('ub-daily').textContent=won(daily);
+    document.getElementById('ub-days').textContent=period+'일';
+    document.getElementById('ub-cap').textContent=cap;
+    document.getElementById('ub-monthly').textContent=won(monthly);
 }
-
-// ── ⑤ 대출이자 ──
 function calcLoan() {
-    const P      = +document.getElementById('ln-principal').value || 0;
-    const r      = (+document.getElementById('ln-rate').value || 0) / 100 / 12;
-    const n      = +document.getElementById('ln-term').value || 360;
-    const method = document.getElementById('ln-method').value;
-
-    let monthly, totalPay, totalInt;
-
-    if (method === 'equal') {
-        monthly  = r === 0 ? P / n : P * r * Math.pow(1+r,n) / (Math.pow(1+r,n) - 1);
-        totalPay = monthly * n;
-        totalInt = totalPay - P;
-    } else if (method === 'principal') {
-        const pm   = P / n;
-        monthly    = pm + P * r;
-        totalInt   = P * r * (n + 1) / 2;
-        totalPay   = P + totalInt;
-    } else {
-        monthly  = P * r;
-        totalInt = monthly * n;
-        totalPay = P + totalInt;
-    }
-
-    const methodNames = { equal: '원리금균등상환', principal: '원금균등상환 (첫달)', bullet: '만기일시상환' };
-    showResult('result-loan', 'empty-loan');
-    document.getElementById('ln-amount').textContent       = wonShort(monthly);
-    document.getElementById('ln-method-label').textContent = methodNames[method] + ' 기준';
-    document.getElementById('ln-total').textContent        = won(totalPay);
-    document.getElementById('ln-interest').textContent     = won(totalInt);
-    document.getElementById('ln-principal-show').textContent = won(P);
-    document.getElementById('ln-ratio').textContent        = (totalInt / totalPay * 100).toFixed(1) + '%';
+    const P=+document.getElementById('ln-principal').value||0,r=(+document.getElementById('ln-rate').value||0)/100/12,n=+document.getElementById('ln-term').value||360,method=document.getElementById('ln-method').value;
+    let monthly,totalPay,totalInt;
+    if(method==='equal'){monthly=r===0?P/n:P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);totalPay=monthly*n;totalInt=totalPay-P;}
+    else if(method==='principal'){const pm=P/n;monthly=pm+P*r;totalInt=P*r*(n+1)/2;totalPay=P+totalInt;}
+    else{monthly=P*r;totalInt=monthly*n;totalPay=P+totalInt;}
+    const methodNames={equal:'원리금균등상환',principal:'원금균등상환 (첫달)',bullet:'만기일시상환'};
+    showResult('result-loan','empty-loan');
+    document.getElementById('ln-amount').textContent=wonShort(monthly);
+    document.getElementById('ln-method-label').textContent=methodNames[method]+' 기준';
+    document.getElementById('ln-total').textContent=won(totalPay);
+    document.getElementById('ln-interest').textContent=won(totalInt);
+    document.getElementById('ln-principal-show').textContent=won(P);
+    document.getElementById('ln-ratio').textContent=(totalInt/totalPay*100).toFixed(1)+'%';
 }
 </script>
 </body>
