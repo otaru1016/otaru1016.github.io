@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blogglow | 경제, 세금, 재테크 실용 정보 블로그</title>
+    <link rel="stylesheet" href="fonts.css">
     
     <meta name="description" content="경제·세금·재테크·생활 정보를 정리한 실용 정보 블로그">
     <meta name="keywords" content="인사이트, 계산기, 소개, 운영정책, 경제, 세금, 재테크, 투자, 절세, 금융, 생활꿀팁">
@@ -28,14 +29,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <script type="application/ld+json">
-    {
+     {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [{
             "@type": "ListItem",
             "position": 1,
             "name": "홈",
-            "item": "{{HOME_URL}}"
+            "item": "https://blogglow.com/index.html"  // <--- {{HOME_URL}}을 https://blogglow.com/index.html로 수정
         }]
     }
     </script>
@@ -107,7 +108,7 @@
             --text-main: #111827;
             --text-sub: #4b5563;
             --text-light: #9ca3af;
-            --primary: #01a3f0;
+            --primary: #008dc4;
             --primary-light: #eff6ff;
             --border: #e5e7eb;
             --bg-gray: #f9fafb;
@@ -346,10 +347,10 @@
         .card-cat { font-size: 12px; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 0.08em; }
 
         /* 제목 텍스트 크기 축소 (썸네일에 제목이 있으므로 보조 역할) */
-        .card-title {
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1.4;
+       .card-title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.2;
     color: var(--text-main);
     word-break: keep-all;
     transition: color 0.15s;
@@ -357,6 +358,8 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    letter-spacing: -0.5px;
+    font-family: 'S-CoreDream';
 }
         .post-card:hover .card-title { color: var(--primary); }
 
@@ -571,7 +574,7 @@
 
 <script>
 (function() {
-    const posts = [{"id":1771919326960,"title":"주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)","filename":"contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html","excerpt":"유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["주택담보대출","이자소득공제","연말정산","개인사업자","절세"],"thumbnail":"https://blogglow.com/images/thumb-1771919326960.webp"},{"id":1771919326959,"title":"문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)","filename":"contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html","excerpt":"2025년 하반기부터 헬스장·필라테스까지 문화비 소득공제 대상이 확대됐어요! 신청 방법, 인정 항목, 결제 수단 조건, 가맹점 확인법까지 2026년 최신 기준으로 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["문화비소득공제","헬스장공제","연말정산","도서공연","소득공제"],"thumbnail":"https://blogglow.com/images/thumb-1771919326959.webp"},{"id":1771919326958,"title":"세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)","filename":"contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html","excerpt":"세액공제와 소득공제, 이름은 비슷하지만 세금을 줄이는 방식이 완전히 달라요. 두 개념의 차이부터 실제 계산 예시, 연금저축·IRP를 활용한 최적 절세 전략까지 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["세액공제","소득공제","연말정산","IRP","연금저축"],"thumbnail":"https://blogglow.com/images/thumb-1771919326958.webp"},{"id":1771919326957,"title":"연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)","filename":"contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html","excerpt":"카드 많이 썼는데 환급이 적었던 이유, 바로 25% 기준을 몰랐기 때문이에요. 신용카드와 체크카드를 언제 어떻게 나눠 써야 환급액이 최대가 되는지 황금비율 전략을 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["연말정산","소득공제","신용카드","체크카드","절세전략"],"thumbnail":"https://blogglow.com/images/thumb-1771919326957.webp"}];
+    const posts = [{"id":1771920667154,"title":"주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)","filename":"contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html","excerpt":"유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["주택담보대출","이자소득공제","연말정산","개인사업자","절세"],"thumbnail":"https://blogglow.com/images/thumb-1771920667154.webp"},{"id":1771920667153,"title":"문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)","filename":"contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html","excerpt":"2025년 하반기부터 헬스장·필라테스까지 문화비 소득공제 대상이 확대됐어요! 신청 방법, 인정 항목, 결제 수단 조건, 가맹점 확인법까지 2026년 최신 기준으로 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["문화비소득공제","헬스장공제","연말정산","도서공연","소득공제"],"thumbnail":"https://blogglow.com/images/thumb-1771920667153.webp"},{"id":1771920667152,"title":"세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)","filename":"contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html","excerpt":"세액공제와 소득공제, 이름은 비슷하지만 세금을 줄이는 방식이 완전히 달라요. 두 개념의 차이부터 실제 계산 예시, 연금저축·IRP를 활용한 최적 절세 전략까지 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["세액공제","소득공제","연말정산","IRP","연금저축"],"thumbnail":"https://blogglow.com/images/thumb-1771920667152.webp"},{"id":1771920667151,"title":"연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)","filename":"contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html","excerpt":"카드 많이 썼는데 환급이 적었던 이유, 바로 25% 기준을 몰랐기 때문이에요. 신용카드와 체크카드를 언제 어떻게 나눠 써야 환급액이 최대가 되는지 황금비율 전략을 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["연말정산","소득공제","신용카드","체크카드","절세전략"],"thumbnail":"https://blogglow.com/images/thumb-1771920667151.webp"}];
     const PER_PAGE = 12;
     let currentPage = 1;
     let filteredPosts = [];
