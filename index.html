@@ -242,6 +242,33 @@
     }
 
 
+       /* Swiper.js CSS CDN 로드 */
+        @import url('https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
+
+        /* --- 슬라이더 전용 애니메이션 (넘어갈 때마다 실행) --- */
+        .swiper-slide { opacity: 0 !important; transition: opacity 0.5s ease; }
+        .swiper-slide-active { opacity: 1 !important; }
+
+        .swiper-slide-active .hero-tag { animation: fadeInUp 0.8s ease forwards; }
+        .swiper-slide-active h1 { animation: fadeInUp 0.8s ease 0.2s forwards; opacity: 0; }
+        .swiper-slide-active .hero-sub { animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0; }
+        .swiper-slide-active .hero-stats-row { animation: zoomIn 0.8s ease 0.6s forwards; opacity: 0; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* 슬라이드 페이지네이션(점) 스타일 */
+        .swiper-pagination-bullet { background: rgba(255,255,255,0.4); width: 8px; height: 8px; transition: 0.3s; }
+        .swiper-pagination-bullet-active { background: var(--primary); width: 24px; border-radius: 4px; }
+        .hero { padding-bottom: 60px; } /* 페이지네이션 공간 확보 */
+
+
         /* --- 고품질 Hero 영역 디자인 --- */
 .hero {
     position: relative;
@@ -308,12 +335,18 @@
 /* 통계 영역 카드화 */
 .hero-stats-row {
     display: inline-flex;
-    gap: 0; /* 간격을 0으로 하고 내부 패딩으로 조절 */
-    padding: 10px;
+    gap: 0;
+    padding: 10px 20px; /* 좌우 패딩을 늘려줍니다 */
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
     backdrop-filter: blur(10px);
+}
+
+/* 👇 이 클래스를 새로 추가해 줍니다 (PC 여백 및 기준점 설정) */
+.stat-item {
+    position: relative; /* 기준점을 잡아주어 세로선이 우측 끝으로 날아가지 않게 함 */
+    padding: 0 40px;    /* PC 모드에서 텍스트 간격을 넓게 벌려줌 */
 }
 
 .stat-item:not(:last-child)::after {
@@ -535,37 +568,67 @@
     <nav class="m-nav-list"><a href="https://blogglow.com/index.html">인사이트</a><a href="https://blogglow.com/calculator.html">계산기</a><a href="https://blogglow.com/about.html">소개</a><a href="https://blogglow.com/policy.html">운영정책</a></nav>
 </div>
 
+<!-- 히어로 슬라이더 섹션 -->
+<section class="hero swiper mySwiper">
+    <div class="swiper-wrapper">
 
-<!-- 히어로 섹션 개편 (한글화 버전) -->
-<section class="hero">
-    <div class="hero-inner">
-        <span class="hero-tag" data-aos="fade-up" data-aos-delay="100">지식 · 인사이트 · 실용 경제</span>
-        <h1 data-aos="fade-up" data-aos-delay="300">복잡한 경제와 세금,<br><span class="text-glow">가장 명쾌하게 정리합니다</span></h1>
-        <p class="hero-sub" data-aos="fade-up" data-aos-delay="500">
-            블로그로우(Blogglow)는 당신의 실질적인 자산 관리를 돕는<br>
-            돈이 되는 정보와 전문적인 경제 가이드를 제공합니다.
-        </p>
+        <!-- 슬라이드 1: 경제/세금 -->
+        <div class="swiper-slide">
+            <div class="hero-inner">
+                <span class="hero-tag">지식 · 인사이트 · 실용 경제</span>
+                <h1>복잡한 경제와 세금,<br><span class="text-glow">가장 명쾌하게 정리합니다</span></h1>
+                <p class="hero-sub">
+                    블로그로우(Blogglow)는 당신의 실질적인 자산 관리를 돕는<br>
+                    돈이 되는 정보와 전문적인 경제 가이드를 제공합니다.
+                </p>
+                <div class="hero-stats-row">
+                    <div class="stat-item"><span class="stat-num stat-posts">0</span><span class="stat-label">발행 콘텐츠</span></div>
+                    <div class="stat-item"><span class="stat-num stat-cats">0</span><span class="stat-label">전문 카테고리</span></div>
+                    <div class="stat-item"><span class="stat-num">NEW</span><span class="stat-label">업데이트</span></div>
+                    <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">정보 정확도</span></div>
+                </div>
+            </div>
+        </div>
 
-        <div class="hero-stats-row" data-aos="zoom-in" data-aos-delay="700">
-          <div class="stat-item">
-              <span class="stat-num" id="stat-posts">0</span>
-              <span class="stat-label">발행 콘텐츠</span>
-          </div>
-          <!-- 모바일에서 구분선을 깔끔하게 처리하기 위해 인라인 스타일은 제거하고 CSS로 제어합니다 -->
-          <div class="stat-item">
-              <span class="stat-num" id="stat-cats">0</span>
-              <span class="stat-label">전문 카테고리</span>
-          </div>
-          <div class="stat-item">
-              <span class="stat-num">상시</span>
-              <span class="stat-label">업데이트</span>
-          </div>
-          <div class="stat-item">
-              <span class="stat-num">100%</span>
-              <span class="stat-label">정보 정확도</span>
-          </div>
-      </div>
+        <!-- 슬라이드 2: IT/테크 (키워드 다변화) -->
+        <div class="swiper-slide">
+            <div class="hero-inner">
+                <span class="hero-tag" style="color: #a855f7; border-color: rgba(168,85,247,0.2); background: rgba(168,85,247,0.1);">IT · 테크 · 생산성</span>
+                <h1>스마트한 디지털 라이프,<br><span class="text-glow" style="color: #a855f7;">IT 트렌드를 앞서가세요</span></h1>
+                <p class="hero-sub">
+                    업무 효율을 200% 높여주는 소프트웨어 활용법부터<br>
+                    최신 기기 리뷰까지, 당신의 생산성을 극대화합니다.
+                </p>
+                <div class="hero-stats-row">
+                    <div class="stat-item"><span class="stat-num stat-posts">0</span><span class="stat-label">발행 콘텐츠</span></div>
+                    <div class="stat-item"><span class="stat-num stat-cats">0</span><span class="stat-label">전문 카테고리</span></div>
+                    <div class="stat-item"><span class="stat-num">NEW</span><span class="stat-label">업데이트</span></div>
+                    <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">정보 정확도</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 슬라이드 3: 생활/꿀팁 (쇼핑 연계용) -->
+        <div class="swiper-slide">
+            <div class="hero-inner">
+                <span class="hero-tag" style="color: #34d399; border-color: rgba(52,211,153,0.2); background: rgba(52,211,153,0.1);">쇼핑 · 생활 꿀팁</span>
+                <h1>현명한 소비의 시작,<br><span class="text-glow" style="color: #34d399;">생활 속 숨은 꿀팁 대방출</span></h1>
+                <p class="hero-sub">
+                    가성비 넘치는 추천 템부터 놓치기 쉬운 일상 혜택까지,<br>
+                    삶의 질을 한 단계 높여줄 큐레이션을 만나보세요.
+                </p>
+                <div class="hero-stats-row">
+                    <div class="stat-item"><span class="stat-num stat-posts">0</span><span class="stat-label">발행 콘텐츠</span></div>
+                    <div class="stat-item"><span class="stat-num stat-cats">0</span><span class="stat-label">전문 카테고리</span></div>
+                    <div class="stat-item"><span class="stat-num">NEW</span><span class="stat-label">업데이트</span></div>
+                    <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">정보 정확도</span></div>
+                </div>
+            </div>
+        </div>
+
     </div>
+    <!-- 페이지네이션(점) 표시 영역 -->
+    <div class="swiper-pagination"></div>
 </section>
 
 <!-- 필터 바 -->
@@ -650,16 +713,7 @@
 
         <div class="ad-block">
             <div class="ad-label">ADVERTISEMENT</div>
-            <div class="ad-area"><div style="width:100%; display:block;">
-                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; padding:12px 12px 4px;">
-                <a href="https://link.coupang.com/a/dRuXiD" target="_blank" rel="noopener sponsored"
-                   style="display:block; aspect-ratio:1; overflow:hidden; border-radius:6px; border:1px solid #e2e8f0; transition:transform 0.2s;"
-                   onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    <img src="https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2025/12/05/14/2/a1a14a77-04d8-476f-baaa-7506402da32d.jpg" style="width:100%; height:100%; object-fit:cover;" alt="자본주의 시대에서 살아남기 위한 최소한의 경제 공부, 하이스트, 백억남 (김욱현)" loading="lazy" decoding="async">
-                </a>
-            </div>
-                    <div style="padding:10px 14px; font-size:10px; color:#adb5bd; text-align:center; line-height:1.5; letter-spacing:-0.03em; border-top:1px dashed #f1f3f5; margin-top:8px;">제휴 마케팅 활동을 통해 <br>운영 수익의 일부가 발생할 수 있습니다.</div>
-                </div></div>
+            <div class="ad-area"><div style="padding:20px; text-align:center; color:#94a3b8; font-size:13px;">광고 준비 중</div></div>
         </div>
     </aside>
 
@@ -680,7 +734,7 @@
 
 <script>
 (function() {
-    const posts = [{"id":1771941853197,"title":"주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)","filename":"contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html","excerpt":"유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["주택담보대출","이자소득공제","연말정산","개인사업자","절세"],"thumbnail":"https://blogglow.com/images/thumb-1771941853197.webp"},{"id":1771941853196,"title":"문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)","filename":"contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html","excerpt":"2025년 하반기부터 헬스장·필라테스까지 문화비 소득공제 대상이 확대됐어요! 신청 방법, 인정 항목, 결제 수단 조건, 가맹점 확인법까지 2026년 최신 기준으로 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["문화비소득공제","헬스장공제","연말정산","도서공연","소득공제"],"thumbnail":"https://blogglow.com/images/thumb-1771941853196.webp"},{"id":1771941853195,"title":"세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)","filename":"contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html","excerpt":"세액공제와 소득공제, 이름은 비슷하지만 세금을 줄이는 방식이 완전히 달라요. 두 개념의 차이부터 실제 계산 예시, 연금저축·IRP를 활용한 최적 절세 전략까지 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["세액공제","소득공제","연말정산","IRP","연금저축"],"thumbnail":"https://blogglow.com/images/thumb-1771941853195.webp"},{"id":1771941853194,"title":"연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)","filename":"contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html","excerpt":"카드 많이 썼는데 환급이 적었던 이유, 바로 25% 기준을 몰랐기 때문이에요. 신용카드와 체크카드를 언제 어떻게 나눠 써야 환급액이 최대가 되는지 황금비율 전략을 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["연말정산","소득공제","신용카드","체크카드","절세전략"],"thumbnail":"https://blogglow.com/images/thumb-1771941853194.webp"},{"id":1771938076323,"title":"주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)","filename":"contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html","excerpt":"유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["주택담보대출","이자소득공제","연말정산","개인사업자","절세"],"thumbnail":"https://blogglow.com/images/thumb-1771938076323.webp"},{"id":1771938076322,"title":"문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)","filename":"contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html","excerpt":"2025년 하반기부터 헬스장·필라테스까지 문화비 소득공제 대상이 확대됐어요! 신청 방법, 인정 항목, 결제 수단 조건, 가맹점 확인법까지 2026년 최신 기준으로 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["문화비소득공제","헬스장공제","연말정산","도서공연","소득공제"],"thumbnail":"https://blogglow.com/images/thumb-1771938076322.webp"},{"id":1771938076321,"title":"세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)","filename":"contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html","excerpt":"세액공제와 소득공제, 이름은 비슷하지만 세금을 줄이는 방식이 완전히 달라요. 두 개념의 차이부터 실제 계산 예시, 연금저축·IRP를 활용한 최적 절세 전략까지 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["세액공제","소득공제","연말정산","IRP","연금저축"],"thumbnail":"https://blogglow.com/images/thumb-1771938076321.webp"},{"id":1771938076320,"title":"연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)","filename":"contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html","excerpt":"카드 많이 썼는데 환급이 적었던 이유, 바로 25% 기준을 몰랐기 때문이에요. 신용카드와 체크카드를 언제 어떻게 나눠 써야 환급액이 최대가 되는지 황금비율 전략을 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["연말정산","소득공제","신용카드","체크카드","절세전략"],"thumbnail":"https://blogglow.com/images/thumb-1771938076320.webp"}];
+    const posts = [{"id":1771943265372,"title":"주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)","filename":"contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html","excerpt":"유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["주택담보대출","이자소득공제","연말정산","개인사업자","절세"],"thumbnail":"https://blogglow.com/images/thumb-1771943265372.webp"},{"id":1771943265371,"title":"문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)","filename":"contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html","excerpt":"2025년 하반기부터 헬스장·필라테스까지 문화비 소득공제 대상이 확대됐어요! 신청 방법, 인정 항목, 결제 수단 조건, 가맹점 확인법까지 2026년 최신 기준으로 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["문화비소득공제","헬스장공제","연말정산","도서공연","소득공제"],"thumbnail":"https://blogglow.com/images/thumb-1771943265371.webp"},{"id":1771943265370,"title":"세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)","filename":"contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html","excerpt":"세액공제와 소득공제, 이름은 비슷하지만 세금을 줄이는 방식이 완전히 달라요. 두 개념의 차이부터 실제 계산 예시, 연금저축·IRP를 활용한 최적 절세 전략까지 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["세액공제","소득공제","연말정산","IRP","연금저축"],"thumbnail":"https://blogglow.com/images/thumb-1771943265370.webp"},{"id":1771943265369,"title":"연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)","filename":"contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html","excerpt":"카드 많이 썼는데 환급이 적었던 이유, 바로 25% 기준을 몰랐기 때문이에요. 신용카드와 체크카드를 언제 어떻게 나눠 써야 환급액이 최대가 되는지 황금비율 전략을 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["연말정산","소득공제","신용카드","체크카드","절세전략"],"thumbnail":"https://blogglow.com/images/thumb-1771943265369.webp"}];
     const PER_PAGE = 12;
     let currentPage = 1;
     let filteredPosts = [];
@@ -692,12 +746,10 @@
     const resultCount = document.getElementById('result-count');
     const headerSearch = document.querySelector('.search-input');
 
-    // 통계
+    // 통계 (기존 코드 삭제 후 이걸로 교체)
     const allCats = [...new Set(posts.map(p => p.category).filter(Boolean))];
-    const elPosts = document.getElementById('stat-posts');
-    if(elPosts) elPosts.textContent = posts.length;
-    const elCats = document.getElementById('stat-cats');
-    if(elCats) elCats.textContent = allCats.length;
+    document.querySelectorAll('.stat-posts').forEach(el => el.textContent = posts.length);
+    document.querySelectorAll('.stat-cats').forEach(el => el.textContent = allCats.length);
 
     // 필터
     function getFiltered() {
@@ -816,5 +868,34 @@ const TimeAgo = {
     offset: 50      // 트리거 지점 설정
   });
 </script>
+
+<!-- Swiper.js 스크립트 로드 및 초기화 -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    effect: "fade", // 부드럽게 겹치며 넘어가는 페이드 효과
+    fadeEffect: { crossFade: true },
+    loop: true, // 무한 반복
+    autoplay: {
+      delay: 5000, // 5초마다 자동 슬라이드
+      disableOnInteraction: false, // 유저가 클릭해도 자동 슬라이드 유지
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+</script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 50
+  });
+</script>
+</body>
+
 </body>
 </html>
