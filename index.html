@@ -47,7 +47,12 @@
     font-weight: normal;
     font-display: swap;
 }
-
+@font-face {
+    font-family: 'ONE Mobile OTF Regular';
+    src: url('https://cdn.jsdelivr.net/gh/wooin21/web/fonts/onestore/ONE Mobile OTF Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
 
         :root {
             --bg-page: #ffffff;
@@ -130,9 +135,8 @@
         /* --- 고품질 Hero 영역 디자인 --- */
 .hero {
     position: relative;
-    background: #0f172a; /* 딥 네이비 배경 */
-    background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 100%);
-    padding: 100px 24px 80px;
+    background: #0f172a;
+    padding: 60px 24px 40px;
     text-align: center;
     overflow: hidden;
 }
@@ -172,13 +176,13 @@
 }
 
 .hero h1 {
-    font-size: 3.8rem;
-    font-weight: 800;
+    font-size: 3rem;
+    font-weight: 100;
     color: #ffffff;
     line-height: 1.1;
-    letter-spacing: -0.04em;
     word-break: keep-all;
     margin-bottom: 24px;
+    font-family: 'OneStoreMobileGothicTitleFont';
 }
 
 .text-glow {
@@ -241,7 +245,15 @@
     .hero-stats-row { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
 }
 
-        .filter-bar { position: sticky; top: var(--header-h); z-index: 50; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .filter-bar {
+    position: sticky;
+    top: var(--header-h);
+    z-index: 50;
+    background: rgb(249 250 251);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
         .filter-inner { max-width: var(--max-width); margin: 0 auto; position: relative; display: flex; align-items: center; height: 60px; }
         .tab-scroll-wrap { position: relative; width: 100%; overflow: hidden; display: flex; align-items: center; height: 100%; }
         .tab-scroll-wrap::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 40px; background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1)); pointer-events: none; }
@@ -388,28 +400,28 @@
 </div>
 
 
-<!-- 히어로 섹션 개편 -->
+<!-- 히어로 섹션 개편 (한글화 버전) -->
 <section class="hero">
     <div class="hero-inner">
-        <span class="hero-tag">INSIGHTS & ECONOMY</span>
-        <h1>어려운 경제와 세금,<br><span class="text-glow">가장 명확하게 정리합니다</span></h1>
+        <span class="hero-tag">지식 · 인사이트 · 실용 경제</span>
+        <h1>복잡한 경제와 세금,<br><span class="text-glow">가장 명쾌하게 정리합니다</span></h1>
         <p class="hero-sub">
-            Blogglow는 당신의 실질적인 자산 관리를 돕는<br>
+            블로그로우(Blogglow)는 당신의 실질적인 자산 관리를 돕는<br>
             돈이 되는 정보와 전문적인 경제 가이드를 제공합니다.
         </p>
 
         <div class="hero-stats-row">
             <div class="stat-item">
                 <span class="stat-num" id="stat-posts">0</span>
-                <span class="stat-label">Articles</span>
+                <span class="stat-label">발행 콘텐츠</span>
             </div>
             <div class="stat-item" style="border-left: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1); border-radius: 0;">
                 <span class="stat-num" id="stat-cats">0</span>
-                <span class="stat-label">Categories</span>
+                <span class="stat-label">전문 카테고리</span>
             </div>
             <div class="stat-item">
-                <span class="stat-num">24/7</span>
-                <span class="stat-label">Updated</span>
+                <span class="stat-num">상시</span>
+                <span class="stat-label">업데이트</span>
             </div>
         </div>
     </div>
@@ -516,7 +528,7 @@
 
 <script>
 (function() {
-    const posts = [{"id":1771917344621,"title":"주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)","filename":"contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html","excerpt":"유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["주택담보대출","이자소득공제","연말정산","개인사업자","절세"],"thumbnail":"https://blogglow.com/images/thumb-1771917344621.webp"},{"id":1771917344620,"title":"문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)","filename":"contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html","excerpt":"2025년 하반기부터 헬스장·필라테스까지 문화비 소득공제 대상이 확대됐어요! 신청 방법, 인정 항목, 결제 수단 조건, 가맹점 확인법까지 2026년 최신 기준으로 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["문화비소득공제","헬스장공제","연말정산","도서공연","소득공제"],"thumbnail":"https://blogglow.com/images/thumb-1771917344620.webp"},{"id":1771917344619,"title":"세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)","filename":"contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html","excerpt":"세액공제와 소득공제, 이름은 비슷하지만 세금을 줄이는 방식이 완전히 달라요. 두 개념의 차이부터 실제 계산 예시, 연금저축·IRP를 활용한 최적 절세 전략까지 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["세액공제","소득공제","연말정산","IRP","연금저축"],"thumbnail":"https://blogglow.com/images/thumb-1771917344619.webp"},{"id":1771917344618,"title":"연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)","filename":"contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html","excerpt":"카드 많이 썼는데 환급이 적었던 이유, 바로 25% 기준을 몰랐기 때문이에요. 신용카드와 체크카드를 언제 어떻게 나눠 써야 환급액이 최대가 되는지 황금비율 전략을 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["연말정산","소득공제","신용카드","체크카드","절세전략"],"thumbnail":"https://blogglow.com/images/thumb-1771917344618.webp"},{"id":1771916586266,"title":"주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)","filename":"contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html","excerpt":"유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["주택담보대출","이자소득공제","연말정산","개인사업자","절세"],"thumbnail":"https://blogglow.com/images/thumb-1771916586266.webp"},{"id":1771916586265,"title":"문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)","filename":"contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html","excerpt":"2025년 하반기부터 헬스장·필라테스까지 문화비 소득공제 대상이 확대됐어요! 신청 방법, 인정 항목, 결제 수단 조건, 가맹점 확인법까지 2026년 최신 기준으로 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["문화비소득공제","헬스장공제","연말정산","도서공연","소득공제"],"thumbnail":"https://blogglow.com/images/thumb-1771916586265.webp"},{"id":1771916586264,"title":"세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)","filename":"contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html","excerpt":"세액공제와 소득공제, 이름은 비슷하지만 세금을 줄이는 방식이 완전히 달라요. 두 개념의 차이부터 실제 계산 예시, 연금저축·IRP를 활용한 최적 절세 전략까지 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["세액공제","소득공제","연말정산","IRP","연금저축"],"thumbnail":"https://blogglow.com/images/thumb-1771916586264.webp"},{"id":1771916586263,"title":"연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)","filename":"contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html","excerpt":"카드 많이 썼는데 환급이 적었던 이유, 바로 25% 기준을 몰랐기 때문이에요. 신용카드와 체크카드를 언제 어떻게 나눠 써야 환급액이 최대가 되는지 황금비율 전략을 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["연말정산","소득공제","신용카드","체크카드","절세전략"],"thumbnail":"https://blogglow.com/images/thumb-1771916586263.webp"},{"id":1771915861375,"title":"주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)","filename":"contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html","excerpt":"유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["주택담보대출","이자소득공제","연말정산","개인사업자","절세"],"thumbnail":"https://blogglow.com/images/thumb-1771915861375.webp"},{"id":1771915861374,"title":"문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)","filename":"contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html","excerpt":"2025년 하반기부터 헬스장·필라테스까지 문화비 소득공제 대상이 확대됐어요! 신청 방법, 인정 항목, 결제 수단 조건, 가맹점 확인법까지 2026년 최신 기준으로 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["문화비소득공제","헬스장공제","연말정산","도서공연","소득공제"],"thumbnail":"https://blogglow.com/images/thumb-1771915861374.webp"},{"id":1771915861373,"title":"세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)","filename":"contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html","excerpt":"세액공제와 소득공제, 이름은 비슷하지만 세금을 줄이는 방식이 완전히 달라요. 두 개념의 차이부터 실제 계산 예시, 연금저축·IRP를 활용한 최적 절세 전략까지 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["세액공제","소득공제","연말정산","IRP","연금저축"],"thumbnail":"https://blogglow.com/images/thumb-1771915861373.webp"},{"id":1771915861372,"title":"연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)","filename":"contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html","excerpt":"카드 많이 썼는데 환급이 적었던 이유, 바로 25% 기준을 몰랐기 때문이에요. 신용카드와 체크카드를 언제 어떻게 나눠 써야 환급액이 최대가 되는지 황금비율 전략을 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["연말정산","소득공제","신용카드","체크카드","절세전략"],"thumbnail":"https://blogglow.com/images/thumb-1771915861372.webp"}];
+    const posts = [{"id":1771918150523,"title":"주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)","filename":"contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html","excerpt":"유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["주택담보대출","이자소득공제","연말정산","개인사업자","절세"],"thumbnail":"https://blogglow.com/images/thumb-1771918150523.webp"},{"id":1771918150522,"title":"문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)","filename":"contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html","excerpt":"2025년 하반기부터 헬스장·필라테스까지 문화비 소득공제 대상이 확대됐어요! 신청 방법, 인정 항목, 결제 수단 조건, 가맹점 확인법까지 2026년 최신 기준으로 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["문화비소득공제","헬스장공제","연말정산","도서공연","소득공제"],"thumbnail":"https://blogglow.com/images/thumb-1771918150522.webp"},{"id":1771918150521,"title":"세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)","filename":"contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html","excerpt":"세액공제와 소득공제, 이름은 비슷하지만 세금을 줄이는 방식이 완전히 달라요. 두 개념의 차이부터 실제 계산 예시, 연금저축·IRP를 활용한 최적 절세 전략까지 한 번에 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["세액공제","소득공제","연말정산","IRP","연금저축"],"thumbnail":"https://blogglow.com/images/thumb-1771918150521.webp"},{"id":1771918150520,"title":"연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)","filename":"contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html","excerpt":"카드 많이 썼는데 환급이 적었던 이유, 바로 25% 기준을 몰랐기 때문이에요. 신용카드와 체크카드를 언제 어떻게 나눠 써야 환급액이 최대가 되는지 황금비율 전략을 정리했습니다.","date":"2026. 2. 20.","category":"경제/재테크","tags":["연말정산","소득공제","신용카드","체크카드","절세전략"],"thumbnail":"https://blogglow.com/images/thumb-1771918150520.webp"}];
     const PER_PAGE = 12;
     let currentPage = 1;
     let filteredPosts = [];
