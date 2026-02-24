@@ -18,7 +18,7 @@
     <meta property="og:title" content="주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?) | Blogglow">
     <meta property="og:description" content="유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.">
     <meta property="og:type" content="article">
-    <meta property="og:image" content="https://blogglow.com/images/thumb-1771938076323.webp">
+    <meta property="og:image" content="https://blogglow.com/images/thumb-1771941853197.webp">
     <meta property="og:url" content="https://blogglow.com/contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html">
     <meta property="og:site_name" content="Blogglow">
     <meta property="og:locale" content="ko_KR">
@@ -27,7 +27,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?) | Blogglow">
     <meta name="twitter:description" content="유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.">
-    <meta name="twitter:image" content="https://blogglow.com/images/thumb-1771938076323.webp">
+    <meta name="twitter:image" content="https://blogglow.com/images/thumb-1771941853197.webp">
     <meta name="theme-color" content="#3b82f6">
 
     <!-- Fonts & Icons -->
@@ -43,7 +43,7 @@
         "@type": "BlogPosting",
         "headline": "주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)",
         "description": "유주택자가 누릴 수 있는 장기주택저당차입금 이자상환액 소득공제, 직장인은 물론 근로소득이 있는 개인사업자에게도 종합소득세 절세 효과가 있어요. 체증식 대출과의 조합까지 정리했습니다.",
-        "image": "https://blogglow.com/images/thumb-1771938076323.webp",
+        "image": "https://blogglow.com/images/thumb-1771941853197.webp",
         "url": "https://blogglow.com/contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html",
         "inLanguage": "ko-KR",
         "author": { "@type": "Organization", "name": "Blogglow", "url": "https://blogglow.com/index.html" },
@@ -111,51 +111,76 @@
         a:hover { opacity: 0.7; }
         img { display: block; width: 100%; height: auto; }
 
-        /* [플로팅 글자크기 위젯 스타일] */
-        .floating-font-control {
+        /* [글자크기 위젯 위치 및 디자인 변경] */
+.floating-font-control {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    top: 300px; /* 화면 우측 하단에서 -> 사이드바 광고가 시작되는 우측 중앙으로 이동 */
+    right: 25px;
     z-index: 9999;
     display: flex;
+    flex-direction: column; /* 가로형에서 세로형 툴바로 변경하여 클릭 편의성 향상 */
     align-items: center;
-    gap: 0px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px);
-    padding: 8px 12px 8px 18px;
-    border-radius: 50px;
-    border: 1px solid #d1d5db;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3sease;
+    gap: 12px;
+    background: #ffffff;
+    padding: 20px 10px;
+    border-radius: 40px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
 }
-        .floating-font-control:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary);
-            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.2);
-        }
-        .ffc-label {
-            font-size: 13px; font-weight: 800; color: #4b5563;
-            margin-right: 6px; letter-spacing: -0.02em;
-        }
-        .ffc-btn {
-            width: 34px; height: 34px;
-            border-radius: 50%; border: 1px solid #e5e7eb;
-            background: #ffffff; color: var(--text-main);
-            font-size: 18px; cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            transition: all 0.2s;
-        }
-        .ffc-btn:hover {
-            background: var(--primary); color: #fff; border-color: var(--primary);
-        }
-        .ffc-display {
-            font-size: 15px; font-weight: 800; color: var(--primary);
-            min-width: 32px; text-align: center; font-variant-numeric: tabular-nums;
-        }
-        @media (max-width: 768px) {
-            .floating-font-control { bottom: 20px; right: 20px; padding: 8px 10px 8px 16px; }
-            .ffc-label { font-size: 12px; }
-        }
+
+.floating-font-control:hover {
+    transform: translateX(-5px); /* 마우스 올리면 살짝 왼쪽으로 나와서 존재감 표시 */
+    border-color: var(--primary);
+}
+
+.ffc-label {
+    font-size: 11px;
+    font-weight: 800;
+    color: #94a3b8;
+    text-transform: uppercase;
+    writing-mode: vertical-lr; /* 글자를 세로로 눕혀서 툴바 느낌 강조 */
+    margin-bottom: 5px;
+    letter-spacing: 0.1em;
+}
+
+.ffc-btn {
+    width: 38px; /* 버튼 크기를 살짝 키워 클릭하기 쉽게 조정 */
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid #f1f5f9;
+    background: #f8fafc;
+    color: var(--text-main);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+.ffc-btn:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.ffc-display {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--primary);
+    text-align: center;
+}
+@media (max-width: 768px) {
+    .floating-font-control {
+        top: auto;
+        bottom: 100px; /* 하단 탭바 위쪽으로 배치 */
+        right: 15px;
+        flex-direction: row; /* 모바일은 가로형이 조작하기 편함 */
+        padding: 8px 15px;
+        writing-mode: horizontal-tb;
+    }
+    .ffc-label { writing-mode: horizontal-tb; margin-bottom: 0; margin-right: 8px; }
+}
 
         /* 레이아웃 */
         .breadcrumb { background: var(--bg-gray); border-bottom: 1px solid var(--border); padding: 16px 0; }
@@ -315,6 +340,64 @@
     .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); z-index: 999; display: none; backdrop-filter: blur(2px); }
     .sidebar-overlay.active { display: block; }
 
+/* 뉴스레터 구독 카드 스타일 */
+.newsletter-card {
+    background: #0f172a;
+    border-radius: 16px;
+    padding: 24px;
+    color: #fff;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+.newsletter-card h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: #fff;
+    letter-spacing: -0.02em;
+}
+.newsletter-card p {
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    word-break: keep-all;
+}
+.newsletter-input {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 12px;
+    outline: none;
+    transition: 0.2s;
+}
+.newsletter-input:focus {
+    border-color: #2563eb;
+    background: rgba(255,255,255,0.08);
+}
+.newsletter-btn {
+    width: 100%;
+    padding: 12px;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.newsletter-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+
+
     .footer { background: #1a1a1a; color: #a1a1aa; padding: 60px 24px 24px; font-size: 14px; }
     .footer-inner { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
     .footer-brand p { margin-top: 12px; font-size: 13px; line-height: 1.6; color: #a1a1aa; }
@@ -427,24 +510,24 @@
                     </a>
                 </div>
             </div>
-            <img src="https://blogglow.com/images/thumb-1771938076323.webp" alt="house key real estate mortgage loan" loading="eager" decoding="async" style="width:100%; border-radius:16px; margin-bottom:40px; box-shadow:0 8px 24px rgba(0,0,0,0.07);">
+            <img src="https://blogglow.com/images/thumb-1771941853197.webp" alt="house key real estate mortgage loan" loading="eager" decoding="async" style="width:100%; border-radius:16px; margin-bottom:40px; box-shadow:0 8px 24px rgba(0,0,0,0.07);">
 
-            <article class="content"><blockquote style="margin: 0 0 48px 0; padding: 28px 32px; background: #f9fafb; border-left: 4px solid #3b82f6; border-radius: 0 16px 16px 0;"><p style="margin: 0; font-size: 19px; font-weight: 600; color: #191f28; line-height: 1.6;">"집을 사면서 대출을 받는다면, 이자는 그냥 내지 말고 소득공제로 돌려받아라."</p><cite style="display: block; margin-top: 14px; font-size: 14px; color: #8b95a1; font-style: normal;">— 유주택자가 누리는 숨겨진 절세 혜택</cite></blockquote><div style="margin: 0 0 48px 0;"><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">안녕하세요~<br><br>유주택자가 되면 청약 무주택 조건, 각종 정책 지원 제외 등 여러 불이익이 생기죠. 하지만 그 반대급부로 누릴 수 있는 훌륭한 절세 혜택이 하나 있어요.<br><br>바로 <strong style="color: #191f28; font-weight: 600;">장기주택저당차입금 이자상환액 소득공제</strong>랍니다!<br><br>오늘은 직장인은 물론, 인터넷에서 잘 다루지 않는 <strong style="color: #191f28; font-weight: 600;">근로소득이 있는 개인사업자</strong> 입장에서의 활용법까지 정리해드릴게요.</p></div><figure style="margin: 48px 0;"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&amp;fit=crop&amp;w=950&amp;q=80" style="width: 100%; border-radius: 16px; border: 1px solid #e5e8eb; box-shadow: 0 8px 24px rgba(0,0,0,0.07); display: block;" alt="house key real estate mortgage loan"><figcaption style="text-align: center; margin-top: 12px; font-size: 13px; color: #8b95a1;">주택담보대출 이자, 그냥 내지 말고 소득공제로 활용하세요</figcaption></figure><div class="interlink-card" data-modal-id="interlink-1771938076320" data-url="https://blogglow.com/contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
-                <img src="https://blogglow.com/images/thumb-1771938076320.webp" class="il-thumb" style="width:120px; height:80px; border-radius:8px; object-fit:cover; flex-shrink:0;" alt="">
+            <article class="content"><blockquote style="margin: 0 0 48px 0; padding: 28px 32px; background: #f9fafb; border-left: 4px solid #3b82f6; border-radius: 0 16px 16px 0;"><p style="margin: 0; font-size: 19px; font-weight: 600; color: #191f28; line-height: 1.6;">"집을 사면서 대출을 받는다면, 이자는 그냥 내지 말고 소득공제로 돌려받아라."</p><cite style="display: block; margin-top: 14px; font-size: 14px; color: #8b95a1; font-style: normal;">— 유주택자가 누리는 숨겨진 절세 혜택</cite></blockquote><div style="margin: 0 0 48px 0;"><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">안녕하세요~<br><br>유주택자가 되면 청약 무주택 조건, 각종 정책 지원 제외 등 여러 불이익이 생기죠. 하지만 그 반대급부로 누릴 수 있는 훌륭한 절세 혜택이 하나 있어요.<br><br>바로 <strong style="color: #191f28; font-weight: 600;">장기주택저당차입금 이자상환액 소득공제</strong>랍니다!<br><br>오늘은 직장인은 물론, 인터넷에서 잘 다루지 않는 <strong style="color: #191f28; font-weight: 600;">근로소득이 있는 개인사업자</strong> 입장에서의 활용법까지 정리해드릴게요.</p></div><figure style="margin: 48px 0;"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&amp;fit=crop&amp;w=950&amp;q=80" style="width: 100%; border-radius: 16px; border: 1px solid #e5e8eb; box-shadow: 0 8px 24px rgba(0,0,0,0.07); display: block;" alt="house key real estate mortgage loan"><figcaption style="text-align: center; margin-top: 12px; font-size: 13px; color: #8b95a1;">주택담보대출 이자, 그냥 내지 말고 소득공제로 활용하세요</figcaption></figure><div class="interlink-card" data-modal-id="interlink-1771941853194" data-url="https://blogglow.com/contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
+                <img src="https://blogglow.com/images/thumb-1771941853194.webp" class="il-thumb" style="width:120px; height:80px; border-radius:8px; object-fit:cover; flex-shrink:0;" alt="">
                 <div class="il-info" style="flex:1; display:flex; flex-direction:column; gap:4px;">
                     <div class="il-label" style="font-size:11px; font-weight:700; color:var(--primary); text-transform:uppercase;">관련 글 보기</div>
                     <div class="il-title" style="font-size:18px; font-weight:700; color:#4e5661; line-height:1.4;">연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)</div>
                 </div>
-            </div><h2 style="font-size: 26px; font-weight: 700; color: #191f28; margin: 60px 0 24px 0; padding-bottom: 14px; border-bottom: 2px solid #191f28; letter-spacing: -0.02em;">🏠 1. 장기주택저당차입금 이자상환액 소득공제란?</h2><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">집을 살 때 받은 주택담보대출의 <strong style="color: #191f28; font-weight: 600;">이자 납부액</strong>을 근로소득에서 소득공제해주는 제도예요. 원금 상환분은 해당 안 되고, 이자 부분만 적용된다는 점이 포인트랍니다.<br><br>이자를 소득공제로 인정받으면 과세표준이 낮아져 세금 부담이 줄어드는데, 특히 <strong style="color: #191f28; font-weight: 600;">소득이 높을수록 절세 효과가 극대화</strong>돼요. 누진세 구조에서 과세표준을 낮추는 게 매우 중요하기 때문이에요.</p><div style="background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 32px 0;"><p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 700; color: #3b82f6; letter-spacing: 0.05em;">💡 핵심 포인트</p><p style="margin: 0; font-size: 16px; color: #1e3a5f; line-height: 1.7; font-weight: 500;">원금 상환은 집값이 유지된다면 저축 효과가 있어 공제 대상에서 제외돼요. 하지만 이자는 온전히 나가는 비용이므로 소득공제로 돌려받는 구조랍니다!</p></div><div class="interlink-card" data-modal-id="interlink-1771938076321" data-url="https://blogglow.com/contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
-                <img src="https://blogglow.com/images/thumb-1771938076321.webp" class="il-thumb" style="width:120px; height:80px; border-radius:8px; object-fit:cover; flex-shrink:0;" alt="">
+            </div><h2 style="font-size: 26px; font-weight: 700; color: #191f28; margin: 60px 0 24px 0; padding-bottom: 14px; border-bottom: 2px solid #191f28; letter-spacing: -0.02em;">🏠 1. 장기주택저당차입금 이자상환액 소득공제란?</h2><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">집을 살 때 받은 주택담보대출의 <strong style="color: #191f28; font-weight: 600;">이자 납부액</strong>을 근로소득에서 소득공제해주는 제도예요. 원금 상환분은 해당 안 되고, 이자 부분만 적용된다는 점이 포인트랍니다.<br><br>이자를 소득공제로 인정받으면 과세표준이 낮아져 세금 부담이 줄어드는데, 특히 <strong style="color: #191f28; font-weight: 600;">소득이 높을수록 절세 효과가 극대화</strong>돼요. 누진세 구조에서 과세표준을 낮추는 게 매우 중요하기 때문이에요.</p><div style="background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 32px 0;"><p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 700; color: #3b82f6; letter-spacing: 0.05em;">💡 핵심 포인트</p><p style="margin: 0; font-size: 16px; color: #1e3a5f; line-height: 1.7; font-weight: 500;">원금 상환은 집값이 유지된다면 저축 효과가 있어 공제 대상에서 제외돼요. 하지만 이자는 온전히 나가는 비용이므로 소득공제로 돌려받는 구조랍니다!</p></div><div class="interlink-card" data-modal-id="interlink-1771941853195" data-url="https://blogglow.com/contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
+                <img src="https://blogglow.com/images/thumb-1771941853195.webp" class="il-thumb" style="width:120px; height:80px; border-radius:8px; object-fit:cover; flex-shrink:0;" alt="">
                 <div class="il-info" style="flex:1; display:flex; flex-direction:column; gap:4px;">
                     <div class="il-label" style="font-size:11px; font-weight:700; color:var(--primary); text-transform:uppercase;">관련 글 보기</div>
                     <div class="il-title" style="font-size:18px; font-weight:700; color:#4e5661; line-height:1.4;">세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)</div>
                 </div>
             </div><h2 style="font-size: 26px; font-weight: 700; color: #191f28; margin: 60px 0 24px 0; padding-bottom: 14px; border-bottom: 2px solid #191f28; letter-spacing: -0.02em;">📊 2. 체증식 대출이 유리한 이유</h2><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">이자상환액 기준으로 소득공제가 적용되기 때문에, 초기에 이자를 많이 내는 <strong style="color: #191f28; font-weight: 600;">체증식 상환 방식</strong>이 소득공제 측면에서 유리해요.<br><br>체증식은 초반에 이자 비중이 높고, 시간이 지날수록 원금 상환 비중이 늘어나는 구조예요. 화폐가치가 장기적으로 하락한다고 가정한다면 고정금리 + 체증식 조합이 초장기 모기지에 유리하다는 의견이 많답니다.</p><div class="ai-official-wrapper" style="margin: 35px 0; font-family: 'Pretendard', sans-serif;">
-                <button class="open-modal-btn" data-modal-id="modal-1771938064571-0" type="button" style="width: 100%; display: flex; align-items: center; gap: 20px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 20px; cursor: pointer; transition: all 0.2s; text-align: left; box-shadow: 0 2px 10px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='#0070c0'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.08)';" onmouseout="this.style.borderColor='#e5e7eb'; this.style.boxShadow='0 2px 10px rgba(0,0,0,0.03)';">
+                <button class="open-modal-btn" data-modal-id="modal-1771941851837-0" type="button" style="width: 100%; display: flex; align-items: center; gap: 20px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 20px; cursor: pointer; transition: all 0.2s; text-align: left; box-shadow: 0 2px 10px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='#0070c0'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.08)';" onmouseout="this.style.borderColor='#e5e7eb'; this.style.boxShadow='0 2px 10px rgba(0,0,0,0.03)';">
                     <div style="width: 52px; height: 52px; min-width: 52px; background: #ffffff; border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid #f1f5f9; overflow: hidden; padding: 4px;">
-                        <img class="banner-logo-img" id="img-modal-1771938064571-0" src="https://t2.gstatic.com/faviconV2?client=SOCIAL&amp;type=FAVICON&amp;fallback_opts=TYPE,SIZE,URL&amp;url=http://hometax.go.kr&amp;size=128" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=hometax.go.kr&amp;sz=64';" style="width: 100%; height: 100%; object-fit: contain;" alt="국세청 홈택스">
+                        <img class="banner-logo-img" id="img-modal-1771941851837-0" src="https://t2.gstatic.com/faviconV2?client=SOCIAL&amp;type=FAVICON&amp;fallback_opts=TYPE,SIZE,URL&amp;url=http://hometax.go.kr&amp;size=128" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=hometax.go.kr&amp;sz=64';" style="width: 100%; height: 100%; object-fit: contain;" alt="국세청 홈택스">
                     </div>
                     <div style="flex: 1;">
                         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 2px;"><span style="font-size: 17px; font-weight: 700; color: #111827;">국세청 홈택스</span><span style="font-size: 11px; font-weight: 700; color: #0070c0; background: #0070c015; padding: 2px 6px; border-radius: 4px;">공식</span></div>
@@ -452,7 +535,7 @@
                     </div>
                     <div style="width: 36px; height: 36px; border-radius: 50%; background: #f3f4f6; display: flex; align-items: center; justify-content: center; color: #0070c0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
                 </button>
-                <dialog id="modal-1771938064571-0">
+                <dialog id="modal-1771941851837-0">
                   <div style="padding:28px; font-family:'Pretendard',sans-serif;">
 
                       <!-- 헤더 -->
@@ -463,13 +546,13 @@
                               <div style="font-size:18px; font-weight:800; color:#111827;">국세청 홈택스</div>
                               <div style="font-size:13px; color:#9ca3af;">hometax.go.kr</div>
                           </div>
-                          <button type="button" class="close-modal-btn" data-modal-id="modal-1771938064571-0" style="width:32px; height:32px; border-radius:50%; border:none; background:#f3f4f6; cursor:pointer; font-size:18px; color:#6b7280; display:flex; align-items:center; justify-content:center;">×</button>
+                          <button type="button" class="close-modal-btn" data-modal-id="modal-1771941851837-0" style="width:32px; height:32px; border-radius:50%; border:none; background:#f3f4f6; cursor:pointer; font-size:18px; color:#6b7280; display:flex; align-items:center; justify-content:center;">×</button>
                       </div>
 
                       <!-- 설명 -->
                       <div style="background:#f9fafb; padding:16px; border-radius:12px; margin-bottom:20px;">
                           <div style="font-size:11px; font-weight:700; color:#0070c0; text-transform:uppercase; margin-bottom:6px;">Overview</div>
-                          <div style="font-size:14px; color:#374151; line-height:1.6;">주택담보대출 이자상환액 소득공제를 받기 위해 연말정산 간소화 서비스 이용 또는 종합소득세 신고 시 필요한 정보를 확인하고 신고를 진행할 수 있습니다.</div>
+                          <div style="font-size:14px; color:#374151; line-height:1.6;">근로소득자는 연말정산을 통해 주택담보대출 이자상환액 소득공제를 신청하고, 사업소득이 있는 경우 종합소득세 신고 시 결정세액을 비교하여 유리한 쪽으로 공제받을 수 있습니다.</div>
                       </div>
 
                       <!-- 주요 기능 -->
@@ -484,36 +567,36 @@
                                   <span style="color:#0070c0; font-weight:bold; flex-shrink:0;">•</span>종합소득세 신고
                               </li>
                               <li style="display:flex; align-items:flex-start; gap:8px; font-size:14px; color:#4b5563;">
-                                  <span style="color:#0070c0; font-weight:bold; flex-shrink:0;">•</span>세금 모의계산
+                                  <span style="color:#0070c0; font-weight:bold; flex-shrink:0;">•</span>세금계산
                               </li>
                           </ul>
                       </div>
 
                       <!-- 바로가기 버튼 -->
-                      <button type="button" data-modal-id="modal-1771938064571-0" data-url="https://www.hometax.go.kr/" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="width:100%; padding:14px; background:#0070c0; color:white; border:none; border-radius:12px; font-size:15px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;">
+                      <button type="button" data-modal-id="modal-1771941851837-0" data-url="https://www.hometax.go.kr" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="width:100%; padding:14px; background:#0070c0; color:white; border:none; border-radius:12px; font-size:15px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;">
                           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                           공식 홈페이지 바로가기
                       </button>
                   </div>
               </dialog>
-            </div><div style="background: #f9fafb; border: 1px solid #e5e8eb; border-radius: 16px; padding: 24px; margin: 32px 0;"><p style="margin: 0 0 14px 0; font-size: 15px; font-weight: 700; color: #191f28;">📋 상환 방식별 특징 비교</p><ul style="margin: 0; padding-left: 20px; color: #4e5968; font-size: 16px; line-height: 1.8;"><li style="margin-bottom: 10px;"><strong style="color: #191f28; font-weight: 600;">원금균등:</strong> 매월 같은 원금 + 줄어드는 이자, 초기 부담 가장 큼</li><li style="margin-bottom: 10px;"><strong style="color: #191f28; font-weight: 600;">원리금균등:</strong> 매월 동일 금액, 가장 일반적인 방식</li><li><strong style="color: #191f28; font-weight: 600;">체증식:</strong> 초기 이자 부담 높음, 시간이 지날수록 실질 부담 감소, 소득공제 효과 ↑</li></ul></div><div class="interlink-card" data-modal-id="interlink-1771938076322" data-url="https://blogglow.com/contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
-                <img src="https://blogglow.com/images/thumb-1771938076322.webp" class="il-thumb" style="width:120px; height:80px; border-radius:8px; object-fit:cover; flex-shrink:0;" alt="">
+            </div><div style="background: #f9fafb; border: 1px solid #e5e8eb; border-radius: 16px; padding: 24px; margin: 32px 0;"><p style="margin: 0 0 14px 0; font-size: 15px; font-weight: 700; color: #191f28;">📋 상환 방식별 특징 비교</p><ul style="margin: 0; padding-left: 20px; color: #4e5968; font-size: 16px; line-height: 1.8;"><li style="margin-bottom: 10px;"><strong style="color: #191f28; font-weight: 600;">원금균등:</strong> 매월 같은 원금 + 줄어드는 이자, 초기 부담 가장 큼</li><li style="margin-bottom: 10px;"><strong style="color: #191f28; font-weight: 600;">원리금균등:</strong> 매월 동일 금액, 가장 일반적인 방식</li><li><strong style="color: #191f28; font-weight: 600;">체증식:</strong> 초기 이자 부담 높음, 시간이 지날수록 실질 부담 감소, 소득공제 효과 ↑</li></ul></div><div class="interlink-card" data-modal-id="interlink-1771941853196" data-url="https://blogglow.com/contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="margin:60px 0; display:flex; gap:20px; align-items:center; padding:16px; border-radius:12px; border:1px solid var(--border); background:#fff; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--border)'; this.style.boxShadow='';">
+                <img src="https://blogglow.com/images/thumb-1771941853196.webp" class="il-thumb" style="width:120px; height:80px; border-radius:8px; object-fit:cover; flex-shrink:0;" alt="">
                 <div class="il-info" style="flex:1; display:flex; flex-direction:column; gap:4px;">
                     <div class="il-label" style="font-size:11px; font-weight:700; color:var(--primary); text-transform:uppercase;">관련 글 보기</div>
                     <div class="il-title" style="font-size:18px; font-weight:700; color:#4e5661; line-height:1.4;">문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)</div>
                 </div>
             </div><h2 style="font-size: 26px; font-weight: 700; color: #191f28; margin: 60px 0 24px 0; padding-bottom: 14px; border-bottom: 2px solid #191f28; letter-spacing: -0.02em;">💼 3. 개인사업자도 받을 수 있을까?</h2><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 28px 0;">여기서 핵심적인 포인트가 있어요. 이 공제는 <strong style="color: #191f28; font-weight: 600;">근로소득에만 적용</strong>돼요. 사업소득이나 기타소득에는 적용되지 않아요.<br><br>그렇다면 <strong style="color: #191f28; font-weight: 600;">근로소득과 사업소득이 함께 있는 사업자</strong>는 어떨까요? 예를 들어 직장인이면서 부업으로 사업자를 낸 경우가 이에 해당해요.</p><div style="background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 32px 0;"><p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 700; color: #3b82f6; letter-spacing: 0.05em;">💡 근로+사업소득 겸업자의 절세 포인트</p><p style="margin: 0; font-size: 16px; color: #1e3a5f; line-height: 1.7; font-weight: 500;">근로소득에서 이자상환액을 공제받으면 총 소득에서 해당 금액이 차감돼요. 총 소득이 낮아지면 과세표준이 낮아져 종합소득세 부담이 줄어드는 간접 절세 효과가 나타납니다!</p></div><figure style="margin: 48px 0;"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&amp;fit=crop&amp;w=950&amp;q=80" style="width: 100%; border-radius: 16px; border: 1px solid #e5e8eb; box-shadow: 0 8px 24px rgba(0,0,0,0.07); display: block;" alt="financial calculation tax planning documents"><figcaption style="text-align: center; margin-top: 12px; font-size: 13px; color: #8b95a1;">누진세 구조에서 과세표준을 낮추는 것이 핵심 전략이에요</figcaption></figure><h2 style="font-size: 26px; font-weight: 700; color: #191f28; margin: 60px 0 24px 0; padding-bottom: 14px; border-bottom: 2px solid #191f28; letter-spacing: -0.02em;">🧮 4. 실제 절세 효과 시뮬레이션</h2><h3 style="font-size: 20px; font-weight: 700; color: #191f28; margin: 40px 0 16px 0; letter-spacing: -0.01em;">시나리오 1: 총 소득 3,700만 원</h3><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 20px 0;">사업소득 2,200만 원 + 근로소득 400만 원 + 기타소득 1,100만 원 가정. 이자상환액 연 200만 원일 때</p><div style="background: #f9fafb; border: 1px solid #e5e8eb; border-radius: 16px; padding: 24px; margin: 28px 0;"><p style="margin: 0; font-size: 16px; line-height: 1.8; color: #4e5968;">→ 과세표준 200만 원 감소<br>→ 산출세액 <strong style="color: #191f28; font-weight: 600;">약 30만 원 절세 효과</strong><br><br>소득이 크지 않아도 과세표준을 200만 원이나 낮출 수 있어 누진세 납부자에게 의미 있는 절세 수단이에요!</p></div><h3 style="font-size: 20px; font-weight: 700; color: #191f28; margin: 40px 0 16px 0; letter-spacing: -0.01em;">시나리오 2: 총 소득 8,800만 원</h3><p style="font-size: 17px; line-height: 1.8; color: #4e5968; font-weight: 400; margin: 0 0 20px 0;">사업소득 5,200만 원 + 근로소득 900만 원 + 기타소득 2,700만 원 가정. 이자상환액 연 850만 원일 때</p><div class="ai-official-wrapper" style="margin: 35px 0; font-family: 'Pretendard', sans-serif;">
-                <button class="open-modal-btn" data-modal-id="modal-1771938064571-1" type="button" style="width: 100%; display: flex; align-items: center; gap: 20px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 20px; cursor: pointer; transition: all 0.2s; text-align: left; box-shadow: 0 2px 10px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='#28a745'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.08)';" onmouseout="this.style.borderColor='#e5e7eb'; this.style.boxShadow='0 2px 10px rgba(0,0,0,0.03)';">
+                <button class="open-modal-btn" data-modal-id="modal-1771941851837-1" type="button" style="width: 100%; display: flex; align-items: center; gap: 20px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 20px; cursor: pointer; transition: all 0.2s; text-align: left; box-shadow: 0 2px 10px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='#2196f3'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.08)';" onmouseout="this.style.borderColor='#e5e7eb'; this.style.boxShadow='0 2px 10px rgba(0,0,0,0.03)';">
                     <div style="width: 52px; height: 52px; min-width: 52px; background: #ffffff; border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid #f1f5f9; overflow: hidden; padding: 4px;">
-                        <img class="banner-logo-img" id="img-modal-1771938064571-1" src="https://t2.gstatic.com/faviconV2?client=SOCIAL&amp;type=FAVICON&amp;fallback_opts=TYPE,SIZE,URL&amp;url=http://kacpta.or.kr&amp;size=128" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=kacpta.or.kr&amp;sz=64';" style="width: 100%; height: 100%; object-fit: contain;" alt="세무사">
+                        <img class="banner-logo-img" id="img-modal-1771941851837-1" src="https://t2.gstatic.com/faviconV2?client=SOCIAL&amp;type=FAVICON&amp;fallback_opts=TYPE,SIZE,URL&amp;url=http://kacpta.or.kr&amp;size=128" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=kacpta.or.kr&amp;sz=64';" style="width: 100%; height: 100%; object-fit: contain;" alt="세무사">
                     </div>
                     <div style="flex: 1;">
-                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 2px;"><span style="font-size: 17px; font-weight: 700; color: #111827;">세무사</span><span style="font-size: 11px; font-weight: 700; color: #28a745; background: #28a74515; padding: 2px 6px; border-radius: 4px;">공식</span></div>
-                        <div style="font-size: 14px; color: #6b7280;">세무 상담 및 절세 전략 수립</div>
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 2px;"><span style="font-size: 17px; font-weight: 700; color: #111827;">세무사</span><span style="font-size: 11px; font-weight: 700; color: #2196f3; background: #2196f315; padding: 2px 6px; border-radius: 4px;">공식</span></div>
+                        <div style="font-size: 14px; color: #6b7280;">정확한 절세 전략 상담</div>
                     </div>
-                    <div style="width: 36px; height: 36px; border-radius: 50%; background: #f3f4f6; display: flex; align-items: center; justify-content: center; color: #28a745;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+                    <div style="width: 36px; height: 36px; border-radius: 50%; background: #f3f4f6; display: flex; align-items: center; justify-content: center; color: #2196f3;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
                 </button>
-                <dialog id="modal-1771938064571-1">
+                <dialog id="modal-1771941851837-1">
                   <div style="padding:28px; font-family:'Pretendard',sans-serif;">
 
                       <!-- 헤더 -->
@@ -524,13 +607,13 @@
                               <div style="font-size:18px; font-weight:800; color:#111827;">세무사</div>
                               <div style="font-size:13px; color:#9ca3af;">kacpta.or.kr</div>
                           </div>
-                          <button type="button" class="close-modal-btn" data-modal-id="modal-1771938064571-1" style="width:32px; height:32px; border-radius:50%; border:none; background:#f3f4f6; cursor:pointer; font-size:18px; color:#6b7280; display:flex; align-items:center; justify-content:center;">×</button>
+                          <button type="button" class="close-modal-btn" data-modal-id="modal-1771941851837-1" style="width:32px; height:32px; border-radius:50%; border:none; background:#f3f4f6; cursor:pointer; font-size:18px; color:#6b7280; display:flex; align-items:center; justify-content:center;">×</button>
                       </div>
 
                       <!-- 설명 -->
                       <div style="background:#f9fafb; padding:16px; border-radius:12px; margin-bottom:20px;">
-                          <div style="font-size:11px; font-weight:700; color:#28a745; text-transform:uppercase; margin-bottom:6px;">Overview</div>
-                          <div style="font-size:14px; color:#374151; line-height:1.6;">주택담보대출 이자상환액 소득공제 관련하여 개인의 소득 상황에 맞는 최적의 절세 전략을 수립하고, 연말정산 또는 종합소득세 신고 시 도움을 받을 수 있습니다.</div>
+                          <div style="font-size:11px; font-weight:700; color:#2196f3; text-transform:uppercase; margin-bottom:6px;">Overview</div>
+                          <div style="font-size:14px; color:#374151; line-height:1.6;">개인의 소득 상황에 맞는 최적의 절세 전략을 위해 세무사와 상담하여 연말정산 및 종합소득세 신고 시 이자상환액 공제 적용 여부를 결정하는 것이 좋습니다.</div>
                       </div>
 
                       <!-- 주요 기능 -->
@@ -539,19 +622,19 @@
                           <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
                               
                               <li style="display:flex; align-items:flex-start; gap:8px; font-size:14px; color:#4b5563;">
-                                  <span style="color:#28a745; font-weight:bold; flex-shrink:0;">•</span>세무 상담
+                                  <span style="color:#2196f3; font-weight:bold; flex-shrink:0;">•</span>세무 상담
                               </li>
                               <li style="display:flex; align-items:flex-start; gap:8px; font-size:14px; color:#4b5563;">
-                                  <span style="color:#28a745; font-weight:bold; flex-shrink:0;">•</span>절세 전략
+                                  <span style="color:#2196f3; font-weight:bold; flex-shrink:0;">•</span>세금 신고 대행
                               </li>
                               <li style="display:flex; align-items:flex-start; gap:8px; font-size:14px; color:#4b5563;">
-                                  <span style="color:#28a745; font-weight:bold; flex-shrink:0;">•</span>세무 대행
+                                  <span style="color:#2196f3; font-weight:bold; flex-shrink:0;">•</span>절세 전략 컨설팅
                               </li>
                           </ul>
                       </div>
 
                       <!-- 바로가기 버튼 -->
-                      <button type="button" data-modal-id="modal-1771938064571-1" data-url="https://www.kacpta.or.kr/" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="width:100%; padding:14px; background:#28a745; color:white; border:none; border-radius:12px; font-size:15px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;">
+                      <button type="button" data-modal-id="modal-1771941851837-1" data-url="https://www.kacpta.or.kr/" onclick="event.preventDefault(); event.stopPropagation(); handleCardClick(this); return false;" style="width:100%; padding:14px; background:#2196f3; color:white; border:none; border-radius:12px; font-size:15px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;">
                           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                           공식 홈페이지 바로가기
                       </button>
@@ -572,7 +655,7 @@
                         <div class="rc-date">2026. 2. 20.</div>
                     </div>
                     <div class="rc-thumb-wrap">
-                        <img src="https://blogglow.com/images/thumb-1771938076320.webp" class="rc-thumb" alt="">
+                        <img src="https://blogglow.com/images/thumb-1771941853194.webp" class="rc-thumb" alt="">
                     </div>
                 </a>
                 <a href="https://blogglow.com/contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html" class="related-item">
@@ -582,7 +665,7 @@
                         <div class="rc-date">2026. 2. 20.</div>
                     </div>
                     <div class="rc-thumb-wrap">
-                        <img src="https://blogglow.com/images/thumb-1771938076321.webp" class="rc-thumb" alt="">
+                        <img src="https://blogglow.com/images/thumb-1771941853195.webp" class="rc-thumb" alt="">
                     </div>
                 </a>
                 <a href="https://blogglow.com/contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html" class="related-item">
@@ -592,7 +675,7 @@
                         <div class="rc-date">2026. 2. 20.</div>
                     </div>
                     <div class="rc-thumb-wrap">
-                        <img src="https://blogglow.com/images/thumb-1771938076322.webp" class="rc-thumb" alt="">
+                        <img src="https://blogglow.com/images/thumb-1771941853196.webp" class="rc-thumb" alt="">
                     </div>
                 </a></div>
             </div>
@@ -600,35 +683,44 @@
 
 
         <aside class="sidebar sidebar-right">
-            <div class="widget">
-                <div class="widget-title">📚 이 시리즈의 다른 글</div>
-                <div class="widget-body"><ul class="series-widget-list">
+          <div class="widget">
+              <div class="widget-title">📚 이 시리즈의 다른 글</div>
+              <div class="widget-body"><ul class="series-widget-list">
                 <li>
                     <a href="https://blogglow.com/contents/연말정산-카드-소득공제-25-황금비율-총정리-신용카드-vs-체크카드-전략.html" class="series-widget-item ">
-                        <img src="https://blogglow.com/images/thumb-1771938076320.webp" class="sw-thumb" alt="">
+                        <img src="https://blogglow.com/images/thumb-1771941853194.webp" class="sw-thumb" alt="">
                         <div class="sw-info"><div class="sw-title">연말정산 카드 소득공제 25% 황금비율 총정리 (신용카드 vs 체크카드 전략)</div></div>
                     </a>
                 </li>
                 <li>
                     <a href="https://blogglow.com/contents/세액공제-vs-소득공제-차이-완벽-정리-2026-연말정산-절세-전략.html" class="series-widget-item ">
-                        <img src="https://blogglow.com/images/thumb-1771938076321.webp" class="sw-thumb" alt="">
+                        <img src="https://blogglow.com/images/thumb-1771941853195.webp" class="sw-thumb" alt="">
                         <div class="sw-info"><div class="sw-title">세액공제 vs 소득공제 차이 완벽 정리 (2026 연말정산 절세 전략)</div></div>
                     </a>
                 </li>
                 <li>
                     <a href="https://blogglow.com/contents/문화비-소득공제-신청-방법-총정리-헬스장도서공연-2026-최신판.html" class="series-widget-item ">
-                        <img src="https://blogglow.com/images/thumb-1771938076322.webp" class="sw-thumb" alt="">
+                        <img src="https://blogglow.com/images/thumb-1771941853196.webp" class="sw-thumb" alt="">
                         <div class="sw-info"><div class="sw-title">문화비 소득공제 신청 방법 총정리 (헬스장·도서·공연 2026 최신판)</div></div>
                     </a>
                 </li>
                 <li>
                     <a href="https://blogglow.com/contents/주택담보대출-이자-소득공제-완벽-가이드-개인사업자도-받을-수-있을까.html" class="series-widget-item current">
-                        <img src="https://blogglow.com/images/thumb-1771938076323.webp" class="sw-thumb" alt="">
+                        <img src="https://blogglow.com/images/thumb-1771941853197.webp" class="sw-thumb" alt="">
                         <div class="sw-info"><div class="sw-title">주택담보대출 이자 소득공제 완벽 가이드 (개인사업자도 받을 수 있을까?)</div></div>
                     </a>
                 </li></ul></div>
-            </div>
-            <div class="ad-block"><div class="ad-label">ADVERTISEMENT</div><div class="ad-area"><div style="width:100%; display:block;">
+          </div>
+
+          <!-- 여기에 뉴스레터 코드 삽입 -->
+          <div class="newsletter-card">
+              <h3>Blogglow Briefing</h3>
+              <p>금융 전문가들이 큐레이션 한 경제 동향과 절세 리포트를 매주 이메일로 받아보세요.</p>
+              <input type="email" id="subs-email" class="newsletter-input" placeholder="이메일 주소를 입력해주세요">
+              <button type="button" class="newsletter-btn" onclick="handleSubscription()">무료로 구독하기</button>
+          </div>
+
+          <div class="ad-block"><div class="ad-label">ADVERTISEMENT</div><div class="ad-area"><div style="width:100%; display:block;">
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; padding:12px 12px 4px;">
                 <a href="https://link.coupang.com/a/dRuXiD" target="_blank" rel="noopener sponsored"
                    style="display:block; aspect-ratio:1; overflow:hidden; border-radius:6px; border:1px solid #e2e8f0; transition:transform 0.2s;"
@@ -638,7 +730,7 @@
             </div>
                     <div style="padding:10px 14px; font-size:10px; color:#adb5bd; text-align:center; line-height:1.5; letter-spacing:-0.03em; border-top:1px dashed #f1f3f5; margin-top:8px;">제휴 마케팅 활동을 통해 <br>운영 수익의 일부가 발생할 수 있습니다.</div>
                 </div></div></div>
-        </aside>
+      </aside>
     </main>
 
     
@@ -665,7 +757,7 @@
         </button>
     </div>
 <script>
-var _0x1a2212=_0x1e05;(function(_0x4b5962,_0x161641){var _0x484e22=_0x1e05,_0x12b9d1=_0x4b5962();while(!![]){try{var _0x4301bb=-parseInt(_0x484e22(0x14b))/(-0x1dc6+-0x4*-0x14d+-0xe9*-0x1b)*(-parseInt(_0x484e22(0x1aa))/(0x1d*0x57+0x5ed*0x2+-0x15b3))+parseInt(_0x484e22(0x151))/(0x1c5e*0x1+-0x68*-0x53+-0x3e13)*(-parseInt(_0x484e22(0x1a8))/(0x1*-0x621+-0x7*0x463+0x24da))+parseInt(_0x484e22(0x17e))/(-0x6fe+-0x21a2+0x1*0x28a5)*(-parseInt(_0x484e22(0x19c))/(-0xdd7+0x1d97+-0xfba))+-parseInt(_0x484e22(0x182))/(-0x6a*0x1+-0x5*-0x73c+-0x23bb)+parseInt(_0x484e22(0x1bc))/(0x9*0xbf+-0x994+-0x3*-0xf7)*(-parseInt(_0x484e22(0x1a1))/(-0x1*-0x2042+-0x1*-0xa39+0x3*-0xe26))+-parseInt(_0x484e22(0x19e))/(-0x1c83*0x1+0x154d+0x740)*(-parseInt(_0x484e22(0x1bf))/(0xb*-0x35+-0x1a60+0x1cb2))+parseInt(_0x484e22(0x160))/(-0x1e7c+-0x4*0x386+0x2ca0)*(parseInt(_0x484e22(0x162))/(0x11bf+-0x33*-0x5e+-0x246c));if(_0x4301bb===_0x161641)break;else _0x12b9d1['push'](_0x12b9d1['shift']());}catch(_0x15cb0f){_0x12b9d1['push'](_0x12b9d1['shift']());}}}(_0x1932,-0x320a6+-0x8*-0xda63+0x25129*0x1),document[_0x1a2212(0x192)](_0x1a2212(0x172),function(){var _0x5595a3=_0x1a2212,_0xda374a={'VHXQz':function(_0x3b70d1,_0x544bad){return _0x3b70d1(_0x544bad);},'DdAUk':function(_0x40ff1e,_0x5421d7){return _0x40ff1e>_0x5421d7;},'AiRVT':function(_0x3c8587,_0x133951){return _0x3c8587+_0x133951;},'enuaH':_0x5595a3(0x15e),'qcBRz':_0x5595a3(0x186),'ksOUa':'btn-zoom-out','EWwbm':'font-size-display','tdOUt':function(_0x1e5d29,_0x208b07){return _0x1e5d29||_0x208b07;},'DShzo':_0x5595a3(0x17c),'vccXd':_0x5595a3(0x164),'XXtZQ':_0x5595a3(0x191),'uJFUc':'m-menu-toggle','CLlta':_0x5595a3(0x1b9),'odKVT':'m-sidebar-close','jDOmZ':function(_0x551636,_0x5f32cf){return _0x551636+_0x5f32cf;},'Lrmnf':function(_0x4d239a,_0x57b585){return _0x4d239a+_0x57b585;},'SmUEY':_0x5595a3(0x1b6),'RHPUQ':_0x5595a3(0x17f),'neYiW':'.open-modal-btn','OATXF':_0x5595a3(0x17a),'NJIPX':'.close-modal-btn','ZhNJz':function(_0x29ea81,_0x178a44){return _0x29ea81===_0x178a44;},'GnnmK':function(_0x32c89e,_0x1b605f){return _0x32c89e<_0x1b605f;},'QYrxW':function(_0x47c037,_0x344f59){return _0x47c037<_0x344f59;},'swHLK':_0x5595a3(0x1b0),'IHrmW':_0x5595a3(0x147)};(function _0x117911(){var _0x165cc9=_0x5595a3,_0x4cee21={'Ilbyh':function(_0x42a042,_0x13da93){var _0x203e6c=_0x1e05;return _0xda374a[_0x203e6c(0x1b4)](_0x42a042,_0x13da93);},'mhtpP':_0xda374a['enuaH']};const _0x366d53=document[_0x165cc9(0x195)]('.content'),_0x447e19=document[_0x165cc9(0x144)](_0xda374a[_0x165cc9(0x15f)]),_0x288ea2=document[_0x165cc9(0x144)](_0xda374a['ksOUa']),_0x23df6a=document[_0x165cc9(0x144)](_0xda374a[_0x165cc9(0x1af)]);if(_0xda374a['tdOUt'](!_0x366d53,!_0x447e19)||!_0x288ea2)return;const _0x55e9da=0xbf+0x117b+0x1*-0x122c,_0x53ca3d=0x2184+-0x2138+-0x17*0x2,_0x16de93=-0x1*-0x1ddb+-0x1*0x16db+-0x6ee;let _0x21de84=_0xda374a[_0x165cc9(0x173)](parseInt,localStorage[_0x165cc9(0x1a0)](_0xda374a[_0x165cc9(0x16c)]))||_0x16de93;function _0x31cb24(_0x4f9ef0){var _0x1e8d92=_0x165cc9;_0x366d53['style'][_0x1e8d92(0x16f)]=_0x4cee21[_0x1e8d92(0x17b)](_0x4f9ef0,'px');if(_0x23df6a)_0x23df6a[_0x1e8d92(0x140)]=_0x4f9ef0;localStorage[_0x1e8d92(0x1b1)](_0x4cee21[_0x1e8d92(0x149)],_0x4f9ef0);}_0x31cb24(_0x21de84),_0x447e19[_0x165cc9(0x190)]=_0x53efd1=>{var _0x12bd13=_0x165cc9;_0x53efd1[_0x12bd13(0x18b)](),_0x53efd1[_0x12bd13(0x1a5)]();if(_0x21de84<_0x53ca3d)_0xda374a[_0x12bd13(0x173)](_0x31cb24,_0x21de84+=-0x101+-0x1419+0xa8e*0x2);},_0x288ea2['onclick']=_0x422795=>{var _0x298cbf=_0x165cc9;_0x422795[_0x298cbf(0x18b)](),_0x422795[_0x298cbf(0x1a5)]();if(_0xda374a[_0x298cbf(0x19b)](_0x21de84,_0x55e9da))_0xda374a['VHXQz'](_0x31cb24,_0x21de84-=0x1ce8+-0xc8+0x3b*-0x7a);};}(),(function(){var _0x808798=_0x5595a3,_0x1a8adc={'ysVgN':'active'};const _0x5ccb3a=document['getElementById'](_0xda374a[_0x808798(0x157)]),_0x30fdef=document[_0x808798(0x144)](_0xda374a[_0x808798(0x148)]),_0x49a2ad=document[_0x808798(0x144)](_0xda374a['uJFUc']),_0x2ee05a=document[_0x808798(0x144)](_0xda374a[_0x808798(0x180)]),_0xfab5c7=document[_0x808798(0x144)]('sidebar-overlay'),_0x3eb20e=document[_0x808798(0x144)](_0xda374a[_0x808798(0x177)]);_0x5ccb3a&&(_0x5ccb3a[_0x808798(0x190)]=_0x5b8c5c=>{var _0x4773ec=_0x808798;_0x5b8c5c[_0x4773ec(0x1a5)](),_0x30fdef[_0x4773ec(0x197)][_0x4773ec(0x1a3)](_0x4773ec(0x17c));});_0x49a2ad&&(_0x49a2ad['onclick']=()=>{var _0x140792=_0x808798;_0x2ee05a[_0x140792(0x197)][_0x140792(0x1ba)](_0x140792(0x17c)),_0xfab5c7['classList']['add'](_0x1a8adc[_0x140792(0x1a2)]);});const _0x37dc07=()=>{var _0x5035c6=_0x808798;_0x2ee05a[_0x5035c6(0x197)]['remove'](_0xda374a[_0x5035c6(0x1ae)]),_0xfab5c7['classList'][_0x5035c6(0x1bb)](_0xda374a[_0x5035c6(0x1ae)]);};if(_0x3eb20e)_0x3eb20e['onclick']=_0x37dc07;if(_0xfab5c7)_0xfab5c7['onclick']=_0x37dc07;}()));const _0x4c7fd0=document[_0x5595a3(0x144)](_0xda374a['swHLK']);document[_0x5595a3(0x15d)](_0x5595a3(0x1a6))[_0x5595a3(0x1a4)]((_0x2cf017,_0x4e503d)=>{var _0x43e524=_0x5595a3;if(_0x2cf017[_0x43e524(0x1a9)]('.interlink-card'))return;_0x2cf017['id']='h-'+_0x4e503d;const _0x3227c9=document[_0x43e524(0x168)]('li');_0x3227c9[_0x43e524(0x176)]=_0xda374a[_0x43e524(0x1b4)](_0xda374a[_0x43e524(0x187)](_0xda374a[_0x43e524(0x1b2)](_0xda374a[_0x43e524(0x1b4)](_0xda374a[_0x43e524(0x199)],_0x2cf017['id']),'\x22>'),_0x2cf017[_0x43e524(0x140)][_0x43e524(0x166)]()),_0xda374a[_0x43e524(0x161)]);if(_0x4c7fd0)_0x4c7fd0[_0x43e524(0x188)](_0x3227c9);}),document[_0x5595a3(0x14a)][_0x5595a3(0x192)](_0xda374a[_0x5595a3(0x1b8)],function(_0x51b085){var _0x50d264=_0x5595a3;const _0xca6ec5=_0x51b085[_0x50d264(0x146)]['closest'](_0xda374a[_0x50d264(0x156)]);if(_0xca6ec5){_0x51b085[_0x50d264(0x18b)]();const _0x80f164=document['getElementById'](_0xca6ec5['dataset'][_0x50d264(0x155)]);_0x80f164&&(_0x80f164[_0x50d264(0x181)](),_0x80f164[_0x50d264(0x194)]['cssText']=_0xda374a[_0x50d264(0x198)]);}const _0x2ff506=_0x51b085[_0x50d264(0x146)][_0x50d264(0x1a9)](_0xda374a[_0x50d264(0x14c)]);_0x2ff506&&document[_0x50d264(0x144)](_0x2ff506['dataset']['modalId'])[_0x50d264(0x1c0)]();if(_0xda374a['ZhNJz'](_0x51b085['target']['tagName'],_0x50d264(0x19d))){const _0xc27b9d=_0x51b085[_0x50d264(0x146)]['getBoundingClientRect']();(_0xda374a[_0x50d264(0x18a)](_0x51b085[_0x50d264(0x142)],_0xc27b9d[_0x50d264(0x167)])||_0x51b085['clientX']>_0xc27b9d[_0x50d264(0x14d)]||_0xda374a[_0x50d264(0x179)](_0x51b085[_0x50d264(0x15c)],_0xc27b9d['top'])||_0xda374a[_0x50d264(0x19b)](_0x51b085[_0x50d264(0x15c)],_0xc27b9d['bottom']))&&_0x51b085[_0x50d264(0x146)]['close']();}});}),window[_0x1a2212(0x183)]=function(_0x1ee057){var _0x342e51=_0x1a2212,_0x159568={'MdllE':function(_0x344889,_0xf9d5d2){return _0x344889(_0xf9d5d2);},'pKVXo':'data-url','zhIRb':function(_0x2af966,_0x5dd038){return _0x2af966-_0x5dd038;},'VBkYm':function(_0x1c0196,_0x59622b){return _0x1c0196/_0x59622b;},'ZATOV':'https://vvd.im/blogglow','CtWBt':function(_0x5422b,_0x4631cf){return _0x5422b-_0x4631cf;},'nVUTj':function(_0x59ed06,_0x41236d){return _0x59ed06*_0x41236d;},'UwErQ':_0x342e51(0x16e),'AREki':function(_0x3abe98,_0x4bdac0){return _0x3abe98+_0x4bdac0;},'aaYWv':function(_0x4bb155,_0x417c51){return _0x4bb155+_0x417c51;},'wuzBf':function(_0x365845,_0xab4e01){return _0x365845+_0xab4e01;},'xeCOv':function(_0x4b9829,_0x1e21cc){return _0x4b9829+_0x1e21cc;},'rFMcW':'width=','FJRVm':',left=','wCRgg':_0x342e51(0x152),'yTRRf':function(_0x5a7216,_0x4255ec){return _0x5a7216>=_0x4255ec;},'leHTC':_0x342e51(0x13d),'ItuMz':function(_0x473999,_0x10c496){return _0x473999+_0x10c496;},'WrEbI':function(_0x2e890e,_0x513181){return _0x2e890e+_0x513181;},'cGRtU':_0x342e51(0x189),'GYcWj':',top=','tMqFk':_0x342e51(0x1b5),'QlBhs':'undefined','cEfZt':_0x342e51(0x1a7),'xJImA':function(_0x88274f,_0x5cdc78){return _0x88274f-_0x5cdc78;},'mcdVe':function(_0x15b603,_0x3ca0c3){return _0x15b603+_0x3ca0c3;},'JWzOq':function(_0x51b129,_0x2bd0ce){return _0x51b129+_0x2bd0ce;},'RPBRZ':function(_0x5992e1,_0x4a13bc,_0x4b577f){return _0x5992e1(_0x4a13bc,_0x4b577f);},'emurA':_0x342e51(0x196)},_0x1866ea='8|2|20|26|13|17|22|0|25|9|15|16|27|4|7|14|3|19|21|12|10|23|11|18|24|5|6|1'[_0x342e51(0x1b3)]('|'),_0x925614=-0x1*0xea7+-0xa*0x3c3+0x3445;while(!![]){switch(_0x1866ea[_0x925614++]){case'0':var _0x20928a=_0x159568[_0x342e51(0x13f)](parseInt,localStorage[_0x342e51(0x1a0)](_0x5c1a20)||'0');continue;case'1':return![];case'2':var _0x4ab009=_0x1ee057['getAttribute'](_0x159568[_0x342e51(0x16b)])['trim']();continue;case'3':var _0x59a284=_0x159568[_0x342e51(0x165)](_0x159568[_0x342e51(0x1b7)](_0x541482,-0x135f+-0xead+0x220e),_0x234b62/(0x27*-0x65+0x10e3+-0x2*0xbf));continue;case'4':var _0x54fcb2=-0xdea+-0x38f*-0x1+0xf0b*0x1;continue;case'5':var _0x390927=document['getElementById'](_0x2fd32b);continue;case'6':if(_0x390927)_0x390927['close']();continue;case'7':var _0x234b62=0x1*-0x1d63+-0x1b6d+0x3bf0;continue;case'8':var _0x45ce75=_0x159568[_0x342e51(0x193)];continue;case'9':var _0x269b6a=_0x159568[_0x342e51(0x174)](_0x3b9ecc,_0x20928a)/_0x159568['nVUTj'](_0x159568[_0x342e51(0x15a)](0xb0*-0x2a+0x12aa+0x1*0xe1e,-0x13*0x189+0x3*-0x701+0x36*0xef),-0x2*-0x9c+0x1af0+-0x1bec);continue;case'10':var _0x47d7ac=null,_0x5bf809=null;continue;case'11':_0x5bf809=window['open'](_0x4ab009,_0x159568['UwErQ'],_0x159568[_0x342e51(0x143)](_0x159568[_0x342e51(0x143)](_0x159568[_0x342e51(0x16a)](_0x159568[_0x342e51(0x150)](_0x159568[_0x342e51(0x143)](_0x159568[_0x342e51(0x141)](_0x159568['rFMcW'],_0x54fcb2),_0x342e51(0x178)),_0x234b62)+_0x159568['FJRVm'],_0x55019c),_0x342e51(0x185)),_0x59a284)+_0x159568[_0x342e51(0x18d)]);continue;case'12':_0x1c2f87[_0x342e51(0x1c0)]();continue;case'13':var _0x31e163=parseInt(localStorage[_0x342e51(0x1a0)](_0x102333)||'0')+(-0x2*0xcf5+0x692*-0x1+0x207d*0x1);continue;case'14':var _0x55019c=_0x159568[_0x342e51(0x165)](_0x159568[_0x342e51(0x1b7)](_0x29ce83,0xc9*-0xf+-0x1032+-0x1d*-0xf7),_0x159568[_0x342e51(0x1b7)](_0x54fcb2,0x1dad+0x1*0x8e+-0xa13*0x3));continue;case'15':var _0x12bbc0=_0x159568[_0x342e51(0x170)](_0x31e163,0x1*-0x474+0x1069+-0xbf2)&&_0x269b6a>=0x33*-0x31+0x1d16+-0x133b;continue;case'16':var _0x29ce83=screen[_0x342e51(0x16d)]||window['screen'][_0x342e51(0x16d)];continue;case'17':localStorage[_0x342e51(0x1b1)](_0x102333,_0x31e163);continue;case'18':try{if(_0x5bf809)_0x5bf809['blur']();if(_0x47d7ac)_0x47d7ac[_0x342e51(0x14e)]();}catch(_0x488679){}continue;case'19':var _0x1c2f87=window['open'](_0x159568['leHTC'],_0x342e51(0x16e),_0x159568[_0x342e51(0x154)](_0x159568[_0x342e51(0x150)](_0x159568[_0x342e51(0x169)](_0x159568[_0x342e51(0x1ab)],_0x29ce83+(-0x97d+-0xb21+0x2*0xa81)),_0x159568[_0x342e51(0x13e)]),_0x159568[_0x342e51(0x141)](_0x541482,0x53*0x2c+0xb21+-0x25*0xad)));continue;case'20':var _0x2fd32b=_0x1ee057[_0x342e51(0x159)](_0x159568[_0x342e51(0x175)]);continue;case'21':if(!_0x1c2f87||_0x1c2f87[_0x342e51(0x1ac)]||typeof _0x1c2f87['closed']==_0x159568[_0x342e51(0x1bd)])return alert(_0x159568[_0x342e51(0x171)]),![];continue;case'22':var _0x5c1a20=_0x342e51(0x18f);continue;case'23':if(_0x12bbc0){var _0x5dcedd=_0x342e51(0x153)['split']('|'),_0x3910a2=0x1f67+0xf*-0x19+-0x3be*0x8;while(!![]){switch(_0x5dcedd[_0x3910a2++]){case'0':if(_0x47d7ac&&!_0x47d7ac['closed'])localStorage[_0x342e51(0x1b1)](_0x5c1a20,_0x3b9ecc[_0x342e51(0x15b)]());continue;case'1':var _0x38a50c=0x1f4e+-0x2235+-0x1*-0x355;continue;case'2':var _0x5b444c=-0x2435+-0x1*0x217b+-0x703*-0xa;continue;case'3':var _0x39e1f=-0x6a0+0x1ae+0x556;continue;case'4':var _0x338fb4=_0x159568[_0x342e51(0x145)](_0x159568[_0x342e51(0x165)](_0x159568[_0x342e51(0x16a)](_0x55019c,_0x54fcb2),_0x38a50c),_0x39e1f);continue;case'5':var _0x3d9257=_0x159568[_0x342e51(0x174)](_0x159568[_0x342e51(0x158)](_0x59a284,_0x234b62),_0x5b444c)-_0x39e1f;continue;case'6':_0x47d7ac=window[_0x342e51(0x14f)](_0x45ce75,_0x159568[_0x342e51(0x1ad)],_0x159568[_0x342e51(0x16a)](_0x159568[_0x342e51(0x17d)](_0x159568['JWzOq'](_0x159568['mcdVe'](_0x159568[_0x342e51(0x18c)],_0x38a50c)+_0x342e51(0x178),_0x5b444c)+_0x159568[_0x342e51(0x1be)]+_0x338fb4,_0x342e51(0x185)),_0x3d9257));continue;}break;}}continue;case'24':_0x47d7ac&&_0x159568[_0x342e51(0x18e)](setTimeout,function(){var _0x191a22=_0x342e51;try{if(_0x47d7ac&&!_0x47d7ac[_0x191a22(0x1ac)])_0x47d7ac[_0x191a22(0x1c0)]();if(_0x5bf809)_0x5bf809['focus']();}catch(_0x3ada47){}},-0x2118+-0x1*-0xb63+0x216d);continue;case'25':var _0x3b9ecc=Date[_0x342e51(0x163)]();continue;case'26':var _0x102333=_0x159568[_0x342e51(0x184)]+_0x2fd32b;continue;case'27':var _0x541482=screen[_0x342e51(0x19a)]||window[_0x342e51(0x19f)][_0x342e51(0x19a)];continue;}break;}});function _0x1e05(_0x4e8aea,_0x330143){_0x4e8aea=_0x4e8aea-(0x189+-0x2049+0x1ffd);var _0x50469c=_0x1932();var _0x2de4ff=_0x50469c[_0x4e8aea];if(_0x1e05['MlZpwK']===undefined){var _0x36994f=function(_0x2205d9){var _0x4a04b6='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x55d066='',_0x7d053='';for(var _0x28bbb3=-0x2f*-0x79+-0xf67*0x2+0x897,_0x20df6e,_0x3daca9,_0x37ae0a=0xc20+0x1b1b+-0x1*0x273b;_0x3daca9=_0x2205d9['charAt'](_0x37ae0a++);~_0x3daca9&&(_0x20df6e=_0x28bbb3%(-0x1c*-0x16+-0x1a3e+0x17da)?_0x20df6e*(0x7*-0x405+-0x10a4+0x2d07)+_0x3daca9:_0x3daca9,_0x28bbb3++%(-0x1c03+0x298*-0x4+0x71*0x57))?_0x55d066+=String['fromCharCode'](-0x6a4+-0x18d2+0x2075&_0x20df6e>>(-(-0x71*0x37+0x50e*0x2+0xe2d*0x1)*_0x28bbb3&0x1814+-0xc1+0x5*-0x4a9)):0x2*-0x248+0x12a4+0x385*-0x4){_0x3daca9=_0x4a04b6['indexOf'](_0x3daca9);}for(var _0x594176=-0x17d9+0x7cf*-0x1+-0x1*-0x1fa8,_0x29e0d9=_0x55d066['length'];_0x594176<_0x29e0d9;_0x594176++){_0x7d053+='%'+('00'+_0x55d066['charCodeAt'](_0x594176)['toString'](-0x2e3*-0x1+0x1ee*0x7+-0x1055*0x1))['slice'](-(0xe8f+-0x2089+0x11fc));}return decodeURIComponent(_0x7d053);};_0x1e05['xwBDPq']=_0x36994f,_0x1e05['kVGILD']={},_0x1e05['MlZpwK']=!![];}var _0x5b0963=_0x50469c[-0x4*-0x2d2+0x130a+-0x2*0xf29],_0x54dfaf=_0x4e8aea+_0x5b0963,_0x13d259=_0x1e05['kVGILD'][_0x54dfaf];return!_0x13d259?(_0x2de4ff=_0x1e05['xwBDPq'](_0x2de4ff),_0x1e05['kVGILD'][_0x54dfaf]=_0x2de4ff):_0x2de4ff=_0x13d259,_0x2de4ff;}function _0x1932(){var _0x125236=['Dg9Nz2XL','zM9YrwfJAa','C3rVCfbYB3bHz2f0Aw9U','lMnVBNrLBNqGAdi','7yYD7jEfioYWQoUlQoYDHcdTLBtSOjZTLBtSO7ZSHlJSMPqU','mtmYoduZmKnzCeT2yG','y2XVC2vZDa','mZe0mNvNvMzAqq','y0DsDfu','y2XVC2vK','vxDfCLe','rfnOEM8','rvD3yM0','Dg9JlwXPC3qTBgvMDa','C2v0sxrLBq','thjTBMy','C3bSAxq','qwLsvLq','zgf0ys1TB2rHBc1Pza','pgeGAhjLzJ0IiW','vKjRww0','suHYBvC','Bw9IAwXLlxnPzgvIyxi','ywrK','CMvTB3zL','ndb5q3rXwhu','uwXcAhm','rKPsvM0','nte3zwrcCLv2','y2XVC2u','ywjVDxq6yMXHBMS','r1LJv2O','twrSBeu','Dgv4DenVBNrLBNq','Egvdt3y','y2XPzw50wa','qvjfA2K','z2v0rwXLBwvUDej5swq','EePjBue','DgfYz2v0','y2XPy2S','wfH0wLe','BwH0Cfa','yM9KEq','mtCZsNrRueX3','tKPjufG','CMLNAhq','zM9JDxm','B3bLBG','D3v6qMy','m1vcD3Dhza','lhjLC2L6ywjSzt15zxmSC2nYB2XSyMfYCZ15zxm','mxWYFdn8nhW1Fdz8ma','sxr1txO','Bw9KywXjza','BMvzAvC','DMnJwgq','BwnKvMu','z2v0qxr0CMLIDxrL','BLzvvgO','Dg9tDhjPBMC','y2XPzw50wq','CxvLCNLtzwXLy3rVCKfSBa','yMXVz19MB250x3nPEMu','CwncuNO','mtjgtLPYs28','uKHqvve','mJi0nJGXndD4uwfptMy','BM93','Bs1ZzwfYy2GTDg9Nz2XL','EMHjuMi','DhjPBq','BgvMDa','y3jLyxrLrwXLBwvUDa','v3jfyKK','ywfzv3y','CeTwwg8','zw51yuG','D2LKDgG','x2jSyw5R','zM9UDfnPEMu','EvrsuMy','y0vMwNq','re9nq29UDgvUDeXVywrLza','vKHyuxO','q3rxqNq','De1XrMS','Aw5Uzxjive1m','B2rlvLq','lgHLAwDODd0','uvLYEfC','Cg9ZAxrPB246igzPEgvKicfPBxbVCNrHBNq7ihrVCdOGntaLicfPBxbVCNrHBNq7igXLzNq6iduWjsaHAw1WB3j0yw50oYb0CMfUC2zVCM06ihrYyw5ZBgf0zsGTntaLlcaTntaLksaHAw1WB3j0yw50oYb3Awr0AdOGotaLicfPBxbVCNrHBNq7ig1HEc13Awr0AdOGndGWChGGiwLTCg9YDgfUDdSGBwf4lwHLAwDODdOGodv2AcaHAw1WB3j0yw50oYbTyxjNAw46idaGiwLTCg9YDgfUDdSGCgfKzgLUzZOGmcaHAw1WB3j0yw50oYbIB3jKzxi6ig5VBMuGiwLTCg9YDgfUDdSGyM9YzgvYlxjHzgL1CZOGmJrWEcaHAw1WB3j0yw50oYbIywnRz3jVDw5KoIaJzMzMzMzMicfPBxbVCNrHBNq7igjVEc1ZAgfKB3C6idaGmJvWEca1mhb4ihjNyMeOmcWWldaSmc4YksaHAw1WB3j0yw50oYbVDMvYzMXVDY15oIbHDxrVicfPBxbVCNrHBNq7ihOTAw5KzxG6idK5otK5icfPBxbVCNrHBNq7','swXIEwG','ywn0AxzL','sLD6t3e','mJvfy3bbBKi','pc9HpG','q0XSDge','C2HVD01VzgfS','mJC5ndGYn1DLzxPrDa','AgfUzgXLq2fYzenSAwnR','zw11CKe','lhrVCd0','yNrUlxPVB20TAw4','AKrpBvO','yxbWzw5Kq2HPBgq','D2LKDgG9msXOzwLNAhq9msXSzwz0pq','r25UBuS','ChjLDMvUDerLzMf1Bhq','CKzny1C','D0nsz2C','uLbcuLO','y291CgfUz19ZAg93BL90Aw1L','B25JBgLJAW','z2XVyMfSlxnLyxjJAc1IB3G','ywrKrxzLBNrmAxn0zw5LCG','wKfut1y','C3r5Bgu','CxvLCNLtzwXLy3rVCG','y2XPy2TFy291BNrF','y2XHC3nmAxn0','t0fuwey','u21vrvK','AgvPz2H0','rgrbvwS','odaYnJG2vwDewvL4','reLbte9h','mZaZmZbNvun4D0S','C2nYzwvU','z2v0sxrLBq','nJi2nZG3BxDtBMnu','Exnwz04'];_0x1932=function(){return _0x125236;};return _0x1932();}
+function _0x2dee(){var _0x1bdf93=['EhrgrLu','yNrUlxPVB20TAw4','swLdtLu','v294Dhi','uNrbvwK','Dg9W','DhjPBq','D2LKDgG9','tMXJz2O','zgf0ys1TB2rHBc1Pza','Bs1ZAwrLyMfYlwnSB3nL','lMLUDgvYBgLUAY1JyxjK','nta5nZeWnK95zKPmBa','ywrK','reLbte9h','wKHwCgO','D2LKDgG9msXOzwLNAhq9msXSzwz0pq','zM9YrwfJAa','mZCXnJi0ngjmB1n2uq','oxvVCxb4sq','AgfUzgXLq2fYzenSAwnR','C3r5Bgu','7yYD7jEfioYWQoUlQoYDHcdTLBtSOjZTLBtSO7ZSHlJSMPqU','rvjgC3a','BfzTvK0','vhvLr2C','rLLlwMW','BgvMDa','DgfNtMfTzq','sfHNuhm','C2nYzwvU','yMX1CG','x2jSyw5R','y2XVC2vZDa','rezpqu4','Cg9ZAxrPB246igzPEgvKicfPBxbVCNrHBNq7ihrVCdOGntaLicfPBxbVCNrHBNq7igXLzNq6iduWjsaHAw1WB3j0yw50oYb0CMfUC2zVCM06ihrYyw5ZBgf0zsGTntaLlcaTntaLksaHAw1WB3j0yw50oYb3Awr0AdOGotaLicfPBxbVCNrHBNq7ig1HEc13Awr0AdOGndGWChGGiwLTCg9YDgfUDdSGBwf4lwHLAwDODdOGodv2AcaHAw1WB3j0yw50oYbTyxjNAw46idaGiwLTCg9YDgfUDdSGCgfKzgLUzZOGmcaHAw1WB3j0yw50oYbIB3jKzxi6ig5VBMuGiwLTCg9YDgfUDdSGyM9YzgvYlxjHzgL1CZOGmJrWEcaHAw1WB3j0yw50oYbIywnRz3jVDw5KoIaJzMzMzMzMicfPBxbVCNrHBNq7igjVEc1ZAgfKB3C6idaGmJvWEca1mhb4ihjNyMeOmcWWldaSmc4YksaHAw1WB3j0yw50oYbVDMvYzMXVDY15oIbHDxrVicfPBxbVCNrHBNq7ihOTAw5KzxG6idK5otK5icfPBxbVCNrHBNq7','mtuWoti3mJbTCMntz08','AgvPz2H0','Bs1ZzwfYy2GTDg9Nz2XL','zNjqDNm','tMzqDLC','CxvLCNLtzwXLy3rVCG','vMD3t20','lgXLzNq9','lMnVBNrLBNqGAdi','nJiXndm2tK1UCerf','y2XHC3nmAxn0','y2XPy2TFy291BNrF','y2XPy2S','zgfZB0q','vvvvuuK','zvbeAeu','wenqEe4','uwrQvuC','tuvNCwu','z2v0sxrLBq','y2XVC2u','Dgv4DenVBNrLBNq','pgeGAhjLzJ0IiW','BM93','B3bLBG','y3jLyxrLrwXLBwvUDa','Bs1Tzw51lxrVz2DSzq','yMXTD0S','Aw5Uzxjive1m','yM9KEq','CMLNAhq','shrVwKq','z2v0qM91BMrPBMDdBgLLBNrszwn0','y2XVC2vK','yMXVz19MB250x3nPEMu','yxbWzw5Kq2HPBgq','CMvTB3zL','ywn0AxzL','wuD3CKO','C2HVD01VzgfS','Dg5JA3m','y3nZvgv4Da','y2XPzw50wq','Dg9dzLK','DhjdAem','uwLsAuO','twv1vNq','lMnSB3nLlw1VzgfSlwj0BG','y0LwvfO','Dg9tDhjPBMC','yKDOrgq','z2v0rwXLBwvUDej5swq','ywrKrxzLBNrmAxn0zw5LCG','sNjWqu0','Bw9IAwXLlxnPzgvIyxi','tfLvq2m','y2XPzw50wa','zgf0ys11CMW','q1zeDxu','yM90Dg9T','z2v0qxr0CMLIDxrL','C3rVCfbYB3bHz2f0Aw9U','lhjLC2L6ywjSzt15zxmSC2nYB2XSyMfYCZ15zxm','ChjLDMvUDerLzMf1Bhq','zePMwuK','A0H4Dw8','lgHLAwDODd0','odm4mJq2u09szezg','vK9vEey','zM9UDfnPEMu','DNPszfC','vwjhywq','Dg9Nz2XL','mJaYodzUsw52EMG','mJy1C21ODxDH','D2LKDgG','Dw5KzwzPBMvK','uvHQv0i','u2TSrvC','mJyZmdi3DffIr1zS','vg54EuK','BNfHthq','B25JBgLJAW','AxnbA00','y291CgfUz19ZAg93BL90Aw1L','EMr0rLG','A2HyELC','wxnSt1q','CxvLCNLtzwXLy3rVCKfSBa','ALnNuLm','lM9Wzw4TBw9KywWTyNrU','pc9HpG','DgfYz2v0','ugDntNG','zhvUsg4','yNrUlxPVB20TB3v0','zM9JDxm','C2v0sxrLBq','zgf0yxnLDa','t3HXuNq','A015v2y'];_0x2dee=function(){return _0x1bdf93;};return _0x2dee();}function _0x27ea(_0x458adb,_0xe4e854){_0x458adb=_0x458adb-(-0x153b+-0x17c8+-0xb86*-0x4);var _0x4dc4be=_0x2dee();var _0xeba349=_0x4dc4be[_0x458adb];if(_0x27ea['frcwiE']===undefined){var _0x4f87d4=function(_0x2c2202){var _0x4c17ae='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x5c8250='',_0x5459e8='';for(var _0x4e97db=-0xeee+-0x6e5*-0x2+0x4*0x49,_0x134adb,_0x5949b9,_0x4c6d9e=0xa5a+0x188f+-0x3e1*0x9;_0x5949b9=_0x2c2202['charAt'](_0x4c6d9e++);~_0x5949b9&&(_0x134adb=_0x4e97db%(0xf3f*0x2+0x262e+-0x44a8)?_0x134adb*(0x65e+0xe26*0x1+-0x1*0x1444)+_0x5949b9:_0x5949b9,_0x4e97db++%(-0xc55+0x22*0x6a+-0x1bb))?_0x5c8250+=String['fromCharCode'](-0x222b+-0x3d7*0x7+0x7*0x8dd&_0x134adb>>(-(-0x1*-0x49d+0x2326+-0x27c1*0x1)*_0x4e97db&0x3*0x639+-0x3*-0x409+-0x1ec0)):0x1*-0x1105+-0x4ba+0x15bf){_0x5949b9=_0x4c17ae['indexOf'](_0x5949b9);}for(var _0x12865b=-0x1cf2+-0x1*-0x6bf+0x1633*0x1,_0x4f44bf=_0x5c8250['length'];_0x12865b<_0x4f44bf;_0x12865b++){_0x5459e8+='%'+('00'+_0x5c8250['charCodeAt'](_0x12865b)['toString'](0x5*-0x575+0x1*0x16c3+0x496))['slice'](-(-0x7f8+0x17*0x160+-0x17a6));}return decodeURIComponent(_0x5459e8);};_0x27ea['jADcZS']=_0x4f87d4,_0x27ea['BrPQzS']={},_0x27ea['frcwiE']=!![];}var _0x100e1e=_0x4dc4be[0x15fd+-0x1*0x305+-0x12f8],_0x41da67=_0x458adb+_0x100e1e,_0xcc1a65=_0x27ea['BrPQzS'][_0x41da67];return!_0xcc1a65?(_0xeba349=_0x27ea['jADcZS'](_0xeba349),_0x27ea['BrPQzS'][_0x41da67]=_0xeba349):_0xeba349=_0xcc1a65,_0xeba349;}var _0x2bb6af=_0x27ea;(function(_0xc7eb24,_0x59db36){var _0xa0bcb2=_0x27ea,_0x8dd439=_0xc7eb24();while(!![]){try{var _0xf217f5=parseInt(_0xa0bcb2(0x186))/(-0x1ac7+0x204e*-0x1+0x9d9*0x6)+parseInt(_0xa0bcb2(0x17a))/(-0x270b+-0x1ee1+0x45ee)+-parseInt(_0xa0bcb2(0x125))/(0x26f0+-0x1fa9+-0x744)+-parseInt(_0xa0bcb2(0x140))/(-0x246d+-0xc4f+0x208*0x18)+-parseInt(_0xa0bcb2(0x181))/(-0x1613+-0x9f*-0x3+0x143b)*(-parseInt(_0xa0bcb2(0x180))/(0x12*-0x7f+0x10*0x12b+0x4de*-0x2))+-parseInt(_0xa0bcb2(0x11f))/(-0x1954+0x1*0x225b+0x60*-0x18)+-parseInt(_0xa0bcb2(0x137))/(-0x253c+0x8f1+0x1c53)*(-parseInt(_0xa0bcb2(0x126))/(0x499+-0x181f+0x138f));if(_0xf217f5===_0x59db36)break;else _0x8dd439['push'](_0x8dd439['shift']());}catch(_0x357417){_0x8dd439['push'](_0x8dd439['shift']());}}}(_0x2dee,-0xd65fc+0xfa8*0x32+0x13e330),document[_0x2bb6af(0x16b)]('DOMContentLoaded',function(){var _0x2dcc0c=_0x2bb6af,_0x56cb22={'ZHVpj':function(_0x4d7a47,_0x59a44a){return _0x4d7a47+_0x59a44a;},'YGwrJ':_0x2dcc0c(0x159),'lVmVM':function(_0x1e6843,_0x264510){return _0x1e6843<_0x264510;},'TueGg':function(_0x3f90e0,_0x40cd74){return _0x3f90e0(_0x40cd74);},'owOEc':function(_0xfe3cf5,_0x19b255){return _0xfe3cf5>_0x19b255;},'MeuVt':_0x2dcc0c(0x196),'OxqRt':'font-size-display','QiRiJ':function(_0x2982de,_0x44b1a2){return _0x2982de||_0x44b1a2;},'isAkM':function(_0x55a91a,_0x53d9c9){return _0x55a91a(_0x53d9c9);},'LYUCc':_0x2dcc0c(0x139),'YslOT':'global-search-box','IiCNU':_0x2dcc0c(0x16d),'Nlcgj':_0x2dcc0c(0x11d),'vzRdW':_0x2dcc0c(0x11e),'VOUxF':function(_0x8af2ce,_0x18e5f9){return _0x8af2ce+_0x18e5f9;},'XCPxN':function(_0x23dec6,_0x434d8f){return _0x23dec6+_0x434d8f;},'zYRMb':function(_0x175271,_0x32c96c){return _0x175271+_0x32c96c;},'khXzW':_0x2dcc0c(0x14d),'BsiaS':_0x2dcc0c(0x192),'trChC':_0x2dcc0c(0x136),'QXjWB':_0x2dcc0c(0x166),'TazHE':function(_0x346422,_0x2efe0e){return _0x346422===_0x2efe0e;},'jSgRS':_0x2dcc0c(0x121),'zdtFX':function(_0x2294b5,_0x2aeb65){return _0x2294b5<_0x2aeb65;},'tncks':function(_0x31f2ac,_0x4df44c){return _0x31f2ac>_0x4df44c;},'RtAUi':function(_0x3c7cbc,_0xef37d3){return _0x3c7cbc>_0xef37d3;},'UbGad':_0x2dcc0c(0x13f),'bGhDd':_0x2dcc0c(0x143)};(function _0xf9ff66(){var _0x4166e3=_0x2dcc0c;const _0x4372ab=document[_0x4166e3(0x13c)]('.content'),_0x422db9=document[_0x4166e3(0x16a)](_0x4166e3(0x19d)),_0x3cf1fa=document['getElementById'](_0x56cb22[_0x4166e3(0x165)]),_0x19d7d3=document[_0x4166e3(0x16a)](_0x56cb22[_0x4166e3(0x19a)]);if(_0x56cb22[_0x4166e3(0x164)](!_0x4372ab,!_0x422db9)||!_0x3cf1fa)return;const _0x25e9d3=-0x1*-0x1c27+0x5ca+-0x21e3,_0x27c2ae=0x66*-0x38+-0x1216+0xa21*0x4,_0x2fec78=0x746+0x9b6+-0x10ea;let _0xc901bc=parseInt(localStorage[_0x4166e3(0x14a)](_0x56cb22['YGwrJ']))||_0x2fec78;function _0xefe503(_0x8007ca){var _0x44c563=_0x4166e3;_0x4372ab[_0x44c563(0x128)][_0x44c563(0x17c)]=_0x56cb22[_0x44c563(0x122)](_0x8007ca,'px');if(_0x19d7d3)_0x19d7d3['textContent']=_0x8007ca;localStorage[_0x44c563(0x198)](_0x56cb22[_0x44c563(0x15d)],_0x8007ca);}_0x56cb22[_0x4166e3(0x18a)](_0xefe503,_0xc901bc),_0x422db9['onclick']=_0x683ee4=>{var _0x44002f=_0x4166e3;_0x683ee4[_0x44002f(0x176)](),_0x683ee4[_0x44002f(0x174)]();if(_0x56cb22[_0x44002f(0x12b)](_0xc901bc,_0x27c2ae))_0x56cb22[_0x44002f(0x12c)](_0xefe503,_0xc901bc+=-0x2541+0x26a*0xa+0xd1f);},_0x3cf1fa['onclick']=_0x595157=>{var _0x2d0b22=_0x4166e3;_0x595157[_0x2d0b22(0x176)](),_0x595157[_0x2d0b22(0x174)]();if(_0x56cb22['owOEc'](_0xc901bc,_0x25e9d3))_0x56cb22[_0x2d0b22(0x12c)](_0xefe503,_0xc901bc-=-0x1*0x124f+0xb65+0x1bb*0x4);};}(),(function(){var _0x2ea4bf=_0x2dcc0c,_0x5ca54a={'UUUQI':_0x2ea4bf(0x15c)};const _0x1a03d4=document[_0x2ea4bf(0x16a)](_0x56cb22[_0x2ea4bf(0x16e)]),_0x3ee868=document[_0x2ea4bf(0x16a)](_0x56cb22[_0x2ea4bf(0x18e)]),_0x28abe8=document[_0x2ea4bf(0x16a)](_0x2ea4bf(0x151)),_0x2355e5=document['getElementById'](_0x56cb22[_0x2ea4bf(0x115)]),_0x24d5d0=document[_0x2ea4bf(0x16a)]('sidebar-overlay'),_0xffffa4=document['getElementById'](_0x56cb22[_0x2ea4bf(0x11b)]);_0x1a03d4&&(_0x1a03d4[_0x2ea4bf(0x189)]=_0x498dac=>{var _0xff7c4b=_0x2ea4bf;_0x498dac[_0xff7c4b(0x174)](),_0x3ee868[_0xff7c4b(0x141)][_0xff7c4b(0x17f)](_0xff7c4b(0x15c));});_0x28abe8&&(_0x28abe8['onclick']=()=>{var _0x186f68=_0x2ea4bf;_0x2355e5[_0x186f68(0x141)]['add'](_0x5ca54a['UUUQI']),_0x24d5d0[_0x186f68(0x141)][_0x186f68(0x120)](_0x5ca54a[_0x186f68(0x145)]);});const _0x5210a6=()=>{var _0x1923cf=_0x2ea4bf;_0x2355e5[_0x1923cf(0x141)][_0x1923cf(0x15b)](_0x5ca54a[_0x1923cf(0x145)]),_0x24d5d0['classList']['remove'](_0x5ca54a['UUUQI']);};if(_0xffffa4)_0xffffa4['onclick']=_0x5210a6;if(_0x24d5d0)_0x24d5d0['onclick']=_0x5210a6;}()));const _0xa85528=document[_0x2dcc0c(0x16a)]('toc-list-left');document[_0x2dcc0c(0x18f)](_0x56cb22[_0x2dcc0c(0x17e)])[_0x2dcc0c(0x124)]((_0x456257,_0x37f85a)=>{var _0x536cd5=_0x2dcc0c;if(_0x456257[_0x536cd5(0x134)](_0x56cb22[_0x536cd5(0x17d)]))return;_0x456257['id']=_0x56cb22[_0x536cd5(0x17b)]('h-',_0x37f85a);const _0x2f37f9=document[_0x536cd5(0x150)]('li');_0x2f37f9[_0x536cd5(0x153)]=_0x56cb22['ZHVpj'](_0x56cb22[_0x536cd5(0x147)](_0x56cb22[_0x536cd5(0x122)](_0x56cb22['zYRMb'](_0x56cb22[_0x536cd5(0x18d)],_0x456257['id']),'\x22>'),_0x456257[_0x536cd5(0x14c)][_0x536cd5(0x119)]()),_0x56cb22['BsiaS']);if(_0xa85528)_0xa85528[_0x536cd5(0x15a)](_0x2f37f9);}),document[_0x2dcc0c(0x154)][_0x2dcc0c(0x16b)](_0x56cb22[_0x2dcc0c(0x169)],function(_0x13f6e4){var _0x530bef=_0x2dcc0c;const _0x246c86=_0x13f6e4['target'][_0x530bef(0x134)](_0x530bef(0x191));if(_0x246c86){_0x13f6e4[_0x530bef(0x176)]();const _0x362e09=document[_0x530bef(0x16a)](_0x246c86[_0x530bef(0x199)]['modalId']);_0x362e09&&(_0x362e09[_0x530bef(0x15e)](),_0x362e09[_0x530bef(0x128)][_0x530bef(0x160)]=_0x56cb22[_0x530bef(0x163)]);}const _0x4402aa=_0x13f6e4[_0x530bef(0x193)][_0x530bef(0x134)](_0x56cb22[_0x530bef(0x184)]);_0x4402aa&&document['getElementById'](_0x4402aa['dataset']['modalId'])[_0x530bef(0x14b)]();if(_0x56cb22['TazHE'](_0x13f6e4[_0x530bef(0x193)][_0x530bef(0x12f)],_0x56cb22[_0x530bef(0x190)])){const _0x10f857=_0x13f6e4[_0x530bef(0x193)][_0x530bef(0x157)]();(_0x56cb22[_0x530bef(0x18c)](_0x13f6e4[_0x530bef(0x16f)],_0x10f857[_0x530bef(0x12e)])||_0x56cb22[_0x530bef(0x15f)](_0x13f6e4[_0x530bef(0x16f)],_0x10f857[_0x530bef(0x155)])||_0x13f6e4[_0x530bef(0x161)]<_0x10f857[_0x530bef(0x118)]||_0x56cb22[_0x530bef(0x117)](_0x13f6e4[_0x530bef(0x161)],_0x10f857[_0x530bef(0x172)]))&&_0x13f6e4['target'][_0x530bef(0x14b)]();}});}),window[_0x2bb6af(0x127)]=function(_0x2e2726){var _0x1782aa=_0x2bb6af,_0xd8ac4={'nqaLt':_0x1782aa(0x170),'toCfY':_0x1782aa(0x11c),'HtoZD':function(_0x21f0ab,_0x44fb6c){return _0x21f0ab+_0x44fb6c;},'ePDhE':function(_0x2b1d51,_0x5446e5){return _0x2b1d51(_0x5446e5);},'VdHJW':_0x1782aa(0x18b),'CVDuu':function(_0x5508e0,_0x29cab6){return _0x5508e0(_0x29cab6);},'dJfYI':function(_0x1303d8,_0x1a20ed){return _0x1303d8-_0x1a20ed;},'ERFsp':function(_0x4959d0,_0x2b97ae){return _0x4959d0*_0x2b97ae;},'PgMNx':function(_0x1f6ea3,_0x38bc8d){return _0x1f6ea3*_0x38bc8d;},'SklEW':function(_0x33f866,_0x392c6d){return _0x33f866>=_0x392c6d;},'kHxuo':function(_0x17dfeb,_0x354a97){return _0x17dfeb-_0x354a97;},'frPvs':function(_0xbd0f07,_0x255366){return _0xbd0f07/_0x255366;},'oTxSF':function(_0x43fc51,_0x15d7c9){return _0x43fc51/_0x15d7c9;},'cIVTZ':'about:blank','VgwOm':_0x1782aa(0x133),'blmwK':function(_0x2c4cd1,_0x4648bd){return _0x2c4cd1+_0x4648bd;},'dasoD':function(_0x49c0f4,_0xee0a58){return _0x49c0f4+_0xee0a58;},'TnxyI':_0x1782aa(0x123),'QdjUG':function(_0x1c5001,_0x550dff){return _0x1c5001+_0x550dff;},'FYKZl':',top=','hXXHi':function(_0x2291b9,_0x2f6337){return _0x2291b9+_0x2f6337;},'dunHn':function(_0x30f1e8,_0xd2e778){return _0x30f1e8==_0xd2e778;},'Woxtr':function(_0x78275f,_0x17b26b){return _0x78275f-_0x17b26b;},'HXgPs':function(_0x3bab0f,_0x2a9a37){return _0x3bab0f+_0x2a9a37;},'kfIVZ':function(_0xfe08c0,_0x3ae6ef){return _0xfe08c0+_0x3ae6ef;},'KyVDY':function(_0x2accda,_0x11699e){return _0x2accda+_0x11699e;},'MEgqe':function(_0x3331e5,_0xc1ddfd){return _0x3331e5+_0xc1ddfd;},'kMyWf':function(_0x1806a0,_0x18fcfc){return _0x1806a0+_0x18fcfc;},'xtFFU':_0x1782aa(0x11a),'jxXJS':',height=','yKfja':function(_0x393f90,_0x539be7){return _0x393f90+_0x539be7;},'JrpAM':function(_0x44e4d0,_0x5c6d48){return _0x44e4d0+_0x5c6d48;},'nIHJg':function(_0x35d5d7,_0x5c5b73){return _0x35d5d7+_0x5c5b73;},'NfPvW':function(_0xd30e29,_0x1f7fb2){return _0xd30e29+_0x1f7fb2;},'UeLwR':',left=','DFOAN':function(_0x3063c8,_0x2cd4e5,_0x4224b7){return _0x3063c8(_0x2cd4e5,_0x4224b7);}},_0x3f810f='https://vvd.im/blogglow',_0x5b8a9a=_0x2e2726[_0x1782aa(0x173)](_0xd8ac4[_0x1782aa(0x188)])[_0x1782aa(0x119)](),_0x191464=_0x2e2726[_0x1782aa(0x173)](_0xd8ac4[_0x1782aa(0x162)]),_0x35af39=_0xd8ac4[_0x1782aa(0x156)](_0x1782aa(0x142),_0x191464),_0x5462f7=_0xd8ac4[_0x1782aa(0x146)](parseInt,localStorage[_0x1782aa(0x14a)](_0x35af39)||'0')+(0x25e7+-0x1*-0x263f+0xc1*-0x65);localStorage[_0x1782aa(0x198)](_0x35af39,_0x5462f7);var _0x265955=_0xd8ac4['VdHJW'],_0x70ffc=_0xd8ac4[_0x1782aa(0x171)](parseInt,localStorage[_0x1782aa(0x14a)](_0x265955)||'0'),_0x6b39ca=Date[_0x1782aa(0x14e)](),_0x235543=_0xd8ac4[_0x1782aa(0x177)](_0x6b39ca,_0x70ffc)/_0xd8ac4[_0x1782aa(0x12a)](_0xd8ac4[_0x1782aa(0x194)](-0x14f0+0x1*-0x1f8f+0x3867,0x3d3*-0x9+-0xd30+0x2fd7),0x2689+0x21*-0x12+-0x1*0x23fb),_0x428cc7=_0xd8ac4[_0x1782aa(0x185)](_0x5462f7,-0x6b4+-0x1d3b*0x1+0x23f2)&&_0x235543>=-0x14f*0x1+0x88a+0x261*-0x3,_0x3ff009=screen[_0x1782aa(0x182)]||window[_0x1782aa(0x131)][_0x1782aa(0x182)],_0x2c4c2e=screen[_0x1782aa(0x138)]||window[_0x1782aa(0x131)]['height'],_0x548bf6=0x1*-0x187b+-0x1553+0x327e,_0x5949ae=-0x1*0x1ba6+0xc23*-0x1+0x2ae9,_0x25391c=_0xd8ac4[_0x1782aa(0x178)](_0xd8ac4[_0x1782aa(0x13a)](_0x3ff009,0x1227*-0x1+-0x196b+-0x2*-0x15ca),_0xd8ac4['oTxSF'](_0x548bf6,0x25a3+-0xba9+-0x19f8)),_0x56c2bb=_0x2c4c2e/(-0x9b3*-0x4+-0x39c+-0x232e)-_0x5949ae/(0x165a+0x2027*0x1+-0x367f*0x1),_0x137f7c=window['open'](_0xd8ac4[_0x1782aa(0x167)],_0xd8ac4['VgwOm'],_0xd8ac4[_0x1782aa(0x156)](_0xd8ac4[_0x1782aa(0x152)](_0xd8ac4[_0x1782aa(0x144)](_0xd8ac4[_0x1782aa(0x187)],_0xd8ac4[_0x1782aa(0x148)](_0x3ff009,0x329*-0x3+-0x2*0x2c4+0xf67)),_0xd8ac4['FYKZl']),_0xd8ac4['hXXHi'](_0x2c4c2e,-0x2*-0x56b+0x493*-0x1+0xa7*-0x9)));if(!_0x137f7c||_0x137f7c[_0x1782aa(0x158)]||_0xd8ac4[_0x1782aa(0x195)](typeof _0x137f7c[_0x1782aa(0x158)],_0x1782aa(0x183)))return _0xd8ac4['CVDuu'](alert,_0x1782aa(0x129)),![];_0x137f7c[_0x1782aa(0x14b)]();var _0x317586=null,_0xd9546b=null;if(_0x428cc7){var _0x187b1a=-0x169b+-0x1*-0x705+-0x64*-0x29,_0x5e1c5c=0x3*0x106+-0x1bd1+0x192d,_0x4c2b76=-0xfd*0xe+-0x14c6*0x1+0x100*0x23,_0x5414d8=_0xd8ac4[_0x1782aa(0x177)](_0xd8ac4[_0x1782aa(0x116)](_0x25391c+_0x548bf6,_0x187b1a),_0x4c2b76),_0x271cf9=_0xd8ac4[_0x1782aa(0x177)](_0xd8ac4['dJfYI'](_0x56c2bb+_0x5949ae,_0x5e1c5c),_0x4c2b76);_0x317586=window[_0x1782aa(0x14f)](_0x3f810f,_0xd8ac4[_0x1782aa(0x13d)],_0xd8ac4[_0x1782aa(0x130)](_0xd8ac4['kfIVZ'](_0xd8ac4['KyVDY'](_0xd8ac4[_0x1782aa(0x149)](_0xd8ac4[_0x1782aa(0x19b)](_0xd8ac4[_0x1782aa(0x19c)],_0x187b1a),_0xd8ac4['jxXJS']),_0x5e1c5c),_0x1782aa(0x13e)),_0x5414d8)+_0xd8ac4[_0x1782aa(0x12d)]+_0x271cf9);if(_0x317586&&!_0x317586['closed'])localStorage[_0x1782aa(0x198)](_0x265955,_0x6b39ca[_0x1782aa(0x168)]());}_0xd9546b=window[_0x1782aa(0x14f)](_0x5b8a9a,_0xd8ac4['VgwOm'],_0xd8ac4[_0x1782aa(0x156)](_0xd8ac4['hXXHi'](_0xd8ac4['yKfja'](_0xd8ac4[_0x1782aa(0x16c)](_0xd8ac4['nIHJg'](_0xd8ac4[_0x1782aa(0x13b)](_0x1782aa(0x11a),_0x548bf6),_0x1782aa(0x179))+_0x5949ae,_0xd8ac4['UeLwR'])+_0x25391c,_0xd8ac4[_0x1782aa(0x12d)]),_0x56c2bb),_0x1782aa(0x175)));try{if(_0xd9546b)_0xd9546b[_0x1782aa(0x132)]();if(_0x317586)_0x317586[_0x1782aa(0x197)]();}catch(_0x34518f){}_0x317586&&_0xd8ac4[_0x1782aa(0x135)](setTimeout,function(){var _0x406394=_0x1782aa;try{if(_0x317586&&!_0x317586['closed'])_0x317586[_0x406394(0x14b)]();if(_0xd9546b)_0xd9546b[_0x406394(0x197)]();}catch(_0x4c55b8){}},0x1acb+0x6*0x64e+0x1d*-0x1d3);var _0x52d9cb=document[_0x1782aa(0x16a)](_0x191464);if(_0x52d9cb)_0x52d9cb[_0x1782aa(0x14b)]();return![];});
 </script>
 
 </body>
