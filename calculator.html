@@ -369,22 +369,10 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .result-card {
     border-radius: 16px; overflow: hidden; display: none;
     border: 1px solid rgba(255,255,255,0.06);
-    box-shadow: 0 24px 64px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.2);
     position: relative;
     background: #0b1728;
 }
-.result-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(0,141,196,0.6) 50%, transparent);
-}
-.result-card::after {
-    content: '';
-    position: absolute; top: -80px; right: -80px;
-    width: 220px; height: 220px;
-    background: radial-gradient(circle, rgba(0,141,196,0.18) 0%, transparent 70%);
-    pointer-events: none;
-}
+
 .result-card.show { display: block; animation: fadeIn 0.35s ease; }
 
 .result-main {
