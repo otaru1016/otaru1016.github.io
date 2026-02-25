@@ -55,7 +55,6 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .swiper-slide-active{opacity:1 !important}
 .swiper-slide-active .hero-tag{animation:fadeInUp 0.8s ease forwards}
 .swiper-slide-active h1{animation:fadeInUp 0.8s ease 0.2s forwards;opacity:0}
-.swiper-slide-active .hero-sub{animation:fadeInUp 0.8s ease 0.4s forwards;opacity:0}
 .swiper-slide-active .hero-stats-row{animation:zoomIn 0.8s ease 0.6s forwards;opacity:0}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes zoomIn{from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)}}
@@ -68,13 +67,12 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
 .hero-tag{display:inline-block;padding:6px 14px;background:rgba(1,163,240,0.1);border:1px solid rgba(1,163,240,0.2);color:var(--primary);border-radius:30px;font-size:13px;font-weight:700;margin-bottom:24px;letter-spacing:0.05em}
 .hero h1{font-size:clamp(1.4rem, 5vw, 2.2rem);font-weight:300;letter-spacing:-0.03em;line-height:1.25;color:#fff;margin-bottom:4px;font-family:'OneStoreMobileGothicTitleFont', sans-serif !important}
-.hero-sub{font-size:16px;color:#94a3b8;line-height:1.2;margin-bottom:40px;font-weight:400}
-.hero-stats-row{display:inline-flex;gap:0;padding:10px 20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:20px;backdrop-filter:blur(10px)}
-.stat-item{position:relative;padding:0 40px}
+.hero-stats-row{display:inline-flex;gap:0;padding:8px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;backdrop-filter:blur(10px)}
+.stat-item{position:relative;padding:0 24px}
 .stat-item:not(:last-child)::after{content:'';position:absolute;right:0;top:25%;height:50%;width:1px;background:rgba(255,255,255,0.1)}
 .stat-item:hover{background:rgba(255,255,255,0.05)}
-.stat-num{font-size:24px;font-weight:800;color:#fff;display:block;margin-bottom:2px}
-.stat-label{font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:0.1em;font-weight:700}
+.stat-num{font-size:20px;font-weight:800;color:#fff;display:block;margin-bottom:2px}
+.stat-label{font-size:10px;color:#64748b;text-transform:uppercase;letter-spacing:0.1em;font-weight:700}
 .filter-bar{position:sticky;top:var(--header-h);z-index:50;background:rgb(249 250 251);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);box-shadow:0 4px 10px rgba(0,0,0,0.02)}
 .filter-inner{max-width:var(--max-width);margin:0 auto;position:relative;display:flex;align-items:center;height:80px}
 .tab-scroll-wrap{position:relative;width:100%;overflow:hidden;display:flex;align-items:center;height:100%}
@@ -126,21 +124,23 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 }
 
 @media (max-width:768px){
-.hero{padding:60px 20px 50px}
-.hero h1{font-size:2.2rem}
-.hero-sub{font-size:14px}
-.hero-stats-row{display:grid;grid-template-columns:1fr 1fr;width:100%;max-width:400px;margin:0 auto;border-radius:16px}
-.stat-item{padding:16px 10px}
-.stat-item::after{display:none}
-.stat-item:nth-child(1),.stat-item:nth-child(2){border-bottom:1px solid rgba(255,255,255,0.08)}
-.stat-item:nth-child(odd){border-right:1px solid rgba(255,255,255,0.08)}
-.post-card{flex-direction:column}
-.card-thumb{width:100%;aspect-ratio:16/9;border-right:none;border-bottom:1px solid var(--border)}
-.card-body{padding:20px}
-.card-title{font-size:17px}
-.filter-inner{height:54px}
-.tab-scroll{padding:0 16px;gap:6px}
-.cat-tab{font-size:13px;padding:6px 14px}
+    .hero{padding:60px 20px 50px}
+    .hero h1{font-size:2.2rem}
+    .hero-stats-row{display:grid;grid-template-columns:repeat(3, 1fr);width:100%;max-width:400px;margin:0 auto;border-radius:12px;padding:10px 0}
+    .stat-item{padding:8px 4px}
+    .stat-item::after{display:block !important; right:0; top:25%; height:50%; width:1px; background:rgba(255,255,255,0.1)}
+    .stat-item:last-child::after{display:none !important}
+    .stat-item:nth-child(1),.stat-item:nth-child(2){border-bottom:none}
+    .stat-item:nth-child(odd){border-right:none}
+    .stat-num{font-size:17px}
+    .stat-label{font-size:9px}
+    .post-card{flex-direction:column}
+    .card-thumb{width:100%;aspect-ratio:16/9;border-right:none;border-bottom:1px solid var(--border)}
+    .card-body{padding:20px}
+    .card-title{font-size:17px}
+    .filter-inner{height:54px}
+    .tab-scroll{padding:0 16px;gap:6px}
+    .cat-tab{font-size:13px;padding:6px 14px}
 }
 
 @media (max-width:600px){
@@ -211,16 +211,11 @@ img{display:block;width:100%;height:100%;object-fit:cover}
             <div class="hero-inner">
                 <span class="hero-tag">지식 · 인사이트 · 실용 경제</span>
                 <h1>복잡한 경제와 세금,<br><span class="text-glow" style="color: #008dc4;">가장 명쾌하게 정리합니다</span></h1>
-                <p class="hero-sub">
-                    블로그로우(Blogglow)는 당신의 실질적인 자산 관리를 돕는<br>
-                    돈이 되는 정보와 전문적인 경제 가이드를 제공합니다.
-                </p>
                 <div class="hero-stats-row">
-                    <div class="stat-item"><span class="stat-num stat-posts">0</span><span class="stat-label">발행 콘텐츠</span></div>
-                    <div class="stat-item"><span class="stat-num stat-cats">0</span><span class="stat-label">전문 카테고리</span></div>
-                    <div class="stat-item"><span class="stat-num">NEW</span><span class="stat-label">업데이트</span></div>
-                    <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">정보 정확도</span></div>
-                </div>
+                  <div class="stat-item"><span class="stat-num stat-posts">0</span><span class="stat-label">발행 콘텐츠</span></div>
+                  <div class="stat-item"><span class="stat-num stat-cats">0</span><span class="stat-label">전문 카테고리</span></div>
+                  <div class="stat-item"><span class="stat-num">NEW</span><span class="stat-label">업데이트</span></div>
+              </div>
             </div>
         </div>
 
@@ -229,16 +224,11 @@ img{display:block;width:100%;height:100%;object-fit:cover}
             <div class="hero-inner">
                 <span class="hero-tag" style="color: #10b981; border-color: rgba(16,185,129,0.2); background: rgba(16,185,129,0.1);">주식 · 부동산 · 트렌드</span>
                 <h1>성공적인 투자의 첫걸음,<br><span class="text-glow" style="color: #10b981;">데이터로 시장을 읽어드립니다</span></h1>
-                <p class="hero-sub">
-                    시장의 흐름을 짚어주는 심도 있는 분석부터<br>
-                    실전 부동산 청약 가이드까지, 투자의 방향을 제시합니다.
-                </p>
                 <div class="hero-stats-row">
-                    <div class="stat-item"><span class="stat-num stat-posts">0</span><span class="stat-label">발행 콘텐츠</span></div>
-                    <div class="stat-item"><span class="stat-num stat-cats">0</span><span class="stat-label">전문 카테고리</span></div>
-                    <div class="stat-item"><span class="stat-num">NEW</span><span class="stat-label">업데이트</span></div>
-                    <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">정보 정확도</span></div>
-                </div>
+                  <div class="stat-item"><span class="stat-num stat-posts">0</span><span class="stat-label">발행 콘텐츠</span></div>
+                  <div class="stat-item"><span class="stat-num stat-cats">0</span><span class="stat-label">전문 카테고리</span></div>
+                  <div class="stat-item"><span class="stat-num">NEW</span><span class="stat-label">업데이트</span></div>
+              </div>
             </div>
         </div>
 
@@ -247,16 +237,11 @@ img{display:block;width:100%;height:100%;object-fit:cover}
             <div class="hero-inner">
                 <span class="hero-tag" style="color: #f59e0b; border-color: rgba(245,158,11,0.2); background: rgba(245,158,11,0.1);">절세 · 연말정산 · 생활금융</span>
                 <h1>아는 만큼 보이는 돈,<br><span class="text-glow" style="color: #f59e0b;">새는 돈을 완벽하게 막아드립니다</span></h1>
-                <p class="hero-sub">
-                    놓치기 쉬운 세금 공제 혜택부터 일상 속 금융 꿀팁까지,<br>
-                    당신의 지갑을 지켜주는 스마트한 금융 가이드.
-                </p>
                 <div class="hero-stats-row">
-                    <div class="stat-item"><span class="stat-num stat-posts">0</span><span class="stat-label">발행 콘텐츠</span></div>
-                    <div class="stat-item"><span class="stat-num stat-cats">0</span><span class="stat-label">전문 카테고리</span></div>
-                    <div class="stat-item"><span class="stat-num">NEW</span><span class="stat-label">업데이트</span></div>
-                    <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">정보 정확도</span></div>
-                </div>
+                  <div class="stat-item"><span class="stat-num stat-posts">0</span><span class="stat-label">발행 콘텐츠</span></div>
+                  <div class="stat-item"><span class="stat-num stat-cats">0</span><span class="stat-label">전문 카테고리</span></div>
+                  <div class="stat-item"><span class="stat-num">NEW</span><span class="stat-label">업데이트</span></div>
+              </div>
             </div>
         </div>
 
@@ -397,7 +382,7 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 
 <script>
 (function() {
-    const posts = [{"id":1772027469299,"title":"(몰랐으면 손해) 문화비·체육시설 소득공제 신청 방법과 인정 항목 총정리","filename":"contents/몰랐으면-손해-문화비체육시설-소득공제-신청-방법과-인정-항목-총정리.html","excerpt":"도서·공연·영화·헬스장 이용료도 소득공제가 된다는 사실 알고 계셨나요? 총급여 7천만 원 이하 근로자라면 놓치면 무조건 손해! 문화비·체육시설 소득공제 신청 방법부터 인정 항목까지 한눈에 정리했어요.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","절세","환급","세금"],"thumbnail":"https://blogglow.com/images/thumb-1772027469299.webp"},{"id":1772027469298,"title":"(13월의 월급 만들기) 신용카드·체크카드 소득공제 25% 황금비율 전략 2026","filename":"contents/13월의-월급-만들기-신용카드체크카드-소득공제-25-황금비율-전략-2026.html","excerpt":"신용카드 소득공제, 무조건 많이 쓴다고 돌려받는 게 아니에요. 총급여의 25%를 기준으로 신용카드와 체크카드를 전략적으로 나눠 쓰면 환급액이 확 달라집니다. 2026년 최신 전략 총정리.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","절세","환급","재테크"],"thumbnail":"https://blogglow.com/images/thumb-1772027469298.webp"},{"id":1772027469297,"title":"(인사담당자 필독) 중도입사자 연말정산 소득공제 완벽 가이드 2026","filename":"contents/인사담당자-필독-중도입사자-연말정산-소득공제-완벽-가이드-2026.html","excerpt":"중도입사자 연말정산, 전 직장 소득 합산부터 항목별 공제 적용 범위까지 인사담당자가 꼭 알아야 할 핵심만 정리했어요. 실수 없이 정확하게 처리하는 방법을 알려드릴게요.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","세금","절세","환급"],"thumbnail":"https://blogglow.com/images/thumb-1772027469297.webp"}];
+    const posts = [{"id":1772027926611,"title":"(몰랐으면 손해) 문화비·체육시설 소득공제 신청 방법과 인정 항목 총정리","filename":"contents/몰랐으면-손해-문화비체육시설-소득공제-신청-방법과-인정-항목-총정리.html","excerpt":"도서·공연·영화·헬스장 이용료도 소득공제가 된다는 사실 알고 계셨나요? 총급여 7천만 원 이하 근로자라면 놓치면 무조건 손해! 문화비·체육시설 소득공제 신청 방법부터 인정 항목까지 한눈에 정리했어요.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","절세","환급","세금"],"thumbnail":"https://blogglow.com/images/thumb-1772027926611.webp"},{"id":1772027926610,"title":"(13월의 월급 만들기) 신용카드·체크카드 소득공제 25% 황금비율 전략 2026","filename":"contents/13월의-월급-만들기-신용카드체크카드-소득공제-25-황금비율-전략-2026.html","excerpt":"신용카드 소득공제, 무조건 많이 쓴다고 돌려받는 게 아니에요. 총급여의 25%를 기준으로 신용카드와 체크카드를 전략적으로 나눠 쓰면 환급액이 확 달라집니다. 2026년 최신 전략 총정리.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","절세","환급","재테크"],"thumbnail":"https://blogglow.com/images/thumb-1772027926610.webp"},{"id":1772027926609,"title":"(인사담당자 필독) 중도입사자 연말정산 소득공제 완벽 가이드 2026","filename":"contents/인사담당자-필독-중도입사자-연말정산-소득공제-완벽-가이드-2026.html","excerpt":"중도입사자 연말정산, 전 직장 소득 합산부터 항목별 공제 적용 범위까지 인사담당자가 꼭 알아야 할 핵심만 정리했어요. 실수 없이 정확하게 처리하는 방법을 알려드릴게요.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","세금","절세","환급"],"thumbnail":"https://blogglow.com/images/thumb-1772027926609.webp"}];
     const PER_PAGE = 12;
     let currentPage = 1;
     let filteredPosts = [];
