@@ -1,3 +1,9 @@
+@font-face {
+    font-family: 'OneStoreMobileGothicTitleFont';
+    src: url('ONE-Mobile-Title.woff') format('woff'), url('../fonts/ONE-Mobile-Title.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
 :root {
     --bg-page: #f8fafc;
     --text-main: #0f172a;
@@ -110,7 +116,7 @@ img { display: block; width: 100%; height: auto; }
     font-family: 'OneStoreMobileGothicTitleFont', sans-serif !important;
 }
 .page-top h1 strong { font-weight: 300; color: #60c9f0; }
-.page-top-desc { font-size: 16px; color: #94a3b8; font-weight: 400; margin-bottom: 48px; line-height: 1.8; word-break: keep-all; }
+.page-top-desc {font-size: 16px;color: #94a3b8;font-weight: 400;margin-bottom: 48px;line-height: 1.6;word-break: keep-all;}
 
 /* ── 탭 네비 ── */
 .tab-nav {
@@ -611,4 +617,3 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
     .cta-buttons { flex-direction: column; width: 100%; gap: 12px; }
     .calc-btn { width: 100%; }
 }
-
