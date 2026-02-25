@@ -263,7 +263,25 @@
         <h3>Blogglow Briefing</h3>
         <p>블로그로우가 엄선한 경제·세무 가이드를 매주 이메일로 편하게 받아보세요.</p>
         <input type="email" id="subs-email" class="newsletter-input" placeholder="이메일 주소를 입력해주세요">
-        <button type="button" class="newsletter-btn">무료로 구독하기</button>
+        <button type="button" class="newsletter-btn" onclick="
+            var email = document.getElementById('subs-email').value;
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) { alert('올바른 이메일 주소를 입력해주세요.'); return; }
+            this.textContent = '신청 중...'; this.disabled = true;
+            var btn = this;
+            fetch('https://script.google.com/macros/s/AKfycbxrfY39E_LkkjlKs0HyOUs3QhqhX5Z65ICRmrWpsIXNCQi-4CRvgJS9ICjJOiSMQsH3/exec', {
+                method: 'POST', mode: 'no-cors',
+                body: JSON.stringify({ email: email }),
+                headers: { 'Content-Type': 'text/plain' }
+            }).then(function() {
+                document.getElementById('subs-email').value = '';
+                alert('✅ 구독 신청이 완료됐습니다!');
+            }).catch(function() {
+                alert('❌ 오류가 발생했습니다.');
+            }).finally(function() {
+                btn.textContent = '무료로 구독하기'; btn.disabled = false;
+            });
+        ">무료로 구독하기</button>
     </div>
 
         <div class="ad-block">
@@ -289,7 +307,7 @@
 
 <script>
 (function() {
-    const posts = [{"id":1771986148050,"title":"(몰랐으면 손해) 문화비·체육시설 소득공제 신청 방법과 인정 항목 총정리","filename":"contents/몰랐으면-손해-문화비체육시설-소득공제-신청-방법과-인정-항목-총정리.html","excerpt":"도서·공연·영화·헬스장 이용료도 소득공제가 된다는 사실 알고 계셨나요? 총급여 7천만 원 이하 근로자라면 놓치면 무조건 손해! 문화비·체육시설 소득공제 신청 방법부터 인정 항목까지 한눈에 정리했어요.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","절세","환급","세금"],"thumbnail":"https://blogglow.com/images/thumb-1771986148050.webp"},{"id":1771986148049,"title":"(13월의 월급 만들기) 신용카드·체크카드 소득공제 25% 황금비율 전략 2026","filename":"contents/13월의-월급-만들기-신용카드체크카드-소득공제-25-황금비율-전략-2026.html","excerpt":"신용카드 소득공제, 무조건 많이 쓴다고 돌려받는 게 아니에요. 총급여의 25%를 기준으로 신용카드와 체크카드를 전략적으로 나눠 쓰면 환급액이 확 달라집니다. 2026년 최신 전략 총정리.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","절세","환급","재테크"],"thumbnail":"https://blogglow.com/images/thumb-1771986148049.webp"},{"id":1771986148048,"title":"(인사담당자 필독) 중도입사자 연말정산 소득공제 완벽 가이드 2026","filename":"contents/인사담당자-필독-중도입사자-연말정산-소득공제-완벽-가이드-2026.html","excerpt":"중도입사자 연말정산, 전 직장 소득 합산부터 항목별 공제 적용 범위까지 인사담당자가 꼭 알아야 할 핵심만 정리했어요. 실수 없이 정확하게 처리하는 방법을 알려드릴게요.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","세금","절세","환급"],"thumbnail":"https://blogglow.com/images/thumb-1771986148048.webp"}];
+    const posts = [{"id":1771986764958,"title":"(몰랐으면 손해) 문화비·체육시설 소득공제 신청 방법과 인정 항목 총정리","filename":"contents/몰랐으면-손해-문화비체육시설-소득공제-신청-방법과-인정-항목-총정리.html","excerpt":"도서·공연·영화·헬스장 이용료도 소득공제가 된다는 사실 알고 계셨나요? 총급여 7천만 원 이하 근로자라면 놓치면 무조건 손해! 문화비·체육시설 소득공제 신청 방법부터 인정 항목까지 한눈에 정리했어요.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","절세","환급","세금"],"thumbnail":"https://blogglow.com/images/thumb-1771986764958.webp"},{"id":1771986764957,"title":"(13월의 월급 만들기) 신용카드·체크카드 소득공제 25% 황금비율 전략 2026","filename":"contents/13월의-월급-만들기-신용카드체크카드-소득공제-25-황금비율-전략-2026.html","excerpt":"신용카드 소득공제, 무조건 많이 쓴다고 돌려받는 게 아니에요. 총급여의 25%를 기준으로 신용카드와 체크카드를 전략적으로 나눠 쓰면 환급액이 확 달라집니다. 2026년 최신 전략 총정리.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","절세","환급","재테크"],"thumbnail":"https://blogglow.com/images/thumb-1771986764957.webp"},{"id":1771986764956,"title":"(인사담당자 필독) 중도입사자 연말정산 소득공제 완벽 가이드 2026","filename":"contents/인사담당자-필독-중도입사자-연말정산-소득공제-완벽-가이드-2026.html","excerpt":"중도입사자 연말정산, 전 직장 소득 합산부터 항목별 공제 적용 범위까지 인사담당자가 꼭 알아야 할 핵심만 정리했어요. 실수 없이 정확하게 처리하는 방법을 알려드릴게요.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","세금","절세","환급"],"thumbnail":"https://blogglow.com/images/thumb-1771986764956.webp"}];
     const PER_PAGE = 12;
     let currentPage = 1;
     let filteredPosts = [];
