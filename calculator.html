@@ -69,7 +69,7 @@ img { display: block; width: 100%; height: auto; }
 .notice-bar { background: #292929; color: #fff; text-align: center; padding: 10px 24px; font-size: 13px; letter-spacing: -0.01em; }
 
 /* ── 헤더 ── */
-.site-header { position: sticky; top: 0; z-index: 100; background: rgb(0 0 0 / 95%); backdrop-filter: blur(10px); }
+.site-header { position: sticky; top: 0; z-index: 500; background: rgb(0 0 0 / 95%); backdrop-filter: blur(10px); isolation: isolate; }
 .header-inner { max-width: 1140px; margin: 0 auto; padding: 0 24px; height: var(--header-h); display: flex; align-items: center; justify-content: space-between; position: relative; }
 .logo { font-size: 26px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 4px; }
 .logo img { height: 32px; width: auto; }
@@ -85,17 +85,33 @@ img { display: block; width: 100%; height: auto; }
 .m-btn { display: none; background: none; border: none; color: #fff; cursor: pointer; padding: 8px; font-size: 24px; align-items: center; justify-content: center; }
 
 /* ── 모바일 사이드바 ── */
-.mobile-sidebar { position: fixed; top: 0; right: -280px; width: 280px; height: 100vh; background: #fff; z-index: 1000; box-shadow: -5px 0 20px rgba(0,0,0,0.1); transition: 0.3s ease-in-out; padding: 40px 24px; display: flex; flex-direction: column; gap: 20px; }
-.mobile-sidebar.active { right: 0; }
+.mobile-sidebar {
+    position: fixed; top: 0; right: 0; width: 280px; height: 100%;
+    background: #fff; z-index: 9999;
+    box-shadow: -8px 0 32px rgba(0,0,0,0.25);
+    padding: 40px 24px;
+    display: flex; flex-direction: column; gap: 20px;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.mobile-sidebar.active { transform: translateX(0) !important; }
 .m-sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
 .m-sidebar-header img { height: 24px; width: auto; }
-.m-nav-list { display: flex; flex-direction: column; gap: 10px; }
-.m-nav-list a { font-size: 16px; font-weight: 400; color: #191f28; border-bottom: 1px solid #f1f5f9; padding: 12px 0; display: block; }
-.sidebar-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); z-index: 999; display: none; backdrop-filter: blur(2px); }
-.sidebar-overlay.active { display: block; }
+.m-nav-list { display: flex; flex-direction: column; gap: 0; }
+.m-nav-list a { font-size: 16px; font-weight: 500; color: #191f28; border-bottom: 1px solid #f1f5f9; padding: 14px 0; display: block; }
+.sidebar-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.55); z-index: 9998;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    -webkit-tap-highlight-color: transparent;
+}
+.sidebar-overlay.active { opacity: 1; visibility: visible; }
 
 /* ── 페이지 상단 ── */
-.page-top { background: #0f172a; padding: 64px 32px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.page-top { background: #0f172a; padding: 64px 32px 28px; border-bottom: 1px solid rgba(255,255,255,0.06); }
 .page-top-inner { max-width: 1200px; margin: 0 auto; }
 .page-top-kicker {
     font-size: 11px; color: var(--accent);
@@ -105,121 +121,416 @@ img { display: block; width: 100%; height: auto; }
     font-weight: 700;
 }
 .page-top-kicker::after { content: ''; display: block; width: 32px; height: 1px; background: var(--accent); }
-.page-top h1 { font-size: 2.6rem; font-weight: 300; letter-spacing: -0.04em; line-height: 1.1; color: #fff; margin-bottom: 12px; }
+.page-top h1 { font-size: 2.6rem; font-weight: 300; letter-spacing: -0.04em; line-height: 1.1; color: #fff; margin-bottom: 12px; font-family: 'OneStoreMobileGothic', 'Pretendard', sans-serif; }
 .page-top h1 strong { font-weight: 600; color: var(--accent); }
 .page-top-desc { font-size: 16px; color: #94a3b8; font-weight: 400; margin-bottom: 40px; max-width: 480px; line-height: 1.75; }
 
 /* ── 탭 네비 ── */
-.tab-nav { display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+.tab-nav {
+    display: inline-flex;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 4px;
+    gap: 2px;
+    overflow-x: auto; scrollbar-width: none;
+    max-width: 100%;
+    backdrop-filter: blur(8px);
+    margin-top: 32px;
+}
 .tab-nav::-webkit-scrollbar { display: none; }
 .tab-btn {
-    display: flex; align-items: center; gap: 7px;
-    padding: 15px 22px;
-    font-size: 14px; font-weight: 500;
-    color: rgba(255,255,255,0.4);
-    background: none; border: none;
-    border-bottom: 2px solid transparent;
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 16px;
+    font-size: 13px; font-weight: 600;
+    color: rgba(255,255,255,0.42);
+    background: transparent;
+    border: none;
+    border-radius: 10px;
     cursor: pointer; white-space: nowrap;
-    transition: all 0.15s;
-    position: relative; top: 1px;
+    transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
     letter-spacing: -0.01em;
     font-family: 'Pretendard', sans-serif;
 }
-.tab-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
-.tab-btn:hover { color: rgba(255,255,255,0.7); }
-.tab-btn.active { color: #fff; border-bottom-color: var(--accent); font-weight: 600; }
+.tab-btn .tab-icon {
+    width: 26px; height: 26px;
+    border-radius: 7px;
+    background: rgba(255,255,255,0.07);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s;
+}
+.tab-btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.tab-btn:hover { color: rgba(255,255,255,0.8); }
+.tab-btn:hover .tab-icon { background: rgba(255,255,255,0.12); }
+.tab-btn.active {
+    color: #0d1f3c;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.1);
+}
+.tab-btn.active .tab-icon { background: rgba(0,141,196,0.12); }
+.tab-btn.active svg { stroke: var(--accent); }
 
 /* ── 메인 레이아웃 ── */
-.main { max-width: 1200px; margin: 0 auto; padding: 40px 32px 100px; display: grid; grid-template-columns: 1fr 380px; gap: 24px; align-items: start; }
+.main {
+    max-width: 1200px; margin: 0 auto;
+    padding: 40px 32px 100px;
+    display: grid; grid-template-columns: 1fr 400px;
+    gap: 28px; align-items: start;
+}
 .calc-panel { display: none; }
 .calc-panel.active { display: contents; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-.panel-left, .panel-right { animation: fadeIn 0.25s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideInRight { from { opacity: 0; transform: translateX(14px); } to { opacity: 1; transform: translateX(0); } }
+.panel-left { animation: fadeIn 0.3s ease; }
+.panel-right { animation: slideInRight 0.35s ease 0.05s both; }
 
 /* ── 입력 카드 ── */
-.input-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-.input-card + .input-card { margin-top: 12px; }
-.card-header { padding: 20px 24px 18px; border-bottom: 1px solid var(--rule-light); display: flex; align-items: center; gap: 10px; }
-.card-header-icon { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; color: var(--ink-3); }
-.card-header-icon svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.card-header-title { font-size: 14px; font-weight: 600; color: var(--ink-2); letter-spacing: -0.01em; }
-.card-body { padding: 24px; }
+.input-card {
+    background: var(--surface);
+    border: 1px solid #eaeef2;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 20px rgba(0,0,0,0.04);
+    transition: box-shadow 0.25s, transform 0.25s;
+}
+.input-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+    transform: translateY(-1px);
+}
+.input-card + .input-card { margin-top: 16px; }
+.card-header {
+    padding: 18px 24px 16px;
+    border-bottom: 1px solid #f0f2f5;
+    display: flex; align-items: center; gap: 12px;
+    background: linear-gradient(180deg, #ffffff 0%, #fafbfc 100%);
+}
+.card-header-icon {
+    width: 34px; height: 34px; border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(0,141,196,0.08);
+    color: var(--accent); flex-shrink: 0;
+}
+.card-header-icon svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.card-header-title { font-size: 14px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.01em; }
+.card-body { padding: 24px 24px 28px; }
 
 /* ── 폼 ── */
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.form-group { display: flex; flex-direction: column; gap: 7px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
 .form-group.span-2 { grid-column: 1 / -1; }
-.form-label { font-size: 12px; font-weight: 600; color: var(--ink-4); letter-spacing: 0.03em; text-transform: uppercase; }
+.form-label {
+    font-size: 11px; font-weight: 700; color: #8896aa;
+    letter-spacing: 0.07em; text-transform: uppercase;
+}
 .field-wrap { position: relative; }
 .field-wrap input, .field-wrap select {
-    width: 100%; padding: 11px 44px 11px 14px; font-size: 16px; font-weight: 400;
-    color: var(--ink); background: var(--surface-2); border: 1px solid var(--rule);
-    border-radius: 8px; outline: none; transition: border-color 0.15s, background 0.15s;
-    appearance: none; -webkit-appearance: none; font-family: 'Pretendard', sans-serif;
+    width: 100%; padding: 12px 52px 12px 14px;
+    font-size: 15px; font-weight: 500; color: var(--ink);
+    background: #f7f9fb; border: 1.5px solid #e3e8ef;
+    border-radius: 10px; outline: none;
+    transition: all 0.18s;
+    appearance: none; -webkit-appearance: none;
+    font-family: 'Pretendard', sans-serif;
 }
-.field-wrap input:hover, .field-wrap select:hover { border-color: #c0c0c0; }
-.field-wrap input:focus, .field-wrap select:focus { border-color: var(--accent); background: var(--surface); }
-.field-unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 12px; color: var(--ink-4); pointer-events: none; }
-.field-wrap select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%23a0a0a0' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
+.field-wrap input:hover, .field-wrap select:hover {
+    border-color: #b8c4d0; background: #f2f6f9;
+}
+.field-wrap input:focus, .field-wrap select:focus {
+    border-color: var(--accent);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(0,141,196,0.1);
+}
+.field-unit {
+    position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+    font-size: 11px; font-weight: 700; color: #99a8b8;
+    pointer-events: none;
+    background: #edf1f5; padding: 3px 7px; border-radius: 5px;
+    letter-spacing: 0.02em;
+}
+.field-wrap select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%2399a8b8' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 14px center;
+    padding-right: 36px;
+}
 .field-wrap input[type="date"] { padding-right: 14px; }
 
 /* ── 슬라이더 ── */
-.range-field { display: flex; flex-direction: column; gap: 10px; }
+.range-field { display: flex; flex-direction: column; gap: 14px; }
 .range-display { display: flex; justify-content: space-between; align-items: baseline; }
-.range-value { font-size: 20px; font-weight: 500; color: var(--ink); letter-spacing: -0.02em; }
-.range-limits { font-size: 12px; color: var(--ink-4); }
-input[type="range"] { width: 100%; height: 2px; -webkit-appearance: none; background: var(--rule); border-radius: 1px; outline: none; padding: 0; border: none; }
-input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); cursor: pointer; border: 2px solid var(--surface); box-shadow: 0 1px 4px rgba(0,0,0,0.2); transition: transform 0.15s; }
-input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+.range-value {
+    font-size: 24px; font-weight: 700; color: var(--ink);
+    letter-spacing: -0.04em;
+}
+.range-limits { font-size: 12px; color: #aab; font-weight: 500; }
+input[type="range"] {
+    width: 100%; height: 4px; -webkit-appearance: none;
+    background: linear-gradient(to right, var(--accent) var(--pct, 14%), #e0e7ef var(--pct, 14%));
+    border-radius: 2px; outline: none; padding: 0; border: none; cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%;
+    background: #fff; cursor: pointer;
+    border: 2.5px solid var(--accent);
+    box-shadow: 0 2px 8px rgba(0,141,196,0.25);
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.15); box-shadow: 0 4px 16px rgba(0,141,196,0.4);
+}
 
 /* ── 체크 ── */
 .check-group { display: flex; flex-wrap: wrap; gap: 8px; }
-.check-item { display: flex; align-items: center; gap: 7px; padding: 8px 16px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-weight: 400; color: var(--ink-2); cursor: pointer; user-select: none; transition: all 0.12s; background: var(--surface); }
+.check-item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 14px; border: 1.5px solid #e3e8ef;
+    border-radius: 10px; font-size: 13px; font-weight: 600;
+    color: #7a8899; cursor: pointer; user-select: none;
+    transition: all 0.15s; background: #f7f9fb;
+}
 .check-item input { display: none; }
-.check-dot { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid var(--rule); transition: all 0.12s; flex-shrink: 0; }
-.check-item.on { border-color: var(--accent); color: var(--accent); }
-.check-item.on .check-dot { background: var(--accent); border-color: var(--accent); }
+.check-dot {
+    width: 15px; height: 15px; border-radius: 50%;
+    border: 1.5px solid #ccd4de; transition: all 0.15s; flex-shrink: 0;
+    position: relative;
+}
+.check-dot::after {
+    content: ''; position: absolute; inset: 3px;
+    border-radius: 50%; background: transparent; transition: background 0.15s;
+}
+.check-item.on {
+    border-color: var(--accent); color: var(--accent);
+    background: rgba(0,141,196,0.05);
+}
+.check-item.on .check-dot { border-color: var(--accent); }
+.check-item.on .check-dot::after { background: var(--accent); }
 
 /* ── 계산 버튼 ── */
 .calc-btn {
-    width: 100%; margin-top: 20px; padding: 14px 24px;
-    background: linear-gradient(135deg, #008dc4, #0066a0); color: #fff;
-    border: none; border-radius: 10px; font-size: 15px; font-weight: 600;
-    cursor: pointer; letter-spacing: -0.01em; transition: opacity 0.15s, transform 0.1s;
-    display: flex; align-items: center; justify-content: center; gap: 8px;
+    width: 100%; margin-top: 24px; padding: 15px 24px;
+    background: linear-gradient(135deg, #008dc4 0%, #006fa4 100%);
+    color: #fff; border: none; border-radius: 12px;
+    font-size: 15px; font-weight: 700;
+    cursor: pointer; letter-spacing: -0.01em;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
     font-family: 'Pretendard', sans-serif;
+    box-shadow: 0 4px 14px rgba(0,141,196,0.35), inset 0 1px 0 rgba(255,255,255,0.15);
+    position: relative; overflow: hidden;
 }
-.calc-btn svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.calc-btn:hover { opacity: 0.88; }
-.calc-btn:active { transform: scale(0.99); }
+.calc-btn::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, transparent 60%);
+    pointer-events: none; border-radius: inherit;
+}
+.calc-btn svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.calc-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,141,196,0.45), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+.calc-btn:active { transform: translateY(0); box-shadow: 0 2px 6px rgba(0,141,196,0.3); }
 
 /* ── 결과 패널 ── */
 .panel-right { position: sticky; top: calc(var(--header-h) + 24px); }
-.result-empty { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 48px 32px; text-align: center; color: var(--ink-4); }
-.result-empty svg { width: 32px; height: 32px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.3; display: block; margin: 0 auto 12px; }
-.result-empty p { font-size: 15px; line-height: 1.65; }
-.result-card { background: #0f172a; border-radius: 12px; overflow: hidden; display: none; border: 1px solid rgba(255,255,255,0.06); }
-.result-card.show { display: block; animation: fadeIn 0.3s ease; }
-.result-main { padding: 32px 28px 24px; border-bottom: 1px solid rgba(255,255,255,0.08); }
-.result-kicker { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
-.result-amount { font-size: 2.8rem; font-weight: 300; color: #fff; letter-spacing: -0.04em; line-height: 1; margin-bottom: 6px; }
+
+.result-empty {
+    background: var(--surface);
+    border: 1.5px dashed #dde4ec;
+    border-radius: 16px; padding: 60px 32px;
+    text-align: center;
+}
+.result-empty svg {
+    width: 40px; height: 40px; stroke: #c0cad5; fill: none;
+    stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round;
+    display: block; margin: 0 auto 18px;
+}
+.result-empty p { font-size: 15px; line-height: 1.8; color: #b0bbc8; font-weight: 500; }
+
+.result-card {
+    border-radius: 16px; overflow: hidden; display: none;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.2);
+    position: relative;
+    background: #0b1728;
+}
+.result-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,141,196,0.6) 50%, transparent);
+}
+.result-card::after {
+    content: '';
+    position: absolute; top: -80px; right: -80px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(0,141,196,0.18) 0%, transparent 70%);
+    pointer-events: none;
+}
+.result-card.show { display: block; animation: fadeIn 0.35s ease; }
+
+.result-main {
+    padding: 36px 28px 24px; border-bottom: 1px solid rgba(255,255,255,0.05);
+    position: relative; z-index: 1;
+}
+.result-kicker {
+    font-size: 10px; color: #60c9f0;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 16px; font-weight: 700;
+    display: flex; align-items: center; gap: 8px;
+}
+.result-kicker::before {
+    content: ''; width: 24px; height: 1.5px;
+    background: currentColor; display: block; border-radius: 1px;
+}
+.result-amount {
+    font-size: 3.2rem; font-weight: 200;
+    color: #fff; letter-spacing: -0.06em;
+    line-height: 1; margin-bottom: 10px;
+}
 .result-amount.positive { color: #34d399; }
 .result-amount.negative { color: #f87171; }
-.result-label { font-size: 14px; color: rgba(255,255,255,0.35); }
-.result-breakdown { padding: 20px 28px; display: flex; flex-direction: column; gap: 0; }
-.breakdown-row { display: flex; justify-content: space-between; align-items: baseline; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.result-label { font-size: 13px; color: rgba(255,255,255,0.28); font-weight: 500; }
+
+.result-breakdown {
+    padding: 8px 28px 24px;
+    display: flex; flex-direction: column;
+    position: relative; z-index: 1;
+}
+.breakdown-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+}
 .breakdown-row:last-child { border-bottom: none; }
-.bd-label { font-size: 13px; color: rgba(255,255,255,0.4); }
-.bd-value { font-size: 14px; color: rgba(255,255,255,0.75); font-weight: 400; }
-.bd-value.pos { color: #34d399; }
+.bd-label { font-size: 13px; color: rgba(255,255,255,0.32); font-weight: 400; }
+.bd-value { font-size: 13px; color: rgba(255,255,255,0.75); font-weight: 600; letter-spacing: -0.02em; }
+.bd-value.pos { color: #4ade80; }
 .bd-value.neg { color: #f87171; }
-.bd-value.accent { color: var(--accent); }
+.bd-value.accent { color: #60c9f0; }
 
 /* ── 안내/면책 ── */
-.info-strip { background: var(--surface); border: 1px solid var(--border); border-top: 2px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin-top: 12px; font-size: 14px; color: var(--ink-3); line-height: 1.75; display: flex; gap: 10px; }
-.info-strip svg { flex-shrink: 0; width: 15px; height: 15px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; margin-top: 3px; }
-.disclaimer { background: #fffdf0; border: 1px solid #f0e8c0; border-radius: 8px; padding: 13px 16px; font-size: 13px; color: #8a7530; line-height: 1.7; margin-top: 12px; display: flex; gap: 8px; align-items: flex-start; }
-.disclaimer svg { flex-shrink: 0; width: 14px; height: 14px; stroke: #8a7530; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; margin-top: 2px; }
+.info-strip {
+    background: rgba(0,141,196,0.04);
+    border: 1px solid rgba(0,141,196,0.14);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px; padding: 14px 18px;
+    margin-top: 14px; font-size: 13px; color: #5a7a90;
+    line-height: 1.8; display: flex; gap: 10px;
+}
+.info-strip svg { flex-shrink: 0; width: 15px; height: 15px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; margin-top: 2px; }
+.disclaimer {
+    background: linear-gradient(135deg, #fffef5, #fffbea);
+    border: 1px solid #ede0b0; border-left: 3px solid #c9980a;
+    border-radius: 10px; padding: 13px 18px;
+    font-size: 13px; color: #7a6118; line-height: 1.8;
+    margin-top: 14px; display: flex; gap: 10px; align-items: flex-start;
+}
+.disclaimer svg { flex-shrink: 0; width: 14px; height: 14px; stroke: #b8890a; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; margin-top: 2px; }
+
+/* ── 섹션 라벨 행 ── */
+.section-label-row {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 12px;
+}
+.step-badge {
+    font-size: 10px; font-weight: 800;
+    color: var(--accent); letter-spacing: 0.12em;
+    background: rgba(0,141,196,0.1);
+    padding: 4px 10px; border-radius: 6px;
+    border: 1px solid rgba(0,141,196,0.2);
+}
+.section-title-text {
+    font-size: 13px; font-weight: 700; color: #475569;
+    letter-spacing: -0.01em;
+}
+
+/* ── 카드 헤더 서브 ── */
+.card-header-sub { font-size: 12px; color: #94a3b8; font-weight: 400; margin-top: 1px; }
+
+/* ── 라벨 힌트 ── */
+.label-hint {
+    font-weight: 400; color: #b0bec5;
+    text-transform: none; letter-spacing: 0;
+    font-size: 10px;
+}
+
+/* ── 체크 섹션 ── */
+.check-section { margin-top: 22px; }
+.check-section-label {
+    font-size: 11px; font-weight: 700; color: #8896aa;
+    letter-spacing: 0.07em; text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* ── 급여 디스플레이 카드 ── */
+.salary-display-card {
+    background: linear-gradient(135deg, #f0f7ff, #e8f4fd);
+    border: 1px solid rgba(0,141,196,0.15);
+    border-radius: 12px; padding: 20px 22px;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.salary-display-label { font-size: 12px; font-weight: 700; color: #64748b; letter-spacing: 0.04em; text-transform: uppercase; }
+.salary-display-value { font-size: 22px; font-weight: 700; color: var(--ink); letter-spacing: -0.04em; }
+.range-limits-row {
+    display: flex; justify-content: space-between;
+    font-size: 11px; color: #94a3b8; font-weight: 500;
+    margin-top: 8px;
+}
+.divider-or {
+    display: flex; align-items: center; gap: 12px;
+    margin: 20px 0 14px; font-size: 12px; color: #94a3b8; font-weight: 600;
+}
+.divider-or::before, .divider-or::after {
+    content: ''; flex: 1; height: 1px; background: #e5eaf0;
+}
+
+/* ── 대출 상환 버튼 ── */
+.repay-options {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+    margin-top: 4px;
+}
+.repay-btn {
+    padding: 12px 8px; border: 1.5px solid #e3e8ef;
+    border-radius: 10px; background: #f7f9fb;
+    cursor: pointer; text-align: center;
+    transition: all 0.15s; font-family: 'Pretendard', sans-serif;
+    display: flex; flex-direction: column; gap: 4px; align-items: center;
+}
+.repay-btn:hover { border-color: #b0c4d8; background: #f0f6fb; }
+.repay-btn.active { border-color: var(--accent); background: rgba(0,141,196,0.06); }
+.repay-name { font-size: 13px; font-weight: 700; color: #334155; }
+.repay-btn.active .repay-name { color: var(--accent); }
+.repay-desc { font-size: 11px; color: #94a3b8; font-weight: 400; }
+
+/* ── 결과 카드 개선 ── */
+.result-card-bg {
+    position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
+    background:
+        radial-gradient(ellipse 180px 180px at 90% 0%, rgba(0,141,196,0.2) 0%, transparent 100%),
+        radial-gradient(ellipse 120px 120px at 10% 100%, rgba(0,80,150,0.15) 0%, transparent 100%);
+}
+.result-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08) 30%, rgba(255,255,255,0.08) 70%, transparent);
+    margin: 0 28px;
+}
+
+/* ── 결과 빈 상태 개선 ── */
+.result-empty {
+    background: var(--surface);
+    border: 1.5px dashed #dde4ec;
+    border-radius: 16px; padding: 56px 24px;
+    text-align: center;
+}
+.result-empty-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: #f1f5f9; border: 1px solid #e2e8f0;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 18px;
+}
+.result-empty-icon svg { width: 22px; height: 22px; stroke: #94a3b8; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.result-empty-title { font-size: 14px; font-weight: 700; color: #64748b; margin-bottom: 8px; }
+.result-empty-sub { font-size: 13px; line-height: 1.8; color: #94a3b8; font-weight: 400; }
 
 /* ── 푸터 ── */
 .footer { background: #1a1a1a; color: #a1a1aa; padding: 60px 24px 24px; font-size: 14px; }
@@ -239,22 +550,59 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
 }
 @media (max-width: 768px) {
     .nav { display: none !important; }
-    .search-box { display: none; position: absolute; top: var(--header-h); left: 0; width: 100%; background: #1a1a1a; padding: 12px 24px; border-bottom: 1px solid #333; }
-    .search-box.active { display: block !important; }
-    .search-icon-pos { left: 40px; }
+    /* 데스크톱 검색바 숨기기 */
+    .search-box {
+        display: none !important;
+        position: fixed !important;
+        top: var(--header-h) !important;
+        left: 0; width: 100% !important;
+        background: #111 !important;
+        padding: 10px 20px !important;
+        border-bottom: 1px solid #333 !important;
+        z-index: 600 !important;
+        transform: translateY(-110%) !important;
+        opacity: 0 !important;
+        transition: transform 0.25s ease, opacity 0.25s ease !important;
+        pointer-events: none !important;
+    }
+    .search-box.active {
+        display: block !important;
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+    .search-icon-pos { left: 36px; }
+    .search-input {
+        background: #2a2a2a !important;
+        color: #fff !important;
+        border-radius: 10px !important;
+        padding: 10px 16px 10px 36px !important;
+        font-size: 15px !important;
+        border: 1px solid #444 !important;
+    }
+    .search-input::placeholder { color: #666 !important; }
     .m-btn { display: flex !important; }
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
     .footer-brand { grid-column: 1 / -1; }
 }
 @media (max-width: 600px) {
-    .page-top { padding: 40px 20px 0; }
+    .page-top { padding: 40px 20px 20px; }
     .page-top h1 { font-size: 1.9rem; }
     .page-top-desc { font-size: 15px; }
     .main { padding: 24px 20px 60px; }
-    .tab-btn { padding: 12px 14px; font-size: 13px; }
+    .tab-btn { padding: 8px 12px; font-size: 12px; }
+    .tab-btn .tab-icon { width: 22px; height: 22px; border-radius: 6px; }
     .header-inner { padding: 0 20px; }
     .form-grid { grid-template-columns: 1fr; }
-    .result-amount { font-size: 2.2rem; }
+    .result-amount { font-size: 2.4rem; }
+    .repay-options { grid-template-columns: 1fr; }
+    .salary-display-card { flex-direction: column; align-items: flex-start; gap: 4px; }
+}
+@font-face {
+    font-family: 'OneStoreMobileGothic';
+    src: url('../fonts/ONE-Mobile-Title.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
 }
 </style>
 </head>
@@ -276,7 +624,7 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
         <div class="header-utils">
             <div class="search-box" id="global-search-box">
                 <span class="iconify search-icon-pos" data-icon="carbon:search"></span>
-                <input type="text" class="search-input" placeholder="검색">
+                <input type="text" class="search-input" id="search-input" placeholder="검색" autocomplete="off">
             </div>
             <button class="m-btn" id="m-search-toggle"><span class="iconify" data-icon="carbon:search"></span></button>
             <button class="m-btn" id="m-menu-toggle"><span class="iconify" data-icon="carbon:menu"></span></button>
@@ -306,23 +654,23 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
         <p class="page-top-desc">연말정산부터 대출이자까지. 내 상황에 맞는 수치를 바로 확인하세요.</p>
         <div class="tab-nav" id="tab-nav">
             <button class="tab-btn active" data-panel="yearend" onclick="switchPanel('yearend', this)">
-                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                <span class="tab-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
                 연말정산
             </button>
             <button class="tab-btn" data-panel="severance" onclick="switchPanel('severance', this)">
-                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+                <span class="tab-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></span>
                 퇴직금
             </button>
             <button class="tab-btn" data-panel="health" onclick="switchPanel('health', this)">
-                <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                <span class="tab-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
                 건강보험료
             </button>
             <button class="tab-btn" data-panel="unemployment" onclick="switchPanel('unemployment', this)">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                <span class="tab-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></span>
                 실업급여
             </button>
             <button class="tab-btn" data-panel="loan" onclick="switchPanel('loan', this)">
-                <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <span class="tab-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
                 대출이자
             </button>
         </div>
@@ -335,23 +683,33 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
     <!-- ━━━━━ 연말정산 ━━━━━ -->
     <div class="calc-panel active" id="panel-yearend">
         <div class="panel-left">
+
+            <div class="section-label-row">
+                <span class="step-badge">STEP 1</span>
+                <span class="section-title-text">기본 정보 입력</span>
+            </div>
             <div class="input-card">
                 <div class="card-header">
-                    <div class="card-header-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
-                    <span class="card-header-title">기본 정보</span>
+                    <div class="card-header-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                    </div>
+                    <div>
+                        <div class="card-header-title">근로소득 정보</div>
+                        <div class="card-header-sub">연봉 및 세금 납부 내역</div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="form-grid">
                         <div class="form-group">
-                            <label class="form-label">총 급여 (세전 연봉)</label>
-                            <div class="field-wrap"><input type="number" id="ye-salary" value="45000000"><span class="field-unit">원</span></div>
+                            <label class="form-label">총 급여 <span class="label-hint">세전 연봉</span></label>
+                            <div class="field-wrap"><input type="number" id="ye-salary" value="45000000" placeholder="0"><span class="field-unit">원</span></div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">원천징수 납부 세액</label>
-                            <div class="field-wrap"><input type="number" id="ye-paid" value="1500000"><span class="field-unit">원</span></div>
+                            <label class="form-label">납부 세액 <span class="label-hint">원천징수액</span></label>
+                            <div class="field-wrap"><input type="number" id="ye-paid" value="1500000" placeholder="0"><span class="field-unit">원</span></div>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">부양가족 수 (본인 포함)</label>
+                        <div class="form-group span-2">
+                            <label class="form-label">부양가족 <span class="label-hint">본인 포함 인원</span></label>
                             <div class="field-wrap">
                                 <select id="ye-family">
                                     <option value="1">1명 — 본인만</option>
@@ -366,62 +724,90 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
                 </div>
             </div>
 
+            <div class="section-label-row" style="margin-top:28px">
+                <span class="step-badge">STEP 2</span>
+                <span class="section-title-text">공제 항목 입력</span>
+            </div>
             <div class="input-card">
                 <div class="card-header">
-                    <div class="card-header-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-                    <span class="card-header-title">공제 항목</span>
+                    <div class="card-header-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div>
+                        <div class="card-header-title">소득 공제 내역</div>
+                        <div class="card-header-sub">지출한 금액을 입력하세요</div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="form-grid">
-                        <div class="form-group"><label class="form-label">의료비 지출</label><div class="field-wrap"><input type="number" id="ye-medical" value="0"><span class="field-unit">원</span></div></div>
-                        <div class="form-group"><label class="form-label">교육비 지출</label><div class="field-wrap"><input type="number" id="ye-edu" value="0"><span class="field-unit">원</span></div></div>
-                        <div class="form-group"><label class="form-label">기부금</label><div class="field-wrap"><input type="number" id="ye-donation" value="0"><span class="field-unit">원</span></div></div>
-                        <div class="form-group"><label class="form-label">신용카드 사용액</label><div class="field-wrap"><input type="number" id="ye-credit" value="12000000"><span class="field-unit">원</span></div></div>
-                        <div class="form-group"><label class="form-label">체크카드 / 현금영수증</label><div class="field-wrap"><input type="number" id="ye-debit" value="5000000"><span class="field-unit">원</span></div></div>
+                        <div class="form-group"><label class="form-label">의료비</label><div class="field-wrap"><input type="number" id="ye-medical" value="0" placeholder="0"><span class="field-unit">원</span></div></div>
+                        <div class="form-group"><label class="form-label">교육비</label><div class="field-wrap"><input type="number" id="ye-edu" value="0" placeholder="0"><span class="field-unit">원</span></div></div>
+                        <div class="form-group"><label class="form-label">기부금</label><div class="field-wrap"><input type="number" id="ye-donation" value="0" placeholder="0"><span class="field-unit">원</span></div></div>
+                        <div class="form-group"><label class="form-label">신용카드</label><div class="field-wrap"><input type="number" id="ye-credit" value="12000000" placeholder="0"><span class="field-unit">원</span></div></div>
+                        <div class="form-group span-2"><label class="form-label">체크카드 · 현금영수증</label><div class="field-wrap"><input type="number" id="ye-debit" value="5000000" placeholder="0"><span class="field-unit">원</span></div></div>
                     </div>
-                    <div class="form-group span-2" style="margin-top:20px;">
-                        <label class="form-label" style="margin-bottom:10px;">추가 공제 항목</label>
+
+                    <div class="check-section">
+                        <div class="check-section-label">추가 세액공제 항목 선택</div>
                         <div class="check-group">
                             <label class="check-item" onclick="toggleCheck(this)"><span class="check-dot"></span><input type="checkbox" id="ye-pension">연금저축</label>
                             <label class="check-item on" onclick="toggleCheck(this)"><span class="check-dot"></span><input type="checkbox" id="ye-housing" checked>주택청약</label>
-                            <label class="check-item" onclick="toggleCheck(this)"><span class="check-dot"></span><input type="checkbox" id="ye-isa">ISA 계좌</label>
-                            <label class="check-item" onclick="toggleCheck(this)"><span class="check-dot"></span><input type="checkbox" id="ye-irp">IRP (퇴직연금)</label>
+                            <label class="check-item" onclick="toggleCheck(this)"><span class="check-dot"></span><input type="checkbox" id="ye-isa">ISA</label>
+                            <label class="check-item" onclick="toggleCheck(this)"><span class="check-dot"></span><input type="checkbox" id="ye-irp">IRP</label>
                         </div>
                     </div>
+
                     <button class="calc-btn" onclick="calcYearend()">
-                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                        환급액 계산
+                        <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        환급액 계산하기
                     </button>
                 </div>
             </div>
 
             <div class="disclaimer">
                 <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                본 계산기는 참고용이며 실제 세액과 차이가 있을 수 있습니다. 정확한 금액은 홈택스(국세청)를 통해 확인하세요.
+                본 계산기는 참고용이며 실제 세액과 차이가 있을 수 있습니다. 정확한 금액은 국세청 홈택스를 통해 확인하세요.
             </div>
         </div>
 
         <div class="panel-right" id="right-yearend">
             <div class="result-empty" id="empty-yearend">
-                <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
-                <p>값을 입력하고<br>계산 버튼을 눌러주세요</p>
+                <div class="result-empty-icon">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+                </div>
+                <p class="result-empty-title">계산 결과가 여기에 표시됩니다</p>
+                <p class="result-empty-sub">좌측 값을 입력하고<br>계산 버튼을 눌러주세요</p>
             </div>
             <div class="result-card" id="result-yearend">
+                <div class="result-card-bg"></div>
                 <div class="result-main">
-                    <div class="result-kicker">예상 결과</div>
+                    <div class="result-kicker">연말정산 예상 결과</div>
                     <div class="result-amount" id="ye-amount">0</div>
                     <div class="result-label" id="ye-result-label">계산 중...</div>
                 </div>
+                <div class="result-divider"></div>
                 <div class="result-breakdown">
-                    <div class="breakdown-row"><span class="bd-label">과세표준</span><span class="bd-value" id="ye-taxbase">—</span></div>
-                    <div class="breakdown-row"><span class="bd-label">산출세액</span><span class="bd-value" id="ye-tax">—</span></div>
-                    <div class="breakdown-row"><span class="bd-label">원천징수액</span><span class="bd-value" id="ye-paid-show">—</span></div>
-                    <div class="breakdown-row"><span class="bd-label">지방소득세 포함</span><span class="bd-value accent" id="ye-final">—</span></div>
+                    <div class="breakdown-row">
+                        <span class="bd-label">과세표준</span>
+                        <span class="bd-value" id="ye-taxbase">—</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="bd-label">산출세액</span>
+                        <span class="bd-value" id="ye-tax">—</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="bd-label">기납부 세액</span>
+                        <span class="bd-value" id="ye-paid-show">—</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="bd-label">지방소득세 포함 최종</span>
+                        <span class="bd-value accent" id="ye-final">—</span>
+                    </div>
                 </div>
             </div>
             <div class="info-strip" style="margin-top:12px;">
                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                <span>산출 기준: 근로소득공제 → 인적공제 → 소득공제 → 세율 적용 → 세액공제 순서로 계산됩니다.</span>
+                <span>근로소득공제 → 인적공제 → 소득공제 → 세율 적용 → 세액공제 순으로 계산됩니다.</span>
             </div>
         </div>
     </div>
@@ -429,10 +815,20 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
     <!-- ━━━━━ 퇴직금 ━━━━━ -->
     <div class="calc-panel" id="panel-severance">
         <div class="panel-left">
+
+            <div class="section-label-row">
+                <span class="step-badge">STEP 1</span>
+                <span class="section-title-text">근무 기간</span>
+            </div>
             <div class="input-card">
                 <div class="card-header">
-                    <div class="card-header-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-                    <span class="card-header-title">근무 기간</span>
+                    <div class="card-header-icon">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </div>
+                    <div>
+                        <div class="card-header-title">재직 기간 설정</div>
+                        <div class="card-header-sub">입사일과 퇴사일을 입력하세요</div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="form-grid">
@@ -442,42 +838,56 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
                 </div>
             </div>
 
+            <div class="section-label-row" style="margin-top:28px">
+                <span class="step-badge">STEP 2</span>
+                <span class="section-title-text">급여 정보</span>
+            </div>
             <div class="input-card">
                 <div class="card-header">
-                    <div class="card-header-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-                    <span class="card-header-title">급여 정보</span>
+                    <div class="card-header-icon">
+                        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <div>
+                        <div class="card-header-title">평균임금 산정</div>
+                        <div class="card-header-sub">최근 3개월 기준</div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="form-grid">
                         <div class="form-group"><label class="form-label">최근 3개월 총 급여</label><div class="field-wrap"><input type="number" id="sv-salary3" value="12000000"><span class="field-unit">원</span></div></div>
-                        <div class="form-group"><label class="form-label">최근 3개월 근무 일수</label><div class="field-wrap"><input type="number" id="sv-days3" value="92"><span class="field-unit">일</span></div></div>
+                        <div class="form-group"><label class="form-label">최근 3개월 근무일수</label><div class="field-wrap"><input type="number" id="sv-days3" value="92"><span class="field-unit">일</span></div></div>
                         <div class="form-group"><label class="form-label">연간 상여금</label><div class="field-wrap"><input type="number" id="sv-bonus" value="0"><span class="field-unit">원</span></div></div>
                         <div class="form-group"><label class="form-label">연간 연차수당</label><div class="field-wrap"><input type="number" id="sv-leave" value="0"><span class="field-unit">원</span></div></div>
                     </div>
                     <button class="calc-btn" onclick="calcSeverance()">
-                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                        퇴직금 계산
+                        <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        퇴직금 계산하기
                     </button>
                 </div>
             </div>
 
             <div class="disclaimer">
                 <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                퇴직소득세는 간이세율을 적용한 추정값이며, 실제와 다를 수 있습니다.
+                퇴직소득세는 간이세율 적용 추정값이며 실제와 다를 수 있습니다.
             </div>
         </div>
 
         <div class="panel-right">
             <div class="result-empty" id="empty-severance">
-                <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
-                <p>값을 입력하고<br>계산 버튼을 눌러주세요</p>
+                <div class="result-empty-icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+                </div>
+                <p class="result-empty-title">계산 결과가 여기에 표시됩니다</p>
+                <p class="result-empty-sub">좌측 값을 입력하고<br>계산 버튼을 눌러주세요</p>
             </div>
             <div class="result-card" id="result-severance">
+                <div class="result-card-bg"></div>
                 <div class="result-main">
                     <div class="result-kicker">퇴직금 (세전)</div>
                     <div class="result-amount positive" id="sv-amount">0</div>
                     <div class="result-label">예상 퇴직금 총액</div>
                 </div>
+                <div class="result-divider"></div>
                 <div class="result-breakdown">
                     <div class="breakdown-row"><span class="bd-label">근속연수</span><span class="bd-value" id="sv-years">—</span></div>
                     <div class="breakdown-row"><span class="bd-label">1일 평균임금</span><span class="bd-value" id="sv-daily">—</span></div>
@@ -491,55 +901,64 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
     <!-- ━━━━━ 건강보험료 ━━━━━ -->
     <div class="calc-panel" id="panel-health">
         <div class="panel-left">
+
+            <div class="section-label-row">
+                <span class="step-badge">STEP 1</span>
+                <span class="section-title-text">보수월액 입력</span>
+            </div>
             <div class="input-card">
                 <div class="card-header">
-                    <div class="card-header-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-                    <span class="card-header-title">급여 정보</span>
+                    <div class="card-header-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <div>
+                        <div class="card-header-title">월 급여 설정</div>
+                        <div class="card-header-sub">세전 월급을 슬라이더 또는 직접 입력</div>
+                    </div>
                 </div>
                 <div class="card-body">
-                    <div class="form-grid">
-                        <div class="form-group span-2">
-                            <label class="form-label">월 보수월액 (세전 월급)</label>
-                            <div class="range-field">
-                                <div class="range-display">
-                                    <span class="range-value" id="range-display">3,000,000</span>
-                                    <span class="range-limits">최대 15,000,000원</span>
-                                </div>
-                                <input type="range" id="hi-range" min="1000000" max="15000000" step="100000" value="3000000" oninput="syncRange(this.value)">
-                            </div>
-                        </div>
-                        <div class="form-group span-2">
-                            <label class="form-label">직접 입력</label>
-                            <div class="field-wrap"><input type="number" id="hi-salary" value="3000000" oninput="syncSalary(this.value)"><span class="field-unit">원</span></div>
-                        </div>
+                    <div class="salary-display-card">
+                        <div class="salary-display-label">월 보수월액</div>
+                        <div class="salary-display-value" id="range-display">3,000,000원</div>
                     </div>
+                    <div style="margin-top:16px">
+                        <input type="range" id="hi-range" min="1000000" max="15000000" step="100000" value="3000000" oninput="syncRange(this.value)">
+                        <div class="range-limits-row"><span>최소 100만원</span><span>최대 1,500만원</span></div>
+                    </div>
+                    <div class="divider-or"><span>또는 직접 입력</span></div>
+                    <div class="field-wrap"><input type="number" id="hi-salary" value="3000000" oninput="syncSalary(this.value)" placeholder="월급 입력"><span class="field-unit">원</span></div>
                     <button class="calc-btn" onclick="calcHealth()">
-                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                        보험료 계산
+                        <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        보험료 계산하기
                     </button>
                 </div>
             </div>
 
             <div class="info-strip">
                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                <span>건강보험료율 <strong>7.09%</strong> (2025년), 노인장기요양보험료는 건강보험료의 <strong>12.95%</strong>. 직장가입자 본인 부담은 50%입니다.</span>
+                <span>건강보험료율 <strong>7.09%</strong> (2025년 기준). 장기요양보험은 건강보험료의 <strong>12.95%</strong>. 직장가입자 본인은 50% 부담.</span>
             </div>
         </div>
 
         <div class="panel-right">
             <div class="result-empty" id="empty-health">
-                <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
-                <p>값을 입력하고<br>계산 버튼을 눌러주세요</p>
+                <div class="result-empty-icon">
+                    <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <p class="result-empty-title">계산 결과가 여기에 표시됩니다</p>
+                <p class="result-empty-sub">좌측 값을 입력하고<br>계산 버튼을 눌러주세요</p>
             </div>
             <div class="result-card" id="result-health">
+                <div class="result-card-bg"></div>
                 <div class="result-main">
-                    <div class="result-kicker">월 부담액 (건강+장기요양)</div>
+                    <div class="result-kicker">월 본인 부담액</div>
                     <div class="result-amount" id="hi-amount">0</div>
-                    <div class="result-label">본인 부담 합계</div>
+                    <div class="result-label">건강보험 + 장기요양보험</div>
                 </div>
+                <div class="result-divider"></div>
                 <div class="result-breakdown">
-                    <div class="breakdown-row"><span class="bd-label">건강보험료 (회사+본인)</span><span class="bd-value" id="hi-total">—</span></div>
-                    <div class="breakdown-row"><span class="bd-label">본인 부담 건강보험료</span><span class="bd-value" id="hi-self">—</span></div>
+                    <div class="breakdown-row"><span class="bd-label">건강보험 (회사+본인 합계)</span><span class="bd-value" id="hi-total">—</span></div>
+                    <div class="breakdown-row"><span class="bd-label">본인 부담 건강보험</span><span class="bd-value" id="hi-self">—</span></div>
                     <div class="breakdown-row"><span class="bd-label">장기요양보험료</span><span class="bd-value" id="hi-care">—</span></div>
                     <div class="breakdown-row"><span class="bd-label">연간 총 부담액</span><span class="bd-value accent" id="hi-annual">—</span></div>
                 </div>
@@ -550,22 +969,35 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
     <!-- ━━━━━ 실업급여 ━━━━━ -->
     <div class="calc-panel" id="panel-unemployment">
         <div class="panel-left">
+
+            <div class="section-label-row">
+                <span class="step-badge">STEP 1</span>
+                <span class="section-title-text">고용 정보 입력</span>
+            </div>
             <div class="input-card">
                 <div class="card-header">
-                    <div class="card-header-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
-                    <span class="card-header-title">고용 정보</span>
+                    <div class="card-header-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                    </div>
+                    <div>
+                        <div class="card-header-title">수급 자격 정보</div>
+                        <div class="card-header-sub">퇴직 전 고용보험 가입 내역</div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="form-grid">
-                        <div class="form-group"><label class="form-label">퇴직 전 3개월 평균 월급</label><div class="field-wrap"><input type="number" id="ub-salary" value="3500000"><span class="field-unit">원</span></div></div>
+                        <div class="form-group span-2">
+                            <label class="form-label">퇴직 전 3개월 평균 월급</label>
+                            <div class="field-wrap"><input type="number" id="ub-salary" value="3500000"><span class="field-unit">원</span></div>
+                        </div>
                         <div class="form-group">
-                            <label class="form-label">고용보험 가입 기간</label>
+                            <label class="form-label">고용보험 가입기간</label>
                             <div class="field-wrap">
                                 <select id="ub-period">
                                     <option value="150">1년 미만 — 150일</option>
-                                    <option value="180" selected>1년~3년 — 180일</option>
-                                    <option value="210">3년~5년 — 210일</option>
-                                    <option value="240">5년~10년 — 240일</option>
+                                    <option value="180" selected>1~3년 — 180일</option>
+                                    <option value="210">3~5년 — 210일</option>
+                                    <option value="240">5~10년 — 240일</option>
                                     <option value="270">10년 이상 — 270일</option>
                                 </select>
                             </div>
@@ -581,29 +1013,34 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
                         </div>
                     </div>
                     <button class="calc-btn" onclick="calcUnemployment()">
-                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                        실업급여 계산
+                        <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        실업급여 계산하기
                     </button>
                 </div>
             </div>
 
             <div class="info-strip">
                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                <span>1일 상한액 <strong>66,000원</strong>, 하한액 최저임금의 80% 적용 (2025년 기준). 비자발적 퇴사 + 180일 이상 가입이 기본 수급 조건입니다.</span>
+                <span>1일 상한 <strong>66,000원</strong> · 하한 최저임금의 80% (2025년). 비자발적 퇴사 + 180일 이상 가입이 기본 조건.</span>
             </div>
         </div>
 
         <div class="panel-right">
             <div class="result-empty" id="empty-unemployment">
-                <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
-                <p>값을 입력하고<br>계산 버튼을 눌러주세요</p>
+                <div class="result-empty-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                </div>
+                <p class="result-empty-title">계산 결과가 여기에 표시됩니다</p>
+                <p class="result-empty-sub">좌측 값을 입력하고<br>계산 버튼을 눌러주세요</p>
             </div>
             <div class="result-card" id="result-unemployment">
+                <div class="result-card-bg"></div>
                 <div class="result-main">
                     <div class="result-kicker">총 예상 실업급여</div>
                     <div class="result-amount" id="ub-amount">0</div>
-                    <div class="result-label">수급 기간 전체</div>
+                    <div class="result-label">전체 수급 기간 합계</div>
                 </div>
+                <div class="result-divider"></div>
                 <div class="result-breakdown">
                     <div class="breakdown-row"><span class="bd-label">1일 수급액</span><span class="bd-value" id="ub-daily">—</span></div>
                     <div class="breakdown-row"><span class="bd-label">수급 기간</span><span class="bd-value" id="ub-days">—</span></div>
@@ -617,14 +1054,24 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
     <!-- ━━━━━ 대출이자 ━━━━━ -->
     <div class="calc-panel" id="panel-loan">
         <div class="panel-left">
+
+            <div class="section-label-row">
+                <span class="step-badge">STEP 1</span>
+                <span class="section-title-text">대출 조건 입력</span>
+            </div>
             <div class="input-card">
                 <div class="card-header">
-                    <div class="card-header-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-4"/></svg></div>
-                    <span class="card-header-title">대출 정보</span>
+                    <div class="card-header-icon">
+                        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <div>
+                        <div class="card-header-title">대출 상품 정보</div>
+                        <div class="card-header-sub">원금, 금리, 기간 설정</div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="form-grid">
-                        <div class="form-group"><label class="form-label">대출 원금</label><div class="field-wrap"><input type="number" id="ln-principal" value="300000000"><span class="field-unit">원</span></div></div>
+                        <div class="form-group span-2"><label class="form-label">대출 원금</label><div class="field-wrap"><input type="number" id="ln-principal" value="300000000"><span class="field-unit">원</span></div></div>
                         <div class="form-group"><label class="form-label">연 이자율</label><div class="field-wrap"><input type="number" id="ln-rate" value="4.5" step="0.1"><span class="field-unit">%</span></div></div>
                         <div class="form-group">
                             <label class="form-label">대출 기간</label>
@@ -639,41 +1086,54 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group span-2">
                             <label class="form-label">상환 방식</label>
-                            <div class="field-wrap">
-                                <select id="ln-method">
-                                    <option value="equal" selected>원리금균등상환</option>
-                                    <option value="principal">원금균등상환</option>
-                                    <option value="bullet">만기일시상환</option>
-                                </select>
+                            <div class="repay-options" id="repay-options">
+                                <button type="button" class="repay-btn active" onclick="setRepay('equal',this)">
+                                    <span class="repay-name">원리금균등</span>
+                                    <span class="repay-desc">매달 같은 금액</span>
+                                </button>
+                                <button type="button" class="repay-btn" onclick="setRepay('principal',this)">
+                                    <span class="repay-name">원금균등</span>
+                                    <span class="repay-desc">초기 부담 큼</span>
+                                </button>
+                                <button type="button" class="repay-btn" onclick="setRepay('bullet',this)">
+                                    <span class="repay-name">만기일시</span>
+                                    <span class="repay-desc">이자만 납부</span>
+                                </button>
                             </div>
+                            <input type="hidden" id="ln-method" value="equal">
                         </div>
                     </div>
                     <button class="calc-btn" onclick="calcLoan()">
-                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                        월 납부액 계산
+                        <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        월 납부액 계산하기
                     </button>
                 </div>
             </div>
 
             <div class="info-strip">
                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                <span>원리금균등상환: 매달 동일 금액 납부. 원금균등상환: 초기 부담 크고 총이자 적음. 만기일시: 매달 이자만 납부.</span>
+                <span>원리금균등: 매달 동일 납부. 원금균등: 초기 부담 크고 총이자 적음. 만기일시: 매달 이자만 납부.</span>
             </div>
         </div>
 
         <div class="panel-right">
             <div class="result-empty" id="empty-loan">
-                <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
-                <p>값을 입력하고<br>계산 버튼을 눌러주세요</p>
+                <div class="result-empty-icon">
+                    <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <p class="result-empty-title">계산 결과가 여기에 표시됩니다</p>
+                <p class="result-empty-sub">좌측 값을 입력하고<br>계산 버튼을 눌러주세요</p>
             </div>
             <div class="result-card" id="result-loan">
+                <div class="result-card-bg"></div>
                 <div class="result-main">
                     <div class="result-kicker">월 납부액</div>
                     <div class="result-amount" id="ln-amount">0</div>
                     <div class="result-label" id="ln-method-label">원리금균등상환 기준</div>
                 </div>
+                <div class="result-divider"></div>
                 <div class="result-breakdown">
                     <div class="breakdown-row"><span class="bd-label">총 납부액</span><span class="bd-value" id="ln-total">—</span></div>
                     <div class="breakdown-row"><span class="bd-label">총 이자</span><span class="bd-value neg" id="ln-interest">—</span></div>
@@ -700,20 +1160,89 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
 </footer>
 
 <script>
-// 모바일 UI 토글
+// ── 모바일 UI 초기화 ──
 (function() {
-    const searchBtn = document.getElementById('m-search-toggle');
-    const searchBox = document.getElementById('global-search-box');
-    const menuBtn = document.getElementById('m-menu-toggle');
-    const sidebar = document.getElementById('mobile-sidebar');
-    const overlay = document.getElementById('sidebar-overlay');
-    const closeBtn = document.getElementById('m-sidebar-close');
-    if(searchBtn) searchBtn.onclick = (e) => { e.stopPropagation(); searchBox.classList.toggle('active'); };
-    if(menuBtn) menuBtn.onclick = () => { sidebar.classList.add('active'); overlay.classList.add('active'); };
-    const closeMenu = () => { sidebar.classList.remove('active'); overlay.classList.remove('active'); };
-    if(closeBtn) closeBtn.onclick = closeMenu;
-    if(overlay) overlay.onclick = closeMenu;
+    function init() {
+        var searchToggleBtn = document.getElementById('m-search-toggle');
+        var searchBox       = document.getElementById('global-search-box');
+        var searchInput     = document.getElementById('search-input');
+        var menuBtn         = document.getElementById('m-menu-toggle');
+        var sidebar         = document.getElementById('mobile-sidebar');
+        var overlay         = document.getElementById('sidebar-overlay');
+        var closeBtn        = document.getElementById('m-sidebar-close');
+
+        if (!menuBtn || !sidebar || !overlay) return;
+
+        // ── 메뉴 열기 ──
+        menuBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // ── 메뉴 닫기 ──
+        function closeMenu() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+
+        // ── 검색 토글 ──
+        if (searchToggleBtn && searchBox) {
+            searchToggleBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var isOpen = searchBox.classList.contains('active');
+                searchBox.classList.toggle('active');
+                if (!isOpen && searchInput) {
+                    setTimeout(function() { searchInput.focus(); }, 300);
+                }
+            });
+        }
+
+        // ── 검색 입력 → index.html?q=… 이동 ──
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                var q = this.value;
+                if (q.length > 0) {
+                    window.location.href = '/index.html?q=' + encodeURIComponent(q);
+                }
+            });
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    var q = this.value.trim();
+                    if (q.length > 0) {
+                        window.location.href = '/index.html?q=' + encodeURIComponent(q);
+                    }
+                }
+            });
+        }
+
+        // ── ESC 닫기 ──
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMenu();
+                if (searchBox) searchBox.classList.remove('active');
+            }
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
 })();
+
+function setRepay(val, btn) {
+    document.getElementById('ln-method').value = val;
+    document.querySelectorAll('.repay-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+}
 
 function switchPanel(id, btn) {
     document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
@@ -733,11 +1262,21 @@ document.querySelectorAll('.check-item').forEach(l => {
 function syncRange(val) {
     const v = Math.min(15000000, Math.max(1000000, +val || 1000000));
     document.getElementById('hi-range').value = v;
-    document.getElementById('range-display').textContent = v.toLocaleString('ko-KR');
+    const fmt = v.toLocaleString('ko-KR') + '원';
+    document.getElementById('range-display').textContent = fmt;
+    document.getElementById('hi-salary').value = v;
+    // 슬라이더 채움 색 업데이트
+    const pct = ((v - 1000000) / (15000000 - 1000000)) * 100;
+    document.getElementById('hi-range').style.background =
+        `linear-gradient(to right, var(--accent) ${pct}%, #e0e7ef ${pct}%)`;
 }
 function syncSalary(val) {
-    document.getElementById('hi-salary').value = val;
-    document.getElementById('range-display').textContent = (+val).toLocaleString('ko-KR');
+    const v = Math.min(15000000, Math.max(1000000, +val || 1000000));
+    document.getElementById('hi-range').value = v;
+    document.getElementById('range-display').textContent = (+val).toLocaleString('ko-KR') + '원';
+    const pct = ((v - 1000000) / (15000000 - 1000000)) * 100;
+    document.getElementById('hi-range').style.background =
+        `linear-gradient(to right, var(--accent) ${pct}%, #e0e7ef ${pct}%)`;
 }
 const won = n => Math.round(n).toLocaleString('ko-KR') + '원';
 const wonShort = n => {
