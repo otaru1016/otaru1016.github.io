@@ -1206,21 +1206,20 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
         // ── 검색 입력 → index.html?q=… 이동 ──
         if (searchInput) {
-            searchInput.addEventListener('input', function() {
-                var q = this.value;
-                if (q.length > 0) {
-                    window.location.href = '/index.html?q=' + encodeURIComponent(q);
-                }
-            });
-            searchInput.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') {
-                    var q = this.value.trim();
-                    if (q.length > 0) {
-                        window.location.href = '/index.html?q=' + encodeURIComponent(q);
-                    }
-                }
-            });
+    // ❌ 기존: input 이벤트 제거
+    // searchInput.addEventListener('input', function() { ... });
+    
+    // ✅ 개선: Enter 키만 반응
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            var q = this.value.trim();
+            if (q.length > 0) {
+                window.location.href = '/index.html?q=' + encodeURIComponent(q);
+            }
         }
+    });
+}
 
         // ── ESC 닫기 ──
         document.addEventListener('keydown', function(e) {
