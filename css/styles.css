@@ -116,7 +116,7 @@ img { display: block; width: 100%; height: auto; }
     font-family: 'OneStoreMobileGothicTitleFont', sans-serif !important;
 }
 .page-top h1 strong { font-weight: 300; color: #60c9f0; }
-.page-top-desc {font-size: 16px;color: #94a3b8;font-weight: 400;margin-bottom: 48px;line-height: 1.6;word-break: keep-all;}
+.page-top-desc {font-size: 16px;color: #94a3b8;font-weight: 400;margin-bottom: 48px;line-height: 1.2;word-break: keep-all;}
 
 /* ── 탭 네비 ── */
 .tab-nav {
