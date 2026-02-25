@@ -127,7 +127,7 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .hero{padding:60px 20px 50px}
     .hero h1{font-size:2.2rem}
     .hero-sub{font-size:1rem}
-    .hero-stats-row{display:grid;grid-template-columns:repeat(3, 1fr);width:100%;max-width:400px;margin:0 auto;border-radius:12px;padding:10px 0}
+    .hero-stats-row {display: grid;grid-template-columns: repeat(3, 1fr);width: 100%;max-width: 340px;margin: 0 auto;border-radius: 12px;margin-top: 20px;}
     .stat-item{padding:8px 4px}
     .stat-item::after{display:block !important; right:0; top:25%; height:50%; width:1px; background:rgba(255,255,255,0.1)}
     .stat-item:last-child::after{display:none !important}
@@ -205,47 +205,48 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 
 <!-- 히어로 슬라이더 섹션 (경제/재테크 전문화) -->
 <section class="hero swiper mySwiper">
-    <div class="swiper-wrapper">
+      <div class="swiper-wrapper">
 
-        <!-- 슬라이드 1: 메인 (자산관리/경제) -->
-        <div class="swiper-slide">
-            <div class="hero-inner">
-                <span class="hero-tag">지식 · 인사이트 · 실용 경제</span>
-                <h1>복잡한 경제와 세금,<br><span class="text-glow" style="color: #008dc4;">가장 명쾌하게 정리합니다</span></h1>
-               <div class="hero-stats-row">
-                  <div class="stat-item"><span class="stat-num stat-posts">0</span><span class="stat-label">발행 콘텐츠</span></div>
-                  <div class="stat-item"><span class="stat-num stat-cats">0</span><span class="stat-label">전문 카테고리</span></div>
-                  <div class="stat-item"><span class="stat-num">NEW</span><span class="stat-label">업데이트</span></div>
+          <!-- 슬라이드 1: 경제/세금 상식 (학습/정리 느낌) -->
+          <div class="swiper-slide">
+              <div class="hero-inner">
+                  <span class="hero-tag">알아두면 나쁠 것 없는 경제 상식</span>
+                  <h1>복잡한 경제 뉴스와 세금 이야기,<br><span class="text-glow" style="color: #008dc4;">읽기 편하게 핵심만 요약해둡니다</span></h1>
+                 <div class="hero-stats-row">
+                    <div class="stat-item"><span class="stat-num stat-posts">0</span><span class="stat-label">기록된 글</span></div>
+                    <div class="stat-item"><span class="stat-num stat-cats">0</span><span class="stat-label">관심 카테고리</span></div>
+                    <div class="stat-item"><span class="stat-num">NEW</span><span class="stat-label">최근 업데이트</span></div>
+                </div>
               </div>
-            </div>
-        </div>
+          </div>
 
-        <!-- 슬라이드 2: 투자/부동산 (그린톤) -->
-        <div class="swiper-slide">
-            <div class="hero-inner">
-                <span class="hero-tag" style="color: #10b981; border-color: rgba(16,185,129,0.2); background: rgba(16,185,129,0.1);">주식 · 부동산 · 트렌드</span>
-                <h1>성공적인 투자의 첫걸음,<br><span class="text-glow" style="color: #10b981;">데이터로 시장을 읽어드립니다</span></h1>
-               <div class="hero-stats-row">
-                  <div class="stat-item"><span class="stat-num stat-posts">0</span><span class="stat-label">발행 콘텐츠</span></div>
-                  <div class="stat-item"><span class="stat-num stat-cats">0</span><span class="stat-label">전문 카테고리</span></div>
-                  <div class="stat-item"><span class="stat-num">NEW</span><span class="stat-label">업데이트</span></div>
+          <!-- 슬라이드 2: 투자/부동산 (정보 수집/공유 느낌) -->
+          <div class="swiper-slide">
+              <div class="hero-inner">
+                  <span class="hero-tag" style="color: #10b981; border-color: rgba(16,185,129,0.2); background: rgba(16,185,129,0.1);">요즘 세상 돌아가는 흐름 체크</span>
+                  <h1>부동산부터 주식까지 다양한 소식들,<br><span class="text-glow" style="color: #10b981;">여기저기 흩어진 정보를 한데 모았습니다</span></h1>
+                 <div class="hero-stats-row">
+                    <div class="stat-item"><span class="stat-num stat-posts">0</span><span class="stat-label">기록된 글</span></div>
+                    <div class="stat-item"><span class="stat-num stat-cats">0</span><span class="stat-label">관심 카테고리</span></div>
+                    <div class="stat-item"><span class="stat-num">NEW</span><span class="stat-label">최근 업데이트</span></div>
+                </div>
               </div>
-            </div>
-        </div>
+          </div>
 
-        <!-- 슬라이드 3: 세금/절세/생활금융 (골드톤) -->
-        <div class="swiper-slide">
-            <div class="hero-inner">
-                <span class="hero-tag" style="color: #f59e0b; border-color: rgba(245,158,11,0.2); background: rgba(245,158,11,0.1);">절세 · 연말정산 · 생활금융</span>
-                <h1>아는 만큼 보이는 돈,<br><span class="text-glow" style="color: #f59e0b;">새는 돈을 완벽하게 막아드립니다</span></h1>
-               <div class="hero-stats-row">
-                  <div class="stat-item"><span class="stat-num stat-posts">0</span><span class="stat-label">발행 콘텐츠</span></div>
-                  <div class="stat-item"><span class="stat-num stat-cats">0</span><span class="stat-label">전문 카테고리</span></div>
-                  <div class="stat-item"><span class="stat-num">NEW</span><span class="stat-label">업데이트</span></div>
+          <!-- 슬라이드 3: 생활 금융 (기록/메모 느낌) -->
+          <div class="swiper-slide">
+              <div class="hero-inner">
+                  <span class="hero-tag" style="color: #f59e0b; border-color: rgba(245,158,11,0.2); background: rgba(245,158,11,0.1);">몰라서 놓치면 아까운 팁들</span>
+                  <h1>일상에서 마주하는 소소한 금융 팁들,<br><span class="text-glow" style="color: #f59e0b;">잊어버리기 전에 미리 메모하고 공유합니다</span></h1>
+                 <div class="hero-stats-row">
+                    <div class="stat-item"><span class="stat-num stat-posts">0</span><span class="stat-label">기록된 글</span></div>
+                    <div class="stat-item"><span class="stat-num stat-cats">0</span><span class="stat-label">관심 카테고리</span></div>
+                    <div class="stat-item"><span class="stat-num">NEW</span><span class="stat-label">최근 업데이트</span></div>
+                </div>
               </div>
-            </div>
-        </div>
+          </div>
 
+      </div>
     </div>
     <div class="swiper-pagination"></div>
 </section>
@@ -383,7 +384,7 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 
 <script>
 (function() {
-    const posts = [{"id":1772035480065,"title":"(몰랐으면 손해) 문화비·체육시설 소득공제 신청 방법과 인정 항목 총정리","filename":"contents/몰랐으면-손해-문화비체육시설-소득공제-신청-방법과-인정-항목-총정리.html","excerpt":"도서·공연·영화·헬스장 이용료도 소득공제가 된다는 사실 알고 계셨나요? 총급여 7천만 원 이하 근로자라면 놓치면 무조건 손해! 문화비·체육시설 소득공제 신청 방법부터 인정 항목까지 한눈에 정리했어요.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","절세","환급","세금"],"thumbnail":"https://blogglow.com/images/thumb-1772035480065.webp"},{"id":1772035480064,"title":"(13월의 월급 만들기) 신용카드·체크카드 소득공제 25% 황금비율 전략 2026","filename":"contents/13월의-월급-만들기-신용카드체크카드-소득공제-25-황금비율-전략-2026.html","excerpt":"신용카드 소득공제, 무조건 많이 쓴다고 돌려받는 게 아니에요. 총급여의 25%를 기준으로 신용카드와 체크카드를 전략적으로 나눠 쓰면 환급액이 확 달라집니다. 2026년 최신 전략 총정리.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","절세","환급","재테크"],"thumbnail":"https://blogglow.com/images/thumb-1772035480064.webp"},{"id":1772035480063,"title":"(인사담당자 필독) 중도입사자 연말정산 소득공제 완벽 가이드 2026","filename":"contents/인사담당자-필독-중도입사자-연말정산-소득공제-완벽-가이드-2026.html","excerpt":"중도입사자 연말정산, 전 직장 소득 합산부터 항목별 공제 적용 범위까지 인사담당자가 꼭 알아야 할 핵심만 정리했어요. 실수 없이 정확하게 처리하는 방법을 알려드릴게요.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","세금","절세","환급"],"thumbnail":"https://blogglow.com/images/thumb-1772035480063.webp"}];
+    const posts = [{"id":1772036432778,"title":"(몰랐으면 손해) 문화비·체육시설 소득공제 신청 방법과 인정 항목 총정리","filename":"contents/몰랐으면-손해-문화비체육시설-소득공제-신청-방법과-인정-항목-총정리.html","excerpt":"도서·공연·영화·헬스장 이용료도 소득공제가 된다는 사실 알고 계셨나요? 총급여 7천만 원 이하 근로자라면 놓치면 무조건 손해! 문화비·체육시설 소득공제 신청 방법부터 인정 항목까지 한눈에 정리했어요.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","절세","환급","세금"],"thumbnail":"https://blogglow.com/images/thumb-1772036432778.webp"},{"id":1772036432777,"title":"(13월의 월급 만들기) 신용카드·체크카드 소득공제 25% 황금비율 전략 2026","filename":"contents/13월의-월급-만들기-신용카드체크카드-소득공제-25-황금비율-전략-2026.html","excerpt":"신용카드 소득공제, 무조건 많이 쓴다고 돌려받는 게 아니에요. 총급여의 25%를 기준으로 신용카드와 체크카드를 전략적으로 나눠 쓰면 환급액이 확 달라집니다. 2026년 최신 전략 총정리.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","절세","환급","재테크"],"thumbnail":"https://blogglow.com/images/thumb-1772036432777.webp"},{"id":1772036432776,"title":"(인사담당자 필독) 중도입사자 연말정산 소득공제 완벽 가이드 2026","filename":"contents/인사담당자-필독-중도입사자-연말정산-소득공제-완벽-가이드-2026.html","excerpt":"중도입사자 연말정산, 전 직장 소득 합산부터 항목별 공제 적용 범위까지 인사담당자가 꼭 알아야 할 핵심만 정리했어요. 실수 없이 정확하게 처리하는 방법을 알려드릴게요.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","세금","절세","환급"],"thumbnail":"https://blogglow.com/images/thumb-1772036432776.webp"}];
     const PER_PAGE = 12;
     let currentPage = 1;
     let filteredPosts = [];
