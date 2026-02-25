@@ -34,221 +34,232 @@
     font-display: swap;
 }
 :root {
-    --bg-page: #f9fafb;
-    --text-main: #111827;
-    --text-sub: #4b5563;
-    --text-light: #9ca3af;
+    --bg-page: #f8fafc;
+    --text-main: #0f172a;
+    --text-sub: #334155;
+    --text-light: #64748b;
     --primary: #008dc4;
     --primary-light: #eff6ff;
-    --border: #e5e7eb;
-    --bg-gray: #f9fafb;
-    --header-h: 72px;
+    --border: #e2e8f0;
+    --header-h: 76px;
     --surface: #ffffff;
-    --surface-2: #f7f7f7;
-    --rule: #e4e4e4;
-    --rule-light: #f0f0f0;
     --accent: #008dc4;
-    --accent-dim: rgba(0,141,196,0.08);
-    --positive: #059669;
-    --negative: #dc2626;
-    --ink: #0d0d0d;
-    --ink-2: #3a3a3a;
-    --ink-3: #6b6b6b;
-    --ink-4: #a0a0a0;
+    --positive: #10b981;
+    --negative: #ef4444;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body {
     font-family: 'Pretendard', -apple-system, sans-serif;
     background: var(--bg-page);
     color: var(--text-main);
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 17px; /* 기본 폰트 사이즈 상향 */
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
     word-break: keep-all;
 }
-a { text-decoration: none; color: inherit; transition: opacity 0.2s; }
-a:hover { opacity: 0.7; }
+a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
+a:hover { opacity: 0.8; }
 img { display: block; width: 100%; height: auto; }
 
 /* ── 공지바 ── */
-.notice-bar { background: #292929; color: #fff; text-align: center; padding: 10px 24px; font-size: 13px; letter-spacing: -0.01em; }
+.notice-bar { background: #1e293b; color: #f8fafc; text-align: center; padding: 12px 24px; font-size: 14px; font-weight: 500; letter-spacing: -0.01em; }
 
 /* ── 헤더 ── */
-.site-header { position: sticky; top: 0; z-index: 500; background: rgb(0 0 0 / 95%); backdrop-filter: blur(10px); isolation: isolate; }
-.header-inner { max-width: 1140px; margin: 0 auto; padding: 0 24px; height: var(--header-h); display: flex; align-items: center; justify-content: space-between; position: relative; }
+.site-header { position: sticky; top: 0; z-index: 500; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+.header-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; height: var(--header-h); display: flex; align-items: center; justify-content: space-between; position: relative; }
 .logo { font-size: 26px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 4px; }
-.logo img { height: 32px; width: auto; }
-.nav { display: flex; gap: 24px; }
-.nav a { font-size: 15px; font-weight: 600; color: #94a3b8; transition: 0.2s; }
-.nav a:hover { color: #fff; opacity: 1; }
+.logo img { height: 34px; width: auto; }
+.nav { display: flex; gap: 32px; }
+.nav a { font-size: 16px; font-weight: 600; color: #94a3b8; transition: 0.2s; }
+.nav a:hover { color: #fff; }
 .nav a.active { color: #fff; }
-.header-utils { display: flex; align-items: center; gap: 12px; }
-.search-box { position: relative; width: 240px; transition: all 0.3s; }
-.search-input { width: 100%; padding: 8px 16px 8px 36px; font-size: 14px; background-color: #383b3f; border: 1px solid transparent; border-radius: 20px; color: #fff; outline: none; }
-.search-input:focus { background-color: #fff; color: #000; }
-.search-icon-pos { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #94a3b8; pointer-events: none; }
-.m-btn { display: none; background: none; border: none; color: #fff; cursor: pointer; padding: 8px; font-size: 24px; align-items: center; justify-content: center; }
+.header-utils { display: flex; align-items: center; gap: 16px; }
+.search-box { position: relative; width: 260px; transition: all 0.3s; }
+.search-input { width: 100%; padding: 10px 16px 10px 40px; font-size: 15px; background-color: rgba(255,255,255,0.1); border: 1px solid transparent; border-radius: 24px; color: #fff; outline: none; transition: 0.2s; }
+.search-input:focus { background-color: #fff; color: #000; box-shadow: 0 0 0 3px rgba(0,141,196,0.3); }
+.search-input::placeholder { color: #94a3b8; }
+.search-icon-pos { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #94a3b8; pointer-events: none; font-size: 18px; }
+.m-btn { display: none; background: none; border: none; color: #fff; cursor: pointer; padding: 8px; font-size: 26px; align-items: center; justify-content: center; }
 
 /* ── 모바일 사이드바 ── */
 .mobile-sidebar {
-    position: fixed; top: 0; right: 0; width: 280px; height: 100%;
+    position: fixed; top: 0; right: 0; width: 300px; height: 100%;
     background: #fff; z-index: 9999;
-    box-shadow: -8px 0 32px rgba(0,0,0,0.25);
+    box-shadow: -8px 0 40px rgba(0,0,0,0.15);
     padding: 40px 24px;
-    display: flex; flex-direction: column; gap: 20px;
+    display: flex; flex-direction: column; gap: 24px;
     transform: translateX(100%);
     transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
 }
 .mobile-sidebar.active { transform: translateX(0) !important; }
-.m-sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-.m-sidebar-header img { height: 24px; width: auto; }
+.m-sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.m-sidebar-header img { height: 28px; width: auto; }
 .m-nav-list { display: flex; flex-direction: column; gap: 0; }
-.m-nav-list a { font-size: 16px; font-weight: 500; color: #191f28; border-bottom: 1px solid #f1f5f9; padding: 14px 0; display: block; }
+.m-nav-list a { font-size: 18px; font-weight: 600; color: #0f172a; border-bottom: 1px solid #f1f5f9; padding: 16px 0; display: block; }
 .sidebar-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.55); z-index: 9998;
+    background: rgba(15,23,42,0.6); z-index: 9998;
+    backdrop-filter: blur(4px);
     opacity: 0; visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
-    -webkit-tap-highlight-color: transparent;
 }
 .sidebar-overlay.active { opacity: 1; visibility: visible; }
 
 /* ── 페이지 상단 (히어로) ── */
-.page-top { background: #0f172a; padding: 64px 32px 64px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.page-top { background: #0f172a; padding: 90px 32px 100px; border-bottom: 1px solid rgba(255,255,255,0.06); }
 .page-top-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
 .page-top-kicker {
-    font-size: 12px; color: var(--accent);
-    letter-spacing: 0.12em; text-transform: uppercase;
-    margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 700;
+    font-size: 14px; color: #60c9f0;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 24px; display: flex; align-items: center; justify-content: center; gap: 12px; font-weight: 800;
 }
-.page-top-kicker::before, .page-top-kicker::after { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
+.page-top-kicker::before, .page-top-kicker::after { content: ''; display: block; width: 32px; height: 1px; background: currentColor; opacity: 0.5; }
 .page-top h1 {
-    font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 300; letter-spacing: -0.04em;
-    line-height: 1.2; color: #fff; margin-bottom: 16px;
-    font-family: 'OneStoreMobileGothicTitleFont' !important;
+    font-size: clamp(2.6rem, 5vw, 3.8rem); font-weight: 300; letter-spacing: -0.03em;
+    line-height: 1.25; color: #fff; margin-bottom: 24px;
+    font-family: 'OneStoreMobileGothicTitleFont', sans-serif !important;
 }
-.page-top h1 strong { font-weight: 300; color: var(--accent); }
-.page-top-desc { font-size: 16px; color: #94a3b8; font-weight: 400; max-width: 520px; margin: 0 auto; line-height: 1.75; }
+.page-top h1 strong { font-weight: 300; color: #60c9f0; }
+.page-top-desc { font-size: 20px; color: #94a3b8; font-weight: 400; max-width: 600px; margin: 0 auto; line-height: 1.8; word-break: keep-all; }
 
-/* ── 메인 구조 (About 전용) ── */
+/* ── 메인 구조 ── */
 .about-main {
-    max-width: 1000px; margin: 0 auto;
-    padding: 60px 32px 100px;
-    display: flex; flex-direction: column; gap: 64px;
+    max-width: 1040px; margin: 0 auto;
+    padding: 100px 32px 140px;
+    display: flex; flex-direction: column; gap: 100px;
 }
-.about-section {}
-.about-grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.about-grid-3col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.about-grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.about-grid-3col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .align-center { align-items: center; }
 
-/* ── 컴포넌트 차용 ── */
-.section-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+/* ── 컴포넌트 업그레이드 ── */
+.section-label-row { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
 .step-badge {
-    font-size: 10px; font-weight: 800; color: var(--accent); letter-spacing: 0.12em;
-    background: rgba(0,141,196,0.1); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(0,141,196,0.2);
+    font-size: 12px; font-weight: 800; color: var(--accent); letter-spacing: 0.12em;
+    background: rgba(0,141,196,0.12); padding: 6px 14px; border-radius: 8px; border: 1px solid rgba(0,141,196,0.2);
 }
-.section-title-text { font-size: 15px; font-weight: 800; color: #475569; letter-spacing: -0.01em; }
+.section-title-text { font-size: 22px; font-weight: 800; color: #1e293b; letter-spacing: -0.02em; }
 
 .input-card {
-    background: var(--surface); border: 1px solid #eaeef2; border-radius: 16px;
-    overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 20px rgba(0,0,0,0.04);
-    transition: box-shadow 0.25s, transform 0.25s; height: 100%;
+    background: var(--surface); border: 1px solid #e2e8f0; border-radius: 20px;
+    overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02), 0 2px 4px -1px rgba(0,0,0,0.02);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; display: flex; flex-direction: column;
 }
 .input-card:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05); transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05), 0 10px 10px -5px rgba(0,0,0,0.02);
+    transform: translateY(-4px); border-color: #cbd5e1;
 }
-.card-header { padding: 20px 24px 16px; border-bottom: 1px solid #f0f2f5; display: flex; align-items: center; gap: 14px; background: linear-gradient(180deg, #ffffff 0%, #fafbfc 100%); }
+.card-header { 
+    padding: 28px 32px 20px; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: 18px; 
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); 
+}
 .card-header-icon {
-    width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
     background: rgba(0,141,196,0.08); color: var(--accent); flex-shrink: 0;
 }
-.card-header-icon svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.card-header-title { font-size: 15px; font-weight: 800; color: #1a1a2e; letter-spacing: -0.01em; }
-.card-header-sub { font-size: 14px; color: #94a3b8; font-weight: 400; margin-top: 2px; line-height: 1.5; }
-.card-body { padding: 24px; }
+.card-header-icon svg { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.card-header-title { font-size: 20px; font-weight: 800; color: #0f172a; letter-spacing: -0.02em; line-height: 1.3; }
+.card-header-sub { font-size: 16px; color: #64748b; font-weight: 500; margin-top: 6px; line-height: 1.6; }
+.card-body { padding: 28px 32px 32px; flex: 1; }
+.card-body p { font-size: 17px; line-height: 1.8; color: #475569; }
 
-.result-card { border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); position: relative; background: #0b1728; }
-.result-card.show { display: block; }
-.result-main { padding: 36px 28px 24px; position: relative; z-index: 1; }
+/* ── 결과(다크) 카드 ── */
+.result-card { border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); position: relative; background: #0b1728; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+.result-main { padding: 48px 40px 32px; position: relative; z-index: 1; }
 .result-kicker {
-    font-size: 12px; color: #60c9f0; letter-spacing: 0.18em; text-transform: uppercase;
-    margin-bottom: 16px; font-weight: 700; display: flex; align-items: center; gap: 8px;
+    font-size: 14px; color: #60c9f0; letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 20px; font-weight: 800; display: flex; align-items: center; gap: 10px;
 }
-.result-kicker::before { content: ''; width: 24px; height: 1.5px; background: currentColor; display: block; border-radius: 1px; }
-.result-amount { font-size: 3.2rem; font-weight: 200; color: #fff; letter-spacing: -0.06em; line-height: 1; margin-bottom: 10px; }
+.result-kicker::before { content: ''; width: 28px; height: 2px; background: currentColor; display: block; border-radius: 2px; }
+.result-amount { font-size: 4.2rem; font-weight: 200; color: #fff; letter-spacing: -0.04em; line-height: 1; margin-bottom: 16px; font-variant-numeric: tabular-nums; }
 .result-amount.positive { color: #34d399; }
-.result-label { font-size: 14px; color: rgba(255,255,255,0.4); font-weight: 500; line-height: 1.6; }
-.result-divider { height: 1px; background: rgba(255,255,255,0.05); }
-.result-breakdown { padding: 8px 28px 24px; display: flex; flex-direction: column; position: relative; z-index: 1; }
-.breakdown-row { display: flex; justify-content: space-between; align-items: center; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.result-label { font-size: 18px; color: rgba(255,255,255,0.6); font-weight: 500; line-height: 1.6; }
+.result-divider { height: 1px; background: rgba(255,255,255,0.08); }
+.result-breakdown { padding: 16px 40px 36px; display: flex; flex-direction: column; }
+.breakdown-row { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
 .breakdown-row:last-child { border-bottom: none; }
-.bd-label { font-size: 14px; color: rgba(255,255,255,0.4); font-weight: 400; line-height: 1.6; }
-.bd-value { font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 600; letter-spacing: -0.02em; line-height: 1.6; }
+.bd-label { font-size: 17px; color: rgba(255,255,255,0.5); font-weight: 500; }
+.bd-value { font-size: 18px; color: rgba(255,255,255,0.95); font-weight: 700; letter-spacing: -0.01em; }
 .bd-value.accent { color: #60c9f0; }
 
+/* ── 버튼 ── */
 .calc-btn {
-    padding: 16px 28px; background: linear-gradient(135deg, #008dc4 0%, #006fa4 100%);
-    color: #fff; border: none; border-radius: 12px; font-size: 16px; font-weight: 700;
-    cursor: pointer; letter-spacing: -0.01em; transition: all 0.2s;
-    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 20px 36px; background: linear-gradient(135deg, #008dc4 0%, #006fa4 100%);
+    color: #fff; border: none; border-radius: 14px; font-size: 18px; font-weight: 700;
+    cursor: pointer; letter-spacing: -0.01em; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex; align-items: center; justify-content: center; gap: 12px;
     font-family: 'Pretendard', sans-serif;
-    box-shadow: 0 4px 14px rgba(0,141,196,0.35), inset 0 1px 0 rgba(255,255,255,0.15);
+    box-shadow: 0 4px 14px rgba(0,141,196,0.35), inset 0 1px 0 rgba(255,255,255,0.2);
     position: relative; overflow: hidden; text-decoration: none;
 }
 .calc-btn::before {
     content: ''; position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, transparent 60%); pointer-events: none; border-radius: inherit;
+    background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, transparent 60%); pointer-events: none; border-radius: inherit;
 }
-.calc-btn svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-.calc-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,141,196,0.45), inset 0 1px 0 rgba(255,255,255,0.15); color: #fff; opacity: 1; }
+.calc-btn svg { width: 20px; height: 20px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.calc-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,141,196,0.45), inset 0 1px 0 rgba(255,255,255,0.2); color: #fff; }
 
 .calc-btn.outline-btn {
-    background: transparent; border: 1.5px solid rgba(255,255,255,0.25); box-shadow: none; color: #e2e8f0;
+    background: transparent; border: 2px solid rgba(255,255,255,0.3); box-shadow: none; color: #f8fafc;
 }
 .calc-btn.outline-btn::before { display: none; }
 .calc-btn.outline-btn svg { stroke: currentColor; }
-.calc-btn.outline-btn:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.5); color: #fff; }
+.calc-btn.outline-btn:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.6); color: #fff; }
+
+/* ── 약속 섹션 전용 디자인 ── */
+.promise-number {
+    font-size: 40px; font-weight: 900; color: rgba(0,141,196,0.15); line-height: 0.8; 
+    font-variant-numeric: tabular-nums; font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    flex-shrink: 0; margin-top: 4px; transition: color 0.3s;
+}
+.input-card:hover .promise-number { color: var(--accent); }
 
 /* ── 푸터 ── */
-.footer { background: #1a1a1a; color: #a1a1aa; padding: 60px 24px 24px; font-size: 14px; }
-.footer-inner { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
-.footer-brand p { margin-top: 12px; font-size: 13px; line-height: 1.6; color: #a1a1aa; }
-.footer-logo { font-size: 20px; font-weight: 800; color: #fff; }
-.footer-col h4 { color: #fff; font-size: 15px; font-weight: 700; margin-bottom: 16px; }
-.footer-col a { display: block; color: #a1a1aa; margin-bottom: 10px; font-size: 14px; transition: color 0.2s; }
-.footer-col a:hover { color: #fff; opacity: 1; }
-.footer-bottom { max-width: 1140px; margin: 0 auto; padding-top: 24px; border-top: 1px solid #333; text-align: center; font-size: 13px; color: #71717a; }
+.footer { background: #0f172a; color: #94a3b8; padding: 80px 32px 32px; font-size: 15px; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+.footer-brand p { margin-top: 16px; font-size: 15px; line-height: 1.7; color: #64748b; }
+.footer-logo { font-size: 24px; font-weight: 800; color: #fff; }
+.footer-col h4 { color: #f8fafc; font-size: 17px; font-weight: 700; margin-bottom: 20px; }
+.footer-col a { display: block; color: #94a3b8; margin-bottom: 12px; font-size: 15px; transition: color 0.2s; }
+.footer-col a:hover { color: #fff; }
+.footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 14px; color: #64748b; }
 
 /* ── 반응형 ── */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .about-grid-3col { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
-    .about-main { padding: 40px 20px 80px; gap: 56px; }
-    .about-grid-2col, .about-grid-3col { grid-template-columns: 1fr; gap: 16px; }
+    .page-top { padding: 70px 24px 80px; }
+    .about-main { padding: 60px 24px 100px; gap: 70px; }
+    .about-grid-2col, .about-grid-3col { grid-template-columns: 1fr; gap: 24px; }
+    
     .nav { display: none !important; }
     .search-box {
         display: none !important; position: fixed !important; top: var(--header-h) !important;
-        left: 0; width: 100% !important; background: #111 !important; padding: 10px 20px !important;
-        border-bottom: 1px solid #333 !important; z-index: 600 !important;
-        transform: translateY(-110%) !important; opacity: 0 !important; transition: transform 0.25s ease, opacity 0.25s ease !important; pointer-events: none !important;
+        left: 0; width: 100% !important; background: #0f172a !important; padding: 12px 24px !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1) !important; z-index: 600 !important;
+        transform: translateY(-110%) !important; opacity: 0 !important; transition: transform 0.25s ease, opacity 0.25s ease !important;
     }
-    .search-box.active { display: block !important; transform: translateY(0) !important; opacity: 1 !important; pointer-events: auto !important; }
-    .search-icon-pos { left: 36px; }
-    .search-input { background: #2a2a2a !important; color: #fff !important; border-radius: 10px !important; padding: 10px 16px 10px 36px !important; font-size: 15px !important; border: 1px solid #444 !important; }
-    .search-input::placeholder { color: #666 !important; }
+    .search-box.active { display: block !important; transform: translateY(0) !important; opacity: 1 !important; }
+    .search-input { background: rgba(255,255,255,0.05) !important; font-size: 16px !important; padding: 12px 16px 12px 40px !important; }
     .m-btn { display: flex !important; }
-    .footer-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
+    
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
     .footer-brand { grid-column: 1 / -1; }
-    .header-inner { padding: 0 20px; }
+    .header-inner { padding: 0 24px; }
+    
+    .result-main { padding: 40px 32px 24px; }
+    .result-breakdown { padding: 16px 32px 32px; }
+    .result-amount { font-size: 3.5rem; }
 }
 @media (max-width: 480px) {
-    .page-top { padding: 48px 20px; }
-    .page-top h1 { font-size: 2rem; }
-    .cta-buttons { flex-direction: column; width: 100%; }
+    .page-top h1 { font-size: 2.2rem; }
+    .page-top-desc { font-size: 17px; }
+    .card-header { padding: 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
+    .card-body { padding: 0 24px 28px; }
+    .cta-buttons { flex-direction: column; width: 100%; gap: 12px; }
     .calc-btn { width: 100%; }
 }
 </style>
@@ -283,7 +294,7 @@ img { display: block; width: 100%; height: auto; }
 <div class="mobile-sidebar" id="mobile-sidebar">
     <div class="m-sidebar-header">
         <img src="https://blogglow.com/images/logo.png" alt="Blogglow">
-        <button id="m-sidebar-close" style="background:none; border:none; font-size:32px;">&times;</button>
+        <button id="m-sidebar-close" style="background:none; border:none; font-size:36px; color:#0f172a;">&times;</button>
     </div>
     <nav class="m-nav-list">
         <a href="https://blogglow.com/index.html">인사이트</a>
@@ -313,20 +324,20 @@ img { display: block; width: 100%; height: auto; }
         </div>
         <div class="about-grid-2col align-center">
             <div class="mission-text">
-                <h3 style="font-size: 1.6rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px; color: var(--text-main); line-height: 1.3;">
+                <h3 style="font-size: clamp(1.8rem, 3vw, 2.2rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 24px; color: var(--text-main); line-height: 1.35;">
                     모르면 지나치기 쉬운<br>것들이 있습니다
                 </h3>
-                <p style="font-size: 15px; color: var(--text-sub); line-height: 1.8; margin-bottom: 12px;">
+                <p style="font-size: 18px; color: #475569; line-height: 1.8; margin-bottom: 16px;">
                     매년 바뀌는 세법, 신청 기간이 짧은 지원금, 요건을 충족해도 몰라서 못 받는 혜택들. 정보의 차이가 실제 금액으로 이어집니다.
                 </p>
-                <p style="font-size: 15px; color: var(--text-sub); line-height: 1.8;">
+                <p style="font-size: 18px; color: #475569; line-height: 1.8;">
                     Blogglow는 복잡한 조건을 걷어내고, <strong>나에게 해당되는 부분</strong>만 빠르게 파악할 수 있도록 씁니다.
                 </p>
             </div>
-            <div class="result-card show" style="margin: 0; position: relative; z-index: 1;">
+            <div class="result-card">
                 <div class="result-main">
                     <div class="result-kicker">놓치기 쉬운 혜택</div>
-                    <div class="result-amount positive" style="font-size: 3.4rem;">73%</div>
+                    <div class="result-amount positive">73%</div>
                     <div class="result-label">직장인이 연말정산 공제 일부를 놓친다</div>
                 </div>
                 <div class="result-divider"></div>
@@ -356,14 +367,10 @@ img { display: block; width: 100%; height: auto; }
                     <div class="card-header-icon">
                         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="9 12 11 14 15 10"/></svg>
                     </div>
-                    <div>
-                        <div class="card-header-title">정확성</div>
-                    </div>
+                    <div class="card-header-title">정확성</div>
                 </div>
                 <div class="card-body">
-                    <p style="font-size: 14px; line-height: 1.7; color: var(--text-sub);">
-                        법령, 국세청 고시, 공식 자료를 기반으로 씁니다. 변경사항이 생기면 즉시 반영하고, 불확실한 내용은 싣지 않습니다.
-                    </p>
+                    <p>법령, 국세청 고시, 공식 자료를 기반으로 씁니다. 변경사항이 생기면 즉시 반영하고, 불확실한 내용은 싣지 않습니다.</p>
                 </div>
             </div>
             <div class="input-card">
@@ -371,14 +378,10 @@ img { display: block; width: 100%; height: auto; }
                     <div class="card-header-icon">
                         <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
                     </div>
-                    <div>
-                        <div class="card-header-title">눈높이</div>
-                    </div>
+                    <div class="card-header-title">눈높이</div>
                 </div>
                 <div class="card-body">
-                    <p style="font-size: 14px; line-height: 1.7; color: var(--text-sub);">
-                        전문가가 아닌 일반 직장인을 기준으로 씁니다. 어려운 용어는 풀어서 설명하고, 실제 사례를 들어 이해하기 쉽게 구성합니다.
-                    </p>
+                    <p>전문가가 아닌 일반 직장인을 기준으로 씁니다. 어려운 용어는 풀어서 설명하고, 실제 사례를 들어 이해하기 쉽게 구성합니다.</p>
                 </div>
             </div>
             <div class="input-card">
@@ -386,14 +389,10 @@ img { display: block; width: 100%; height: auto; }
                     <div class="card-header-icon">
                         <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                     </div>
-                    <div>
-                        <div class="card-header-title">실용성</div>
-                    </div>
+                    <div class="card-header-title">실용성</div>
                 </div>
                 <div class="card-body">
-                    <p style="font-size: 14px; line-height: 1.7; color: var(--text-sub);">
-                        이론보다 지금 당장 할 수 있는 것에 집중합니다. 신청 방법, 계산 방법, 주의사항까지 한 글 안에서 해결되도록 씁니다.
-                    </p>
+                    <p>이론보다 지금 당장 할 수 있는 것에 집중합니다. 신청 방법, 계산 방법, 주의사항까지 한 글 안에서 해결되도록 씁니다.</p>
                 </div>
             </div>
         </div>
@@ -407,47 +406,59 @@ img { display: block; width: 100%; height: auto; }
         </div>
         <div class="about-grid-2col">
             <div class="input-card">
-                <div class="card-header" style="border-bottom: none; padding-bottom: 24px;">
+                <div class="card-header" style="border-bottom: none; padding-bottom: 12px;">
                     <div class="card-header-icon">
                         <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
                     </div>
                     <div>
                         <div class="card-header-title">경제 & 세금</div>
-                        <div class="card-header-sub">연말정산, 종합소득세, 원천징수, 절세 방법. 매년 바뀌는 내용을 정리합니다.</div>
+                        <div class="card-header-sub">연말정산, 종합소득세, 절세 방법</div>
                     </div>
+                </div>
+                <div class="card-body" style="padding-top:0;">
+                    <p>매년 바뀌는 복잡한 세법과 원천징수 내역을 알기 쉽게 풀어 정리합니다.</p>
                 </div>
             </div>
             <div class="input-card">
-                <div class="card-header" style="border-bottom: none; padding-bottom: 24px;">
+                <div class="card-header" style="border-bottom: none; padding-bottom: 12px;">
                     <div class="card-header-icon">
                         <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
                     </div>
                     <div>
                         <div class="card-header-title">머니 & 재테크</div>
-                        <div class="card-header-sub">청약, 대출, 청년 지원금, ISA·IRP 활용. 실생활에 바로 쓸 수 있는 내용 위주입니다.</div>
+                        <div class="card-header-sub">청약, 대출, ISA·IRP 활용</div>
                     </div>
+                </div>
+                <div class="card-body" style="padding-top:0;">
+                    <p>청년 지원금부터 실생활에 바로 쓸 수 있는 재테크 수단 위주로 다룹니다.</p>
                 </div>
             </div>
             <div class="input-card">
-                <div class="card-header" style="border-bottom: none; padding-bottom: 24px;">
+                <div class="card-header" style="border-bottom: none; padding-bottom: 12px;">
                     <div class="card-header-icon">
                         <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
                     </div>
                     <div>
                         <div class="card-header-title">인사이트</div>
-                        <div class="card-header-sub">금리, 부동산, 환율, 경제 뉴스 해석. 흐름을 이해하는 데 도움이 되는 글입니다.</div>
+                        <div class="card-header-sub">금리, 부동산, 경제 뉴스 해석</div>
                     </div>
+                </div>
+                <div class="card-body" style="padding-top:0;">
+                    <p>단편적인 뉴스를 넘어 전체적인 흐름을 이해하는 데 도움이 되는 글을 씁니다.</p>
                 </div>
             </div>
             <div class="input-card">
-                <div class="card-header" style="border-bottom: none; padding-bottom: 24px;">
+                <div class="card-header" style="border-bottom: none; padding-bottom: 12px;">
                     <div class="card-header-icon">
                         <svg viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
                     </div>
                     <div>
                         <div class="card-header-title">계산기 & 도구</div>
-                        <div class="card-header-sub">연말정산, 퇴직금, 건강보험료, 대출이자 계산기. 숫자로 직접 확인해보세요.</div>
+                        <div class="card-header-sub">연말정산, 대출이자, 퇴직금 계산</div>
                     </div>
+                </div>
+                <div class="card-body" style="padding-top:0;">
+                    <p>직접 입력하여 내 상황에 맞는 예상 숫자를 빠르게 확인해 볼 수 있습니다.</p>
                 </div>
             </div>
         </div>
@@ -461,38 +472,38 @@ img { display: block; width: 100%; height: auto; }
         </div>
         <div class="about-grid-2col">
             <div class="input-card">
-                <div class="card-body" style="display: flex; gap: 16px; align-items: flex-start;">
-                    <div style="font-size: 26px; font-weight: 900; color: var(--accent); line-height: 1; opacity: 0.8; font-variant-numeric: tabular-nums;">01</div>
+                <div class="card-body" style="display: flex; gap: 24px; align-items: flex-start;">
+                    <div class="promise-number">01</div>
                     <div>
-                        <h4 style="font-size: 15px; font-weight: 800; margin-bottom: 8px; color: var(--text-main); letter-spacing: -0.01em;">광고와 콘텐츠를 분리합니다</h4>
-                        <p style="font-size: 14px; line-height: 1.7; color: var(--text-sub);">광고 수익이 글의 방향에 영향을 주지 않습니다. 소개하는 서비스는 실제로 유용하다고 판단한 것만 씁니다.</p>
+                        <h4 style="font-size: 19px; font-weight: 800; margin-bottom: 12px; color: var(--text-main); letter-spacing: -0.02em;">광고와 콘텐츠를 분리합니다</h4>
+                        <p>광고 수익이 글의 방향에 영향을 주지 않습니다. 소개하는 서비스는 실제로 유용하다고 판단한 것만 씁니다.</p>
                     </div>
                 </div>
             </div>
             <div class="input-card">
-                <div class="card-body" style="display: flex; gap: 16px; align-items: flex-start;">
-                    <div style="font-size: 26px; font-weight: 900; color: var(--accent); line-height: 1; opacity: 0.8; font-variant-numeric: tabular-nums;">02</div>
+                <div class="card-body" style="display: flex; gap: 24px; align-items: flex-start;">
+                    <div class="promise-number">02</div>
                     <div>
-                        <h4 style="font-size: 15px; font-weight: 800; margin-bottom: 8px; color: var(--text-main); letter-spacing: -0.01em;">오류는 바로 수정합니다</h4>
-                        <p style="font-size: 14px; line-height: 1.7; color: var(--text-sub);">법령이 바뀌거나 잘못된 내용이 발견되면 즉시 수정하고 변경 내역을 표시합니다. 피드백은 언제나 환영합니다.</p>
+                        <h4 style="font-size: 19px; font-weight: 800; margin-bottom: 12px; color: var(--text-main); letter-spacing: -0.02em;">오류는 바로 수정합니다</h4>
+                        <p>법령이 바뀌거나 잘못된 내용이 발견되면 즉시 수정하고 변경 내역을 표시합니다. 피드백은 언제나 환영합니다.</p>
                     </div>
                 </div>
             </div>
             <div class="input-card">
-                <div class="card-body" style="display: flex; gap: 16px; align-items: flex-start;">
-                    <div style="font-size: 26px; font-weight: 900; color: var(--accent); line-height: 1; opacity: 0.8; font-variant-numeric: tabular-nums;">03</div>
+                <div class="card-body" style="display: flex; gap: 24px; align-items: flex-start;">
+                    <div class="promise-number">03</div>
                     <div>
-                        <h4 style="font-size: 15px; font-weight: 800; margin-bottom: 8px; color: var(--text-main); letter-spacing: -0.01em;">한계를 명확히 안내합니다</h4>
-                        <p style="font-size: 14px; line-height: 1.7; color: var(--text-sub);">복잡한 세금 문제나 법적 사안은 전문가 상담이 필요합니다. 블로그로 해결하기 어려운 영역은 솔직하게 밝힙니다.</p>
+                        <h4 style="font-size: 19px; font-weight: 800; margin-bottom: 12px; color: var(--text-main); letter-spacing: -0.02em;">한계를 명확히 안내합니다</h4>
+                        <p>복잡한 세금 문제나 법적 사안은 전문가 상담이 필요합니다. 블로그로 해결하기 어려운 영역은 솔직하게 밝힙니다.</p>
                     </div>
                 </div>
             </div>
             <div class="input-card">
-                <div class="card-body" style="display: flex; gap: 16px; align-items: flex-start;">
-                    <div style="font-size: 26px; font-weight: 900; color: var(--accent); line-height: 1; opacity: 0.8; font-variant-numeric: tabular-nums;">04</div>
+                <div class="card-body" style="display: flex; gap: 24px; align-items: flex-start;">
+                    <div class="promise-number">04</div>
                     <div>
-                        <h4 style="font-size: 15px; font-weight: 800; margin-bottom: 8px; color: var(--text-main); letter-spacing: -0.01em;">개인정보를 함부로 쓰지 않습니다</h4>
-                        <p style="font-size: 14px; line-height: 1.7; color: var(--text-sub);">수집한 데이터는 서비스 개선 외에 사용하지 않으며 외부에 제공하지 않습니다. 자세한 내용은 운영정책을 참고하세요.</p>
+                        <h4 style="font-size: 19px; font-weight: 800; margin-bottom: 12px; color: var(--text-main); letter-spacing: -0.02em;">개인정보를 보호합니다</h4>
+                        <p>수집한 데이터는 서비스 개선 외에 사용하지 않으며 외부에 제공하지 않습니다. 자세한 내용은 운영정책을 참고하세요.</p>
                     </div>
                 </div>
             </div>
@@ -501,9 +512,9 @@ img { display: block; width: 100%; height: auto; }
 
     <!-- CTA -->
     <div class="about-section">
-        <div class="result-card show" style="text-align: center; padding: 64px 32px;">
-            <h2 style="font-size: 2.2rem; font-weight: 300; color: #fff; margin-bottom: 16px; font-family: 'OneStoreMobileGothicTitleFont', sans-serif; letter-spacing: -0.04em;">읽어보시겠어요?</h2>
-            <p style="font-size: 16px; color: #94a3b8; margin-bottom: 40px; line-height: 1.7; font-weight: 400;">최신 글부터 둘러보거나,<br>계산기로 직접 숫자를 확인해보세요.</p>
+        <div class="result-card" style="text-align: center; padding: 80px 40px;">
+            <h2 style="font-size: clamp(2rem, 4vw, 2.6rem); font-weight: 300; color: #fff; margin-bottom: 20px; font-family: 'OneStoreMobileGothicTitleFont', sans-serif; letter-spacing: -0.04em;">읽어보시겠어요?</h2>
+            <p style="font-size: 20px; color: rgba(255,255,255,0.7); margin-bottom: 48px; line-height: 1.7; font-weight: 400;">최신 글부터 둘러보거나,<br>계산기로 직접 숫자를 확인해보세요.</p>
             <div class="cta-buttons" style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
                 <a href="https://blogglow.com/index.html" class="calc-btn">
                     <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -523,7 +534,7 @@ img { display: block; width: 100%; height: auto; }
     <div class="footer-inner">
         <div class="footer-brand">
             <div class="footer-logo">Blogglow</div>
-            <p>경제·세금·재테크·생활 정보를 정리한 실용 정보 블로그<br>본 계산기는 참고용이며 법적 효력이 없습니다.</p>
+            <p>경제·세금·재테크·생활 정보를 정리한 실용 정보 블로그<br>본 사이트의 내용은 참고용이며 법적 효력이 없습니다.</p>
         </div>
         <div class="footer-col"><h4>콘텐츠</h4><a href="https://blogglow.com/index.html">인사이트</a></div>
         <div class="footer-col"><h4>정보</h4><a href="https://blogglow.com/policy.html">운영정책</a></div>
