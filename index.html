@@ -65,13 +65,13 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .hero::before{content:'';position:absolute;top:-10%;right:-5%;width:400px;height:400px;background:radial-gradient(circle,rgba(1,163,240,0.15) 0%,rgba(0,0,0,0) 70%);border-radius:50%;filter:blur(50px)}
 .hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
 .hero-tag{display:inline-block;padding:6px 14px;background:rgba(1,163,240,0.1);border:1px solid rgba(1,163,240,0.2);color:var(--primary);border-radius:30px;font-size:13px;font-weight:700;margin-bottom:24px;letter-spacing:0.05em}
-.hero h1{font-size:clamp(1.4rem, 5vw, 2.2rem);font-weight:300;letter-spacing:-0.03em;line-height:1.25;color:#fff;margin-bottom:4px;font-family:'OneStoreMobileGothicTitleFont', sans-serif !important}
+.hero h1{font-size:clamp(1.4rem, 5vw, 2.8rem);font-weight:300;letter-spacing:-0.03em;line-height:1.25;color:#fff;margin-bottom:4px;font-family:'OneStoreMobileGothicTitleFont', sans-serif !important}
 .hero-sub{font-size:16px;color:#94a3b8;line-height:1.2;margin-bottom:40px;font-weight:400}
 .hero-stats-row {display: inline-flex;gap: 0;padding: 2px 16px;background: rgba(255, 255, 255, 0.03);border: 1px solid rgba(255, 255, 255, 0.08);border-radius: 16px;backdrop-filter: blur(10px);margin-top: 20px;}
 .stat-item{position:relative;padding:0 24px}
 .stat-item:not(:last-child)::after{content:'';position:absolute;right:0;top:25%;height:50%;width:1px;background:rgba(255,255,255,0.1)}
 .stat-item:hover{background:rgba(255,255,255,0.05)}
-.stat-num{font-size:20px;font-weight:800;color:#fff;display:block;margin-bottom:2px}
+.stat-num{font-size:20px;font-weight:200;color:#fff;display:block;margin-bottom:2px}
 .stat-label{font-size:10px;color:#64748b;text-transform:uppercase;letter-spacing:0.1em;font-weight:700}
 .filter-bar{position:sticky;top:var(--header-h);z-index:50;background:rgb(249 250 251);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);box-shadow:0 4px 10px rgba(0,0,0,0.02)}
 .filter-inner{max-width:var(--max-width);margin:0 auto;position:relative;display:flex;align-items:center;height:80px}
@@ -88,11 +88,11 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .result-count strong{color:var(--text-main);font-weight:800;font-size:15px}
 .sort-select{padding:8px 14px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-weight:600;color:var(--text-sub);background:#fff;cursor:pointer;outline:none;font-family:'Pretendard',sans-serif;transition:all 0.2s}
 .sort-select:hover{border-color:var(--primary);color:var(--primary)}
-.post-grid{display:grid;grid-template-columns:1fr;gap:24px}
-.post-card{cursor:pointer;border-radius:16px;overflow:hidden;border:1px solid var(--border);background:#fff;transition:all 0.25s;display:flex;flex-direction:row;align-items:stretch;box-shadow:0 2px 8px rgba(0,0,0,0.03)}
+.post-grid{display:grid;grid-template-columns:1fr;gap:44px}
+.post-card {cursor: pointer;border-radius: 16px;overflow: hidden;background: #fff;transition: all 0.25s;display: flex;flex-direction: row;align-items: stretch;}
 .post-card:hover{box-shadow:0 10px 30px rgba(0,0,0,0.08);transform:translateY(-3px);border-color:#d1d5db}
 .card-thumb{width:420px;aspect-ratio:16/9;overflow:hidden;background:#f3f4f6;flex-shrink:0;border-right:1px solid var(--border)}
-.card-thumb img{transition:transform 0.4s ease;width:100%;height:100%;object-fit:cover}
+.card-thumb img {transition: transform 0.4sease;width: 100%;height: 100%;object-fit: cover;border-radius: 10px;}
 .post-card:hover .card-thumb img{transform:scale(1.05)}
 .card-body{padding:18px 32px;flex:1;display:flex;flex-direction:column;justify-content:center;gap:12px}
 .card-top{display:flex;align-items:center;justify-content:space-between}
@@ -334,9 +334,13 @@ img{display:block;width:100%;height:100%;object-fit:cover}
             <div class="ad-area"><div style="width:100%; display:block;">
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; padding:12px 12px 4px;">
                 <a href="https://link.coupang.com/a/dRuXiD" target="_blank" rel="noopener sponsored"
-                   style="display:block; aspect-ratio:1; overflow:hidden; border-radius:6px; border:1px solid #e2e8f0; transition:transform 0.2s;"
-                   onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    <img src="https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2025/12/05/14/2/a1a14a77-04d8-476f-baaa-7506402da32d.jpg" style="width:100%; height:100%; object-fit:cover;" alt="자본주의 시대에서 살아남기 위한 최소한의 경제 공부, 하이스트, 백억남 (김욱현)" loading="lazy" decoding="async">
+                   style="display:block; aspect-ratio:1; overflow:hidden; border-radius:6px; border:1px solid #e2e8f0; position:relative;"
+                   onmouseover="this.querySelector('.ad-overlay').style.opacity='1'; this.querySelector('img').style.transform='scale(1.08)';"
+                   onmouseout="this.querySelector('.ad-overlay').style.opacity='0'; this.querySelector('img').style.transform='scale(1)';">
+                    <img src="https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2025/12/05/14/2/a1a14a77-04d8-476f-baaa-7506402da32d.jpg" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s ease;" alt="자본주의 시대에서 살아남기 위한 최소한의 경제 공부, 하이스트, 백억남 (김욱현)" loading="lazy" decoding="async">
+                    <div class="ad-overlay" style="position:absolute; inset:0; background:rgba(0,0,0,0.45); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity 0.3s ease; border-radius:6px;">
+                        <span style="color:white; font-size:12px; font-weight:700; letter-spacing:-0.02em; background:rgba(0,0,0,0.3); padding:6px 12px; border-radius:20px; border:1px solid rgba(255,255,255,0.3);">구매하기</span>
+                    </div>
                 </a>
             </div>
                     <div style="padding:10px 14px; font-size:10px; color:#adb5bd; text-align:center; line-height:1.5; letter-spacing:-0.03em; border-top:1px dashed #f1f3f5; margin-top:8px;">제휴 마케팅 활동을 통해 <br>운영 수익의 일부가 발생할 수 있습니다.</div>
@@ -444,7 +448,7 @@ img{display:block;width:100%;height:100%;object-fit:cover}
         if (pStart === 0 && pEnd > 0) {
             const sub = post.title.slice(pStart + 1, pEnd);
             const main = post.title.slice(pEnd + 1).trim();
-            formattedTitle = '<span style="font-size:20px; color:#5487fd; font-weight:400; display:block; margin-bottom:4px;">' + sub + '</span>' + main;
+            formattedTitle = '<span style="font-size:20px; color:#5487fd; font-style: italic; font-weight:400; display:block; margin-bottom:4px;">' + sub + '</span>' + main;
         }
 
         return `
