@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2편: 심화 과정 | Blogglow</title>
+    <link rel="stylesheet" href="../css/fonts.css">
+    <meta name="description" content="두 번째 글 요약">
+    <meta name="keywords" content="시리즈">
+    <meta name="author" content="Blogglow">
+    <link rel="canonical" href="https://blogglow.com/contents/2편-심화-과정.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://blogglow.com/images/favicon.png">
+    <link rel="apple-touch-icon" href="https://blogglow.com/images/favicon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="2편: 심화 과정 | Blogglow">
+    <meta property="og:description" content="두 번째 글 요약">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://blogglow.com/images/thumb-1772210430600.webp">
+    <meta property="og:url" content="https://blogglow.com/contents/2편-심화-과정.html">
+    <meta property="og:site_name" content="Blogglow">
+    <meta property="og:locale" content="ko_KR">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="2편: 심화 과정 | Blogglow">
+    <meta name="twitter:description" content="두 번째 글 요약">
+    <meta name="twitter:image" content="https://blogglow.com/images/thumb-1772210430600.webp">
+    <meta name="theme-color" content="#3b82f6">
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+    
+
+    <!-- [SEO] 구조화 데이터: 포스팅 정보 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "2편: 심화 과정",
+        "description": "두 번째 글 요약",
+        "image": "https://blogglow.com/images/thumb-1772210430600.webp",
+        "url": "https://blogglow.com/contents/2편-심화-과정.html",
+        "inLanguage": "ko-KR",
+        "author": { "@type": "Organization", "name": "Blogglow", "url": "https://blogglow.com/index.html" },
+        "publisher": { "@type": "Organization", "name": "Blogglow", "url": "https://blogglow.com/index.html", "logo": { "@type": "ImageObject", "url": "https://blogglow.com/images/logo.png" } },
+        "datePublished": "2026-02-27T15:00:00.000Z",
+        "dateModified": "2026-02-27T15:00:00.000Z",
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://blogglow.com/contents/2편-심화-과정.html" }
+    }
+    </script>
+
+    <!-- [SEO] 구조화 데이터: 브레드크럼 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "홈",
+            "item": "https://blogglow.com/index.html"
+        },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "시리즈",
+            "item": "https://blogglow.com/index.html#시리즈"
+        },{
+            "@type": "ListItem",
+            "position": 3,
+            "name": "2편: 심화 과정",
+            "item": "https://blogglow.com/contents/2편-심화-과정.html"
+        }]
+    }
+    </script>
+<!--포스트페이지 css-->
+<style>
+:root{--bg-page:#ffffff;--text-main:#191f28;--text-sub:#4b5563;--text-light:#9ca3af;--primary:#008dc4;--border:#e5e8eb;--bg-gray:#f9fafb;--max-width:1280px;--header-h:72px;--sidebar-w:280px;--ad-bg:#f8fafc;--ad-border:#e2e8f0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Pretendard',-apple-system,sans-serif;background-color:var(--bg-page);color:var(--text-main);line-height:1.8;-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{text-decoration:none;color:inherit;transition:opacity 0.2s}
+a:hover{opacity:0.7}
+img{display:block;width:100%;height:auto}
+.content-wrap{position:relative}
+
+
+
+
+/* ===== 블로그 포스트 본문 공통 클래스 (프롬프트 연동) ===== */
+
+/* 인용구 - 파란 왼쪽 라인 */
+.bq {
+  margin: 32px 0;
+  padding: 24px 22px;
+  background: #f8f9fa;
+  border-left: 4px solid #3b82f6;
+  border-radius: 0 12px 12px 0;
+}
+.bq p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #191f28;
+  line-height: 1.6;
+}
+.bq cite {
+  display: block;
+  margin-top: 12px;
+  font-size: 14px;
+  color: #6b7280;
+  font-style: normal;
+}
+
+/* 도입부 / 일반 본문 단락 */
+.body-text {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+  color: #4e5968;
+  font-weight: 400;
+  margin: 0 0 28px;
+}
+
+/* 강조 인라인 박스 (짧은 인용 문구) */
+.emph-box {
+  margin-bottom: 28px;
+  color: #191f28;
+  font-weight: 500;
+  background: #f2f4f6;
+  padding: 12px 16px;
+  border-radius: 8px;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* 이미지 래퍼 */
+.img-wrap {
+  text-align: center;
+  margin: 40px 0;
+}
+.img-wrap img {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 12px;
+  border: 1px solid #e5e8eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* 경고 박스 (노란색) */
+.warn-box {
+  background: #fffbe6;
+  border: 1px solid #ffe58f;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #876800;
+  margin: 28px 0;
+}
+.warn-box strong {
+  font-weight: 600;
+}
+
+/* 팁 / 정보 박스 (회색) */
+.tip-box {
+  background: #f8f9fa;
+  border: 1px solid #e5e8eb;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 28px 0;
+}
+.tip-box strong {
+  display: block;
+  margin-bottom: 12px;
+  color: #191f28;
+  font-size: 17px;
+  font-weight: 600;
+}
+.tip-box ul,
+.tip-box ol {
+  margin: 0;
+  padding-left: 20px;
+  color: #4e5968;
+  font-size: 17px;
+  line-height: 1.75;
+}
+.tip-box li {
+  margin-bottom: 8px;
+}
+
+/* PS 박스 (녹색) */
+.ps-box {
+  background: #f0fdf4;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+  font-size: 17px;
+  line-height: 1.75;
+  margin: 28px 0;
+}
+.ps-box strong {
+  font-weight: 600;
+}
+
+/* 본문 리스트 (ul / ol 공통) */
+.body-list {
+  padding-left: 20px;
+  color: #4e5968;
+  margin-bottom: 28px;
+  font-size: 17px;
+  line-height: 1.75;
+}
+.body-list li {
+  margin-bottom: 8px;
+}
+.body-list li strong {
+  color: #191f28;
+  font-weight: 500;
+}
+
+/* 섹션 구분선 */
+.section-hr {
+  border: 0;
+  height: 1px;
+  background: #e5e8eb;
+  margin: 60px 0;
+}
+
+/* 인라인 코드 */
+.inline-code {
+  background: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #d946ef;
+  font-family: monospace;
+  font-size: 15px;
+}
+
+
+
+
+
+
+
+
+.ffc-wrapper{position:absolute;top:0;right:-25px;transform:translateX(100%);height:100%;pointer-events:none;z-index:50;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:80px}
+.floating-font-control{position:sticky;bottom:50px;pointer-events:auto;display:flex;flex-direction:column;align-items:center;gap:6px;background:rgba(255,255,255,0.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:16px 10px;border-radius:40px;border:1px solid rgba(0,0,0,0.05);box-shadow:0 10px 30px rgba(0,0,0,0.05),0 1px 3px rgba(0,0,0,0.02);transition:transform 0.3s ease,box-shadow 0.3s ease,border-color 0.3s ease}
+.floating-font-control:hover{transform:translateY(-4px);box-shadow:0 15px 40px rgba(0,141,196,0.12),0 4px 12px rgba(0,0,0,0.04);border-color:rgba(0,141,196,0.2)}
+.ffc-title{font-size:16px;font-weight:800;color:var(--text-main);font-family:'Times New Roman',serif;margin-bottom:6px;opacity:0.8}
+.ffc-btn{width:36px;height:36px;border-radius:50%;border:none;background:transparent;color:#6b7280;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease}
+.ffc-btn:hover{background:#f1f5f9;color:var(--primary);transform:scale(1.1)}
+.ffc-display{font-size:13px;font-weight:700;color:var(--primary);background:#eff6ff;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;font-variant-numeric:tabular-nums;box-shadow:inset 0 2px 4px rgba(0,0,0,0.02)}
+.breadcrumb{background:var(--bg-gray);border-bottom:1px solid var(--border);padding:16px 0}
+.breadcrumb-inner{max-width:var(--max-width);margin:0 auto;padding:0 24px;font-size:13px;color:var(--text-light)}
+.breadcrumb-inner a:hover{color:var(--primary)}
+.back-btn-wrap{max-width:var(--max-width);margin:0 auto;padding:24px 24px 0}
+.back-btn{display:inline-flex;align-items:center;gap:8px;color:var(--text-sub);font-weight:500;font-size:13px;padding:8px 16px;border:1px solid var(--border);border-radius:20px;background:#fff}
+.container{max-width:1480px;margin:0 auto;padding:0 14px 80px;display:grid;grid-template-columns:var(--sidebar-w) minmax(0,1fr) var(--sidebar-w);gap:60px;align-items:start}
+.content-wrap{min-width:0}
+.sidebar{position:sticky;top:calc(var(--header-h) + 24px);display:flex;flex-direction:column;gap:20px}
+.widget{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.widget-title{font-size:11px;font-weight:700;color:var(--text-light);padding:14px 20px;border-bottom:1px solid var(--border);letter-spacing:0.08em;text-transform:uppercase}
+.widget-body{padding:16px 20px}
+.ad-block{background:var(--ad-bg);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.ad-label{font-size:10px;font-weight:700;color:var(--text-light);text-align:center;padding:8px;border-bottom:1px solid var(--ad-border);background:#f1f5f9}
+.ad-area{width:100%;min-height:250px;display:flex;align-items:center;justify-content:center;color:var(--text-light);font-size:13px}
+.toc-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:2px}
+.toc-list a{font-size:13px;color:var(--text-light);display:block;padding:6px 8px;border-left:2px solid transparent}
+.toc-list a:hover,.toc-list a.active{color:var(--primary);background:#eff6ff;border-left-color:var(--primary);font-weight:600}
+.post-cat{display:inline-block;color:var(--primary);font-size:12px;font-weight:500;margin-bottom:16px;text-transform:uppercase;background:#eff6ff;padding:4px 12px;border-radius:20px}
+h1{font-size:2.2rem;font-weight:500;margin-bottom:28px;line-height:1.3;color:var(--text-main);word-break:keep-all;letter-spacing:-2px;font-family:'S-CoreDream'}
+.meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;padding-bottom:28px;border-bottom:1px solid var(--border)}
+.meta-left{display:flex;align-items:center;gap:12px}
+.meta-avatar{width:40px;height:40px;border-radius:50%;background:#e5e7eb;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.meta-info{display:flex;flex-direction:column;gap:2px}
+.meta-author{font-weight:700;font-size:14px;color:var(--text-main)}
+.meta-date{font-size:13px;color:var(--text-light)}
+.meta-share{display:flex;gap:14px;align-items:center}
+.meta-share a{color:var(--text-light);opacity:1}
+.meta-share a:hover{color:var(--primary)}
+.content{font-size:18px;color:var(--text-main);line-height:1.75;transition:font-size 0.2s ease}
+.content p,.content li,.content span,.content div,.content strong,.content ul,.content ol,.content a,.content b,.content em{font-size:inherit !important;line-height:inherit !important}
+.content img {width: 100%;aspect-ratio: 16 / 9; object-fit: cover; object-position: center;border-radius: 16px;margin: 20px 0;border: 1px solid var(--border);box-shadow: 0 8px 24px rgba(0,0,0,0.07);content-visibility: auto;}
+.content h2{font-size:1.45rem !important;line-height:1.35 !important;margin:55px 0 22px;padding-bottom:12px;border-bottom:2px solid var(--text-main);font-weight:700;letter-spacing:-0.01em}
+.content h3{font-size:1.2rem !important;line-height:1.4 !important;margin:40px 0 16px;font-weight:700}
+.content blockquote{margin:32px 0;padding:24px 32px;background:var(--bg-gray);border-left:4px solid var(--primary);border-radius:0 16px 16px 0}
+.interlink-card{margin:60px 0;display:flex;gap:20px;align-items:center;padding:16px;border-radius:12px;border:1px solid var(--border);background:#fff;transition:all 0.3s}
+.interlink-card:hover{transform:translateY(-3px);border-color:var(--primary);box-shadow:0 4px 12px rgba(0,0,0,0.05)}
+.il-thumb{width:80px;height:80px;border-radius:8px;object-fit:cover;flex-shrink:0}
+.il-info{flex:1;display:flex;flex-direction:column;gap:4px}
+.il-label{font-size:11px;font-weight:300;color:var(--primary);text-transform:uppercase}
+.il-title{font-size:18px;font-weight:700;color:#4e5661;line-height:1.4}
+.related-section{margin-top:80px;padding-top:40px;border-top:2px solid var(--text-main)}
+.related-heading-wrap{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}
+.related-heading{font-size:20px;font-weight:800;color:var(--text-main);display:flex;align-items:center;gap:10px}
+.see-more{font-size:13px;color:var(--text-sub);font-weight:600}
+.related-list{display:flex;flex-direction:column;border-top:1px solid var(--border)}
+.related-item{display:flex;justify-content:space-between;align-items:center;padding:30px 0;border-bottom:1px solid var(--border);transition:background 0.2s}
+.related-item:hover .rc-title{color:var(--primary);text-decoration:underline}
+.rc-text-wrap{flex:1;padding-right:40px;display:flex;flex-direction:column;gap:8px}
+.rc-title {font-size: 18px;font-weight: 600;color: var(--text-main);line-height: 1.4;word-break: keep-all;font-family: 'S-CoreDream';}
+.rc-excerpt{font-size:14px;color:var(--text-sub);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rc-date{font-size:13px;color:var(--text-light);margin-top:4px}
+.rc-thumb-wrap{width:240px;aspect-ratio:16/10;border-radius:8px;overflow:hidden;border:1px solid var(--border);flex-shrink:0}
+.rc-thumb{width:100%;height:100%;object-fit:cover}
+.series-widget-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:16px}
+.series-widget-item{display:flex;gap:12px;align-items:center;transition:0.2s}
+.series-widget-item.current{opacity:0.4;pointer-events:none}
+.sw-thumb{width:60px;height:44px;border-radius:4px;object-fit:cover;flex-shrink:0;border:1px solid var(--border)}
+.sw-title{font-size:13px;font-weight:600;color:var(--text-main);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+@media (max-width:1200px){
+.ffc-wrapper{position:fixed;top:auto;bottom:30px;right:30px;transform:none;height:auto;z-index:990;display:block;padding-bottom:0}
+.floating-font-control{flex-direction:row;padding:8px 12px 8px 16px;gap:4px;border-radius:50px}
+.ffc-title{margin-bottom:0;margin-right:8px}
+.container{grid-template-columns:1fr var(--sidebar-w)}
+.sidebar-left{display:none}
+}
+
+@media (max-width:768px){
+.ffc-wrapper{bottom:20px;right:20px}
+.container{grid-template-columns:1fr}
+.sidebar-right{display:none}
+h1{font-size:1.5rem}
+.rc-thumb-wrap{width:120px}
+.rc-text-wrap{padding-right:20px}
+.back-btn{padding:2px 16px}
+main{margin-top:20px !important}
+.breadcrumb{padding:6px 0}
+.back-btn-wrap{padding:24px 14px 0}
+}
+@media print{
+.site-header,.notice-bar,.breadcrumb,.back-btn-wrap,.sidebar,.related-section,.footer,.floating-font-control,.meta-share,.interlink-card,.ai-official-wrapper{display:none !important}
+body{background:#fff !important;color:#000 !important;margin:0;padding:0}
+.container{display:block !important;margin:0 !important;padding:0 !important;max-width:100% !important}
+.content-wrap{width:100% !important;margin:0 !important;padding:0 !important}
+h1{font-size:24pt !important;margin-bottom:10px !important;color:#000 !important}
+.content{font-size:12pt !important;color:#000 !important;line-height:1.6 !important}
+.content img{max-width:100% !important;page-break-inside:avoid;border:none !important;box-shadow:none !important}
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+/* 🟢[프리미엄 AI 배너] 시스템 전용 CSS (전환율 최적화 & 강제 상속 방어) */
+.ai-official-wrapper { margin: 50px 0 !important; font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', sans-serif !important; -webkit-font-smoothing: antialiased !important; -moz-osx-font-smoothing: grayscale !important; }
+.ai-official-wrapper .ai-banner-btn { width: 80% !important; margin: 0 auto !important; display: flex !important; align-items: center !important; gap: 24px !important; background: linear-gradient(145deg, #ffffff 0%, #fcfcfd 100%) !important; border: 1px solid #ebebeb !important; border-radius: 20px !important; padding: 24px 28px !important; cursor: pointer !important; text-align: left !important; position: relative !important; font-family: 'S-CoreDream', sans-serif !important; box-shadow: 0 2px 5px 5px rgba(243, 243, 243, 0.1), 0 10px 20px 0px rgba(28, 28, 28, 0.1) !important; }
+.ai-official-wrapper .ai-banner-logo-wrap { width: 64px !important; height: 64px !important; min-width: 64px !important; background: #ffffff !important; border-radius: 18px !important; display: flex !important; align-items: center !important; justify-content: center !important; border: 1px solid rgba(0,0,0,0.05) !important; padding: 6px !important; box-shadow: 0 4px 12px rgba(0,0,0,0.06) !important; }
+.ai-official-wrapper .banner-logo-img { width: 100% !important; height: 100% !important; object-fit: contain !important; border-radius: 12px !important; }
+.ai-official-wrapper .ai-banner-info { flex: 1 !important; display: flex !important; flex-direction: column !important; gap: 6px !important; padding-right: 10px !important; }
+.ai-official-wrapper .ai-banner-title-wrap { display: flex !important; align-items: center !important; gap: 10px !important; }
+.ai-official-wrapper .ai-banner-title { font-size: 19px !important; line-height: 1.3 !important; font-weight: 800 !important; color: #111827 !important; letter-spacing: -0.01em !important; }
+.ai-official-wrapper .ai-banner-badge { font-size: 11px !important; line-height: 1 !important; font-weight: 500 !important; color: #6b6b6b !important; background: rgba(111, 111, 111, 0.1) !important; border: 1px solid rgba(175, 175, 175, 0.2) !important; padding: 6px 8px !important; border-radius: 6px !important; letter-spacing: 0.02em !important; display: inline-flex !important; align-items: center !important; gap: 4px !important; }
+.ai-official-wrapper .ai-banner-desc { font-size: 13.5px !important; line-height: 1.5 !important; color: #475569 !important; letter-spacing: -0.01em !important; word-break: keep-all !important; }
+.ai-official-wrapper .ai-banner-cta { display: none !important; }
+.ai-official-wrapper .ai-modal-content { padding: 36px 32px !important; font-family: 'Pretendard', sans-serif !important; background: #ffffff !important; }
+.ai-official-wrapper .ai-modal-header {display: flex !important;align-items: center !important;gap: 20px !important;margin-bottom: 10px !important;padding-bottom: 0 !important;border-bottom: 1px solid #f1f5f9 !important;}
+.ai-official-wrapper .modal-logo-img { width: 64px !important; height: 64px !important; border-radius: 18px !important; object-fit: contain !important; border: 1px solid #e2e8f0 !important; padding: 6px !important; box-shadow: 0 4px 12px rgba(0,0,0,0.06) !important; }
+.ai-official-wrapper .ai-modal-title { font-size: 22px !important; line-height: 1.3 !important; font-weight: 800 !important; color: #0f172a !important; margin-bottom: 4px !important; letter-spacing: -0.02em !important; }
+.ai-official-wrapper .ai-modal-domain { font-size: 14px !important; line-height: 1 !important; color: #64748b !important; font-weight: 600 !important; }
+.ai-official-wrapper .ai-modal-close { width: 36px !important; height: 36px !important; border-radius: 50% !important; border: none !important; background: #f1f5f9 !important; cursor: pointer !important; font-size: 20px !important; color: #64748b !important; display: flex !important; align-items: center !important; justify-content: center !important; transition: 0.2s !important; margin-left: auto !important; }
+.ai-official-wrapper .ai-modal-close:hover { background: #e2e8f0 !important; color: #0f172a !important; transform: rotate(90deg) !important; }
+.ai-official-wrapper .ai-modal-desc-box { background: rgba(var(--ai-color-rgb), 0.04) !important; padding: 24px !important; border-radius: 16px !important; margin-bottom: 32px !important; }
+.ai-official-wrapper .ai-modal-desc-title { font-size: 12px !important; line-height: 1 !important; font-weight: 800 !important; color: var(--ai-color) !important; text-transform: uppercase !important; margin-bottom: 12px !important; letter-spacing: 0.05em !important; }
+.ai-official-wrapper .ai-modal-desc-text { font-size: 15px !important; line-height: 1.6 !important; color: #334155 !important; font-weight: 500 !important; word-break: keep-all !important; }
+.ai-official-wrapper .ai-modal-feat-title { font-size: 12px !important; line-height: 1 !important; font-weight: 800 !important; color: #94a3b8 !important; text-transform: uppercase !important; margin-bottom: 16px !important; letter-spacing: 0.05em !important; }
+.ai-official-wrapper .ai-modal-feat-list { list-style: none !important; padding: 0 !important; margin: 0 0 36px 0 !important; display: flex !important; flex-direction: column !important; gap: 12px !important; }
+.ai-official-wrapper .ai-modal-feat-item { display: flex !important; align-items: flex-start !important; gap: 14px !important; font-size: 15.5px !important; line-height: 1.5 !important; color: #1e293b !important; font-weight: 600 !important; background: #ffffff !important; padding: 16px 20px !important; border-radius: 14px !important; border: 1px solid #e2e8f0 !important; box-shadow: 0 2px 8px rgba(0,0,0,0.02) !important; transition: border-color 0.2s !important; }
+.ai-official-wrapper .ai-modal-feat-item:hover { border-color: rgba(var(--ai-color-rgb), 0.3) !important; }
+.ai-official-wrapper .ai-modal-feat-bullet { color: var(--ai-color) !important; display: flex !important; align-items: center !important; justify-content: center !important; margin-top: 2px !important; }
+.ai-official-wrapper .ai-modal-link-btn { width: 100% !important; padding: 18px !important; background: linear-gradient(135deg, var(--ai-color) 0%, rgba(var(--ai-color-rgb), 0.8) 100%) !important; color: #ffffff !important; border: none !important; border-radius: 16px !important; font-size: 17px !important; line-height: 1 !important; font-weight: 800 !important; cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: center !important; gap: 10px !important; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important; box-shadow: 0 10px 25px rgba(var(--ai-color-rgb), 0.3) !important; }
+.ai-official-wrapper .ai-modal-link-btn:hover { transform: translateY(-3px) !important; box-shadow: 0 15px 30px rgba(var(--ai-color-rgb), 0.4) !important; }
+@media (max-width: 600px) { .ai-official-wrapper .ai-banner-btn { width: 100% !important; flex-direction: column !important; align-items: flex-start !important; gap: 16px !important; padding: 20px !important; } .ai-official-wrapper .ai-banner-info { padding-right: 0 !important; } }
+
+/* 🟢 댓글 시스템 전용 CSS */
+.cmt-section { margin-top: 60px; padding-top: 40px; border-top: 2px solid #191f28; }
+.cmt-title { display: flex; align-items: center; gap: 8px; font-size: 20px; font-weight: 800; margin-bottom: 24px; color: #191f28; }
+.cmt-form { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); margin-bottom: 30px; }
+.cmt-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.cmt-label { display: block; font-size: 13px; font-weight: 700; color: #475569; margin-bottom: 8px; }
+.cmt-input { width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 14px; outline: none; transition: border-color 0.2s; }
+.cmt-input:focus { border-color: #3b82f6; }
+textarea.cmt-input { height: 100px; resize: none; }
+.cmt-submit-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; transition: 0.2s; }
+.cmt-submit-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(37,99,235,0.2); }
+.cmt-submit-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; box-shadow: none; }
+.cmt-list { display: flex; flex-direction: column; gap: 0; }
+.cmt-empty { text-align: center; color: #94a3b8; font-size: 14px; padding: 20px; }
+.cmt-item { display: flex; gap: 16px; padding: 24px 0; border-bottom: 1px solid #f1f5f9; }
+.cmt-avatar { width: 44px; height: 44px; border-radius: 50%; background: #f8fafc; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid #e2e8f0; color: #cbd5e1; }
+.cmt-body { flex: 1; }
+.cmt-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.cmt-name { font-weight: 700; color: #1e293b; font-size: 14px; }
+.cmt-date { color: #94a3b8; font-size: 12px; }
+.cmt-text { color: #475569; font-size: 14px; line-height: 1.6; margin-bottom: 14px; word-break: keep-all; }
+.cmt-actions { display: flex; gap: 16px; align-items: center; }
+.cmt-action-btn { display: flex; align-items: center; gap: 4px; background: none; border: none; color: #94a3b8; font-size: 12px; font-weight: 600; cursor: pointer; padding: 0; transition: color 0.2s; }
+.cmt-action-btn:hover { color: #64748b; }
+.cmt-action-btn.liked { color: #ef4444 !important; }
+
+/* 📱 모바일 화면 최적화 (이름/이메일 세로배치, 높이 및 여백 축소) */
+@media (max-width: 768px) {
+    .cmt-title { font-size: 18px; margin-bottom: 16px; }
+    .cmt-form { padding: 16px; } /* 안쪽 여백 축소 */
+    .cmt-form-row { grid-template-columns: 1fr; gap: 12px; margin-bottom: 12px; }
+    .cmt-input { padding: 10px; font-size: 13px; } /* 글자 크기 축소 */
+    textarea.cmt-input { height: 70px; } /* 텍스트창 높이 대폭 축소 */
+    .cmt-submit-btn { padding: 12px; font-size: 14px; }
+}
+
+
+
+
+
+
+.notice-bar {
+    background: #1e293b;
+    color: #f8fafc;
+    text-align: center;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+.site-header {
+    position: sticky;
+    top: -1px;
+    z-index: 500;
+    background: rgb(16 16 16 / 95%);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.header-inner{max-width:1140px;margin:0 auto;padding:0 24px;height:var(--header-h);display:flex;align-items:center;justify-content:space-between;position:relative}
+.logo{font-size:26px;font-weight:800;color:var(--text-main);display:flex;align-items:center;gap:4px}.nav{display:flex;gap:24px}.nav a{font-size:15px;font-weight:600;color:#94a3b8;transition:0.2s}.nav a:hover{color:#fff}.header-utils{display:flex;align-items:center;gap:12px}.search-box{position:relative;width:240px;transition:all 0.3s}.search-input{width:100%;padding:8px 16px 8px 36px;font-size:14px;background-color:#383b3f;border:1px solid transparent;border-radius:20px;color:#fff;outline:none}.search-input:focus{background-color:#fff;color:#000}.search-icon-pos{position:absolute;left:20px;top:50%;transform:translateY(-50%);color:#94a3b8;pointer-events:none}.m-btn{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:8px;font-size:24px;align-items:center;justify-content:center}.mobile-sidebar{position:fixed;top:0;right:-280px;width:280px;height:100vh;background:#fff;z-index:1000;box-shadow:-5px 0 20px rgba(0,0,0,0.1);transition:0.3s ease-in-out;padding:40px 24px;display:flex;flex-direction:column;gap:20px}.mobile-sidebar.active{right:0}.m-sidebar-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.m-sidebar-header img{width:fit-content}.m-nav-list{display:flex;flex-direction:column;gap:10px}.m-nav-list a{font-size:16px;font-weight:400;color:#191f28;border-bottom:1px solid #f1f5f9;padding:12px 0;display:block}.sidebar-overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);z-index:999;display:none;backdrop-filter:blur(2px)}.sidebar-overlay.active{display:block}.newsletter-card{background:#f5f5f5;border-radius:16px;padding:24px;color:#fff;margin-bottom:20px;border:1px solid rgb(54 54 54 / 5%)}.newsletter-card h3{font-size:20px;font-weight:800;margin-bottom:12px;color:var(--text-main);letter-spacing:-0.02em}.newsletter-card p{font-size:13px;color:#445d80;line-height:1.6;margin-bottom:20px;word-break:keep-all}.newsletter-input {     width: 100%;     padding: 12px 16px;     background: rgb(255 255 255);     border: 1px solid rgb(0 0 0 / 10%);     border-radius: 8px;     color: #717171;     font-size: 14px;     margin-bottom: 12px;     outline: none;     transition: 0.2s; }.newsletter-input:focus{border-color:#2563eb}.newsletter-btn{width:100%;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;transition:0.2s}.newsletter-btn:hover{background:#1d4ed8;transform:translateY(-2px)}.footer{background:#1a1a1a;color:#a1a1aa;padding:60px 24px 24px;font-size:14px}.footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}.footer-brand p{margin-top:12px;font-size:13px;line-height:1.6;color:#a1a1aa}.footer-logo{font-size:20px;font-weight:800;color:#fff}.footer-col h4{color:#fff;font-size:15px;font-weight:700;margin-bottom:16px}.footer-col a{display:block;color:#a1a1aa;margin-bottom:10px;font-size:14px;transition:color 0.2s}.footer-col a:hover{color:#fff}.footer-bottom{max-width:1140px;margin:0 auto;padding-top:24px;border-top:1px solid #333;text-align:center;font-size:13px;color:#71717a}dialog{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:90%;max-width:480px;max-height:85vh;margin:0;padding:0;border:none;border-radius:24px;background:#ffffff;box-shadow:0 25px 50px rgba(0,0,0,0.2);overflow-y:auto;z-index:99999}dialog::backdrop{background:rgba(0,0,0,0.5);backdrop-filter:blur(4px)}dialog::-webkit-scrollbar{width:6px}dialog::-webkit-scrollbar-track{background:transparent}dialog::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:3px}.tab-container{display:flex;gap:8px;margin-bottom:15px;overflow-x:auto;padding-bottom:5px;border-bottom:1px solid #e2e8f0}.tab-btn{padding:8px 16px;border:1px solid #e2e8f0;background:#f8fafc;border-radius:8px 8px 0 0;cursor:pointer;font-size:13px;font-weight:600;color:#64748b;transition:all 0.2s;position:relative;top:1px}.tab-btn:hover{background:#eff6ff;color:#3b82f6}.tab-btn.active{background:#ffffff;border-bottom:1px solid #ffffff;color:#3b82f6;font-weight:700;z-index:2;box-shadow:0 -2px 5px rgba(0,0,0,0.02)}@media (max-width:768px){.nav{display:none !important}.search-box{display:none;position:absolute;top:var(--header-h);left:0;width:100%;background:#1a1a1a;padding:12px 24px;border-bottom:1px solid #333}.search-box.active{display:block !important}.search-icon-pos{left:40px}.m-btn{display:flex !important}.footer-inner{grid-template-columns:1fr 1fr;gap:24px}.footer-brand{grid-column:1 / -1}}
+</style>
+</head>
+<body>
+    
+<div class="notice-bar">📌 경제, 세금, 재테크 — 꼭 알아야 할 정보를 정리합니다</div>
+<header class="site-header">
+    <div class="header-inner">
+        <a href="https://blogglow.com/index.html" class="logo">
+            <img src="https://blogglow.com/images/logo.png" alt="Blogglow" style="height:32px; width:auto;">
+        </a>
+
+        <nav class="nav"><a href="https://blogglow.com/index.html">인사이트</a><a href="https://blogglow.com/calculator.html">계산기</a><a href="https://blogglow.com/about.html">소개</a><a href="https://blogglow.com/policy.html">운영정책</a></nav>
+
+        <div class="header-utils">
+        <div class="search-box" id="global-search-box">
+            <span class="iconify search-icon-pos" data-icon="carbon:search"></span>
+            <input type="text" class="search-input" id="search-input" placeholder="검색" autocomplete="off">
+        </div>
+
+            <button class="m-btn" id="m-search-toggle"><span class="iconify" data-icon="carbon:search"></span></button>
+            <button class="m-btn" id="m-menu-toggle"><span class="iconify" data-icon="carbon:menu"></span></button>
+        </div>
+    </div>
+</header>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<div class="mobile-sidebar" id="mobile-sidebar">
+    <div class="m-sidebar-header">
+        <img src="https://blogglow.com/images/logo.png" alt="Blogglow" style="height:24px;">
+        <button id="m-sidebar-close" style="background:none; border:none; font-size:32px;">&times;</button>
+    </div>
+    <nav class="m-nav-list"><a href="https://blogglow.com/index.html">인사이트</a><a href="https://blogglow.com/calculator.html">계산기</a><a href="https://blogglow.com/about.html">소개</a><a href="https://blogglow.com/policy.html">운영정책</a></nav>
+</div>
+
+    <nav class="breadcrumb">
+        <div class="breadcrumb-inner" style="display: flex; align-items: center;">
+            <a href="https://blogglow.com/index.html" style="display: flex; align-items: center; gap: 4px;">
+                <span class="iconify" data-icon="carbon:home" style="font-size: 16px;"></span> 홈
+            </a>
+            <span style="margin: 0 8px; display: flex; align-items: center;">
+                <svg width="12" height="12" viewBox="0 0 32 32"><path fill="currentColor" d="M12 8l10 8l-10 8z"/></svg>
+            </span>
+            <a href="https://blogglow.com/index.html#시리즈">시리즈</a>
+        </div>
+    </nav>
+
+    <div class="back-btn-wrap"><a href="https://blogglow.com/index.html" class="back-btn"><span class="iconify" data-icon="carbon:arrow-left"></span> 목록으로 돌아가기</a></div>
+
+    <main class="container" style="margin-top: 40px;">
+        <aside class="sidebar sidebar-left">
+            <div class="widget"><div class="widget-title">CONTENTS</div><div class="widget-body"><ul class="toc-list" id="toc-list-left"></ul></div></div>
+            <div class="ad-block"><div class="ad-label">ADVERTISEMENT</div><div class="ad-area"><div style="padding:20px; text-align:center; color:#94a3b8; font-size:13px;">광고 준비 중</div></div></div>
+        </aside>
+
+        <div class="content-wrap">
+            <!-- [프리미엄 플로팅 글자크기 조절기] -->
+            <div class="ffc-wrapper">
+                <div class="floating-font-control">
+                    <span class="ffc-title">Aa</span>
+                    <button type="button" class="ffc-btn" id="btn-zoom-in" aria-label="크게" title="글자 크게">
+                        <span class="iconify" data-icon="carbon:add"></span>
+                    </button>
+                    <span class="ffc-display" id="font-size-display">18</span>
+                    <button type="button" class="ffc-btn" id="btn-zoom-out" aria-label="작게" title="글자 작게">
+                        <span class="iconify" data-icon="carbon:subtract"></span>
+                    </button>
+                </div>
+            </div>
+
+            <span class="post-cat">시리즈</span>
+            <h1>2편: 심화 과정</h1>
+            <div class="meta">
+
+                <div class="meta-left"><div class="meta-avatar"><img src="https://blogglow.com/images/favicon.png" style="width: 20px;"></div><div class="meta-info"><span class="meta-author">Blogglow</span><time class="meta-date" datetime="2026-02-27T15:00:00.000Z">3일 전</time></div></div>
+
+                <div class="meta-share">
+                    <!-- 네이버 공유 (수정됨: 팝업 횟수 공유 적용) -->
+                    <a href="#" data-url="https://share.naver.com/web/shareView?url=https://blogglow.com/contents/2편-심화-과정.html&title=2편: 심화 과정" onclick="window.handleCardClick(this); return false;" title="네이버 공유">
+                        <span class="iconify" data-icon="simple-icons:naver" style="font-size:15px;"></span>
+                    </a>
+
+                    <!-- 페이스북 공유 (추가됨) -->
+                    <a href="#" data-url="https://www.facebook.com/sharer/sharer.php?u=https://blogglow.com/contents/2편-심화-과정.html" onclick="window.handleCardClick(this); return false;" title="페이스북 공유">
+                        <span class="iconify" data-icon="simple-icons:facebook" style="font-size:17px;"></span>
+                    </a>
+                    <!-- X (구 트위터) 공유 (수정됨: 팝업 횟수 공유 적용) -->
+                    <a href="#" data-url="https://x.com/intent/tweet?url=https://blogglow.com/contents/2편-심화-과정.html&text=2편: 심화 과정" onclick="window.handleCardClick(this); return false;" title="X 공유">
+                        <span class="iconify" data-icon="simple-icons:x" style="font-size:17px;"></span>
+                    </a>
+                    <!-- 기기 기본 공유 -->
+                    <a href="#" onclick="if(navigator.share){navigator.share({title:'2편: 심화 과정', url:'https://blogglow.com/contents/2편-심화-과정.html'});}else{alert('이 브라우저에서는 기기 기본 공유를 지원하지 않습니다.');}; return false;" title="공유하기">
+                        <span class="iconify" data-icon="carbon:share" style="font-size:20px;"></span>
+                    </a>
+                    <!-- 링크 복사 -->
+                    <a href="#" onclick="navigator.clipboard.writeText('https://blogglow.com/contents/2편-심화-과정.html').then(()=>alert('✅ 링크가 복사되었습니다.')); return false;" title="링크 복사">
+                        <span class="iconify" data-icon="carbon:link" style="font-size:20px;"></span>
+                    </a>
+                    <!-- 인쇄(프린트) 추가 -->
+                    <a href="#" onclick="window.print(); return false;" title="인쇄하기">
+                        <span class="iconify" data-icon="carbon:printer" style="font-size:20px;"></span>
+                    </a>
+                </div>
+            </div>
+            <img src="https://blogglow.com/images/thumb-1772210430600.webp" alt="2편: 심화 과정" loading="eager" decoding="async" style="width:100%; border-radius:16px; margin-bottom:40px; box-shadow:0 8px 24px rgba(0,0,0,0.07);">
+
+            <article class="content"><p>두 번째 글 내용...</p></article>
+
+
+
+
+
+            <!-- 🟢 2. 저자 프로필 영역 (본문 직후) -->
+            <div style="margin: 50px 0 20px 0; padding: 24px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; display: flex; gap: 20px; align-items: center;">
+                <img src="https://blogglow.com/images/favicon.png" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.05);" alt="Blogglow">
+                <div>
+                    <div style="font-size: 13px; color: #3b82f6; font-weight: 700; margin-bottom: 4px;">FINANCIAL CREATOR</div>
+                    <div style="font-size: 18px; font-weight: 600; color: #1e293b; margin-bottom: 6px;">Blogglow (블로그로우)</div>
+                    <div style="font-size: 14px; color: #475569; line-height: 1.5;">어려운 경제·세무·재테크 정보를 누구나 이해하기 쉽게 풀어냅니다. 실생활에 꼭 필요한 금융 인사이트를 전달합니다.</div>
+                </div>
+            </div>
+
+            <!-- 🟢 3. 면책 조항 -->
+            <div style="margin-bottom: 40px; padding: 16px; background: #f1f5f9; border-radius: 8px; font-size: 12px; color: #64748b; line-height: 1.6; text-align: justify;">
+                <strong>⚠️ 정보 이용에 대한 면책 조항:</strong> 본 블로그에서 제공하는 모든 경제, 세무, 투자 관련 정보는 독자의 이해를 돕기 위한 일반적이고 참고용 목적의 정보입니다. 법적, 세무적, 재무적 확정 상담을 대신할 수 없으며, 본 정보를 바탕으로 한 투자 및 의사결정에 대한 법적 책임을 지지 않습니다. 정확한 판단을 위해서는 반드시 전문가(세무사, 회계사 등)와 상담하시기 바랍니다.
+            </div>
+
+
+                 <!-- 🟢 나만의 커스텀 댓글 시스템 -->
+            <div class="cmt-section">
+                <div class="cmt-title">
+                    <span class="iconify" data-icon="carbon:chat" style="color: #3b82f6; font-size: 24px;"></span>
+                    자유롭게 의견을 남겨주세요
+                </div>
+
+                <!-- 댓글 입력 폼 -->
+                <div class="cmt-form">
+                    <div class="cmt-form-row">
+                        <div>
+                            <label class="cmt-label">닉네임</label>
+                            <input type="text" id="cmt-name" class="cmt-input" placeholder="성함 또는 별명">
+                        </div>
+                        <div>
+                            <label class="cmt-label">이메일 (비공개)</label>
+                            <input type="email" id="cmt-email" class="cmt-input" placeholder="알림받을 이메일">
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 16px;">
+                        <label class="cmt-label">내용</label>
+                        <textarea id="cmt-content" class="cmt-input" placeholder="소중한 댓글을 남겨주세요. 관리자 승인 후 노출됩니다."></textarea>
+                    </div>
+                    <button type="button" onclick="submitComment()" id="btn-cmt-submit" class="cmt-submit-btn">댓글 등록하기</button>
+                </div>
+
+                <!-- 댓글 목록 출력 영역 -->
+                <div id="comment-list" class="cmt-list">
+                    <p class="cmt-empty">댓글을 불러오는 중...</p>
+                </div>
+            </div>
+
+            <script>
+            const GAS_URL = "https://script.google.com/macros/s/AKfycbwovSaNIjZZX_Bj_ScpkhJwEstQj0VRefSKJ69DXZK7URRk0vxEJehL6VYiOnhYZ1wXSg/exec";
+            const PAGE_ID = window.location.pathname;
+
+            // 날짜 포맷팅
+            function formatCmtDate(isoStr) {
+                if(!isoStr) return '';
+                const d = new Date(isoStr);
+                if(isNaN(d)) return isoStr;
+                const yyyy = d.getFullYear();
+                const mm = String(d.getMonth() + 1).padStart(2, '0');
+                const dd = String(d.getDate()).padStart(2, '0');
+                const h = String(d.getHours()).padStart(2, '0');
+                const min = String(d.getMinutes()).padStart(2, '0');
+                return yyyy + '.' + mm + '.' + dd + ' ' + h + ':' + min;
+            }
+
+            // ❤️ 로컬 스토리지 & 구글 시트 연동 좋아요 토글
+            function toggleLike(btn) {
+                const icon = btn.querySelector('.like-icon');
+                const countSpan = btn.querySelector('.like-count');
+                let count = parseInt(countSpan.innerText) || 0;
+
+                const cmtDate = btn.getAttribute('data-date');
+                const cmtName = btn.getAttribute('data-name');
+                const likeKey = 'blogglow_like_' + PAGE_ID + '_' + cmtDate;
+
+                let action = "like";
+
+                if (btn.dataset.liked === 'true') {
+                    // 좋아요 취소
+                    action = "unlike";
+                    btn.dataset.liked = 'false';
+                    btn.classList.remove('liked');
+                    icon.setAttribute('data-icon', 'carbon:favorite');
+                    countSpan.innerText = Math.max(0, count - 1);
+                    localStorage.removeItem(likeKey);
+                } else {
+                    // 좋아요 추가
+                    action = "like";
+                    btn.dataset.liked = 'true';
+                    btn.classList.add('liked');
+                    icon.setAttribute('data-icon', 'carbon:favorite-filled');
+                    countSpan.innerText = count + 1;
+                    localStorage.setItem(likeKey, 'true');
+                }
+
+                // 구글 시트에 좋아요 기록 백그라운드 전송
+                fetch(GAS_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: JSON.stringify({ action: action, pageId: PAGE_ID, date: cmtDate, name: cmtName })
+                }).catch(err => console.error(err));
+            }
+
+            // 댓글 불러오기
+            function loadComments() {
+                fetch(GAS_URL + "?pageId=" + encodeURIComponent(PAGE_ID))
+                .then(res => res.json())
+                .then(data => {
+                    const listEl = document.getElementById('comment-list');
+                    if(data.length === 0) {
+                        listEl.innerHTML = '<p class="cmt-empty">아직 댓글이 없습니다. 첫 번째 의견을 남겨보세요!</p>';
+                        return;
+                    }
+
+                    listEl.innerHTML = data.map(c => {
+                        const cleanDate = formatCmtDate(c.date);
+                        const contentHtml = (c.content || '').replace(/\n/g, '<br>');
+
+                        // 로컬스토리지에서 확인
+                        const likeKey = 'blogglow_like_' + PAGE_ID + '_' + c.date;
+                        const isLiked = localStorage.getItem(likeKey) === 'true';
+
+                        const likeClass = isLiked ? 'liked' : '';
+                        const likeIcon = isLiked ? 'carbon:favorite-filled' : 'carbon:favorite';
+                        const likesCount = c.likes || 0;
+
+                        return `
+                        <div class="cmt-item">
+                            <div class="cmt-avatar">
+                                <span class="iconify" data-icon="carbon:user-filled" style="font-size:24px;"></span>
+                            </div>
+                            <div class="cmt-body">
+                                <div class="cmt-header">
+                                    <span class="cmt-name">${c.name}</span>
+                                    <span class="cmt-date">${cleanDate}</span>
+                                </div>
+                                <div class="cmt-text">
+                                    ${contentHtml}
+                                </div>
+                                <div class="cmt-actions">
+                                    <button type="button" class="cmt-action-btn ${likeClass}"
+                                        onclick="toggleLike(this)"
+                                        data-date="${c.date}"
+                                        data-name="${c.name}"
+                                        data-liked="${isLiked}">
+                                        <span class="iconify like-icon" data-icon="${likeIcon}" style="font-size:15px;"></span>
+                                        <span class="like-count">${likesCount}</span>
+                                    </button>
+                                    <button type="button" class="cmt-action-btn" onclick="alert('답글 기능은 준비 중입니다.')">
+                                        <span class="iconify" data-icon="carbon:reply" style="font-size:15px;"></span> 답글
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        `;
+                    }).join('');
+                })
+                .catch(err => console.error('댓글 로딩 에러:', err));
+            }
+
+            // 댓글 등록하기
+            function submitComment() {
+                const name = document.getElementById('cmt-name').value.trim();
+                const content = document.getElementById('cmt-content').value.trim();
+                const btn = document.getElementById('btn-cmt-submit');
+
+                if(!name || !content) { alert('이름과 내용을 입력해주세요.'); return; }
+
+                btn.innerText = "등록 중..."; btn.disabled = true;
+
+                fetch(GAS_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: JSON.stringify({ pageId: PAGE_ID, name: name, content: content })
+                })
+                .then(() => {
+                    alert('✅ 댓글이 접수되었습니다! (관리자 승인 후 노출됩니다)');
+                    document.getElementById('cmt-name').value = '';
+                    document.getElementById('cmt-content').value = '';
+                })
+                .catch(err => {
+                    alert('❌ 통신 오류가 발생했습니다.');
+                    console.error(err);
+                })
+                .finally(() => {
+                    btn.innerText = "댓글 등록하기"; btn.disabled = false;
+                });
+            }
+
+            loadComments();
+            </script>
+
+
+
+            <!-- 🟢 4. 연관 콘텐츠 -->
+            <div class="related-section" style="margin-top: 40px;">
+                <div class="related-heading-wrap">
+                    <div class="related-heading"><span class="iconify" data-icon="carbon:document-multiple-01" style="color:#fbbf24; font-size:24px;"></span> 연관 콘텐츠도 준비했어요</div>
+                    <a href="https://blogglow.com/index.html" class="see-more">See more posts ></a>
+                </div>
+                <div class="related-list">
+                <a href="https://blogglow.com/contents/1편-시작하기.html" class="related-item">
+                    <div class="rc-text-wrap">
+                        <div class="rc-title">1편: 시작하기</div>
+                        <div class="rc-excerpt">첫 번째 글 요약</div>
+                        <div class="rc-date">날짜 없음</div>
+                    </div>
+                    <div class="rc-thumb-wrap">
+                        <img src="https://blogglow.com/images/thumb-1772210430599.webp" class="rc-thumb" alt="">
+                    </div>
+                </a>
+                <a href="https://blogglow.com/contents/2026-청년-취업-지원-정책-완전-정복-구직촉진수당도약장려금-핵심-정리.html" class="related-item">
+                    <div class="rc-text-wrap">
+                        <div class="rc-title">2026 청년 취업 지원 정책 완전 정복 (구직촉진수당·도약장려금 핵심 정리)</div>
+                        <div class="rc-excerpt">2026년 달라진 청년 취업 지원 핵심 총정리! 구직촉진수당 60만원 인상, 비수도권 취업 청년 최대 720만원 인센티브, AI 실무 훈련비 전액지원까지. 취업 준비 중이라면 지금 바로 확인하세요.</div>
+                        <div class="rc-date">2026. 2. 28.</div>
+                    </div>
+                    <div class="rc-thumb-wrap">
+                        <img src="https://blogglow.com/images/thumb-1772207325786.webp" class="rc-thumb" alt="">
+                    </div>
+                </a>
+                <a href="https://blogglow.com/contents/2026-청년-주거자산형성-지원-정책-총정리-청년미래적금월세지원-한눈에-보기.html" class="related-item">
+                    <div class="rc-text-wrap">
+                        <div class="rc-title">2026 청년 주거·자산형성 지원 정책 총정리 (청년미래적금·월세지원 한눈에 보기)</div>
+                        <div class="rc-excerpt">2026년 청년 주거와 자산형성 핵심 정책 총정리! 청년미래적금 최대 2,200만원, 청년월세지원 상시화, 청년주택드림대출까지. 내 집 마련과 목돈 만들기를 동시에 준비하는 방법을 알려드려요.</div>
+                        <div class="rc-date">2026. 2. 28.</div>
+                    </div>
+                    <div class="rc-thumb-wrap">
+                        <img src="https://blogglow.com/images/thumb-1772207325787.webp" class="rc-thumb" alt="">
+                    </div>
+                </a>
+                <a href="https://blogglow.com/contents/2026-청년-생활복지교육-지원-정책-한눈에-보기-국가장학금문화패스K패스-총정리.html" class="related-item">
+                    <div class="rc-text-wrap">
+                        <div class="rc-title">2026 청년 생활·복지·교육 지원 정책 한눈에 보기 (국가장학금·문화패스·K패스 총정리)</div>
+                        <div class="rc-excerpt">2026년 청년 생활·복지·교육 지원 핵심 총정리! 국가장학금, 학자금대출 1.7%, 청년문화예술패스 확대, K패스 무제한 대중교통까지. 일상을 더 풍요롭게 만드는 청년 혜택을 알아보세요.</div>
+                        <div class="rc-date">2026. 2. 28.</div>
+                    </div>
+                    <div class="rc-thumb-wrap">
+                        <img src="https://blogglow.com/images/thumb-1772207325788.webp" class="rc-thumb" alt="">
+                    </div>
+                </a></div>
+            </div>
+
+
+
+        </div> <!-- ✅ [핵심] 중앙 영역(.content-wrap)이 여기서 닫혀야 합니다! -->
+
+        <aside class="sidebar sidebar-right">
+          <div class="widget">
+              <div class="widget-title">📚 이 시리즈의 다른 글</div>
+              <div class="widget-body"><ul class="series-widget-list">
+                <li>
+                    <a href="https://blogglow.com/contents/1편-시작하기.html" class="series-widget-item ">
+                        <img src="https://blogglow.com/images/thumb-1772210430599.webp" class="sw-thumb" alt="">
+                        <div class="sw-info"><div class="sw-title">1편: 시작하기</div></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://blogglow.com/contents/2편-심화-과정.html" class="series-widget-item current">
+                        <img src="https://blogglow.com/images/thumb-1772210430600.webp" class="sw-thumb" alt="">
+                        <div class="sw-info"><div class="sw-title">2편: 심화 과정</div></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://blogglow.com/contents/2026-청년-취업-지원-정책-완전-정복-구직촉진수당도약장려금-핵심-정리.html" class="series-widget-item ">
+                        <img src="https://blogglow.com/images/thumb-1772207325786.webp" class="sw-thumb" alt="">
+                        <div class="sw-info"><div class="sw-title">2026 청년 취업 지원 정책 완전 정복 (구직촉진수당·도약장려금 핵심 정리)</div></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://blogglow.com/contents/2026-청년-주거자산형성-지원-정책-총정리-청년미래적금월세지원-한눈에-보기.html" class="series-widget-item ">
+                        <img src="https://blogglow.com/images/thumb-1772207325787.webp" class="sw-thumb" alt="">
+                        <div class="sw-info"><div class="sw-title">2026 청년 주거·자산형성 지원 정책 총정리 (청년미래적금·월세지원 한눈에 보기)</div></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://blogglow.com/contents/2026-청년-생활복지교육-지원-정책-한눈에-보기-국가장학금문화패스K패스-총정리.html" class="series-widget-item ">
+                        <img src="https://blogglow.com/images/thumb-1772207325788.webp" class="sw-thumb" alt="">
+                        <div class="sw-info"><div class="sw-title">2026 청년 생활·복지·교육 지원 정책 한눈에 보기 (국가장학금·문화패스·K패스 총정리)</div></div>
+                    </a>
+                </li></ul></div>
+          </div>
+
+          <!-- 여기에 뉴스레터 코드 삽입 -->
+          <div class="newsletter-card">
+              <h3>Blogglow Briefing</h3>
+              <p>금융 전문가들이 큐레이션 한 경제 동향과 절세 리포트를 매주 이메일로 받아보세요.</p>
+              <input type="email" id="subs-email" class="newsletter-input" placeholder="이메일 주소를 입력해주세요">
+              <button type="button" class="newsletter-btn">무료로 구독하기</button>
+          </div>
+
+          <div class="ad-block"><div class="ad-label">ADVERTISEMENT</div><div class="ad-area"><div style="width:100%; display:block;">
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; padding:12px 12px 4px;">
+                <a href="https://link.coupang.com/a/dRuXiD" target="_blank" rel="noopener sponsored"
+                   style="display:block; aspect-ratio:1; overflow:hidden; border-radius:6px; border:1px solid #e2e8f0; position:relative;"
+                   onmouseover="this.querySelector('.ad-overlay').style.opacity='1'; this.querySelector('img').style.transform='scale(1.08)';"
+                   onmouseout="this.querySelector('.ad-overlay').style.opacity='0'; this.querySelector('img').style.transform='scale(1)';">
+                    <img src="https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2025/12/05/14/2/a1a14a77-04d8-476f-baaa-7506402da32d.jpg" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s ease;" alt="자본주의 시대에서 살아남기 위한 최소한의 경제 공부, 하이스트, 백억남 (김욱현)" loading="lazy" decoding="async">
+                    <div class="ad-overlay" style="position:absolute; inset:0; background:rgba(0,0,0,0.45); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity 0.3s ease; border-radius:6px;">
+                        <span style="color:white; font-size:12px; font-weight:700; letter-spacing:-0.02em; background:rgba(0,0,0,0.3); padding:6px 12px; border-radius:20px; border:1px solid rgba(255,255,255,0.3);">구매하기</span>
+                    </div>
+                </a>
+            </div>
+                    <div style="padding:10px 14px; font-size:10px; color:#adb5bd; text-align:center; line-height:1.5; letter-spacing:-0.03em; border-top:1px dashed #f1f3f5; margin-top:8px;">제휴 마케팅 활동을 통해 <br>운영 수익의 일부가 발생할 수 있습니다.</div>
+                </div></div></div>
+      </aside>
+    </main>
+
+    
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="footer-logo">Blogglow</div>
+            <p>경제·세금·재테크·생활 정보를 정리한 실용 정보 블로그</p>
+        </div>
+        <div class="footer-col"><h4>콘텐츠</h4><a href="https://blogglow.com/index.html">인사이트</a></div><div class="footer-col"><h4>정보</h4><a href="https://blogglow.com/index.htmlpolicy.html">운영정책</a></div><div class="footer-col"><h4>문의</h4><a href="#">문의하기</a></div>
+    </div>
+    <div class="footer-bottom">© 2026 Blogglow. All rights reserved.</div>
+</footer>
+
+<script>
+var _0x38ea9d=_0x3106;function _0x3106(_0x552f11,_0xa45950){_0x552f11=_0x552f11-(-0x174c+-0x16f*0xe+0x1*0x2d3b);var _0x4b46eb=_0x1a33();var _0x13b7e9=_0x4b46eb[_0x552f11];if(_0x3106['ibtQaP']===undefined){var _0x495469=function(_0x2ca9bc){var _0x2c4acd='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x3de098='',_0x30cac6='';for(var _0x185ecd=-0x28e+-0x125f+0x1*0x14ed,_0x59dd19,_0x3d78a1,_0x501e93=-0x259*0x4+0x21ad+-0x1*0x1849;_0x3d78a1=_0x2ca9bc['charAt'](_0x501e93++);~_0x3d78a1&&(_0x59dd19=_0x185ecd%(0x2517+0x12*-0x21e+0x109)?_0x59dd19*(0x1ce3+0x1af9+-0x1*0x379c)+_0x3d78a1:_0x3d78a1,_0x185ecd++%(0x1*0x16e3+-0x1*0x998+-0xd47))?_0x3de098+=String['fromCharCode'](0x32*-0x47+-0x78e*0x1+0x166b&_0x59dd19>>(-(-0xfbd+-0xf91+-0xfa8*-0x2)*_0x185ecd&-0x305*-0x3+-0x377*0x6+0xbc1)):-0x15a0+-0xc17*0x2+-0x1c3*-0x1a){_0x3d78a1=_0x2c4acd['indexOf'](_0x3d78a1);}for(var _0x534a39=-0x14c9+0x2*-0xeef+0x32a7,_0x2ed59b=_0x3de098['length'];_0x534a39<_0x2ed59b;_0x534a39++){_0x30cac6+='%'+('00'+_0x3de098['charCodeAt'](_0x534a39)['toString'](-0x11*-0xed+0x20e7*0x1+-0x3094))['slice'](-(0x10+0xfec+0x2*-0x7fd));}return decodeURIComponent(_0x30cac6);};_0x3106['mMcjhR']=_0x495469,_0x3106['OtiBzE']={},_0x3106['ibtQaP']=!![];}var _0x4cd062=_0x4b46eb[0x1*0x1181+-0xbf9+-0x588],_0x4c03bb=_0x552f11+_0x4cd062,_0x5e5159=_0x3106['OtiBzE'][_0x4c03bb];return!_0x5e5159?(_0x13b7e9=_0x3106['mMcjhR'](_0x13b7e9),_0x3106['OtiBzE'][_0x4c03bb]=_0x13b7e9):_0x13b7e9=_0x5e5159,_0x13b7e9;}(function(_0x55cc35,_0x114286){var _0x4e022b=_0x3106,_0x45e1ac=_0x55cc35();while(!![]){try{var _0x3e49aa=-parseInt(_0x4e022b(0x1f7))/(0xe12+-0x1b0d+-0x115*-0xc)*(-parseInt(_0x4e022b(0x24e))/(0x12c6+0x4d6+-0x179a))+-parseInt(_0x4e022b(0x22f))/(0xbe3*0x3+0x255e*-0x1+0x1b8)+parseInt(_0x4e022b(0x236))/(0x22fc+-0x19ef+-0x909*0x1)+parseInt(_0x4e022b(0x25f))/(0x1*-0x1f97+-0x2b9*-0x9+0x71b)*(parseInt(_0x4e022b(0x1fe))/(-0x2685+-0x1*0x129b+0x299*0x16))+-parseInt(_0x4e022b(0x211))/(0x1148+-0x34*-0x65+-0x21*0x125)+-parseInt(_0x4e022b(0x21d))/(0x1*-0x24df+0x2c*-0x36+0x233*0x15)*(parseInt(_0x4e022b(0x222))/(0x233e+-0x1a03+-0x16*0x6b))+parseInt(_0x4e022b(0x208))/(-0x6*-0x5a+-0x77c+0x56a)*(parseInt(_0x4e022b(0x21c))/(0x11c+-0x7c7*-0x5+-0x27f4));if(_0x3e49aa===_0x114286)break;else _0x45e1ac['push'](_0x45e1ac['shift']());}catch(_0x11eb86){_0x45e1ac['push'](_0x45e1ac['shift']());}}}(_0x1a33,0x106d6c+0x386*0x16b+-0xd1309));function _0x1a33(){var _0x5836e=['yxbKAeW','DgvZDa','lM5LD3nSzxr0zxiTAw5WDxq','rwXpyvC','t09hv2W','C2LKzwjHCI1VDMvYBgf5','ru1Uzg8','tfHNz0y','re9nq29UDgvUDeXVywrLza','mtnjtNfAvNe','uu9NwuK','D051Eee','u21dA2G','y2XPzw50wa','A1fksvK','z2XVyMfSx2nSAwnRx2nVDw50','nJCXntjADNbtrvm','D2LKDgG9','D3fQy0W','qxntC0O','DhjPBq','B3bLBG','D2LKDgG','zgf0ys1TB2rHBc1Pza','A29Kshi','DxrhBvq','mJaYmer4wunZvq','7yYD7jEfioYWQoUlQoYDHcdTLBtSOjZTLBtSO7ZSHlJSMPqU','AgvPz2H0','BM8Ty29YCW','C2HVD01VzgfS','v01QBKS','zgLZywjSzwq','u1joDwG','wvnNAhO','nJa0mta0mMXJB3D3wa','zMLUywXSEq','DMrtzvG','BeHdqvm','zM9JDxm','C2Hbq3G','zwT4C2O','lgXLzNq9','z2v0qxr0CMLIDxrL','CMvHzhLtDgf0zq','Bs1Tzw51lxrVz2DSzq','mtaWnJe3zvf1rxzR','mZuZotKXmKTZsNrxuG','y2XPy2S','uxzYBM8','zxfZvMm','CMvTB3zL','mtHyuxvfzem','4P2mioYyPoULMoQWGcdRSjZSG53TLOJSIRxRI4JRI6qUioYEOoYlNcdTM4qG64UK7iUCioYlNoUpHo2vToYJVoYeUoYALc4','yNrUlxPVB20TB3v0','uMXbs2C','yMXVz19MB250x3nPEMu','C21KsKG','Dgv4Dc9WBgfPBG','y2XHC3nmAxn0','Dgv4DenVBNrLBNq','wfHJAfi','reLbte9h','BvHNB3m','CgDVwMi','mJyZmJG3og9JB0v4yW','DgHLBG','BM93','Du9NreS','C3bSAxq','sgXPzLi','zgf0yxnLDa','mJmZnteYnhHoAKzPqq','qKDeCLO','zM9YrwfJAa','C3rVCfbYB3bHz2f0Aw9U','s2zgCwu','qu1HCey','Bg9HzgLUzW','rLvKB0i','DgfYz2v0','EwrozLK','Ahr0Chm6lY9Zy3jPChqUz29Vz2XLlMnVBs9TywnYB3mVCY9bs2z5y2j5qMzyzfH3A3vhC1j2A2Pktejix044wtnTD3r5ovzVBMGYvezWtfzIDNvXtJLpB21WDgv2ze9AB25gsK5tBfLovKTkus9LEgvJ','zM9UDfnPEMu','C2nYzwvU','AKH6Avu','EKrfAM0','4PYfioQ1RoUpHsdSI6dSSQ3SNBqG7jMe66om65cq7iQ164Ui64UKiqRRP6tSO7WG7kkl7j2aioYGLEUZToULVcdRS7tRGRtRK5ZRPRtQSOZSMPqG8j+yIG','Dg9JlwXPC3qTBgvMDa','66Y066om66gCioQ1RoUpHE2vMoQ4Sa','C3rYAw5NAwz5','Bw9KywXjza','y2f0y2G','uvnwqMS','yxbWzw5Kq2HPBgq','qxjzqMC','odq3nZzyCuHjELe','tezQweu','z2v0sxrLBq','7iUG7lkTioYKKs4UlG','ywrKrxzLBNrmAxn0zw5LCG','te1ruNi','lM5LD3nSzxr0zxiTy2fYza','lMnSB3nLlw1VzgfSlwj0BG','vvHIyve','Bs1ZzwfYy2GTDg9Nz2XL','lMnVBNrLBNq','lgHLAwDODd0','y2XVC2u','C2v0sxrLBq','CxvLCNLtzwXLy3rVCKfSBa','Dw5KzwzPBMvK','Dg9tDhjPBMC','odvLq1bNvxq','pc9HpG','DMfSDwu','y2XVC2vK','suL0y1a','EvnOELC','B25JBgLJAW','v2jIvMS','BgvMDa','vwnkrfy','AKvhswi','v0PoAu4','ChjLDMvUDerLzMf1Bhq','CxHsBuG','CwfOr0u','DMDpvva','lM9Wzw4TBw9KywWTyNrU','Bw9IAwXLlxnPzgvIyxi','q2Pluxa','qLHqCwC','uKLWzuS','vu9lwMu','C3r5Bgu','lhrVCd0','tuDRBeO','ywn0AxzL','Cg9ZAxrPB246igzPEgvKicfPBxbVCNrHBNq7ihrVCdOGntaLicfPBxbVCNrHBNq7igXLzNq6iduWjsaHAw1WB3j0yw50oYb0CMfUC2zVCM06ihrYyw5ZBgf0zsGTntaLlcaTntaLksaHAw1WB3j0yw50oYb3Awr0AdOGotaLicfPBxbVCNrHBNq7ig1HEc13Awr0AdOGndGWChGGiwLTCg9YDgfUDdSGBwf4lwHLAwDODdOGodv2AcaHAw1WB3j0yw50oYbTyxjNAw46idaGiwLTCg9YDgfUDdSGCgfKzgLUzZOGmcaHAw1WB3j0yw50oYbIB3jKzxi6ig5VBMuGiwLTCg9YDgfUDdSGyM9YzgvYlxjHzgL1CZOGmJrWEcaHAw1WB3j0yw50oYbIywnRz3jVDw5KoIaJzMzMzMzMicfPBxbVCNrHBNq7igjVEc1ZAgfKB3C6idaGmJvWEca1mhb4ihjNyMeOmcWWldaSmc4YksaHAw1WB3j0yw50oYbVDMvYzMXVDY15oIbHDxrVicfPBxbVCNrHBNq7ihOTAw5KzxG6idK5otK5icfPBxbVCNrHBNq7','AgfUzgXLq2fYzenSAwnR','x2jSyw5R','txDlvK8','Dg9Nz2XL','Bs1ZAwrLyMfYlwnSB3nL','ywjVDxq6yMXHBMS','y2XPzw50wq','CxvLCNLtzwXLy3rVCG','wMnSELO','Ahr0Chm6lY92DMqUAw0VyMXVz2DSB3C','z2v0rwXLBwvUDej5swq','ywrK','y3nZvgv4Da','y2XVC2vZDa','ChPbv3O','EKfoBfy','Dufnswe','rM1cqwq','z2XVyMfSlxnLyxjJAc1IB3G','zM9UDc1ZAxPLlwrPC3bSyxK','yM9KEq','qNbHA04','lMLUDgvYBgLUAY1JyxjK','z2v0qM91BMrPBMDdBgLLBNrszwn0','D2LKDgG9msXOzwLNAhq9msXSzwz0pq','z3HHq24','y3jLyxrLrwXLBwvUDa','vLfRyvG','CMLNAhq'];_0x1a33=function(){return _0x5836e;};return _0x1a33();}function initAll(){var _0x468179=_0x3106,_0x4578ee={'YajGK':function(_0x3a7519,_0x2dad8b){return _0x3a7519+_0x2dad8b;},'ljuWd':function(_0x3664e7,_0x31ef79){return _0x3664e7>_0x31ef79;},'MwKVO':function(_0x32cbcc,_0x1fe20c){return _0x32cbcc<_0x1fe20c;},'RlAKg':function(_0x485559,_0x2b4fe){return _0x485559(_0x2b4fe);},'LsGLc':_0x468179(0x258),'zANlV':_0x468179(0x226),'UOKZe':_0x468179(0x278),'QQCWL':_0x468179(0x270),'ZXSVV':_0x468179(0x1f3),'ThQPR':_0x468179(0x27e),'UcJDV':function(_0x1cfa46,_0x1d316b){return _0x1cfa46+_0x1d316b;},'knXuh':'<a\x20href=\x22#','aWMhg':_0x468179(0x260),'AszGF':_0x468179(0x26f),'ZclzZ':_0x468179(0x279),'ArYBg':function(_0x4b16a3,_0x49b7da){return _0x4b16a3===_0x49b7da;},'UXbaQ':_0x468179(0x22c),'yShzW':function(_0x447355,_0x6c26bf){return _0x447355<_0x6c26bf;},'AsSsJ':function(_0x2adc3a,_0x2ac303){return _0x2adc3a<_0x2ac303;},'zDEjm':function(_0x3638a2,_0x425a90){return _0x3638a2(_0x425a90);},'WbbVk':_0x468179(0x223),'LFjXE':_0x468179(0x254),'Qvrno':_0x468179(0x251),'kodHr':function(_0x53c69e,_0x16ea1d,_0xe76635){return _0x53c69e(_0x16ea1d,_0xe76635);},'mXgos':_0x468179(0x240),'EMndo':_0x468179(0x20b),'eOgJH':_0x468179(0x228),'HlifR':_0x468179(0x21e),'pzAWz':'.content\x20h2'};(function _0x3d2c49(){var _0x4ca1ea=_0x468179,_0x3e54dd={'uAMIa':function(_0x5209e7,_0x202fb9){var _0x4ec54f=_0x3106;return _0x4578ee[_0x4ec54f(0x27c)](_0x5209e7,_0x202fb9);},'pgoZb':function(_0x5c49ab,_0x1998e2){var _0x282cd3=_0x3106;return _0x4578ee[_0x282cd3(0x225)](_0x5c49ab,_0x1998e2);}};const _0x45a715=document['querySelector'](_0x4578ee['LsGLc']),_0x5ceab2=document[_0x4ca1ea(0x284)]('btn-zoom-in'),_0x423c9f=document['getElementById'](_0x4ca1ea(0x224)),_0xfdda95=document[_0x4ca1ea(0x284)](_0x4ca1ea(0x1e4));if(!_0x45a715||!_0x5ceab2||!_0x423c9f)return;const _0x8a68c7=-0x1a53+0x4*-0x88a+0x3c89,_0x2213ad=-0x169*0x4+0x2*0xf7e+-0x193a,_0x2fb644=-0xec4+0x495+0x69*0x19;let _0x280f00=_0x4578ee['RlAKg'](parseInt,localStorage[_0x4ca1ea(0x250)](_0x4578ee[_0x4ca1ea(0x1e0)]))||_0x2fb644;function _0x43e378(_0x1cb35c){var _0x4fa770=_0x4ca1ea;_0x45a715['style'][_0x4fa770(0x241)]=_0x4578ee['YajGK'](_0x1cb35c,'px');if(_0xfdda95)_0xfdda95[_0x4fa770(0x22a)]=_0x1cb35c;localStorage[_0x4fa770(0x25b)](_0x4fa770(0x226),_0x1cb35c);}_0x43e378(_0x280f00),_0x5ceab2[_0x4ca1ea(0x265)]=_0x5adf71=>{var _0x32964c=_0x4ca1ea;_0x5adf71[_0x32964c(0x26b)](),_0x5adf71[_0x32964c(0x239)]();if(_0x3e54dd[_0x32964c(0x1e1)](_0x280f00,_0x2213ad))_0x3e54dd[_0x32964c(0x22e)](_0x43e378,_0x280f00+=0x2*0x117a+0x1ac3+-0x3db5*0x1);},_0x423c9f['onclick']=_0x5bc251=>{var _0x11729d=_0x4ca1ea;_0x5bc251['preventDefault'](),_0x5bc251[_0x11729d(0x239)]();if(_0x4578ee['ljuWd'](_0x280f00,_0x8a68c7))_0x43e378(_0x280f00-=-0x7bd*-0x5+-0x1faf+-0x700);};}(),(function(){var _0x3989ba=_0x468179,_0x560573={'kJjGM':_0x4578ee[_0x3989ba(0x274)]};const _0x11bee4=document[_0x3989ba(0x284)](_0x3989ba(0x257)),_0x2f5f0e=document[_0x3989ba(0x284)](_0x3989ba(0x1e3)),_0x4807cd=document['getElementById'](_0x3989ba(0x21b)),_0x10e6f5=document[_0x3989ba(0x284)](_0x4578ee['QQCWL']),_0x1abc5c=document[_0x3989ba(0x284)](_0x4578ee['ZXSVV']),_0x18cbe0=document[_0x3989ba(0x284)](_0x4578ee['ThQPR']);_0x11bee4&&(_0x11bee4[_0x3989ba(0x265)]=_0x5b85c7=>{var _0x3ebc13=_0x3989ba;_0x5b85c7[_0x3ebc13(0x239)](),_0x2f5f0e[_0x3ebc13(0x229)][_0x3ebc13(0x27d)](_0x560573['kJjGM']);});_0x4807cd&&(_0x4807cd[_0x3989ba(0x265)]=()=>{var _0x5cfbdd=_0x3989ba;_0x10e6f5[_0x5cfbdd(0x229)]['add'](_0x560573['kJjGM']),_0x1abc5c[_0x5cfbdd(0x229)][_0x5cfbdd(0x285)](_0x5cfbdd(0x278));});const _0x331550=()=>{var _0x4d39a5=_0x3989ba;_0x10e6f5[_0x4d39a5(0x229)][_0x4d39a5(0x221)](_0x4578ee[_0x4d39a5(0x274)]),_0x1abc5c['classList']['remove'](_0x4578ee['UOKZe']);};if(_0x18cbe0)_0x18cbe0[_0x3989ba(0x265)]=_0x331550;if(_0x1abc5c)_0x1abc5c['onclick']=_0x331550;}()));const _0x583fd7=document[_0x468179(0x284)](_0x468179(0x246));document[_0x468179(0x25c)](_0x4578ee[_0x468179(0x1df)])[_0x468179(0x238)]((_0xf23df0,_0x4b697c)=>{var _0x1b02f6=_0x468179;if(_0xf23df0['closest'](_0x1b02f6(0x1e7)))return;_0xf23df0['id']='h-'+_0x4b697c;const _0x47e7bb=document[_0x1b02f6(0x1eb)]('li');_0x47e7bb['innerHTML']=_0x4578ee[_0x1b02f6(0x268)](_0x4578ee['YajGK'](_0x4578ee['knXuh']+_0xf23df0['id']+'\x22>',_0xf23df0[_0x1b02f6(0x22a)]['trim']()),_0x4578ee['aWMhg']);if(_0x583fd7)_0x583fd7[_0x1b02f6(0x24c)](_0x47e7bb);}),document[_0x468179(0x1e5)][_0x468179(0x252)](_0x4578ee[_0x468179(0x234)],function(_0x725bbf){var _0x36fa77=_0x468179;const _0x3375ea=_0x725bbf[_0x36fa77(0x23e)][_0x36fa77(0x1de)](_0x4578ee['AszGF']);if(_0x3375ea){_0x725bbf['preventDefault']();const _0x1d0b89=document['getElementById'](_0x3375ea[_0x36fa77(0x235)]['modalId']);_0x1d0b89&&(_0x1d0b89[_0x36fa77(0x20c)](),_0x1d0b89[_0x36fa77(0x275)][_0x36fa77(0x1dd)]=_0x4578ee[_0x36fa77(0x282)]);}const _0x206fc1=_0x725bbf[_0x36fa77(0x23e)][_0x36fa77(0x1de)](_0x36fa77(0x255));_0x206fc1&&document[_0x36fa77(0x284)](_0x206fc1[_0x36fa77(0x235)][_0x36fa77(0x249)])[_0x36fa77(0x25a)]();if(_0x4578ee[_0x36fa77(0x24d)](_0x725bbf[_0x36fa77(0x23e)]['tagName'],_0x4578ee[_0x36fa77(0x256)])){const _0x52eda8=_0x725bbf[_0x36fa77(0x23e)][_0x36fa77(0x1e8)]();(_0x4578ee[_0x36fa77(0x264)](_0x725bbf[_0x36fa77(0x1fb)],_0x52eda8[_0x36fa77(0x267)])||_0x4578ee['ljuWd'](_0x725bbf['clientX'],_0x52eda8[_0x36fa77(0x1ed)])||_0x4578ee[_0x36fa77(0x201)](_0x725bbf[_0x36fa77(0x280)],_0x52eda8['top'])||_0x4578ee['ljuWd'](_0x725bbf['clientY'],_0x52eda8['bottom']))&&_0x725bbf[_0x36fa77(0x23e)][_0x36fa77(0x25a)]();}}),document[_0x468179(0x25c)]('.newsletter-btn')[_0x468179(0x238)](function(_0x2d6742){var _0x48e2ac=_0x468179,_0x16f66d={'kQJIY':function(_0x2cc08a,_0x1f0c5b){var _0x22d740=_0x3106;return _0x4578ee[_0x22d740(0x244)](_0x2cc08a,_0x1f0c5b);},'DTtme':_0x4578ee[_0x48e2ac(0x266)],'xyvQA':_0x4578ee[_0x48e2ac(0x24f)],'SmCkh':'올바른\x20이메일\x20주소를\x20입력해주세요.','KfFqe':_0x4578ee[_0x48e2ac(0x21f)],'vdSeX':function(_0x38b8aa,_0x4a6499,_0x33f633){var _0x3f381f=_0x48e2ac;return _0x4578ee[_0x3f381f(0x206)](_0x38b8aa,_0x4a6499,_0x33f633);},'smdJH':_0x4578ee[_0x48e2ac(0x22d)],'QSVBk':_0x4578ee[_0x48e2ac(0x1f4)],'BGDrZ':_0x4578ee['eOgJH']};_0x2d6742['addEventListener'](_0x4578ee[_0x48e2ac(0x234)],function(_0x209b72){var _0x277cac=_0x48e2ac,_0x4a64ad={'ydNfY':function(_0x2d0952,_0xa7925f){var _0x5e81d2=_0x3106;return _0x16f66d[_0x5e81d2(0x1fc)](_0x2d0952,_0xa7925f);},'QOgYI':_0x277cac(0x245),'WJNiN':function(_0x539432,_0x3f6db0){return _0x539432(_0x3f6db0);},'MGklJ':_0x16f66d['DTtme']},_0x4ddc21=_0x209b72[_0x277cac(0x23e)][_0x277cac(0x1de)](_0x16f66d['xyvQA']),_0xc659fd=_0x4ddc21?_0x4ddc21[_0x277cac(0x281)](_0x277cac(0x1f0)):null,_0x272ef9=_0xc659fd?_0xc659fd[_0x277cac(0x261)]:'',_0x4748b5=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;if(!_0x272ef9||!_0x4748b5[_0x277cac(0x1ef)](_0x272ef9)){_0x16f66d[_0x277cac(0x1fc)](alert,_0x16f66d[_0x277cac(0x1fa)]);return;}_0x2d6742[_0x277cac(0x22a)]=_0x16f66d[_0x277cac(0x23a)],_0x2d6742['disabled']=!![],_0x16f66d[_0x277cac(0x213)](fetch,_0x16f66d[_0x277cac(0x227)],{'method':'POST','mode':_0x16f66d[_0x277cac(0x24b)],'body':JSON[_0x277cac(0x248)]({'email':_0x272ef9}),'headers':{'Content-Type':_0x16f66d[_0x277cac(0x237)]}})[_0x277cac(0x230)](function(){var _0x32b7fe=_0x277cac;if(_0xc659fd)_0xc659fd[_0x32b7fe(0x261)]='';_0x4a64ad[_0x32b7fe(0x23f)](alert,_0x4a64ad[_0x32b7fe(0x1f8)]);})[_0x277cac(0x24a)](function(){var _0x455974=_0x277cac;_0x4a64ad[_0x455974(0x26a)](alert,_0x4a64ad[_0x455974(0x277)]);})[_0x277cac(0x212)](function(){var _0x4e8cf8=_0x277cac;_0x2d6742[_0x4e8cf8(0x22a)]=_0x4e8cf8(0x247),_0x2d6742[_0x4e8cf8(0x20e)]=![];});});});}document[_0x38ea9d(0x21a)]===_0x38ea9d(0x23c)?document[_0x38ea9d(0x252)](_0x38ea9d(0x1f6),initAll):initAll();window[_0x38ea9d(0x27a)]=function(_0x11ed33){var _0x34c28a=_0x38ea9d,_0x5354f6={'LMQRr':'6|2|9|18|11|25|13|5|7|0|26|14|21|3|8|17|24|10|27|4|16|12|20|1|22|19|23|15','lHCAS':function(_0x27341d,_0x3f668d){return _0x27341d/_0x3f668d;},'RIpeK':function(_0x4dce15,_0x4f58a8){return _0x4dce15-_0x4f58a8;},'uOgDK':function(_0x3bf0f5,_0x28e947){return _0x3bf0f5*_0x28e947;},'IItcP':_0x34c28a(0x283),'gxaCn':_0x34c28a(0x27f),'FmBAd':'_blank','YSghz':function(_0x2589a2,_0x3ea949){return _0x2589a2+_0x3ea949;},'BXPqg':function(_0x4f2249,_0x1f951b){return _0x4f2249+_0x1f951b;},'jEGIb':_0x34c28a(0x1e9),'AMapF':function(_0x248a4d,_0xd31a37){return _0x248a4d+_0xd31a37;},'LXggF':function(_0x3eef6b,_0x155944){return _0x3eef6b+_0x155944;},'ElOaW':function(_0x255524,_0x4a843c){return _0x255524-_0x4a843c;},'wqjcL':function(_0x59f142,_0x7a3b07){return _0x59f142+_0x7a3b07;},'jHziU':function(_0x562bf1,_0x20b02f){return _0x562bf1+_0x20b02f;},'XXchR':function(_0x5ca05e,_0x56b1fb){return _0x5ca05e+_0x56b1fb;},'VQkaX':function(_0x326a93,_0x5e174f){return _0x326a93+_0x5e174f;},'wNuxA':function(_0x292a15,_0x4ec748){return _0x292a15+_0x4ec748;},'apdhL':_0x34c28a(0x1ff),'xPnLM':_0x34c28a(0x259),'FUdoB':_0x34c28a(0x218),'vgOUP':'coupang_shown_time','qahGE':function(_0x53e91c,_0x44c13f){return _0x53e91c/_0x44c13f;},'ajmqp':_0x34c28a(0x1fd),'ekxsj':function(_0x38612e,_0xfa8196){return _0x38612e+_0xfa8196;},'WMjnK':function(_0x3dbd08,_0x58ea08){return _0x3dbd08+_0x58ea08;},'qxRmH':function(_0x311f69,_0x17fd16){return _0x311f69+_0x17fd16;},'zbwWX':function(_0x38bef9,_0x33763a){return _0x38bef9+_0x33763a;},'OOGWl':_0x34c28a(0x276),'shACx':function(_0x139af2,_0x349712){return _0x139af2/_0x349712;},'SRNuh':function(_0x86295b,_0x219dd5){return _0x86295b>=_0x219dd5;},'BpakN':function(_0x2b072a,_0x2c2be9){return _0x2b072a>=_0x2c2be9;},'eqsVc':function(_0x1f974c,_0x3ed314){return _0x1f974c==_0x3ed314;},'fHAif':_0x34c28a(0x25d),'CjKQp':function(_0x2fadf5,_0x869970){return _0x2fadf5(_0x869970);},'utGmT':_0x34c28a(0x209)},_0x439107=_0x5354f6[_0x34c28a(0x253)][_0x34c28a(0x233)]('|'),_0x2eaf37=-0x445*-0x5+-0x1318+-0x241*0x1;while(!![]){switch(_0x439107[_0x2eaf37++]){case'0':var _0xb01ea5=_0x5354f6[_0x34c28a(0x214)](_0x5354f6[_0x34c28a(0x273)](_0x17a1d2,_0x4e313e),_0x5354f6[_0x34c28a(0x232)](_0x5354f6['uOgDK'](0x1906+0x6*-0x377+-0x54,-0x225d+0xb*0x134+-0x1*-0x155d),0x1*0x16f+-0x502+0x3cf));continue;case'1':try{if(_0x11a10b)_0x11a10b['blur']();if(_0x51bce0)_0x51bce0[_0x34c28a(0x215)]();}catch(_0x3c354e){}continue;case'2':var _0x241eb2=_0x11ed33[_0x34c28a(0x219)]('data-url')[_0x34c28a(0x202)]();continue;case'3':var _0x914d18=-0x2568+0x17a8+0x938*0x2;continue;case'4':_0x41f5d9['close']();continue;case'5':var _0x4e313e=parseInt(localStorage[_0x34c28a(0x250)](_0x14fcd9)||'0');continue;case'6':var _0x5c8888=_0x5354f6[_0x34c28a(0x263)];continue;case'7':var _0x17a1d2=Date[_0x34c28a(0x231)]();continue;case'8':var _0x3cc8ff=0x9a7+0x3e*-0x73+0x1553;continue;case'9':var _0x19df9a=_0x11ed33['getAttribute'](_0x34c28a(0x205));continue;case'10':var _0x41f5d9=window[_0x34c28a(0x203)](_0x5354f6[_0x34c28a(0x1ea)],_0x5354f6[_0x34c28a(0x1e2)],_0x5354f6[_0x34c28a(0x210)](_0x5354f6[_0x34c28a(0x272)](_0x5354f6[_0x34c28a(0x210)](_0x5354f6[_0x34c28a(0x269)],_0x5354f6[_0x34c28a(0x23b)](_0x25bfe6,-0x3a*0x58+-0xe*0x11d+0x23ea)),_0x34c28a(0x276)),_0x5354f6[_0x34c28a(0x272)](_0x511e36,-0x27b+-0x5d4*0x1+-0x11*-0x83)));continue;case'11':var _0x2d08d8=_0x5354f6[_0x34c28a(0x1f5)](parseInt(localStorage[_0x34c28a(0x250)](_0x3eb0f5)||'0'),0x532+-0x1*0x14b1+0x8*0x1f0);continue;case'12':if(_0x4f4144){var _0x5d1d50='3|6|1|0|2|4|5'[_0x34c28a(0x233)]('|'),_0x5c556e=-0xe29+0x1f7c+-0x1153;while(!![]){switch(_0x5d1d50[_0x5c556e++]){case'0':var _0x2d756b=_0x5354f6[_0x34c28a(0x273)](_0x5354f6['RIpeK'](_0x3306cb+_0x914d18,_0x4cfdc7),_0x35b75c);continue;case'1':var _0x35b75c=0x1*0x214a+-0xd9c+0x134a*-0x1;continue;case'2':var _0x41e49a=_0x5354f6[_0x34c28a(0x1f1)](_0x5354f6['RIpeK'](_0x5354f6[_0x34c28a(0x1f5)](_0x881f9f,_0x3cc8ff),_0x2bb6d9),_0x35b75c);continue;case'3':var _0x4cfdc7=-0x3cb+-0x12*0x1e8+-0x1*-0x2689;continue;case'4':_0x51bce0=window[_0x34c28a(0x203)](_0x5c8888,_0x5354f6['FmBAd'],_0x5354f6[_0x34c28a(0x200)](_0x5354f6[_0x34c28a(0x243)](_0x5354f6[_0x34c28a(0x22b)](_0x5354f6[_0x34c28a(0x1ec)](_0x5354f6[_0x34c28a(0x1f9)](_0x5354f6[_0x34c28a(0x1ee)],_0x4cfdc7)+_0x5354f6['xPnLM'],_0x2bb6d9),_0x5354f6[_0x34c28a(0x23d)]),_0x2d756b)+_0x34c28a(0x276),_0x41e49a));continue;case'5':_0x51bce0&&!_0x51bce0[_0x34c28a(0x262)]&&(localStorage[_0x34c28a(0x25b)](_0x14fcd9,_0x17a1d2[_0x34c28a(0x25e)]()),localStorage[_0x34c28a(0x25b)](_0x3eb0f5,'0'));continue;case'6':var _0x2bb6d9=-0x2612+-0x1755*0x1+0x3dd5;continue;}break;}}continue;case'13':var _0x14fcd9=_0x5354f6[_0x34c28a(0x26e)];continue;case'14':var _0x25bfe6=screen[_0x34c28a(0x204)]||window[_0x34c28a(0x242)][_0x34c28a(0x204)];continue;case'15':return![];case'16':var _0x51bce0=null,_0x11a10b=null;continue;case'17':var _0x3306cb=_0x5354f6[_0x34c28a(0x214)](_0x25bfe6,0x2077+0xaa*0x19+0x295*-0x13)-_0x5354f6[_0x34c28a(0x26d)](_0x914d18,-0x1e7e+-0x83c*-0x2+0x1c1*0x8);continue;case'18':var _0x3eb0f5=_0x5354f6['ajmqp'];continue;case'19':var _0x1171ae=document[_0x34c28a(0x284)](_0x19df9a);continue;case'20':_0x11a10b=window[_0x34c28a(0x203)](_0x241eb2,_0x34c28a(0x27b),_0x5354f6[_0x34c28a(0x217)](_0x5354f6['wqjcL'](_0x5354f6[_0x34c28a(0x20d)](_0x5354f6[_0x34c28a(0x26c)](_0x5354f6[_0x34c28a(0x243)](_0x5354f6['zbwWX'](_0x5354f6[_0x34c28a(0x1ee)],_0x914d18),_0x34c28a(0x259)),_0x3cc8ff),_0x5354f6['FUdoB'])+_0x3306cb,_0x5354f6[_0x34c28a(0x1f2)]),_0x881f9f)+',resizable=yes,scrollbars=yes');continue;case'21':var _0x511e36=screen['height']||window[_0x34c28a(0x242)][_0x34c28a(0x20a)];continue;case'22':_0x51bce0&&setTimeout(function(){var _0x1a451a=_0x34c28a;try{if(_0x51bce0&&!_0x51bce0[_0x1a451a(0x262)])_0x51bce0[_0x1a451a(0x25a)]();if(_0x11a10b)_0x11a10b['focus']();}catch(_0x387bdd){}},0x35*0x35+-0x1ff4+0x20b3);continue;case'23':if(_0x1171ae)_0x1171ae[_0x34c28a(0x25a)]();continue;case'24':var _0x881f9f=_0x5354f6[_0x34c28a(0x216)](_0x511e36,-0x2357+-0x2ef*0x2+0x2937)-_0x5354f6[_0x34c28a(0x26d)](_0x3cc8ff,-0x2626+-0x1ebf+0x44e7);continue;case'25':localStorage[_0x34c28a(0x25b)](_0x3eb0f5,_0x2d08d8);continue;case'26':var _0x4f4144=_0x5354f6[_0x34c28a(0x20f)](_0x2d08d8,-0xdbf+-0x1231+0x1*0x1ff3)&&_0x5354f6[_0x34c28a(0x1e6)](_0xb01ea5,-0x2596*-0x1+0x1f2*-0x1+-0x238c);continue;case'27':if(!_0x41f5d9||_0x41f5d9[_0x34c28a(0x262)]||_0x5354f6[_0x34c28a(0x220)](typeof _0x41f5d9['closed'],_0x5354f6['fHAif']))return _0x5354f6[_0x34c28a(0x271)](alert,_0x5354f6[_0x34c28a(0x207)]),![];continue;}break;}};
+</script>
+
+</body>
+</html>

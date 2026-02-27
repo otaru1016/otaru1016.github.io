@@ -1,5 +1,29 @@
 [
     {
+        "id": 1772210430599,
+        "groupId": 1772210430599,
+        "title": "1편: 시작하기",
+        "filename": "contents/1편-시작하기.html",
+        "excerpt": "첫 번째 글 요약",
+        "date": "2026. 2. 28.",
+        "category": "시리즈",
+        "tags": [],
+        "keywords": "",
+        "thumbnail": "https://blogglow.com/images/thumb-1772210430599.webp"
+    },
+    {
+        "id": 1772210430600,
+        "groupId": 1772210430599,
+        "title": "2편: 심화 과정",
+        "filename": "contents/2편-심화-과정.html",
+        "excerpt": "두 번째 글 요약",
+        "date": "2026. 2. 28.",
+        "category": "시리즈",
+        "tags": [],
+        "keywords": "",
+        "thumbnail": "https://blogglow.com/images/thumb-1772210430600.webp"
+    },
+    {
         "id": 1772207325786,
         "groupId": 1772207325785,
         "title": "2026 청년 취업 지원 정책 완전 정복 (구직촉진수당·도약장려금 핵심 정리)",
