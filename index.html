@@ -98,7 +98,6 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .card-top{display:flex;align-items:center;justify-content:space-between}
 .card-cat{font-size:12px;color:var(--primary);text-transform:uppercase;letter-spacing:0.08em}
 .card-title{font-size:26px;font-weight:500;line-height:1.3;color:var(--text-main);word-break:keep-all;transition:color 0.15s;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;letter-spacing:-0.5px;font-family:'S-CoreDream'}
-.card-title span {font-size: 18px;color: #5487fd;font-style: italic;font-weight: 400;display: block;margin-bottom: 4px;line-height: 1.4;}
 .post-card:hover .card-title{color:var(--primary)}
 .card-desc{font-size:15px;color:var(--text-sub);line-height:1.4;flex:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
@@ -259,12 +258,6 @@ img{display:block;width:100%;height:100%;object-fit:cover}
             <div class="tab-scroll">
             <button class="cat-tab active" data-tag="전체">전체</button>
         
-            <button class="cat-tab " data-tag="정부지원">정부지원</button>
-        
-            <button class="cat-tab " data-tag="지원금">지원금</button>
-        
-            <button class="cat-tab " data-tag="정책자금">정책자금</button>
-        
             <button class="cat-tab " data-tag="연말정산">연말정산</button>
         
             <button class="cat-tab " data-tag="세금">세금</button>
@@ -274,12 +267,6 @@ img{display:block;width:100%;height:100%;object-fit:cover}
             <button class="cat-tab " data-tag="환급">환급</button>
         
             <button class="cat-tab " data-tag="재테크">재테크</button>
-        
-            <button class="cat-tab " data-tag="청약">청약</button>
-        
-            <button class="cat-tab " data-tag="부동산">부동산</button>
-        
-            <button class="cat-tab " data-tag="내집마련">내집마련</button>
         </div>
         </div>
     </div>
@@ -401,7 +388,7 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 
 <script>
 (function() {
-    const posts = [{"id":1772205949080,"groupId":1772205949080,"title":"2026년 청년 취업지원 구직촉진수당 인상·청년일자리도약장려금 비수도권 근속 인센티브 신청 총정리 (취업 준비 중이라면 지금 바로 확인하세요)","filename":"contents/2026년-청년-취업지원-구직촉진수당-인상청년일자리도약장려금-비수도권-근속-인센티브-신청-.html","excerpt":"2026년 구직촉진수당 월 60만원 인상, 비수도권 취업 청년 2년 최대 720만원 근속 인센티브, AI 실무인력 양성과정 등 취업 준비 청년이 꼭 알아야 할 핵심 지원 정책을 한눈에 정리했습니다.","date":"2026. 2. 28.","category":"정부지원금","tags":["정부지원","지원금","정책자금"],"keywords":"정부지원, 지원금, 정책자금","thumbnail":"https://blogglow.com/images/thumb-1772205949080.webp"},{"id":1772205949081,"groupId":1772205949080,"title":"2026년 청년 월세지원 상시화·청년미래적금 출시·버팀목전세대출 조건 및 신청방법 완벽 정리 (무주택 청년 필독 주거·자산 혜택)","filename":"contents/2026년-청년-월세지원-상시화청년미래적금-출시버팀목전세대출-조건-및-신청방법-완벽-정리-.html","excerpt":"2026년 3월부터 청년월세지원이 상시 제도로 전환되고, 6월엔 청년미래적금이 출시됩니다. 무주택 청년이라면 월세 최대 24개월 지원부터 3년 만기 2,200만원 목돈 마련 전략까지 한 번에 확인하세요.","date":"2026. 2. 28.","category":"정부지원금","tags":["정부지원","지원금","정책자금"],"keywords":"정부지원, 지원금, 정책자금","thumbnail":"https://blogglow.com/images/thumb-1772205949081.webp"},{"id":1772205949082,"groupId":1772205949080,"title":"2026년 청년 국가장학금 구간별 금액·청년도전지원사업 최대 350만원·문화예술패스 신청방법 생활복지 총정리 (대학생·취약청년 필수 확인)","filename":"contents/2026년-청년-국가장학금-구간별-금액청년도전지원사업-최대-350만원문화예술패스-신청방법-.html","excerpt":"2026년 국가장학금 구간별 지원 금액, 청년도전지원사업 최대 350만원 참여수당, 19~20세 청년문화예술패스 확대 등 대학생부터 취약청년까지 생활·복지·문화 분야 핵심 지원 정책을 한눈에 정리했습니다.","date":"2026. 2. 28.","category":"정부지원금","tags":["정부지원","지원금","정책자금"],"keywords":"정부지원, 지원금, 정책자금","thumbnail":"https://blogglow.com/images/thumb-1772205949082.webp"},{"id":1772067399577,"title":"(인사담당자 필독) 중도입사자 연말정산 소득공제 완벽 가이드 2026","filename":"contents/인사담당자-필독-중도입사자-연말정산-소득공제-완벽-가이드-2026.html","excerpt":"중도입사자 연말정산, 전 직장 소득 합산부터 항목별 공제 적용 범위까지 인사담당자가 꼭 알아야 할 핵심만 정리했어요. 실수 없이 정확하게 처리하는 방법을 알려드릴게요.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","세금","절세","환급"],"keywords":"연말정산, 세금, 절세, 환급","thumbnail":"https://blogglow.com/images/thumb-1772067399577.webp"},{"id":1772067399578,"title":"(13월의 월급 만들기) 신용카드·체크카드 소득공제 25% 황금비율 전략 2026","filename":"contents/13월의-월급-만들기-신용카드체크카드-소득공제-25-황금비율-전략-2026.html","excerpt":"신용카드 소득공제, 무조건 많이 쓴다고 돌려받는 게 아니에요. 총급여의 25%를 기준으로 신용카드와 체크카드를 전략적으로 나눠 쓰면 환급액이 확 달라집니다. 2026년 최신 전략 총정리.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","절세","환급","재테크"],"keywords":"연말정산, 절세, 환급, 재테크","thumbnail":"https://blogglow.com/images/thumb-1772067399578.webp"},{"id":1772067399579,"title":"(몰랐으면 손해) 문화비·체육시설 소득공제 신청 방법과 인정 항목 총정리","filename":"contents/몰랐으면-손해-문화비체육시설-소득공제-신청-방법과-인정-항목-총정리.html","excerpt":"도서·공연·영화·헬스장 이용료도 소득공제가 된다는 사실 알고 계셨나요? 총급여 7천만 원 이하 근로자라면 놓치면 무조건 손해! 문화비·체육시설 소득공제 신청 방법부터 인정 항목까지 한눈에 정리했어요.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","절세","환급","세금"],"keywords":"연말정산, 절세, 환급, 세금","thumbnail":"https://blogglow.com/images/thumb-1772067399579.webp"},{"id":1772204219360,"groupId":1772204219360,"title":"청약통장 소득공제 총정리 (연말정산 120만원 챙기는 법)","filename":"contents/청약통장-소득공제-총정리-연말정산-120만원-챙기는-법.html","excerpt":"월 25만원 황금비율부터 배우자 확대 혜택까지! 2024년 바뀐 청약통장 소득공제 한도 300만원을 제대로 활용하는 방법을 연말정산 전문가 시각으로 총정리했습니다.","date":"2026. 2. 10.","category":"세금 / 절세","tags":["세금","절세","연말정산"],"keywords":"세금, 절세, 연말정산","thumbnail":"https://blogglow.com/images/thumb-1772204219360.webp"},{"id":1772204219361,"groupId":1772204219360,"title":"청년주택드림청약통장 완벽 가이드 (가입부터 대출 연계까지)","filename":"contents/청년주택드림청약통장-완벽-가이드-가입부터-대출-연계까지.html","excerpt":"연 4.5% 고금리에 비과세, 최저 2.2% 대출 연계까지! 청년이라면 반드시 챙겨야 할 청년주택드림청약통장의 가입 조건, 혜택, 전환 방법을 한 번에 정리했습니다.","date":"2026. 2. 10.","category":"부동산 / 청약","tags":["청약","부동산","내집마련"],"keywords":"청약, 부동산, 내집마련","thumbnail":"https://blogglow.com/images/thumb-1772204219361.webp"},{"id":1772204219362,"groupId":1772204219360,"title":"주택청약종합저축 전환 총정리 (2026년 9월 마감 전 꼭 확인)","filename":"contents/주택청약종합저축-전환-총정리-2026년-9월-마감-전-꼭-확인.html","excerpt":"청약예금·부금·저축을 주택청약종합저축으로 전환하면 공공+민간 모두 청약 가능! 2026년 9월 마감 전 혜택과 전환 방법을 완벽 정리했습니다.","date":"2026. 2. 10.","category":"부동산 / 청약","tags":["청약","부동산","내집마련"],"keywords":"청약, 부동산, 내집마련","thumbnail":"https://blogglow.com/images/thumb-1772204219362.webp"},{"id":1772204219363,"groupId":1772204219360,"title":"청약 1순위 조건 + 가점제 + 특별공급 총정리 (공공 vs 민간 완벽 비교)","filename":"contents/청약-1순위-조건-가점제-특별공급-총정리-공공-vs-민간-완벽-비교.html","excerpt":"공공분양과 민간분양의 1순위 조건부터 84점 가점제 계산법, 특별공급 종류와 전략까지! 청약 당첨을 위해 반드시 알아야 할 핵심 내용을 한 번에 정리했습니다.","date":"2026. 2. 10.","category":"부동산 / 청약","tags":["청약","부동산","내집마련"],"keywords":"청약, 부동산, 내집마련","thumbnail":"https://blogglow.com/images/thumb-1772204219363.webp"},{"id":1772204219364,"groupId":1772204219360,"title":"청약통장 해지 vs 유지 팩트체크 (무용론 진짜 맞을까?)","filename":"contents/청약통장-해지-vs-유지-팩트체크-무용론-진짜-맞을까.html","excerpt":"청약통장 무용론이 퍼지고 있지만, 해지하면 생기는 6가지 손실이 있습니다. 담보대출 활용법부터 실제 갈아타기 성공 사례까지, 유지해야 할 이유를 팩트로 정리했습니다.","date":"2026. 2. 10.","category":"부동산 / 청약","tags":["청약","부동산","내집마련"],"keywords":"청약, 부동산, 내집마련","thumbnail":"https://blogglow.com/images/thumb-1772204219364.webp"}];
+    const posts = [{"id":1772067399577,"title":"(인사담당자 필독) 중도입사자 연말정산 소득공제 완벽 가이드 2026","filename":"contents/인사담당자-필독-중도입사자-연말정산-소득공제-완벽-가이드-2026.html","excerpt":"중도입사자 연말정산, 전 직장 소득 합산부터 항목별 공제 적용 범위까지 인사담당자가 꼭 알아야 할 핵심만 정리했어요. 실수 없이 정확하게 처리하는 방법을 알려드릴게요.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","세금","절세","환급"],"keywords":"연말정산, 세금, 절세, 환급","thumbnail":"https://blogglow.com/images/thumb-1772067399577.webp"},{"id":1772067399578,"title":"(13월의 월급 만들기) 신용카드·체크카드 소득공제 25% 황금비율 전략 2026","filename":"contents/13월의-월급-만들기-신용카드체크카드-소득공제-25-황금비율-전략-2026.html","excerpt":"신용카드 소득공제, 무조건 많이 쓴다고 돌려받는 게 아니에요. 총급여의 25%를 기준으로 신용카드와 체크카드를 전략적으로 나눠 쓰면 환급액이 확 달라집니다. 2026년 최신 전략 총정리.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","절세","환급","재테크"],"keywords":"연말정산, 절세, 환급, 재테크","thumbnail":"https://blogglow.com/images/thumb-1772067399578.webp"},{"id":1772067399579,"title":"(몰랐으면 손해) 문화비·체육시설 소득공제 신청 방법과 인정 항목 총정리","filename":"contents/몰랐으면-손해-문화비체육시설-소득공제-신청-방법과-인정-항목-총정리.html","excerpt":"도서·공연·영화·헬스장 이용료도 소득공제가 된다는 사실 알고 계셨나요? 총급여 7천만 원 이하 근로자라면 놓치면 무조건 손해! 문화비·체육시설 소득공제 신청 방법부터 인정 항목까지 한눈에 정리했어요.","date":"2026. 2. 25.","category":"세금 / 절세","tags":["연말정산","절세","환급","세금"],"keywords":"연말정산, 절세, 환급, 세금","thumbnail":"https://blogglow.com/images/thumb-1772067399579.webp"}];
     const PER_PAGE = 12;
     let currentPage = 1;
     let filteredPosts = [];
@@ -461,7 +448,7 @@ img{display:block;width:100%;height:100%;object-fit:cover}
         if (pStart > 0 && pEnd > pStart) {
             const sub  = post.title.slice(pStart + 1, pEnd).trim();
             const main = post.title.slice(0, pStart).trim();
-            formattedTitle = '<span>' + sub + '</span>' + main;
+            formattedTitle = '<span style="font-size:15px; color:#5487fd; font-style:italic; font-weight:400; display:block; margin-bottom:4px; line-height:1.4;">' + sub + '</span>' + main;
         }
 
         return `
