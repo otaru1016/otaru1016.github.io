@@ -51,91 +51,7 @@ body{font-family:'Pretendard',-apple-system,sans-serif;background:var(--bg-gray)
 a{text-decoration:none;color:inherit}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
-/* 슬라이드 애니메이션 */
-.swiper-slide{opacity:0 !important;transition:opacity 0.5s ease}
-.swiper-slide-active{opacity:1 !important}
-.swiper-slide-active .hero-tag{animation:fadeInUp 0.8s ease forwards}
-.swiper-slide-active h1{animation:fadeInUp 0.8s ease 0.2s forwards;opacity:0}
-.swiper-slide-active .hero-sub{animation:fadeInUp 0.8s ease 0.4s forwards;opacity:0}
-@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-@keyframes zoomIn{from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)}}
 
-/* 스와이퍼(슬라이드) 버튼 - 좌측 라인에 맞춰 정렬 (미니멀) */
-.swiper-pagination {
-    bottom: 20px !important;
-    text-align: left !important;
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 24px;
-    left: 50% !important;
-    transform: translateX(-50%);
-}
-.swiper-pagination-bullet {
-    background: #d1d5db;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    transition: all 0.3s;
-    opacity: 1;
-}
-.swiper-pagination-bullet-active {
-    background: #111827;
-    width: 20px;
-    border-radius: 4px;
-}
-
-/* =========================================
-   히어로 섹션 (미니멀 & 타이포그래피)
-   ========================================= */
-.hero {
-    position: relative;
-    background: #ffffff;
-    padding: 140px 0 120px;
-    text-align: left;
-    overflow: hidden;
-    border-bottom: 1px solid #f3f4f6;
-}
-.hero::before, .hero::after {
-    display: none; /* 불필요한 배경 효과 제거 */
-}
-.hero-inner {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 24px;
-    position: relative;
-    text-align: center;
-    z-index: 1;
-}
-.hero-tag {
-    display: inline-block;
-    color: #2563eb;
-    background: transparent;
-    border: none;
-    padding: 0;
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    letter-spacing: -0.01em;
-}
-.hero h1 {
-    font-size: clamp(2rem, 4.5vw, 3rem);
-    font-weight: 800;
-    /* letter-spacing: -0.04em; */
-    line-height: 1.35;
-    color: #111827;
-    margin-bottom: 16px;
-    font-family: 'Pretendard', sans-serif !important;
-    word-break: keep-all;
-}
-.hero-sub {
-    font-size: 1.125rem;
-    color: #6b7280;
-    line-height: 1.6;
-    font-weight: 500;
-    margin-bottom: 40px;
-    word-break: keep-all;
-    max-width: 600px;
-}
 
 /* =========================================
    필터 바 (테두리 없는 플랫 탭)
@@ -293,12 +209,15 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 }
 
 @media (max-width:768px){
-    /* 모바일에서는 좌우 패딩을 0으로 설정해 내부 영역(hero-inner)과 맞춤 */
-    .hero {padding: 60px 0 80px;}
-    .hero h1{font-size:2.2rem}
-    .hero-sub{font-size:1rem}
+
     .post-card{flex-direction:column}
-    .card-thumb{width:100%;aspect-ratio:16/9;border-right:none;border-bottom:1px solid var(--border)}
+    .card-thumb {
+        padding: 0px 0;
+        width: 100%;
+        aspect-ratio: 20 / 10;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
     .card-body{padding:20px}
     .card-title{font-size:20px}
     .card-title span{font-size: 16px;}
@@ -307,9 +226,6 @@ img{display:block;width:100%;height:100%;object-fit:cover}
     .cat-tab{font-size:13px;padding:6px 14px}
 }
 
-@media (max-width:600px){
-    .hero h1{font-size:1.7rem}
-}
 
 .notice-bar {
     background: #1e293b;
@@ -366,38 +282,7 @@ img{display:block;width:100%;height:100%;object-fit:cover}
     <nav class="m-nav-list"><a href="https://blogglow.com/index.html">인사이트</a><a href="https://blogglow.com/calculator.html">계산기</a><a href="https://blogglow.com/about.html">소개</a><a href="https://blogglow.com/policy.html">운영정책</a></nav>
 </div>
 
-<!-- 히어로 슬라이더 섹션 (경제/재테크 전문화) -->
-<section class="hero swiper mySwiper">
-      <div class="swiper-wrapper">
 
-          <!-- 슬라이드 1: 경제/세금 (요약 중심) -->
-          <div class="swiper-slide">
-              <div class="hero-inner">
-                  <span class="hero-tag">경제를 읽는 가장 쉬운 습관</span>
-                  <h1>복잡한 경제와 세금 정보,<br>핵심 위주로 간결하게 정리합니다</h1>
-              </div>
-          </div>
-
-          <!-- 슬라이드 2: 투자/부동산 (흐름 기록 중심) -->
-          <div class="swiper-slide">
-              <div class="hero-inner">
-                  <span class="hero-tag">시장의 흐름을 읽는 인사이트</span>
-                  <h1>주요 자산 시장의 트렌드,<br>변화하는 흐름을 세심하게 기록합니다</h1>
-              </div>
-          </div>
-
-          <!-- 슬라이드 3: 생활 금융 (선별 정보 중심) -->
-          <div class="swiper-slide">
-              <div class="hero-inner">
-                  <span class="hero-tag">놓치면 아쉬운 생활 금융</span>
-                  <h1>실생활에 유용한 금융 가이드,<br>꼭 필요한 정보만 선별해 공유합니다</h1>
-              </div>
-          </div>
-
-      </div>
-    </div>
-    <div class="swiper-pagination"></div>
-</section>
 
 <!-- 필터 바 -->
 <div class="filter-bar">
@@ -410,9 +295,13 @@ img{display:block;width:100%;height:100%;object-fit:cover}
         
             <button class="cat-tab " data-tag="절세">절세</button>
         
-            <button class="cat-tab " data-tag="재테크">재테크</button>
+            <button class="cat-tab " data-tag="연말정산">연말정산</button>
         
             <button class="cat-tab " data-tag="환급">환급</button>
+        
+            <button class="cat-tab " data-tag="재테크">재테크</button>
+        
+            <button class="cat-tab " data-tag="가이드">가이드</button>
         
             <button class="cat-tab " data-tag="정부지원금">정부지원금</button>
         
@@ -427,8 +316,6 @@ img{display:block;width:100%;height:100%;object-fit:cover}
             <button class="cat-tab " data-tag="대출">대출</button>
         
             <button class="cat-tab " data-tag="청약">청약</button>
-        
-            <button class="cat-tab " data-tag="가이드">가이드</button>
         </div>
         </div>
     </div>
@@ -550,7 +437,7 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 
 <script>
 (function() {
-    const posts = [{"id":1772611853334,"groupId":1772611853333,"title":"프리랜서 종합소득세 필요경비 처리와 3.3% vs 8.8% 원천징수 차이 완벽 정리","filename":"contents/프리랜서-종합소득세-필요경비-처리와-33-vs-88-원천징수-차이-완벽-정리.html","excerpt":"프리랜서 소득에 3.3%와 8.8%, 두 가지 세율이 존재한다는 거 알고 계셨나요? 사업소득과 기타소득의 차이부터 필요경비 인정 항목, 신고 방법별 유불리까지 실전 절세 전략을 총정리했습니다.","date":"2026. 3. 4.","category":"세금 / 절세","tags":["세금","절세","재테크"],"keywords":"세금, 절세, 재테크","thumbnail":"https://blogglow.com/images/thumb-1772611853334.webp"},{"id":1772611853335,"groupId":1772611853333,"title":"프리랜서 종합소득세 신고 놓쳤을 때 기한후신고로 가산세 줄이는 방법","filename":"contents/프리랜서-종합소득세-신고-놓쳤을-때-기한후신고로-가산세-줄이는-방법.html","excerpt":"5월 종합소득세 신고 기간을 놓쳤다고 포기하지 마세요. 기한후신고를 활용하면 무신고 가산세를 최대 50%까지 줄일 수 있어요. 신고 안 했을 때 생기는 불이익과 대처법을 정리했습니다.","date":"2026. 3. 4.","category":"세금 / 절세","tags":["세금","절세","환급"],"keywords":"세금, 절세, 환급","thumbnail":"https://blogglow.com/images/thumb-1772611853335.webp"},{"id":1772526620541,"groupId":1772526905888,"title":"2026년 달라지는 복지 제도 총정리 (기초생활수급부터 한부모·장애인·어르신까지)","filename":"contents/2026년-달라지는-복지-제도-총정리-기초생활수급부터-한부모장애인어르신까지.html","excerpt":"2026년 기준 중위소득이 역대급으로 인상됐어요. 생계급여, 한부모가족 지원금, 긴급돌봄, 통합돌봄 등 올해 달라지는 핵심 복지 변화를 한 번에 정리했습니다.","date":"2026. 3. 3.","category":"정부지원금","tags":["정부지원금","생활지원","꿀팁"],"keywords":"정부지원금, 생활지원, 꿀팁","thumbnail":"https://blogglow.com/images/thumb-1772526620541.webp"},{"id":1772526620539,"groupId":1772526620538,"title":"2026년 긴급복지 생계지원금 신청 방법과 자격 조건 총정리 (실직·폐업·질병 시 바로 받는 법)","filename":"contents/2026년-긴급복지-생계지원금-신청-방법과-자격-조건-총정리-실직폐업질병-시-바로-받는-법.html","excerpt":"갑작스러운 실직·폐업·질병으로 생계가 막막해졌다면? 선지원 후심사 원칙으로 최대 6개월까지 지원받는 긴급복지 생계지원금, 2026년 달라진 기준과 신청법을 한눈에 정리했어요.","date":"2026. 3. 3.","category":"정부지원금","tags":["정부지원금","생활지원","꿀팁"],"keywords":"정부지원금, 생활지원, 꿀팁","thumbnail":"https://blogglow.com/images/thumb-1772526620539.webp"},{"id":1772526620540,"groupId":1772526620538,"title":"긴급복지 의료지원 vs 재난적의료비 지원 비교 총정리 (최대 5,000만 원 받는 법)","filename":"contents/긴급복지-의료지원-vs-재난적의료비-지원-비교-총정리-최대-5000만-원-받는-법.html","excerpt":"갑작스러운 입원·수술비 걱정된다면? 긴급복지 의료지원(최대 300만 원)과 재난적의료비(최대 5,000만 원), 신청 시점과 조건이 완전히 달라요. 두 제도 차이를 한눈에 비교해드려요.","date":"2026. 3. 3.","category":"정부지원금","tags":["정부지원금","생활지원","꿀팁"],"keywords":"정부지원금, 생활지원, 꿀팁","thumbnail":"https://blogglow.com/images/thumb-1772526620540.webp"},{"id":1772522978670,"groupId":1772522978669,"title":"아파트 실거래가 조회 사이트 및 앱 비교 총정리 (국토부부터 호갱노노까지)","filename":"contents/아파트-실거래가-조회-사이트-및-앱-비교-총정리-국토부부터-호갱노노까지.html","excerpt":"국토교통부 실거래가 공개시스템부터 호갱노노, 아실, 네이버 부동산까지 — 플랫폼별 특징과 활용법을 한눈에 비교해드립니다. 집 사기 전 반드시 확인하세요.","date":"2026. 3. 3.","category":"부동산 / 청약","tags":["부동산","내집마련","꿀팁"],"keywords":"부동산, 내집마련, 꿀팁","thumbnail":"https://blogglow.com/images/thumb-1772522978670.webp"},{"id":1772522978671,"groupId":1772522978669,"title":"KB부동산 시세 조회 방법과 대출 한도 계산까지 한번에 (실거래가와 차이점 정리)","filename":"contents/KB부동산-시세-조회-방법과-대출-한도-계산까지-한번에-실거래가와-차이점-정리.html","excerpt":"KB부동산 시세가 주택담보대출 한도를 결정하는 핵심 기준입니다. 상위·일반·하위평균가 의미부터 조회 방법, 실거래가와의 차이까지 꼼꼼하게 정리했어요.","date":"2026. 3. 3.","category":"부동산 / 청약","tags":["부동산","대출","내집마련"],"keywords":"부동산, 대출, 내집마련","thumbnail":"https://blogglow.com/images/thumb-1772522978671.webp"},{"id":1772216920453,"groupId":1772216920453,"title":"주택청약통장 종류와 1순위 조건 가점제 완벽 정리 (내 집 마련 첫걸음)","filename":"contents/주택청약통장-종류와-1순위-조건-가점제-완벽-정리-내-집-마련-첫걸음.html","excerpt":"청약통장 종류부터 공공·민영 1순위 조건, 가점제 계산법, 특별공급까지 한 번에 정리했습니다. 2026년 최신 기준으로 내 집 마련 전략을 세워보세요.","date":"2026. 2. 28.","category":"부동산 / 청약","tags":["청약","부동산","내집마련","가이드"],"keywords":"청약, 부동산, 내집마련, 가이드","thumbnail":"https://blogglow.com/images/thumb-1772216920453.webp"},{"id":1772216920454,"groupId":1772216920453,"title":"청년주택드림청약통장 가입조건과 금리 소득공제 혜택 총정리 (청년 내집마련 필수템)","filename":"contents/청년주택드림청약통장-가입조건과-금리-소득공제-혜택-총정리-청년-내집마련-필수템.html","excerpt":"만 19~34세 청년이라면 반드시 알아야 할 청년주택드림청약통장! 최대 연 4.5% 금리, 500만원 비과세, 최저 2.2% 대출 연계까지 모든 혜택을 완벽 정리했습니다.","date":"2026. 2. 28.","category":"부동산 / 청약","tags":["청약","부동산","내집마련","재테크"],"keywords":"청약, 부동산, 내집마련, 재테크","thumbnail":"https://blogglow.com/images/thumb-1772216920454.webp"}];
+    const posts = [{"id":1772612997683,"groupId":1772612997683,"title":"프리랜서 종합소득세 절세 핵심 전략과 신고 방법 완벽 가이드 (환급 최대화 비법)","filename":"contents/프리랜서-종합소득세-절세-핵심-전략과-신고-방법-완벽-가이드-환급-최대화-비법.html","excerpt":"3.3% 원천징수 후 5월 종합소득세 신고가 헷갈리신가요? 필요경비 인정부터 경비율 선택, 소득공제까지 프리랜서라면 꼭 알아야 할 절세 전략을 단계별로 정리했어요.","date":"2026. 3. 4.","category":"세금 / 절세","tags":["세금","절세","연말정산","환급"],"keywords":"세금, 절세, 연말정산, 환급","thumbnail":"https://blogglow.com/images/thumb-1772612997683.webp"},{"id":1772612997684,"groupId":1772612997683,"title":"프리랜서에게 돈 줄 때 3.3% vs 8.8% 원천징수 완벽 구분법 (사업자 필독)","filename":"contents/프리랜서에게-돈-줄-때-33-vs-88-원천징수-완벽-구분법-사업자-필독.html","excerpt":"프리랜서에게 용역비를 지급할 때 3.3%와 8.8% 중 어떤 세율을 적용해야 할까요? 사업소득과 기타소득의 구분 기준부터 역산 공식, 신고 기한까지 한 번에 정리했어요.","date":"2026. 3. 4.","category":"세금 / 절세","tags":["세금","절세","재테크","가이드"],"keywords":"세금, 절세, 재테크, 가이드","thumbnail":"https://blogglow.com/images/thumb-1772612997684.webp"},{"id":1772611853334,"groupId":1772611853333,"title":"프리랜서 종합소득세 필요경비 처리와 3.3% vs 8.8% 원천징수 차이 완벽 정리","filename":"contents/프리랜서-종합소득세-필요경비-처리와-33-vs-88-원천징수-차이-완벽-정리.html","excerpt":"프리랜서 소득에 3.3%와 8.8%, 두 가지 세율이 존재한다는 거 알고 계셨나요? 사업소득과 기타소득의 차이부터 필요경비 인정 항목, 신고 방법별 유불리까지 실전 절세 전략을 총정리했습니다.","date":"2026. 3. 4.","category":"세금 / 절세","tags":["세금","절세","재테크"],"keywords":"세금, 절세, 재테크","thumbnail":"https://blogglow.com/images/thumb-1772611853334.webp"},{"id":1772611853335,"groupId":1772611853333,"title":"프리랜서 종합소득세 신고 놓쳤을 때 기한후신고로 가산세 줄이는 방법","filename":"contents/프리랜서-종합소득세-신고-놓쳤을-때-기한후신고로-가산세-줄이는-방법.html","excerpt":"5월 종합소득세 신고 기간을 놓쳤다고 포기하지 마세요. 기한후신고를 활용하면 무신고 가산세를 최대 50%까지 줄일 수 있어요. 신고 안 했을 때 생기는 불이익과 대처법을 정리했습니다.","date":"2026. 3. 4.","category":"세금 / 절세","tags":["세금","절세","환급"],"keywords":"세금, 절세, 환급","thumbnail":"https://blogglow.com/images/thumb-1772611853335.webp"},{"id":1772526620541,"groupId":1772526905888,"title":"2026년 달라지는 복지 제도 총정리 (기초생활수급부터 한부모·장애인·어르신까지)","filename":"contents/2026년-달라지는-복지-제도-총정리-기초생활수급부터-한부모장애인어르신까지.html","excerpt":"2026년 기준 중위소득이 역대급으로 인상됐어요. 생계급여, 한부모가족 지원금, 긴급돌봄, 통합돌봄 등 올해 달라지는 핵심 복지 변화를 한 번에 정리했습니다.","date":"2026. 3. 3.","category":"정부지원금","tags":["정부지원금","생활지원","꿀팁"],"keywords":"정부지원금, 생활지원, 꿀팁","thumbnail":"https://blogglow.com/images/thumb-1772526620541.webp"},{"id":1772526620539,"groupId":1772526620538,"title":"2026년 긴급복지 생계지원금 신청 방법과 자격 조건 총정리 (실직·폐업·질병 시 바로 받는 법)","filename":"contents/2026년-긴급복지-생계지원금-신청-방법과-자격-조건-총정리-실직폐업질병-시-바로-받는-법.html","excerpt":"갑작스러운 실직·폐업·질병으로 생계가 막막해졌다면? 선지원 후심사 원칙으로 최대 6개월까지 지원받는 긴급복지 생계지원금, 2026년 달라진 기준과 신청법을 한눈에 정리했어요.","date":"2026. 3. 3.","category":"정부지원금","tags":["정부지원금","생활지원","꿀팁"],"keywords":"정부지원금, 생활지원, 꿀팁","thumbnail":"https://blogglow.com/images/thumb-1772526620539.webp"},{"id":1772526620540,"groupId":1772526620538,"title":"긴급복지 의료지원 vs 재난적의료비 지원 비교 총정리 (최대 5,000만 원 받는 법)","filename":"contents/긴급복지-의료지원-vs-재난적의료비-지원-비교-총정리-최대-5000만-원-받는-법.html","excerpt":"갑작스러운 입원·수술비 걱정된다면? 긴급복지 의료지원(최대 300만 원)과 재난적의료비(최대 5,000만 원), 신청 시점과 조건이 완전히 달라요. 두 제도 차이를 한눈에 비교해드려요.","date":"2026. 3. 3.","category":"정부지원금","tags":["정부지원금","생활지원","꿀팁"],"keywords":"정부지원금, 생활지원, 꿀팁","thumbnail":"https://blogglow.com/images/thumb-1772526620540.webp"},{"id":1772522978670,"groupId":1772522978669,"title":"아파트 실거래가 조회 사이트 및 앱 비교 총정리 (국토부부터 호갱노노까지)","filename":"contents/아파트-실거래가-조회-사이트-및-앱-비교-총정리-국토부부터-호갱노노까지.html","excerpt":"국토교통부 실거래가 공개시스템부터 호갱노노, 아실, 네이버 부동산까지 — 플랫폼별 특징과 활용법을 한눈에 비교해드립니다. 집 사기 전 반드시 확인하세요.","date":"2026. 3. 3.","category":"부동산 / 청약","tags":["부동산","내집마련","꿀팁"],"keywords":"부동산, 내집마련, 꿀팁","thumbnail":"https://blogglow.com/images/thumb-1772522978670.webp"},{"id":1772522978671,"groupId":1772522978669,"title":"KB부동산 시세 조회 방법과 대출 한도 계산까지 한번에 (실거래가와 차이점 정리)","filename":"contents/KB부동산-시세-조회-방법과-대출-한도-계산까지-한번에-실거래가와-차이점-정리.html","excerpt":"KB부동산 시세가 주택담보대출 한도를 결정하는 핵심 기준입니다. 상위·일반·하위평균가 의미부터 조회 방법, 실거래가와의 차이까지 꼼꼼하게 정리했어요.","date":"2026. 3. 3.","category":"부동산 / 청약","tags":["부동산","대출","내집마련"],"keywords":"부동산, 대출, 내집마련","thumbnail":"https://blogglow.com/images/thumb-1772522978671.webp"},{"id":1772216920453,"groupId":1772216920453,"title":"주택청약통장 종류와 1순위 조건 가점제 완벽 정리 (내 집 마련 첫걸음)","filename":"contents/주택청약통장-종류와-1순위-조건-가점제-완벽-정리-내-집-마련-첫걸음.html","excerpt":"청약통장 종류부터 공공·민영 1순위 조건, 가점제 계산법, 특별공급까지 한 번에 정리했습니다. 2026년 최신 기준으로 내 집 마련 전략을 세워보세요.","date":"2026. 2. 28.","category":"부동산 / 청약","tags":["청약","부동산","내집마련","가이드"],"keywords":"청약, 부동산, 내집마련, 가이드","thumbnail":"https://blogglow.com/images/thumb-1772216920453.webp"},{"id":1772216920454,"groupId":1772216920453,"title":"청년주택드림청약통장 가입조건과 금리 소득공제 혜택 총정리 (청년 내집마련 필수템)","filename":"contents/청년주택드림청약통장-가입조건과-금리-소득공제-혜택-총정리-청년-내집마련-필수템.html","excerpt":"만 19~34세 청년이라면 반드시 알아야 할 청년주택드림청약통장! 최대 연 4.5% 금리, 500만원 비과세, 최저 2.2% 대출 연계까지 모든 혜택을 완벽 정리했습니다.","date":"2026. 2. 28.","category":"부동산 / 청약","tags":["청약","부동산","내집마련","재테크"],"keywords":"청약, 부동산, 내집마련, 재테크","thumbnail":"https://blogglow.com/images/thumb-1772216920454.webp"}];
     const PER_PAGE = 12;
     let currentPage = 1;
     let filteredPosts = [];
