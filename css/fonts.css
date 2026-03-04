@@ -1,4 +1,12 @@
- @font-face {
+
+@font-face {
+    font-family: 'OneStoreMobileGothicTitleFont';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Title.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
                     font-family: 'Pretendard';
                     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
                     font-weight: 100;
