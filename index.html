@@ -90,8 +90,14 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .post-grid{display:grid;grid-template-columns:1fr;gap:44px}
 .post-card {cursor: pointer;border-radius: 16px;overflow: hidden;background: #fff;transition: all 0.25s;display: flex;flex-direction: row;align-items: stretch;}
 .post-card:hover{box-shadow:0 10px 30px rgba(0,0,0,0.08);transform:translateY(-3px);border-color:#d1d5db}
-.card-thumb {width: 40%;padding: 40px 0;aspect-ratio: 16 / 9;overflow: hidden;background: #d3d3d3;flex-shrink: 0;}
-.card-thumb img {transition: transform 0.4sease;width: 100%;height: 100%;object-fit: cover;border-radius: 10px;}
+.card-thumb {
+    padding: 34px 0;
+    width: 40%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #d7d7d7;
+    flex-shrink: 0;
+}.card-thumb img {transition: transform 0.4sease;width: 100%;height: 100%;object-fit: cover;border-radius: 10px;}
 .post-card:hover .card-thumb img{transform:scale(1.05)}
 .card-body{padding:37px 32px;flex:1;display:flex;flex-direction:column;justify-content:center;gap:12px}
 .card-top{display:flex;align-items:center;justify-content:space-between}
@@ -210,7 +216,7 @@ img{display:block;width:100%;height:100%;object-fit:cover}
           <!-- 슬라이드 2: 투자/부동산 (흐름 기록 중심) -->
           <div class="swiper-slide">
               <div class="hero-inner">
-                  <span class="hero-tag" style="color: #10b981; border-color: rgba(16,185,129,0.2); background: rgba(16,185,129,0.1);">시장의 흐름을 읽는 인사이트</span>
+                  <span class="hero-tag">시장의 흐름을 읽는 인사이트</span>
                   <h1>주요 자산 시장의 트렌드,<br><span class="text-glow" style="color: #10b981;">변화하는 흐름을 세심하게 기록합니다</span></h1>
               </div>
           </div>
@@ -218,7 +224,7 @@ img{display:block;width:100%;height:100%;object-fit:cover}
           <!-- 슬라이드 3: 생활 금융 (선별 정보 중심) -->
           <div class="swiper-slide">
               <div class="hero-inner">
-                  <span class="hero-tag" style="color: #f59e0b; border-color: rgba(245,158,11,0.2); background: rgba(245,158,11,0.1);">놓치면 아쉬운 생활 금융</span>
+                  <span class="hero-tag">놓치면 아쉬운 생활 금융</span>
                   <h1>실생활에 유용한 금융 가이드,<br><span class="text-glow" style="color: #f59e0b;">꼭 필요한 정보만 선별해 공유합니다</span></h1>
               </div>
           </div>
