@@ -60,13 +60,19 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .swiper-pagination-bullet{background:rgba(255,255,255,0.4);width:8px;height:8px;transition:0.3s}
 .swiper-pagination-bullet-active{background:var(--primary);width:24px;border-radius:4px}
 .swiper-pagination{bottom:20px !important}
-.hero {position: relative;background: #0f172a;padding: 80px 24px 80px;text-align: center;overflow: hidden;}
+.hero {
+    position: relative;
+    background: #f3f3f3;
+    padding: 140px 24px 160px;
+    text-align: center;
+    overflow: hidden;
+}
 .hero::before{content:'';position:absolute;top:-10%;right:-5%;width:400px;height:400px;background:radial-gradient(circle,rgba(1,163,240,0.15) 0%,rgba(0,0,0,0) 70%);border-radius:50%;filter:blur(50px)}
 .hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
-.hero-tag{display:inline-block;padding:6px 14px;background:rgba(1,163,240,0.1);border:1px solid rgba(1,163,240,0.2);color:var(--primary);border-radius:30px;font-size:13px;font-weight:700;margin-bottom:24px;letter-spacing:0.05em}
-.hero h1{font-size:clamp(1.4rem, 5vw, 2.8rem);font-weight:300;letter-spacing:-0.03em;line-height:1.25;color:#fff;margin-bottom:4px;font-family:'OneStoreMobileGothicTitleFont', sans-serif !important}
+.hero-tag{display:inline-block;padding:6px 14px;background:rgba(1,163,240,0.1);border:1px solid rgba(1,163,240,0.2);color:var(--primary);border-radius:30px;font-size:13px;font-weight:400;margin-bottom:24px;letter-spacing:0.05em}
+.hero h1{font-size:clamp(1.4rem, 5vw, 3.2rem);font-weight:300;letter-spacing:-0.03em;line-height:1.25;color:#37393d;margin-bottom:4px;font-family:'OneStoreMobileGothicTitleFont', sans-serif !important}
 .hero-sub{font-size:16px;color:#94a3b8;line-height:1.2;margin-bottom:40px;font-weight:400}
-.filter-bar{position:sticky;top:var(--header-h);z-index:50;background:rgb(249 250 251);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);box-shadow:0 4px 10px rgba(0,0,0,0.02)}
+.filter-bar{position:sticky;top:var(--header-h);z-index:50;background:rgb(255 255 255);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);box-shadow:0 4px 10px rgba(0,0,0,0.02)}
 .filter-inner{max-width:var(--max-width);margin:0 auto;position:relative;display:flex;align-items:center;height:80px}
 .tab-scroll-wrap{position:relative;width:100%;overflow:hidden;display:flex;align-items:center;height:100%}
 .tab-scroll-wrap::after{content:'';position:absolute;top:0;right:0;bottom:0;width:40px;background:linear-gradient(to right,rgba(255,255,255,0),rgba(255,255,255,1));pointer-events:none}
@@ -84,38 +90,18 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .post-grid{display:grid;grid-template-columns:1fr;gap:44px}
 .post-card {cursor: pointer;border-radius: 16px;overflow: hidden;background: #fff;transition: all 0.25s;display: flex;flex-direction: row;align-items: stretch;}
 .post-card:hover{box-shadow:0 10px 30px rgba(0,0,0,0.08);transform:translateY(-3px);border-color:#d1d5db}
-.card-thumb {width: 40%;aspect-ratio: 16 / 9;overflow: hidden;background: #f3f4f6;flex-shrink: 0;border-right: 1px solid var(--border);}
+.card-thumb {width: 40%;padding: 40px 0;aspect-ratio: 16 / 9;overflow: hidden;background: #d3d3d3;flex-shrink: 0;}
 .card-thumb img {transition: transform 0.4sease;width: 100%;height: 100%;object-fit: cover;border-radius: 10px;}
 .post-card:hover .card-thumb img{transform:scale(1.05)}
-.card-body{padding:32px 32px;flex:1;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.card-body{padding:37px 32px;flex:1;display:flex;flex-direction:column;justify-content:center;gap:12px}
 .card-top{display:flex;align-items:center;justify-content:space-between}
 .card-cat{font-size:12px;color:var(--primary);text-transform:uppercase;letter-spacing:0.08em}
-.card-title {
-    font-size: 26px;
-    min-height: 100px;
-    font-weight: 500;
-    line-height: 1.3;
-    color: var(--text-main);
-    word-break: keep-all;
-    transition: color 0.15s;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    letter-spacing: -1px;
-    font-family: 'S-CoreDream';
-}.card-title span {font-size: 18px;color: #5487fd;font-style: italic;font-weight: 400;margin-bottom: 10px;line-height: 1.4;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;}
-.post-card:hover .card-title{color:var(--primary)}
+.card-title {font-size: 26px;min-height: 100px;font-weight: 500;line-height: 1.3;color: var(--text-main);word-break: keep-all;transition: color 0.15s;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;letter-spacing: -1px;font-family: 'S-CoreDream';}
+.card-title span {font-size: 18px;color: #5487fd;font-style: italic;font-weight: 400;margin-bottom: 10px;line-height: 1.4;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;}
 .card-desc{font-size:15px;color:var(--text-sub);line-height:1.4;flex:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.tag-pill {
-    font-size: 12px;
-    font-weight: 300;
-    color: #575757;
-    background: #f9f9f9;
-    padding: 5px 12px;
-    border-radius: 6px;
-}.load-more-wrap{text-align:center;margin-top:30px;grid-column:1/-1}
+.tag-pill {font-size: 12px;font-weight: 300;color: #575757;background: #f9f9f9;padding: 5px 12px;border-radius: 6px;}
+.load-more-wrap{text-align:center;margin-top:30px;grid-column:1/-1}
 .load-more-btn{display:inline-flex;align-items:center;gap:6px;padding:12px 40px;background:#fff;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-weight:700;color:var(--text-sub);cursor:pointer;transition:all 0.15s;font-family:'Pretendard',sans-serif}
 .load-more-btn:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-light)}
 .sidebar{position:sticky;top:calc(var(--header-h)+50px+24px);display:flex;flex-direction:column;gap:20px}
@@ -137,22 +123,23 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 }
 
 @media (max-width:768px){
-.hero{padding:60px 20px 50px}
-    .hero h1{font-size:2.2rem}
-    .hero-sub{font-size:1rem}
-    .post-card{flex-direction:column}
-    .card-thumb{width:100%;aspect-ratio:16/9;border-right:none;border-bottom:1px solid var(--border)}
-    .card-body{padding:20px}
-    .card-title{font-size:17px}
-    .filter-inner{height:54px}
-    .tab-scroll{padding:0 16px;gap:6px}
-    .cat-tab{font-size:13px;padding:6px 14px}
+.hero {padding: 60px 20px 100px;}
+.hero h1{font-size:2.2rem}
+.hero-sub{font-size:1rem}
+.post-card{flex-direction:column}
+.card-thumb{width:100%;aspect-ratio:16/9;border-right:none;border-bottom:1px solid var(--border)}
+.card-body{padding:20px}
+.card-title{font-size:20px}
+.card-title span{font-size: 16px;}
+.filter-inner{height:54px}
+.tab-scroll{padding:0 16px;gap:6px}
+.cat-tab{font-size:13px;padding:6px 14px}
 }
 
-    @media (max-width:600px){
-    .hero h1{font-size:1.4rem}
-    }
-    
+@media (max-width:600px){
+.hero h1{font-size:1.7rem}
+}
+
 .notice-bar {
     background: #1e293b;
     color: #f8fafc;
@@ -329,20 +316,7 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 
         <div class="ad-block">
             <div class="ad-label">ADVERTISEMENT</div>
-            <div class="ad-area"><div style="width:100%; display:block;">
-                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; padding:12px 12px 4px;">
-                <a href="https://link.coupang.com/a/dRuXiD" target="_blank" rel="noopener sponsored"
-                   style="display:block; aspect-ratio:1; overflow:hidden; border-radius:6px; border:1px solid #e2e8f0; position:relative;"
-                   onmouseover="this.querySelector('.ad-overlay').style.opacity='1'; this.querySelector('img').style.transform='scale(1.08)';"
-                   onmouseout="this.querySelector('.ad-overlay').style.opacity='0'; this.querySelector('img').style.transform='scale(1)';">
-                    <img src="https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2025/12/05/14/2/a1a14a77-04d8-476f-baaa-7506402da32d.jpg" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s ease;" alt="자본주의 시대에서 살아남기 위한 최소한의 경제 공부, 하이스트, 백억남 (김욱현)" loading="lazy" decoding="async">
-                    <div class="ad-overlay" style="position:absolute; inset:0; background:rgba(0,0,0,0.45); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity 0.3s ease; border-radius:6px;">
-                        <span style="color:white; font-size:12px; font-weight:700; letter-spacing:-0.02em; background:rgba(0,0,0,0.3); padding:6px 12px; border-radius:20px; border:1px solid rgba(255,255,255,0.3);">구매하기</span>
-                    </div>
-                </a>
-            </div>
-                    <div style="padding:10px 14px; font-size:10px; color:#adb5bd; text-align:center; line-height:1.5; letter-spacing:-0.03em; border-top:1px dashed #f1f3f5; margin-top:8px;">제휴 마케팅 활동을 통해 <br>운영 수익의 일부가 발생할 수 있습니다.</div>
-                </div></div>
+            <div class="ad-area"><div style="padding:20px; text-align:center; color:#94a3b8; font-size:13px;">광고 준비 중</div></div>
         </div>
     </aside>
 
