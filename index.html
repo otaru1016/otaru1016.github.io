@@ -58,7 +58,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .empty-state .empty-icon { font-size: 36px; margin-bottom: 10px; }
 
 /* =========================================
-   MSN 스타일 필터 바 (텍스트 + 하단 밑줄)
+   MSN 스타일 필터 바 (페이드 + 화살표 스크롤)
    ========================================= */
 .filter-bar {
     position: sticky;
@@ -68,40 +68,25 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
     border-bottom: 1px solid var(--border);
     box-shadow: 0 1px 3px rgba(0,0,0,0.02);
 }
-
 .filter-inner {
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
     display: flex;
     align-items: center;
-    height: 56px; /* 스크롤바 공간을 위해 살짝 여유 (54->56) */
+    height: 54px;
 }
-
-/* 👇 1. 가로 스크롤을 감싸는 부모 (Flex 넘침 방지 및 우측 그라데이션) */
 .tab-scroll-wrap {
     flex: 1;
-    min-width: 0; /* ★ 핵심: Flex 안에서 삐져나갈 수 있게 허용 */
+    min-width: 0;
     position: relative;
     display: flex;
     align-items: center;
     height: 100%;
+    overflow: hidden; /* 부모 영역 밖 숨김 */
 }
 
-/* 👇 2. 우측 페이드 그라데이션 (내용이 더 있음을 시각적으로 암시) */
-.tab-scroll-wrap::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 60px;
-    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 85%);
-    pointer-events: none; /* 클릭을 방해하지 않음 */
-    z-index: 2;
-}
-
-/* 👇 3. 실제 스크롤 영역 */
+/* 실제 스크롤 영역 (스크롤바 숨김) */
 .tab-scroll {
     display: flex;
     overflow-x: auto;
@@ -109,44 +94,69 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
     width: 100%;
     height: 100%;
     align-items: center;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch; /* 모바일 부드러운 스크롤 */
+    scroll-behavior: smooth; /* 부드러운 스크롤 */
+    scrollbar-width: none; /* Firefox 스크롤바 숨김 */
+    -ms-overflow-style: none; /* IE 스크롤바 숨김 */
 }
-
-/* 👇 4. 숨겼던 스크롤바를 얇고 모던하게 노출 */
 .tab-scroll::-webkit-scrollbar {
-    height: 4px; /* 가로 스크롤바 두께 */
-}
-.tab-scroll::-webkit-scrollbar-track {
-    background: transparent;
-}
-.tab-scroll::-webkit-scrollbar-thumb {
-    background: #cbd5e1; /* 연한 회색 */
-    border-radius: 4px;
-}
-.tab-scroll::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8; /* 마우스 올리면 살짝 진하게 */
+    display: none; /* Chrome, Safari 스크롤바 숨김 */
 }
 
-/* 👇 5. 각 탭 버튼 */
+/* 탭 버튼 유지 */
 .cat-tab {
     padding: 0 16px;
     height: 100%;
     border: none;
     background: transparent;
     color: var(--text-sub);
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
     white-space: nowrap;
+    flex-shrink: 0; /* 찌그러짐 방지 */
     border-bottom: 3px solid transparent;
-    display: flex
-;
+    display: flex;
     align-items: center;
 }
-
 .cat-tab:hover { color: var(--text-main); }
 .cat-tab.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 700; }
+
+/* 👇 추가: 우측 페이드 그라데이션 및 화살표 버튼 */
+.scroll-arrow-zone {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 80px; /* 그라데이션 넓이 */
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 60%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 16px;
+    pointer-events: none; /* 뒷배경 클릭은 무시 */
+    transition: opacity 0.3s ease;
+}
+.scroll-arrow-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #475569;
+    pointer-events: auto; /* 버튼만 클릭 가능하게 처리 */
+    transition: all 0.2s;
+}
+.scroll-arrow-btn:hover {
+    border-color: #cbd5e1;
+    color: #0f172a;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
 /* =========================================
    메인 레이아웃 및 카드 그리드 (우측 사이드바 구조)
    ========================================= */
@@ -359,7 +369,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 <div class="filter-bar">
     <div class="filter-inner">
         <div class="tab-scroll-wrap">
-            <div class="tab-scroll">
+            <div class="tab-scroll" id="cat-tab-scroll">
             <button class="cat-tab active" data-tag="전체">전체</button>
         
             <button class="cat-tab " data-tag="세금">세금</button>
@@ -388,6 +398,16 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
         
             <button class="cat-tab " data-tag="청약">청약</button>
         </div>
+
+            <!-- 👇 추가된 화살표 버튼 영역 -->
+            <div class="scroll-arrow-zone" id="scroll-arrow-zone">
+                <button class="scroll-arrow-btn" id="scroll-right-btn" type="button" aria-label="오른쪽으로 스크롤">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+
         </div>
     </div>
 </div>
@@ -618,6 +638,39 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
             document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             activeTag = btn.dataset.tag;
+
+                const tabScroll = document.getElementById('cat-tab-scroll');
+                const arrowZone = document.getElementById('scroll-arrow-zone');
+                const rightBtn = document.getElementById('scroll-right-btn');
+
+                if (tabScroll && rightBtn) {
+                    // 화살표 클릭 시 오른쪽으로 200px 부드럽게 스크롤
+                    rightBtn.addEventListener('click', () => {
+                        tabScroll.scrollBy({ left: 200, behavior: 'smooth' });
+                    });
+
+                    // 스크롤이 끝에 도달하면 화살표(와 그라데이션)를 숨김
+                    const checkScroll = () => {
+                        // 전체 스크롤 길이 - 화면에 보이는 길이 - 현재 스크롤한 위치
+                        const isEnd = tabScroll.scrollWidth - tabScroll.clientWidth - tabScroll.scrollLeft < 10;
+                        if (isEnd) {
+                            arrowZone.style.opacity = '0';
+                            arrowZone.style.pointerEvents = 'none';
+                        } else {
+                            arrowZone.style.opacity = '1';
+                            arrowZone.style.pointerEvents = 'auto'; // none으로 바꿨던 것 복구
+                            rightBtn.style.pointerEvents = 'auto';
+                        }
+                    };
+
+                    // 스크롤 할 때와 화면 크기 변할 때마다 체크
+                    tabScroll.addEventListener('scroll', checkScroll);
+                    window.addEventListener('resize', checkScroll);
+
+                    // 데이터가 다 불러와진 후 스크롤 화살표 필요 여부 초기 계산
+                    setTimeout(checkScroll, 100);
+                }
+
             render(true);
         });
     });
