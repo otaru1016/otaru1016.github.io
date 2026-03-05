@@ -90,7 +90,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .tab-scroll {
     display: flex;
     overflow-x: auto;
-    padding: 0 24px;
+    padding: 0 14px;
     width: 100%;
     height: 100%;
     align-items: center;
@@ -104,17 +104,16 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 /* 탭 버튼 유지 */
 .cat-tab {
-    padding: 0 16px;
+    padding: 0 10px;
     height: 100%;
     border: none;
     background: transparent;
-    color: var(--text-sub);
-    font-size: 14px;
-    font-weight: 600;
+    color: #4d4d4d;
+    font-size: 13px;
     cursor: pointer;
     transition: all 0.2s;
     white-space: nowrap;
-    flex-shrink: 0; /* 찌그러짐 방지 */
+    flex-shrink: 0;
     border-bottom: 3px solid transparent;
     display: flex;
     align-items: center;
@@ -163,7 +162,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .main-layout {
     max-width: 1400px;
     margin: 32px auto;
-    padding: 0 24px 80px;
+    padding: 0 14px 80px;
     display: grid;
     grid-template-columns: 1fr 320px; /* 메인 콘텐츠 + 우측 사이드바 */
     gap: 32px;
@@ -270,7 +269,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 :root {
     --bg-page: #f3f2f1;
     --text-main: #242424;
-    --text-sub: #605e5c;
+    --text-sub: #b3b3b3;
     --text-light: #a19f9d;
     --primary: #0067b8;
     --border: #edebe9;
@@ -278,8 +277,16 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
     --header-h: 72px;
 }
 .notice-bar { background: var(--primary); color: #ffffff; text-align: center; padding: 10px 24px; font-size: 13px; font-weight: 600; letter-spacing: -0.01em; }
-.site-header { position: sticky; top: 0; z-index: 500; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-.header-inner { max-width: 1400px; margin: 0 auto; padding: 0 24px; height: var(--header-h); display: flex; align-items: center; justify-content: space-between; position: relative; }
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    background: rgb(14 14 14 / 95%);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+.header-inner { max-width: 1400px; margin: 0 auto; padding: 0 14px; height: var(--header-h); display: flex; align-items: center; justify-content: space-between; position: relative; }
 .logo { font-size: 24px; font-weight: 800; color: var(--text-main); display: flex; align-items: center; gap: 8px; font-family: 'Segoe UI', sans-serif; }
 .nav { display: flex; gap: 28px; }
 .nav a { font-size: 15px; font-weight: 600; color: var(--text-sub); transition: 0.2s; }
@@ -309,7 +316,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .newsletter-btn { width: 100%; padding: 12px; background: var(--primary); color: #fff; border: none; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.2s; }
 .newsletter-btn:hover { background: #005da6; }
 
-.footer { background: #ffffff; color: var(--text-sub); padding: 60px 24px 24px; font-size: 14px; border-top: 1px solid var(--border); }
+.footer { background: #ffffff; color: var(--text-sub); padding: 60px 14px 24px; font-size: 14px; border-top: 1px solid var(--border); }
 .footer-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
 .footer-brand p { margin-top: 12px; font-size: 13px; line-height: 1.6; }
 .footer-logo { font-size: 20px; font-weight: 800; color: var(--text-main); }
